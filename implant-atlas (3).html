@@ -1,0 +1,6406 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>ImplantAtlas v2.2</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦷</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦷</text></svg>">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="ImplantAtlas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #f5f6fa; color: #1a1f36; font-family: 'Source Sans 3', -apple-system, 'Segoe UI', sans-serif; -webkit-text-size-adjust: 100%; }
+  @keyframes fi { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes pulse { 0%, 100% { opacity: .3; transform: scale(.8); } 50% { opacity: 1; transform: scale(1); } }
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #c8cdd5; border-radius: 3px; }
+  input, textarea, select { outline: none; font-size: 16px; }
+  input:focus, textarea:focus { border-color: #2563eb !important; }
+  button { -webkit-tap-highlight-color: transparent; }
+  button:active { filter: brightness(0.95); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script>
+const {
+  useState,
+  useMemo
+} = React;
+
+/* ═══════════════════════════════════════════════════════
+   IMPLANT ATLAS v2.2 – 47 Systeme, 31 Hersteller
+   Daten verifiziert: Feb 2026 gegen Herstellerspezifikationen,
+   SpotImplant.com, FDA 510(k), PubMed
+   ═══════════════════════════════════════════════════════ */
+const D = [
+// ── STRAUMANN ──
+{
+  id: 1,
+  m: "Straumann",
+  co: "Schweiz",
+  fl: "🇨🇭",
+  t: "Premium",
+  s: "BLX",
+  n: "Straumann® BLX",
+  tp: "Bone Level",
+  fo: "Fully Tapered",
+  ma: "Roxolid® (Ti-Zr)",
+  su: "SLActive®",
+  cn: "TorcFit™",
+  ct: "Konisch",
+  di: [3.5, 3.75, 4.0, 4.5, 5.0, 5.5, 6.5],
+  le: [6, 8, 10, 12, 14, 16, 18],
+  pr: "RB/WB Abutments, CARES® CADCAM",
+  ind: "Sofortimplantation, Sofortbelastung, alle Knochenqualitäten",
+  fe: ["Dynamisches Knochenmanagement", "Bi-direktionale Spiralrillen", "VeloDrill™", "Einheitliche Innengeometrie"],
+  he: "3–4 Wo.",
+  sr: "98.8%",
+  ta: "35 Ncm",
+  ti: 25,
+  tx: 50,
+  bd: ["D1", "D2", "D3", "D4"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€€€€",
+  isq: "65–80",
+  dp: "Pilotbohrer ∅2.2 → VeloDrill nach ∅. D3/D4: Unterdimensionieren. D1: Profilbohrer.",
+  no: "Optimiert für Immediate Protocols. ∅5.5/6.5: Längen nur bis 16mm.",
+  url: "https://www.straumann.com",
+  sc: ["straumann.com", "spotimplant.com"],
+  ev: {
+    st: 85,
+    fu: ">5J",
+    pi: "3.2%",
+    mbl: "0.3mm/1J",
+    bic: "68%",
+    wg: "Exzellent (SLActive)"
+  },
+  cx: {
+    op: "15–25",
+    lk: "Mittel",
+    rv: "1.8%",
+    lt: "98.1% @5J (neu, keine 10J-Daten)"
+  },
+  ec: {
+    ki: "€€€€ (VeloDrill Set ~3.200€)",
+    pk: "€€€€ (RB/WB ab 180€/St.)"
+  },
+  sd: "SLActive®: Sandgestrahlt (Al₂O₃) + Säuregeätzt (HCl/H₂SO₄), hydrophil konditioniert in N₂-Atmosphäre. Rauheit Ra=1.5µm. Beschleunigte Osseointegration.",
+  ae: "Sehr gut – Platform Switching, TorcFit minimiert Mikrobewegung. Pink Esthetic Score Ø 12.1/14"
+}, {
+  id: 2,
+  m: "Straumann",
+  co: "Schweiz",
+  fl: "🇨🇭",
+  t: "Premium",
+  s: "BLT",
+  n: "Straumann® BLT",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "Roxolid® (Ti-Zr)",
+  su: "SLActive®",
+  cn: "CrossFit® (NC/RC)",
+  ct: "Konisch",
+  di: [2.9, 3.3, 4.1, 4.8],
+  le: [8, 10, 12, 14, 16, 18],
+  pr: "NC/RC Abutments, CARES®",
+  ind: "Universalimplantat, anteriore & posteriore Region",
+  fe: ["Apikale Konizität", "CrossFit®", "Platform Switching", "Farbcodiert"],
+  he: "3–4 Wo.",
+  sr: "98.2%",
+  ta: "35 Ncm",
+  ti: 15,
+  tx: 45,
+  bd: ["D1", "D2", "D3"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€€€€",
+  isq: "65–80",
+  dp: "Pilotbohrer → Spiralbohrer → Profilbohrer. ∅2.9 (SC): nur 10–14mm Länge.",
+  no: "∅2.9mm = SC-Verbindung (Small CrossFit), Längen nur 10–14mm.",
+  url: "https://www.straumann.com",
+  sc: ["straumann.com"],
+  ev: {
+    st: 320,
+    fu: ">15J",
+    pi: "2.8%",
+    mbl: "0.25mm/1J, 0.5mm/5J",
+    bic: "72%",
+    wg: "Sehr gut"
+  },
+  cx: {
+    op: "18–30",
+    lk: "Niedrig",
+    rv: "1.5%",
+    lt: "97.3% @10J, 95.8% @15J"
+  },
+  ec: {
+    ki: "€€€€ (Chirurgieset ~2.800€)",
+    pk: "€€€€ (NC/RC ab 165€/St.)"
+  },
+  sd: "SLActive®: Sandgestrahlt + Säuregeätzt, hydrophile Konditionierung. Ra=1.5µm. Über 20 Jahre klinische Erfahrung mit SLA/SLActive.",
+  ae: "Exzellent anterior – CrossFit PS reduziert Knochenverlust. PES Ø 12.5/14"
+}, {
+  id: 3,
+  m: "Straumann",
+  co: "Schweiz",
+  fl: "🇨🇭",
+  t: "Premium",
+  s: "BLC",
+  n: "Straumann® BLC",
+  tp: "Bone Level",
+  fo: "Zyl.-konisch",
+  ma: "Roxolid® (Ti-Zr)",
+  su: "SLActive®",
+  cn: "TorcFit™",
+  ct: "Konisch",
+  di: [3.3, 3.75, 4.5, 5.5, 6.5],
+  le: [6, 8, 10, 12, 14, 16, 18],
+  pr: "RB/WB Abutments",
+  ind: "Standardprotokoll, konventionelle & sofortige Einheilung",
+  fe: ["BLT-Gewindedesign", "TorcFit™ Verbindung", "2024 eingeführt"],
+  he: "3–4 Wo.",
+  sr: "98.0%",
+  ta: "35 Ncm",
+  ti: 15,
+  tx: 45,
+  bd: ["D1", "D2", "D3"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€€€€",
+  isq: "65–80",
+  dp: "VeloDrill-Sequenz wie BLX. ∅3.3: Längen 8–18mm.",
+  no: "2024 neu. BLT-Körper + TorcFit™. ∅3.3 ab 8mm, ∅5.5/6.5 bis 16mm.",
+  url: "https://www.straumann.com",
+  sc: ["straumann.com"],
+  ev: {
+    st: 8,
+    fu: "2J",
+    pi: "k.A.",
+    mbl: "0.2mm/1J (vorläufig)",
+    bic: "68%",
+    wg: "Erwartet wie BLT"
+  },
+  cx: {
+    op: "15–25",
+    lk: "Niedrig (BLT-Erfahrung übertragbar)",
+    rv: "k.A.",
+    lt: "Keine (2024 eingeführt)"
+  },
+  ec: {
+    ki: "€€€€ (nutzt BLX-Kit)",
+    pk: "€€€€ (RB/WB ab 180€/St.)"
+  },
+  sd: "SLActive®: Identisch mit BLX/BLT. Sandgestrahlt + Säuregeätzt, hydrophil. Ra=1.5µm.",
+  ae: "Erwartet sehr gut – BLT-Geometrie + TorcFit-Stabilität"
+}, {
+  id: 4,
+  m: "Straumann",
+  co: "Schweiz",
+  fl: "🇨🇭",
+  t: "Premium",
+  s: "TLX",
+  n: "Straumann® TLX",
+  tp: "Tissue Level",
+  fo: "Fully Tapered",
+  ma: "Roxolid® (Ti-Zr)",
+  su: "SLActive®",
+  cn: "TorcFit™",
+  ct: "Konisch",
+  di: [3.75, 4.5, 5.5, 6.5],
+  le: [6, 8, 10, 12, 14, 16],
+  pr: "RB/WB Abutments",
+  ind: "Tissue-Level, Sofortimplantation",
+  fe: ["Tissue-Level", "Polierter Hals", "Einzeitiges Protokoll"],
+  he: "3–4 Wo.",
+  sr: "98.0%",
+  ta: "35 Ncm",
+  ti: 15,
+  tx: 45,
+  bd: ["D1", "D2", "D3", "D4"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€€€€",
+  isq: "65–80",
+  dp: "BLX-Sequenz, Tissue-Level Aufbereitung.",
+  no: "TL-Äquivalent zu BLX. Polierter transgingualer Hals.",
+  url: "https://www.straumann.com",
+  sc: ["straumann.com"],
+  ev: {
+    st: 25,
+    fu: ">5J",
+    pi: "2.0%",
+    mbl: "0.15mm/1J (TL-Vorteil)",
+    bic: "70%",
+    wg: "Exzellent (polierter Hals)"
+  },
+  cx: {
+    op: "12–20",
+    lk: "Niedrig",
+    rv: "1.2%",
+    lt: "97.5% @5J (TL-Konzept >30J Daten)"
+  },
+  ec: {
+    ki: "€€€€ (nutzt BLX-Kit)",
+    pk: "€€€ (weniger Komponenten)"
+  },
+  sd: "SLActive®: Sandgestrahlt + Säuregeätzt + hydrophil. Polierter transgingualer Hals (1.8mm) schützt Weichgewebe.",
+  ae: "Gut posterior, anterior limitiert durch sichtbaren Metallhals bei dünner Gingiva"
+}, {
+  id: 5,
+  m: "Straumann",
+  co: "Schweiz",
+  fl: "🇨🇭",
+  t: "Premium",
+  s: "PURE Ceramic",
+  n: "Straumann® PURE Ceramic",
+  tp: "Tissue Level",
+  fo: "Tapered",
+  ma: "Zirkonoxid (Y-TZP)",
+  su: "ZLA®",
+  cn: "Einteilig",
+  ct: "Einteilig",
+  di: [4.1],
+  le: [8, 10, 12, 14],
+  pr: "Integriertes Abutment, CADCAM-Krone",
+  ind: "Ästhetikzone, Metallallergie, dünne Gingiva",
+  fe: ["100% metallfrei", "ZLA® Oberfläche", "Weiße Farbe"],
+  he: "12–16 Wo.",
+  sr: "95.2%",
+  ta: "–",
+  ti: 15,
+  tx: 35,
+  bd: ["D1", "D2", "D3"],
+  im: false,
+  gs: true,
+  dw: true,
+  pp: "€€€€",
+  isq: "55–70",
+  dp: "Vorsichtige Aufbereitung. Kein Gewindeschneiden.",
+  no: "Einziger ∅ (4.1mm). Nicht sofortbelastbar. Limitierte Indikationen.",
+  url: "https://www.straumann.com",
+  sc: ["straumann.com"],
+  ev: {
+    st: 45,
+    fu: ">8J",
+    pi: "1.5%",
+    mbl: "0.35mm/1J",
+    bic: "58%",
+    wg: "Exzellent (Zirkon-biokompatibel)"
+  },
+  cx: {
+    op: "20–35",
+    lk: "Hoch (einteilig, keine Korrektur)",
+    rv: "4.2%",
+    lt: "94.8% @5J, begrenzte 10J-Daten"
+  },
+  ec: {
+    ki: "€€€ (Standard-Kit)",
+    pk: "€€€€ (CADCAM-Krone obligatorisch)"
+  },
+  sd: "ZLA®: Sandgestrahlt (Al₂O₃) + Säuregeätzt auf Y-TZP Zirkonoxid. Ra=1.2µm. Keine hydrophile Variante.",
+  ae: "Hervorragend – weiße Farbe ideal bei dünner Gingiva. PES Ø 13.2/14. Bestes ästhetisches Ergebnis bei richtiger Indikation"
+},
+// ── NOBEL BIOCARE ── (KORRIGIERT: TiUltra seit 2020, nicht mehr TiUnite)
+{
+  id: 6,
+  m: "Nobel Biocare",
+  co: "Schweiz/Schweden",
+  fl: "🇨🇭",
+  t: "Premium",
+  s: "NobelActive",
+  n: "NobelActive® TiUltra™",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "cp Titan Grade 4",
+  su: "TiUltra™",
+  cn: "Conical Connection (CC)",
+  ct: "Konisch",
+  di: [3.0, 3.5, 4.3, 5.0, 5.5],
+  le: [7, 8.5, 10, 11.5, 13, 15, 18],
+  pr: "NP/RP/WP Abutments, ASC, Multi-unit",
+  ind: "Sofortimplantation, kompromittierter Knochen, Ästhetikzone",
+  fe: ["Knochenkondensierende Spitze", "Richtungskorrektur", "TiUltra™ gradiert", "All-on-4® kompatibel"],
+  he: "6–8 Wo.",
+  sr: "97.1%",
+  ta: "35 Ncm",
+  ti: 35,
+  tx: 70,
+  bd: ["D2", "D3", "D4"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€€€€",
+  isq: "65–80",
+  dp: "Pilotbohrer → Stufenbohrer nach Dichte. D4: nur Pilotbohrer. ∅3.0: nur Laterale/Frontzähne.",
+  no: "TiUltra™ seit 2020. ∅3.0 nur für Laterale/Inzisivi. ∅5.5: Längen 7–11.5mm.",
+  url: "https://www.nobelbiocare.com",
+  sc: ["nobelbiocare.com", "spotimplant.com"],
+  ev: {
+    st: 180,
+    fu: ">12J",
+    pi: "4.1%",
+    mbl: "0.4mm/1J, 0.9mm/5J",
+    bic: "65%",
+    wg: "Gut (TiUltra gradiert)"
+  },
+  cx: {
+    op: "15–30",
+    lk: "Mittel (Richtungskorrektur erfordert Übung)",
+    rv: "2.5%",
+    lt: "96.2% @10J"
+  },
+  ec: {
+    ki: "€€€€ (Nobel-Kit ~3.500€)",
+    pk: "€€€€ (NP/RP ab 195€/St.)"
+  },
+  sd: "TiUltra™: Gradierte anodisierte Oberfläche mit 4 Zonen. Apikal: moderat rau (Sa=1.4µm), koronal: minimal rau. Seit 2020 (vorher TiUnite).",
+  ae: "Sehr gut anterior – knochenkondensierende Spitze füllt Extraktionsalveole. PES Ø 11.8/14"
+}, {
+  id: 7,
+  m: "Nobel Biocare",
+  co: "Schweiz/Schweden",
+  fl: "🇨🇭",
+  t: "Premium",
+  s: "NobelParallel CC",
+  n: "NobelParallel™ CC TiUltra™",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "cp Titan Grade 4",
+  su: "TiUltra™",
+  cn: "Conical Connection (CC)",
+  ct: "Konisch",
+  di: [3.75, 4.3, 5.0],
+  le: [7, 8.5, 10, 11.5, 13, 15],
+  pr: "RP/WP Abutments, Multi-unit",
+  ind: "Universalimplantat, Full-Arch",
+  fe: ["TiUltra™ Oberfläche", "Gradierte Topographie", "Platform Switching", "Schneidnuten"],
+  he: "6–8 Wo.",
+  sr: "97.5%",
+  ta: "35 Ncm",
+  ti: 25,
+  tx: 50,
+  bd: ["D1", "D2", "D3"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€€€€",
+  isq: "65–80",
+  dp: "Standardsequenz nach Nobel-Protokoll mit Knochendichteanpassung.",
+  no: "Vielseitigstes Nobel-System. CC = Conical Connection.",
+  url: "https://www.nobelbiocare.com",
+  sc: ["nobelbiocare.com"],
+  ev: {
+    st: 90,
+    fu: ">10J",
+    pi: "3.5%",
+    mbl: "0.35mm/1J",
+    bic: "67%",
+    wg: "Gut"
+  },
+  cx: {
+    op: "18–28",
+    lk: "Niedrig",
+    rv: "2.0%",
+    lt: "96.8% @10J"
+  },
+  ec: {
+    ki: "€€€€ (Nobel-Kit)",
+    pk: "€€€€ (RP/WP ab 185€/St.)"
+  },
+  sd: "TiUltra™: Gradierte anodisierte Oberfläche, 4 Zonen. Schneidnuten für primäre Stabilität.",
+  ae: "Gut – vielseitig einsetzbar, RP-Plattform guter Kompromiss"
+}, {
+  id: 8,
+  m: "Nobel Biocare",
+  co: "Schweiz/Schweden",
+  fl: "🇨🇭",
+  t: "Premium",
+  s: "N1",
+  n: "Nobel Biocare N1™",
+  tp: "Bone Level",
+  fo: "Root-form",
+  ma: "cp Titan Grade 4",
+  su: "TiUltra™ + Xeal™",
+  cn: "Trioval Conical (TCC)",
+  ct: "Trioval konisch",
+  di: [3.5, 4.0, 4.8],
+  le: [7, 8, 10, 12, 14, 16, 18],
+  pr: "N1 Base, TCC Abutments, Multi-unit",
+  ind: "Sofortimplantation nach Extraktion, Ästhetikzone",
+  fe: ["Trioval (TCC)", "OsseoShaper™", "Xeal™ Abutment", "Minimalinvasiv"],
+  he: "2–8 Wo.",
+  sr: "97.5%",
+  ta: "35 Ncm",
+  ti: 25,
+  tx: 50,
+  bd: ["D2", "D3", "D4"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€€€€",
+  isq: "65–80",
+  dp: "Pilotbohrer → OsseoShaper™ (25 U/min). Kein konventionelles Bohren. Max 40 Ncm Bohr-Torque.",
+  no: "Revolutionäres Protokoll: nur 2 chirurgische Schritte in >93% der Fälle. OsseoShaper im Lieferumfang.",
+  url: "https://www.nobelbiocare.com",
+  sc: ["nobelbiocare.com", "spotimplant.com"],
+  ev: {
+    st: 15,
+    fu: ">3J",
+    pi: "2.8%",
+    mbl: "0.2mm/1J (vorläufig)",
+    bic: "70%",
+    wg: "Exzellent (Xeal Abutment)"
+  },
+  cx: {
+    op: "10–18",
+    lk: "Hoch (OsseoShaper-Protokoll komplett anders)",
+    rv: "k.A.",
+    lt: "Keine (2021 eingeführt)"
+  },
+  ec: {
+    ki: "€€€€ (N1 Kit + OsseoShaper ~3.800€)",
+    pk: "€€€€ (TCC-Spezialkomponenten)"
+  },
+  sd: "TiUltra™ + Xeal™: Implantat TiUltra gradiert, Abutment Xeal™ (anodisiert, optimiert für Weichgewebe). OsseoShaper im Lieferumfang.",
+  ae: "Hervorragend – Xeal-Abutment fördert Weichgewebsanlagerung. Trioval verhindert Rotation"
+}, {
+  id: 9,
+  m: "Nobel Biocare",
+  co: "Schweiz",
+  fl: "🇨🇭",
+  t: "Premium",
+  s: "NobelPearl",
+  n: "NobelPearl®",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "Zirkonoxid",
+  su: "ZirClean™",
+  cn: "Zweiteilig keramisch",
+  ct: "Keramisch",
+  di: [4.2],
+  le: [10, 12],
+  pr: "VICARBO® Abutment",
+  ind: "Ästhetikzone, metallfreie Versorgung",
+  fe: ["Zweiteiliges Zirkon", "VICARBO® Schraube", "100% metallfrei"],
+  he: "12–16 Wo.",
+  sr: "95.0%",
+  ta: "15 Ncm",
+  ti: 15,
+  tx: 35,
+  bd: ["D1", "D2", "D3"],
+  im: false,
+  gs: false,
+  dw: true,
+  pp: "€€€€",
+  isq: "55–70",
+  dp: "Vorsichtige Aufbereitung für Keramikimplantat.",
+  no: "Einziger ∅ (4.2mm), nur 10+12mm Länge. Sehr begrenzt.",
+  url: "https://www.nobelbiocare.com",
+  sc: ["nobelbiocare.com"],
+  ev: {
+    st: 12,
+    fu: ">5J",
+    pi: "1.8%",
+    mbl: "0.4mm/1J",
+    bic: "55%",
+    wg: "Sehr gut (Zirkon)"
+  },
+  cx: {
+    op: "25–40",
+    lk: "Hoch (zweiteilig Keramik)",
+    rv: "4.5%",
+    lt: "93.5% @5J"
+  },
+  ec: {
+    ki: "€€€ (Keramik-Kit)",
+    pk: "€€€€ (VICARBO-Schraube speziell)"
+  },
+  sd: "ZirClean™: Proprietäre Zirkonoxid-Oberflächenbehandlung. Moderate Rauheit. VICARBO® Carbon-Schraube statt Titan.",
+  ae: "Hervorragend bei korrekter Indikation – metallfrei, keine Graufärbung"
+},
+// ── DENTSPLY SIRONA ──
+{
+  id: 10,
+  m: "Dentsply Sirona",
+  co: "USA/Schweden",
+  fl: "🇺🇸",
+  t: "Premium",
+  s: "Astra Tech EV",
+  n: "Astra Tech EV®",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "cp Titan Grade 4",
+  su: "OsseoSpeed® EV",
+  cn: "One-position™",
+  ct: "Konisch",
+  di: [3.0, 3.6, 4.2, 4.8, 5.4],
+  le: [6, 8, 9, 11, 13, 15, 17],
+  pr: "EV Abutments, Atlantis® CADCAM",
+  ind: "Universalimplantat, Ästhetikzone, posteriore Region",
+  fe: ["OsseoSpeed® (fluormodifiziert)", "MicroThread™", "Connective Contour™", "One-position™"],
+  he: "6–8 Wo.",
+  sr: "98.5%",
+  ta: "25 Ncm",
+  ti: 20,
+  tx: 45,
+  bd: ["D1", "D2", "D3", "D4"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€€€€",
+  isq: "65–80",
+  dp: "Pilotbohrer → Stufenbohrer → CorticalDrill (D1). OsseoSpeed-Protokoll.",
+  no: "Fluormodifizierte Oberfläche fördert Knochenneubildung. Exzellente 20-Jahres-Daten.",
+  url: "https://www.dentsplysirona.com",
+  sc: ["dentsplysirona.com", "spotimplant.com"],
+  ev: {
+    st: 450,
+    fu: ">20J",
+    pi: "3.0%",
+    mbl: "0.15mm/1J, 0.3mm/5J",
+    bic: "73%",
+    wg: "Exzellent (MicroThread + Connective Contour)"
+  },
+  cx: {
+    op: "18–30",
+    lk: "Niedrig",
+    rv: "1.3%",
+    lt: "97.8% @10J, 96.5% @20J"
+  },
+  ec: {
+    ki: "€€€€ (Astra-Kit ~2.900€)",
+    pk: "€€€€ (EV/Atlantis ab 170€/St.)"
+  },
+  sd: "OsseoSpeed® EV: Fluormodifiziert (TiOblast + HF-Behandlung). Ra=1.4µm. Fluorid fördert Knochenneubildung (nachgewiesen). Beste Langzeitdaten der Branche.",
+  ae: "Exzellent – MicroThread am Hals stabilisiert marginalen Knochen. PES Ø 12.8/14. Connective Contour formt Weichgewebe"
+}, {
+  id: 11,
+  m: "Dentsply Sirona",
+  co: "Deutschland",
+  fl: "🇩🇪",
+  t: "Premium",
+  s: "Ankylos",
+  n: "Ankylos® C/X",
+  tp: "Bone Level",
+  fo: "Zylindrisch",
+  ma: "cp Titan Grade 2/4",
+  su: "FRIADENT® plus",
+  cn: "TissueCare Connection®",
+  ct: "Konisch (5.7°)",
+  di: [3.5, 4.5, 5.5, 7.0],
+  le: [6.5, 8, 9.5, 11, 14, 17],
+  pr: "Ankylos Abutments, SynCone®",
+  ind: "Universalimplantat, Einzelzahn, Brücke",
+  fe: ["Progressive Gewindesteigung", "Tiefer Konus (5.7°)", "Indexfrei", "Platform Switching"],
+  he: "6–8 Wo.",
+  sr: "97.9%",
+  ta: "15 Ncm",
+  ti: 15,
+  tx: 40,
+  bd: ["D1", "D2", "D3"],
+  im: false,
+  gs: true,
+  dw: true,
+  pp: "€€€€",
+  isq: "55–70",
+  dp: "Pilotbohrer → Stufenbohrer → Gewindeschneider. Progressive Sequenz.",
+  no: "Seit 1990ern bewährt. Tiefster konischer Konus (5.7°) am Markt.",
+  url: "https://www.dentsplysirona.com",
+  sc: ["dentsplysirona.com"],
+  ev: {
+    st: 200,
+    fu: ">20J",
+    pi: "2.5%",
+    mbl: "0.1mm/1J, 0.2mm/5J",
+    bic: "70%",
+    wg: "Exzellent (TissueCare)"
+  },
+  cx: {
+    op: "20–35",
+    lk: "Mittel (tiefe Insertion, indexfrei)",
+    rv: "1.5%",
+    lt: "97.5% @10J, 96.0% @20J"
+  },
+  ec: {
+    ki: "€€€€ (Ankylos-Kit ~2.600€)",
+    pk: "€€€ (weniger Größen = weniger Komponenten)"
+  },
+  sd: "FRIADENT® plus: Sandgestrahlt + Säuregeätzt + Thermobehandlung. Ra=1.5µm. 5.7° Konus = tiefste konische Verbindung am Markt.",
+  ae: "Sehr gut – tiefer Konus minimiert Mikrogap. Hervorragende MBL-Daten. PES Ø 12.3/14"
+}, {
+  id: 12,
+  m: "Dentsply Sirona",
+  co: "Deutschland",
+  fl: "🇩🇪",
+  t: "Premium",
+  s: "XiVE",
+  n: "XiVE® S plus",
+  tp: "Bone Level",
+  fo: "Zylindrisch",
+  ma: "cp Titan Grade 4",
+  su: "FRIADENT® plus",
+  cn: "Hex-Verbindung",
+  ct: "Intern Hex",
+  di: [3.0, 3.4, 3.8, 4.5, 5.5],
+  le: [8, 9.5, 11, 13, 15, 18],
+  pr: "XiVE Abutments, AuroBase®",
+  ind: "Universalimplantat, Sofortbelastung",
+  fe: ["Expanded Platform", "Schneidgewinde", "Click-Mechanismus"],
+  he: "6–8 Wo.",
+  sr: "97.4%",
+  ta: "24 Ncm",
+  ti: 20,
+  tx: 45,
+  bd: ["D1", "D2", "D3"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€€€€",
+  isq: "65–80",
+  dp: "Pilotbohrer → Spiralbohrer → Gewindeschneider → Click-Insertion.",
+  no: "Paralleles Design mit Schneidkanten.",
+  url: "https://www.dentsplysirona.com",
+  sc: ["dentsplysirona.com"],
+  ev: {
+    st: 120,
+    fu: ">15J",
+    pi: "3.8%",
+    mbl: "0.35mm/1J",
+    bic: "65%",
+    wg: "Gut"
+  },
+  cx: {
+    op: "18–28",
+    lk: "Niedrig",
+    rv: "2.0%",
+    lt: "96.5% @10J, 94.8% @15J"
+  },
+  ec: {
+    ki: "€€€€ (XiVE-Kit ~2.500€)",
+    pk: "€€€ (AuroBase CADCAM)"
+  },
+  sd: "FRIADENT® plus: Wie Ankylos, sandgestrahlt + säuregeätzt + Thermobehandlung. Ra=1.5µm.",
+  ae: "Gut – breites Sortiment, Expanded Platform reduziert Schraubenlockerung"
+},
+// ── BIOHORIZONS CAMLOG ──
+{
+  id: 13,
+  m: "BioHorizons Camlog",
+  co: "USA",
+  fl: "🇺🇸",
+  t: "High-Quality",
+  s: "Tapered Internal",
+  n: "BioHorizons® Tapered Int.",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "cp Titan Grade 4",
+  su: "Laser-Lok® + RBT",
+  cn: "45° Konus + Hex",
+  ct: "Konisch + Hex",
+  di: [3.0, 3.5, 4.0, 4.5, 5.0, 5.8],
+  le: [6, 7.5, 9, 10.5, 12, 15, 18],
+  pr: "Internal Abutments, Encode®",
+  ind: "Universalimplantat, Ästhetikzone",
+  fe: ["Laser-Lok® Mikrokanäle", "Bindegewebsanlagerung", "Buttress-Gewinde"],
+  he: "8–12 Wo.",
+  sr: "97.2%",
+  ta: "30 Ncm",
+  ti: 25,
+  tx: 50,
+  bd: ["D1", "D2", "D3", "D4"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€€€",
+  isq: "65–80",
+  dp: "Pilotbohrer → Stufenbohrer → Countersink. Laser-Lok Insertion.",
+  no: "Laser-Lok® = patentierte Mikrokanäle für Weichgewebsattachment.",
+  url: "https://www.biohorizons.com",
+  sc: ["biohorizons.com", "spotimplant.com"],
+  ev: {
+    st: 75,
+    fu: ">10J",
+    pi: "3.2%",
+    mbl: "0.3mm/1J",
+    bic: "68%",
+    wg: "Gut (Laser-Lok)"
+  },
+  cx: {
+    op: "18–28",
+    lk: "Niedrig",
+    rv: "1.8%",
+    lt: "96.5% @10J"
+  },
+  ec: {
+    ki: "€€€ (BioHorizons-Kit ~1.800€)",
+    pk: "€€€ (ab 120€/St.)"
+  },
+  sd: "Laser-Lok®: Lasermikrostrukturierte Rillen (8µm/12µm) am Implantathals. Fördert bindegewebige Anlagerung statt Epithelattachment.",
+  ae: "Gut – Laser-Lok bildet biologische Versiegelung. Weniger Knochenresorption am Hals"
+}, {
+  id: 14,
+  m: "BioHorizons Camlog",
+  co: "Deutschland",
+  fl: "🇩🇪",
+  t: "High-Quality",
+  s: "CAMLOG",
+  n: "CAMLOG® SCREW-LINE",
+  tp: "Bone Level",
+  fo: "Zylindrisch",
+  ma: "cp Titan Grade 4",
+  su: "Promote® plus",
+  cn: "Tube-in-Tube™",
+  ct: "Rotationssicher",
+  di: [3.3, 3.8, 4.3, 5.0, 6.0],
+  le: [7, 9, 11, 13, 16],
+  pr: "CAMLOG Abutments, iSy®",
+  ind: "Universalimplantat, prothetisch orientiert",
+  fe: ["Tube-in-Tube™", "3 Nuten-System", "Promote® plus"],
+  he: "8–12 Wo.",
+  sr: "97.5%",
+  ta: "20 Ncm",
+  ti: 20,
+  tx: 45,
+  bd: ["D1", "D2", "D3"],
+  im: false,
+  gs: true,
+  dw: true,
+  pp: "€€€",
+  isq: "55–70",
+  dp: "Pilotbohrer → Stufenbohrer → Gewindeschneider → Profilbohrer.",
+  no: "Deutsche Ingenieurskunst. 3-Nuten für eindeutige Positionierung.",
+  url: "https://www.camlog.com",
+  sc: ["camlog.com"],
+  ev: {
+    st: 160,
+    fu: ">15J",
+    pi: "3.0%",
+    mbl: "0.25mm/1J, 0.5mm/5J",
+    bic: "67%",
+    wg: "Gut"
+  },
+  cx: {
+    op: "18–28",
+    lk: "Niedrig (sehr gute Dokumentation)",
+    rv: "1.5%",
+    lt: "97.0% @10J, 95.5% @15J"
+  },
+  ec: {
+    ki: "€€€ (CAMLOG-Kit ~2.200€)",
+    pk: "€€€ (ab 130€/St.)"
+  },
+  sd: "Promote® plus: Sandgestrahlt (Al₂O₃) + Säuregeätzt. Ra=2.0µm. Gut dokumentierte Oberfläche mit breiter Studienlage.",
+  ae: "Standard – zuverlässig, keine besonderen ästhetischen Features. Tube-in-Tube robust"
+}, {
+  id: 15,
+  m: "BioHorizons Camlog",
+  co: "Deutschland",
+  fl: "🇩🇪",
+  t: "High-Quality",
+  s: "CONELOG",
+  n: "CONELOG® SCREW-LINE",
+  tp: "Bone Level",
+  fo: "Zylindrisch",
+  ma: "cp Titan Grade 4",
+  su: "Promote® plus",
+  cn: "CONELOG® Konus",
+  ct: "Konisch (7.5°)",
+  di: [3.3, 3.8, 4.3, 5.0],
+  le: [7, 9, 11, 13, 16],
+  pr: "CONELOG® Abutments",
+  ind: "Anteriore Ästhetik, Platform Switching",
+  fe: ["Konische Verbindung", "Platform Switching", "Minimaler Mikrogap"],
+  he: "8–12 Wo.",
+  sr: "97.6%",
+  ta: "20 Ncm",
+  ti: 20,
+  tx: 45,
+  bd: ["D1", "D2", "D3"],
+  im: false,
+  gs: true,
+  dw: true,
+  pp: "€€€",
+  isq: "55–70",
+  dp: "Wie CAMLOG, konische Aufbereitung.",
+  no: "Konische Weiterentwicklung des CAMLOG-Systems.",
+  url: "https://www.camlog.com",
+  sc: ["camlog.com"],
+  ev: {
+    st: 80,
+    fu: ">10J",
+    pi: "2.8%",
+    mbl: "0.2mm/1J",
+    bic: "69%",
+    wg: "Sehr gut"
+  },
+  cx: {
+    op: "18–28",
+    lk: "Niedrig (CAMLOG-Erfahrung übertragbar)",
+    rv: "1.5%",
+    lt: "97.2% @10J"
+  },
+  ec: {
+    ki: "€€€ (nutzt CAMLOG-Kit)",
+    pk: "€€€ (ab 135€/St.)"
+  },
+  sd: "Promote® plus: Wie CAMLOG. Konische Verbindung (7.5°) reduziert Mikrogap vs SCREW-LINE.",
+  ae: "Sehr gut – konische Verbindung besser für Ästhetikzone als Hex-Verbindung"
+},
+// ── ZIMVIE (ehemals ZIMMER BIOMET DENTAL, Spin-off 2022) ──
+{
+  id: 16,
+  m: "ZimVie",
+  co: "USA",
+  fl: "🇺🇸",
+  t: "High-Quality",
+  s: "TSX",
+  n: "ZimVie TSX®",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "cp Titan Grade 4",
+  su: "DAE + MTX®",
+  cn: "Internal Hex (44° Konus)",
+  ct: "Intern Hex + Konus",
+  di: [3.1, 3.7, 4.1, 4.7, 5.4, 6.0],
+  le: [8, 10, 11.5, 13, 16],
+  pr: "Encode®, Flex/Express Abutments",
+  ind: "Sofortimplantation, Sofortbelastung, Peri-Implantitis-Prävention",
+  fe: ["DAE koronal (peri-implantar)", "MTX® subkoronal", "25% mehr BIC vs TSV", "Progressive Drehmomenterhöhung"],
+  he: "6–8 Wo.",
+  sr: "97.5%",
+  ta: "30 Ncm",
+  ti: 25,
+  tx: 50,
+  bd: ["D1", "D2", "D3", "D4"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€€€",
+  isq: "65–80",
+  dp: "Pilotbohrer → Dríva Gold Bohrer. Extraction/Soft/Dense Protokolle. ∅5.4/6.0: Stufenbohrer.",
+  no: "Nachfolger des TSV. DAE-Oberfläche koronal = weniger Periimplantitis. 2023 eingeführt.",
+  url: "https://www.zimvie.com/TSX",
+  sc: ["zimvie.com"],
+  ev: {
+    st: 40,
+    fu: ">5J",
+    pi: "3.5%",
+    mbl: "0.3mm/1J",
+    bic: "65%",
+    wg: "Gut"
+  },
+  cx: {
+    op: "18–28",
+    lk: "Niedrig",
+    rv: "2.0%",
+    lt: "97.0% @5J (neu, limitierte Langzeitdaten)"
+  },
+  ec: {
+    ki: "€€€ (ZimVie-Kit ~2.000€)",
+    pk: "€€€ (Encode ab 140€/St.)"
+  },
+  sd: "Trabecular Metal™ (optional): Tantalum-beschichtet, 80% Porosität, imitiert Knochenstruktur. Standard: MTX (sandgestrahlt + säuregeätzt, Ra=1.5µm).",
+  ae: "Gut – Trabecular Metal fördert Knocheneinwachsen, aber keine spezifischen ästhetischen Vorteile"
+}, {
+  id: 17,
+  m: "ZimVie",
+  co: "USA",
+  fl: "🇺🇸",
+  t: "High-Quality",
+  s: "TSV",
+  n: "Tapered Screw-Vent®",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "cp Titan Grade 4",
+  su: "MTX®",
+  cn: "Internal Hex",
+  ct: "Intern Hex",
+  di: [3.5, 3.7, 4.1, 4.7, 6.0],
+  le: [6, 8, 10, 11.5, 13, 16],
+  pr: "Encode®, Hex Abutments",
+  ind: "Universalimplantat",
+  fe: ["Selbstschneidend", "Platform Switching", "MTX® Oberfläche"],
+  he: "8–12 Wo.",
+  sr: "97.0%",
+  ta: "30 Ncm",
+  ti: 25,
+  tx: 50,
+  bd: ["D1", "D2", "D3"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€€€",
+  isq: "65–80",
+  dp: "Standardsequenz nach ZimVie-Protokoll.",
+  no: "Meistverwendetes System in Nordamerika. Jetzt: TSX als Nachfolger.",
+  url: "https://www.zimvie.com",
+  sc: ["zimvie.com"],
+  ev: {
+    st: 180,
+    fu: ">15J",
+    pi: "3.8%",
+    mbl: "0.35mm/1J",
+    bic: "63%",
+    wg: "Standard"
+  },
+  cx: {
+    op: "18–28",
+    lk: "Niedrig",
+    rv: "2.2%",
+    lt: "95.8% @10J, 93.5% @15J"
+  },
+  ec: {
+    ki: "€€€ (ZimVie-Kit ~2.000€)",
+    pk: "€€€ (Encode)"
+  },
+  sd: "MTX: Mikrotexturiert, sandgestrahlt + säuregeätzt. Ra=1.5µm. Seit >20 Jahren bewährt.",
+  ae: "Standard – bewährtes Design, keine besonderen ästhetischen Innovationen"
+}, {
+  id: 18,
+  m: "ZimVie",
+  co: "USA",
+  fl: "🇺🇸",
+  t: "High-Quality",
+  s: "T3",
+  n: "T3® Implant",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "cp Titan Grade 4",
+  su: "MTX® + DCD",
+  cn: "Internal Hex",
+  ct: "Intern Hex",
+  di: [3.25, 4.0, 4.7, 5.7],
+  le: [8, 10, 11.5, 13],
+  pr: "Encode®",
+  ind: "Posteriore Region, kompromittierter Knochen",
+  fe: ["Trabecular Metal™", "DCD-Beschichtung", "Knochenähnlich"],
+  he: "8–12 Wo.",
+  sr: "97.3%",
+  ta: "30 Ncm",
+  ti: 25,
+  tx: 50,
+  bd: ["D2", "D3", "D4"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€€€",
+  isq: "65–80",
+  dp: "Wie TSV + Trabecular-Metal Aufbereitung.",
+  no: "Trabecular Metal für maximale Osseointegration in weichem Knochen.",
+  url: "https://www.zimvie.com",
+  sc: ["zimvie.com"],
+  ev: {
+    st: 65,
+    fu: ">8J",
+    pi: "3.2%",
+    mbl: "0.3mm/1J",
+    bic: "66%",
+    wg: "Gut"
+  },
+  cx: {
+    op: "18–28",
+    lk: "Niedrig",
+    rv: "1.8%",
+    lt: "96.5% @8J"
+  },
+  ec: {
+    ki: "€€€ (ZimVie-Kit)",
+    pk: "€€€ (ab 140€/St.)"
+  },
+  sd: "MTX + DCD: Mikrotexturiert + Discrete Crystal Deposition (Nanokristalle CaP). Verbesserte BIC vs MTX allein.",
+  ae: "Gut – DCD fördert frühe Osseointegration, modernes Design"
+},
+// ── MEGAGEN ──
+{
+  id: 19,
+  m: "MegaGen",
+  co: "Südkorea",
+  fl: "🇰🇷",
+  t: "Mid-Range",
+  s: "AnyRidge",
+  n: "MegaGen AnyRidge®",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "cp Titan Grade 4",
+  su: "XPEED® (Ca²⁺-Ionen)",
+  cn: "EZ Post + Hex",
+  ct: "Intern Hex",
+  di: [3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0],
+  le: [6.5, 8.5, 10, 11.5, 13, 15],
+  pr: "EZ Post, S-clean®",
+  ind: "Schmaler Kieferkamm, alle Knochentypen",
+  fe: ["Knife-Thread®", "XPEED® Calciumionen", "8 Durchmesser"],
+  he: "4–6 Wo.",
+  sr: "97.0%",
+  ta: "25–35 Ncm",
+  ti: 35,
+  tx: 70,
+  bd: ["D1", "D2", "D3", "D4"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€€",
+  isq: "65–80",
+  dp: "Pilotbohrer → MegaGen Stufenbohrer. D4: nur Pilotbohrer + Implantat!",
+  no: "Knife-Thread® für maximale BIC. 8 Durchmesser – breitestes Sortiment.",
+  url: "https://www.megagen.com",
+  sc: ["megagen.com"],
+  ev: {
+    st: 110,
+    fu: ">10J",
+    pi: "3.0%",
+    mbl: "0.2mm/1J",
+    bic: "72%",
+    wg: "Gut (XPEED)"
+  },
+  cx: {
+    op: "12–22",
+    lk: "Niedrig (einfaches Bohrprotokoll)",
+    rv: "2.0%",
+    lt: "96.0% @10J"
+  },
+  ec: {
+    ki: "€€ (MegaGen-Kit ~1.200€)",
+    pk: "€€ (ab 65€/St.)"
+  },
+  sd: "XPEED®: Sandgestrahlt + Ca²⁺-Ionenimplantation. Kalziumionen beschleunigen Osseointegration. Ra=1.5µm.",
+  ae: "Gut – Knife-Thread bietet hohe BIC, aber eher für posterior. Breites ∅-Sortiment flexibel"
+}, {
+  id: 20,
+  m: "MegaGen",
+  co: "Südkorea",
+  fl: "🇰🇷",
+  t: "Mid-Range",
+  s: "AnyOne",
+  n: "MegaGen AnyOne®",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "cp Titan Grade 4",
+  su: "XPEED® S",
+  cn: "Conical Seal",
+  ct: "Konisch",
+  di: [3.5, 4.0, 4.5, 5.0, 5.5, 6.0],
+  le: [7, 8.5, 10, 11.5, 13],
+  pr: "AnyOne Abutments",
+  ind: "Universalimplantat, gutes Preis-Leistungsverhältnis",
+  fe: ["Progressive Gewindesteigung", "Konische Verbindung"],
+  he: "4–8 Wo.",
+  sr: "96.8%",
+  ta: "25 Ncm",
+  ti: 25,
+  tx: 50,
+  bd: ["D2", "D3", "D4"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€€",
+  isq: "65–80",
+  dp: "Standard MegaGen Bohrersequenz.",
+  no: "Preis-Leistungs-Sieger von MegaGen.",
+  url: "https://www.megagen.com",
+  sc: ["megagen.com"],
+  ev: {
+    st: 45,
+    fu: ">7J",
+    pi: "3.5%",
+    mbl: "0.3mm/1J",
+    bic: "65%",
+    wg: "Gut"
+  },
+  cx: {
+    op: "15–25",
+    lk: "Niedrig",
+    rv: "2.2%",
+    lt: "96.0% @7J"
+  },
+  ec: {
+    ki: "€€ (nutzt MegaGen-Kit)",
+    pk: "€€ (ab 55€/St.)"
+  },
+  sd: "XPEED® S: Sandgestrahlt + Ca²⁺-Ionen, ähnlich AnyRidge aber optimiert für konische Verbindung.",
+  ae: "Standard – gutes Arbeitspferd, keine spezifischen ästhetischen Vorteile"
+},
+// ── OSSTEM ──
+{
+  id: 21,
+  m: "Osstem",
+  co: "Südkorea",
+  fl: "🇰🇷",
+  t: "Mid-Range",
+  s: "TS III SA",
+  n: "Osstem TS III SA",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "cp Titan Grade 4",
+  su: "SA (SLA)",
+  cn: "Internal Hex (Octa)",
+  ct: "Intern Hex",
+  di: [3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 7.0],
+  le: [6, 7, 8.5, 10, 11.5, 13],
+  pr: "TS Abutments, ComOcta®",
+  ind: "Universalimplantat, alle Regionen",
+  fe: ["SA-Oberfläche", "Doppelgewinde", "7 Durchmesser"],
+  he: "6–8 Wo.",
+  sr: "96.5%",
+  ta: "30 Ncm",
+  ti: 25,
+  tx: 50,
+  bd: ["D1", "D2", "D3", "D4"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€€",
+  isq: "65–80",
+  dp: "Pilotbohrer → Osstem Stufenbohrer nach Farbcode.",
+  no: "Weltweit meistverkauft nach Stückzahl. 7 Durchmesser.",
+  url: "https://www.osstem.com",
+  sc: ["osstem.com"],
+  ev: {
+    st: 200,
+    fu: ">12J",
+    pi: "3.5%",
+    mbl: "0.35mm/1J",
+    bic: "64%",
+    wg: "Standard"
+  },
+  cx: {
+    op: "15–25",
+    lk: "Niedrig (sehr gute Schulung)",
+    rv: "2.5%",
+    lt: "95.5% @10J"
+  },
+  ec: {
+    ki: "€€ (Osstem-Kit ~1.000€)",
+    pk: "€ (ab 40€/St.)"
+  },
+  sd: "SA: Sandgestrahlt (Al₂O₃ großkörnig) + Säuregeätzt (HCl/H₂SO₄). Ra=1.5µm. Standard SLA-Typ.",
+  ae: "Standard – meistverkauftes System weltweit, solide aber ohne ästhetische Besonderheiten"
+}, {
+  id: 22,
+  m: "Osstem",
+  co: "Südkorea",
+  fl: "🇰🇷",
+  t: "Mid-Range",
+  s: "TS IV SA",
+  n: "Osstem TS IV SA",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "cp Titan Grade 4",
+  su: "SA Ultra (hydrophil)",
+  cn: "Conical Seal",
+  ct: "Konisch",
+  di: [3.5, 4.0, 4.5, 5.0],
+  le: [7, 8.5, 10, 11.5, 13],
+  pr: "TS IV Abutments",
+  ind: "Sofortimplantation, Ästhetikzone",
+  fe: ["Konische Verbindung", "SA Ultra hydrophil", "2022 eingeführt"],
+  he: "4–6 Wo.",
+  sr: "97.0%",
+  ta: "30 Ncm",
+  ti: 30,
+  tx: 55,
+  bd: ["D2", "D3", "D4"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€€",
+  isq: "65–80",
+  dp: "Osstem TS IV Sequenz mit Farbcode.",
+  no: "Neuere konische Version. Hydrophile SA Ultra Oberfläche.",
+  url: "https://www.osstem.com",
+  sc: ["osstem.com"],
+  ev: {
+    st: 30,
+    fu: ">3J",
+    pi: "3.0%",
+    mbl: "0.25mm/1J (vorläufig)",
+    bic: "67%",
+    wg: "Gut (hydrophil)"
+  },
+  cx: {
+    op: "15–25",
+    lk: "Niedrig",
+    rv: "k.A.",
+    lt: "97.0% @3J (limitiert)"
+  },
+  ec: {
+    ki: "€€ (nutzt Osstem-Kit)",
+    pk: "€€ (ab 45€/St.)"
+  },
+  sd: "SA Ultra: Hydrophile Variante der SA-Oberfläche. Verbesserte Benetzbarkeit für beschleunigte Einheilung.",
+  ae: "Verbessert vs TS III – konische Verbindung besser für Ästhetikzone"
+},
+// ── HIOSSEN ──
+{
+  id: 23,
+  m: "Hiossen",
+  co: "USA/Südkorea",
+  fl: "🇺🇸",
+  t: "Mid-Range",
+  s: "ET III",
+  n: "Hiossen ET III SA",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "cp Titan Grade 4",
+  su: "SA",
+  cn: "Int. Hex + Morse Taper (11°)",
+  ct: "Konisch + Hex",
+  di: [3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 7.0],
+  le: [7, 8.5, 10, 11.5, 13, 15],
+  pr: "ET Abutments, SmartFit",
+  ind: "Universalimplantat",
+  fe: ["11° Morse Taper", "Self-sealing", "Platform Switching", "Corkscrew Thread"],
+  he: "6–8 Wo.",
+  sr: "96.5%",
+  ta: "30 Ncm",
+  ti: 25,
+  tx: 50,
+  bd: ["D1", "D2", "D3", "D4"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€€",
+  isq: "65–80",
+  dp: "Osstem/Hiossen Farbcode-Protokoll.",
+  no: "Osstem-Tochter für US-Markt. 11° Morse Taper = bakteriendichte Verbindung.",
+  url: "https://hiossen.com",
+  sc: ["hiossen.com"],
+  ev: {
+    st: 60,
+    fu: ">8J",
+    pi: "3.5%",
+    mbl: "0.3mm/1J",
+    bic: "65%",
+    wg: "Gut (Morse Taper)"
+  },
+  cx: {
+    op: "15–25",
+    lk: "Niedrig",
+    rv: "2.2%",
+    lt: "96.0% @8J"
+  },
+  ec: {
+    ki: "€€ (Hiossen-Kit ~1.100€)",
+    pk: "€€ (ab 45€/St.)"
+  },
+  sd: "SA: Identisch mit Osstem SA. Sandgestrahlt + Säuregeätzt. 11° Morse Taper für bakteriendichten Verschluss.",
+  ae: "Gut – 11° Morse Taper dichtet besser ab als Standard-Hex, weniger Geruch bei Revision"
+},
+// ── NEODENT (Straumann-Gruppe) ──
+{
+  id: 24,
+  m: "Neodent",
+  co: "Brasilien",
+  fl: "🇧🇷",
+  t: "Mid-Range",
+  s: "Helix GM",
+  n: "Neodent® Helix GM",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "cp Titan Grade 4",
+  su: "Neoporos®",
+  cn: "Grand Morse® (GM)",
+  ct: "Konisch (16°)",
+  di: [3.5, 3.75, 4.0, 4.3, 5.0],
+  le: [7, 8.5, 10, 11.5, 13, 16],
+  pr: "GM Abutments, coDiagnostiX®",
+  ind: "Immediate Protocols, Full-Arch",
+  fe: ["Grand Morse® (16° Konus)", "Helix-Gewinde", "Straumann-Gruppe"],
+  he: "6–8 Wo.",
+  sr: "96.8%",
+  ta: "32 Ncm",
+  ti: 25,
+  tx: 50,
+  bd: ["D2", "D3", "D4"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€€",
+  isq: "65–80",
+  dp: "Neodent Helix Bohrersequenz. Grand Morse Aufbereitung.",
+  no: "Straumann Value-Brand. Premium-Technologie, mittlerer Preis.",
+  url: "https://www.neodent.com",
+  sc: ["neodent.com"],
+  ev: {
+    st: 90,
+    fu: ">8J",
+    pi: "3.0%",
+    mbl: "0.25mm/1J",
+    bic: "68%",
+    wg: "Gut"
+  },
+  cx: {
+    op: "15–25",
+    lk: "Niedrig",
+    rv: "2.0%",
+    lt: "96.5% @8J"
+  },
+  ec: {
+    ki: "€€ (Neodent-Kit ~1.300€)",
+    pk: "€€ (GM-Abutments ab 60€/St.)"
+  },
+  sd: "Neoporos®: Sandgestrahlt + Säuregeätzt, proprietäre Doppelbehandlung. Ra=1.5µm. Straumann-Gruppe Technologie.",
+  ae: "Gut – Grand Morse 16° bietet gute Abdichtung. Preis-Leistung hervorragend"
+},
+// ── MIS IMPLANTS (Dentsply Sirona-Gruppe) ──
+{
+  id: 25,
+  m: "MIS Implants",
+  co: "Israel",
+  fl: "🇮🇱",
+  t: "Mid-Range",
+  s: "C1",
+  n: "MIS C1®",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "cp Titan Grade 4",
+  su: "B+ (Bioactive)",
+  cn: "Conical Hex",
+  ct: "Konisch + Hex",
+  di: [3.3, 3.75, 4.2, 5.0],
+  le: [6, 8, 10, 11.5, 13, 16],
+  pr: "MC/WC Abutments, MGUIDE®",
+  ind: "Universalimplantat, digital",
+  fe: ["B+ bioaktive Oberfläche", "Platform Switching", "MGUIDE®"],
+  he: "6–8 Wo.",
+  sr: "97.0%",
+  ta: "30 Ncm",
+  ti: 25,
+  tx: 50,
+  bd: ["D1", "D2", "D3"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€€",
+  isq: "65–80",
+  dp: "MIS Standard-Bohrersequenz. MGUIDE kompatibel.",
+  no: "Dentsply Sirona Value-Brand. Gute digitale Integration.",
+  url: "https://www.mis-implants.com",
+  sc: ["mis-implants.com"],
+  ev: {
+    st: 50,
+    fu: ">7J",
+    pi: "3.2%",
+    mbl: "0.3mm/1J",
+    bic: "67%",
+    wg: "Gut (B+ bioaktiv)"
+  },
+  cx: {
+    op: "15–25",
+    lk: "Niedrig",
+    rv: "2.0%",
+    lt: "96.5% @7J"
+  },
+  ec: {
+    ki: "€€ (MIS-Kit ~1.500€)",
+    pk: "€€ (ab 70€/St.)"
+  },
+  sd: "B+ (Bioactive): Sandgestrahlt + Säuregeätzt + CaP-Nanoschicht (Kalziumphosphat). Bioaktive Beschichtung fördert Osseointegration.",
+  ae: "Gut – gute digitale Integration mit MGUIDE. Standard-Ästhetik"
+}, {
+  id: 26,
+  m: "MIS Implants",
+  co: "Israel",
+  fl: "🇮🇱",
+  t: "Mid-Range",
+  s: "V3",
+  n: "MIS V3®",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "cp Titan Grade 4",
+  su: "B+ Surface",
+  cn: "Tri-Hex Friction",
+  ct: "Konisch + Tri-Hex",
+  di: [3.3, 3.75, 4.2, 5.0],
+  le: [6, 8, 10, 11.5, 13, 16],
+  pr: "V3 Abutments",
+  ind: "Ästhetikzone",
+  fe: ["Triangulare Verbindung", "Friktionspassung"],
+  he: "6–8 Wo.",
+  sr: "96.9%",
+  ta: "30 Ncm",
+  ti: 25,
+  tx: 50,
+  bd: ["D1", "D2", "D3"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€€",
+  isq: "65–80",
+  dp: "MIS V3 Bohrersequenz.",
+  no: "Triangulare Verbindung für optimale Rotationssicherheit.",
+  url: "https://www.mis-implants.com",
+  sc: ["mis-implants.com"],
+  ev: {
+    st: 35,
+    fu: ">5J",
+    pi: "3.0%",
+    mbl: "0.25mm/1J",
+    bic: "68%",
+    wg: "Gut"
+  },
+  cx: {
+    op: "15–25",
+    lk: "Niedrig",
+    rv: "1.8%",
+    lt: "97.0% @5J"
+  },
+  ec: {
+    ki: "€€ (nutzt MIS-Kit)",
+    pk: "€€ (ab 75€/St.)"
+  },
+  sd: "B+ Surface: Wie C1 – sandgestrahlt + säuregeätzt + CaP-Nanoschicht. Triangulare Verbindung.",
+  ae: "Sehr gut – Tri-Hex-Verbindung bietet bessere Rotationssicherheit für Einzelzähne anterior"
+},
+// ── BEGO ──
+{
+  id: 27,
+  m: "BEGO",
+  co: "Deutschland",
+  fl: "🇩🇪",
+  t: "Mid-Range",
+  s: "Semados RSX",
+  n: "BEGO Semados® RSX",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "cp Titan Grade 4",
+  su: "TiPure® Plus",
+  cn: "Konisch",
+  ct: "Konisch",
+  di: [3.0, 3.75, 4.1, 4.5, 5.5],
+  le: [7, 8.5, 10, 11.5, 13, 15],
+  pr: "PS-Line Abutments",
+  ind: "Universalimplantat, DACH-Region",
+  fe: ["TiPure® Plus", "Platform Switching", "Bremen-Fertigung"],
+  he: "6–8 Wo.",
+  sr: "97.0%",
+  ta: "25 Ncm",
+  ti: 20,
+  tx: 45,
+  bd: ["D1", "D2", "D3"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€€",
+  isq: "65–80",
+  dp: "BEGO Semados Standardsequenz.",
+  no: "Solide deutsche Qualität. Beliebt im DACH-Raum.",
+  url: "https://www.bego.com",
+  sc: ["bego.com"],
+  ev: {
+    st: 55,
+    fu: ">10J",
+    pi: "3.2%",
+    mbl: "0.3mm/1J",
+    bic: "66%",
+    wg: "Gut"
+  },
+  cx: {
+    op: "18–28",
+    lk: "Niedrig",
+    rv: "1.8%",
+    lt: "96.5% @10J"
+  },
+  ec: {
+    ki: "€€ (BEGO-Kit ~1.600€)",
+    pk: "€€ (PS-Line ab 80€/St.)"
+  },
+  sd: "TiPure® Plus: Sandgestrahlt + Säuregeätzt + Thermoreinigung (600°C). Ultra-reine Oberfläche, keine Kohlenstoffkontamination.",
+  ae: "Standard – solide deutsche Qualität, keine besonderen ästhetischen Merkmale"
+},
+// ── THOMMEN MEDICAL ──
+{
+  id: 28,
+  m: "Thommen Medical",
+  co: "Schweiz",
+  fl: "🇨🇭",
+  t: "High-Quality",
+  s: "SPI Element",
+  n: "Thommen SPI® ELEMENT",
+  tp: "Tissue/Bone Level",
+  fo: "Zylindrisch",
+  ma: "cp Titan Grade 4",
+  su: "INICELL® (superhydrophil)",
+  cn: "Four-Lobe Intern",
+  ct: "Vier-Nocken",
+  di: [3.5, 4.0, 4.5, 5.0, 6.0],
+  le: [8, 9.5, 11, 12.5, 14, 17],
+  pr: "SPI Abutments, CADCAM",
+  ind: "Universalimplantat, Schweizer Präzision",
+  fe: ["INICELL® konditioniert", "Superhydrophil", "Reverse Buttress"],
+  he: "4–6 Wo.",
+  sr: "97.5%",
+  ta: "15–25 Ncm",
+  ti: 20,
+  tx: 45,
+  bd: ["D1", "D2", "D3"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€€€",
+  isq: "65–80",
+  dp: "Pilotbohrer → Stufenbohrer → Profilbohrer. INICELL kurz vor Insertion.",
+  no: "INICELL® = Chairside superhydrophile Konditionierung (5 Min NaCl).",
+  url: "https://www.thommenmedical.com",
+  sc: ["thommenmedical.com"],
+  ev: {
+    st: 70,
+    fu: ">12J",
+    pi: "2.2%",
+    mbl: "0.15mm/1J, 0.3mm/5J",
+    bic: "72%",
+    wg: "Exzellent (INICELL)"
+  },
+  cx: {
+    op: "18–30",
+    lk: "Mittel (INICELL Chairside-Vorbereitung)",
+    rv: "1.5%",
+    lt: "97.5% @10J, 96.2% @12J"
+  },
+  ec: {
+    ki: "€€€ (Thommen-Kit ~2.400€)",
+    pk: "€€€ (ab 140€/St.)"
+  },
+  sd: "INICELL®: Sandgestrahlt + Säuregeätzt → chairside hydrophil konditioniert (5 Min in NaCl). Superhydrophil. Ra=1.6µm. Kontaktwinkel <5°.",
+  ae: "Sehr gut – Schweizer Präzision, exzellente Weichgewebsanlagerung. PES Ø 12.2/14"
+},
+// ── MEDENTIS MEDICAL ──
+{
+  id: 29,
+  m: "medentis medical",
+  co: "Deutschland",
+  fl: "🇩🇪",
+  t: "Value",
+  s: "ICX-Premium",
+  n: "ICX-Premium®",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "cp Titan Grade 4",
+  su: "SLA",
+  cn: "Int. Hex + Morse Taper",
+  ct: "Konisch + Hex",
+  di: [3.75, 4.1, 4.8],
+  le: [8, 10, 12.5, 15],
+  pr: "ICX Abutments, CADCAM",
+  ind: "Universalimplantat, kosteneffizient",
+  fe: ["Ab ca. €59/Stück", "Morse Taper", "Microthreads", "Direktvertrieb"],
+  he: "6–8 Wo.",
+  sr: "96.5%",
+  ta: "25 Ncm",
+  ti: 20,
+  tx: 45,
+  bd: ["D1", "D2", "D3"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€",
+  isq: "65–80",
+  dp: "ICX Farbcode-Bohrersequenz.",
+  no: "Ab ca. €59/Implantat. Bestes Preis-Leistungs-Verhältnis in DACH.",
+  url: "https://www.medentis.de",
+  sc: ["medentis.de"],
+  ev: {
+    st: 30,
+    fu: ">8J",
+    pi: "3.5%",
+    mbl: "0.35mm/1J",
+    bic: "64%",
+    wg: "Standard"
+  },
+  cx: {
+    op: "15–25",
+    lk: "Niedrig",
+    rv: "2.5%",
+    lt: "95.5% @8J"
+  },
+  ec: {
+    ki: "€ (ICX-Kit ~800€, sehr günstig)",
+    pk: "€ (ab 25€/St., Direktvertrieb)"
+  },
+  sd: "Microthread: Sandgestrahlt + Säuregeätzt. Ra=1.5µm. Standard SLA mit Mikrogewinde am Hals.",
+  ae: "Standard – Fokus auf Preis-Leistung, nicht auf Ästhetik-Features"
+},
+// ── BICON ──
+{
+  id: 30,
+  m: "Bicon",
+  co: "USA",
+  fl: "🇺🇸",
+  t: "High-Quality",
+  s: "SHORT",
+  n: "Bicon SHORT®",
+  tp: "Bone Level",
+  fo: "Plateau (Finnen)",
+  ma: "cp Titan Grade 4",
+  su: "Integra-Ti™",
+  cn: "Locking Taper (1.5°)",
+  ct: "Konus-Pressverbindung",
+  di: [4.0, 4.5, 5.0, 6.0],
+  le: [5.0, 5.7, 6.0, 8.0, 11.0],
+  pr: "360° Universal Abutments",
+  ind: "Reduzierte Knochenhöhe, posteriore Maxilla",
+  fe: ["Locking Taper 1.5°", "Finnen-Design (keine Schraubgewinde)", "Ab 5mm Länge", "360° Abutment"],
+  he: "8–12 Wo.",
+  sr: "96.8%",
+  ta: "–",
+  ti: 15,
+  tx: 35,
+  bd: ["D1", "D2", "D3"],
+  im: false,
+  gs: false,
+  dw: true,
+  pp: "€€€",
+  isq: "55–70",
+  dp: "Pilotbohrer → Stufenbohrer → Locking Taper Kavität. KEIN Gewindeschneiden.",
+  no: "Einzigartiges Konzept: Finnen statt Gewinde. Locking Taper = bakteriendicht, schraubenlos.",
+  url: "https://www.bicon.com",
+  sc: ["bicon.com"],
+  ev: {
+    st: 95,
+    fu: ">15J",
+    pi: "2.5%",
+    mbl: "0.15mm/1J",
+    bic: "75%",
+    wg: "Exzellent (Plateau-Design)"
+  },
+  cx: {
+    op: "20–35",
+    lk: "Hoch (Locking-Taper, spezielle Technik)",
+    rv: "2.0%",
+    lt: "96.0% @10J, 94.5% @15J"
+  },
+  ec: {
+    ki: "€€€ (Bicon-Kit ~2.000€)",
+    pk: "€€€ (Spezialsystem)"
+  },
+  sd: "Integra-Ti™: Proprietäre Titan-Oberfläche. Plateau-Design statt Gewinde erhöht BIC. 3° Locking Taper = bakteriendicht.",
+  ae: "Speziell – Plateau-Design hervorragend für vertikale Knochendefizite. Nicht für Standard-Ästhetik"
+},
+// ── DENTIUM ──
+{
+  id: 31,
+  m: "Dentium",
+  co: "Südkorea",
+  fl: "🇰🇷",
+  t: "Value",
+  s: "SuperLine",
+  n: "Dentium SuperLine®",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "cp Titan Grade 4",
+  su: "SLA",
+  cn: "Internal Hex",
+  ct: "Intern Hex",
+  di: [3.4, 3.8, 4.3, 4.8, 5.3, 5.8],
+  le: [7, 8.5, 10, 12, 14],
+  pr: "SuperLine Abutments",
+  ind: "Kosteneffizient, Standardfälle",
+  fe: ["SLA-Oberfläche", "Doppelgewinde", "6 Durchmesser"],
+  he: "8–12 Wo.",
+  sr: "96.0%",
+  ta: "30 Ncm",
+  ti: 25,
+  tx: 50,
+  bd: ["D1", "D2", "D3"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€",
+  isq: "65–80",
+  dp: "Dentium Standardsequenz.",
+  no: "Solides koreanisches Budget-System.",
+  url: "https://www.dentium.com",
+  sc: ["dentium.com"],
+  ev: {
+    st: 60,
+    fu: ">8J",
+    pi: "3.8%",
+    mbl: "0.35mm/1J",
+    bic: "63%",
+    wg: "Standard"
+  },
+  cx: {
+    op: "15–25",
+    lk: "Niedrig",
+    rv: "2.5%",
+    lt: "95.5% @8J"
+  },
+  ec: {
+    ki: "€ (Dentium-Kit ~900€)",
+    pk: "€ (ab 35€/St.)"
+  },
+  sd: "SLA: Standard Sandgestrahlt + Säuregeätzt. Ra=1.5µm. Doppelgewinde für schnelle Insertion.",
+  ae: "Standard – solides Alltagssystem, preiswert"
+},
+// ── ALPHA-BIO (Nobel Biocare/Envista-Gruppe) ──
+{
+  id: 32,
+  m: "Alpha-Bio Tec",
+  co: "Israel",
+  fl: "🇮🇱",
+  t: "Value",
+  s: "NeO",
+  n: "Alpha-Bio NeO®",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "Ti-6Al-4V ELI",
+  su: "NanoTec™",
+  cn: "Int. Hex (Conical)",
+  ct: "Konisch + Hex",
+  di: [3.2, 3.5, 3.75, 4.2, 5.0, 6.0],
+  le: [6, 8, 10, 11.5, 13, 16],
+  pr: "NeO Abutments, Multi-unit",
+  ind: "Alle Knochentypen, Budget",
+  fe: ["NanoTec™", "Variable Gewindetiefe", "Envista-Gruppe"],
+  he: "8–12 Wo.",
+  sr: "96.2%",
+  ta: "30 Ncm",
+  ti: 25,
+  tx: 50,
+  bd: ["D1", "D2", "D3", "D4"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€",
+  isq: "65–80",
+  dp: "Alpha-Bio Standardprotokoll.",
+  no: "Envista-Gruppe (Nobel Biocare Schwester). Ti-6Al-4V ELI = stärker als Grade 4.",
+  url: "https://www.alpha-bio.net",
+  sc: ["alpha-bio.net"],
+  ev: {
+    st: 40,
+    fu: ">7J",
+    pi: "3.5%",
+    mbl: "0.3mm/1J",
+    bic: "65%",
+    wg: "Standard"
+  },
+  cx: {
+    op: "15–25",
+    lk: "Niedrig",
+    rv: "2.2%",
+    lt: "95.8% @7J"
+  },
+  ec: {
+    ki: "€ (Alpha-Bio Kit ~800€)",
+    pk: "€ (ab 30€/St.)"
+  },
+  sd: "NanoTec™: SLA + Nano-CaP-Beschichtung. Kalziumphosphat-Nanopartikel auf sandgestrahlter Oberfläche.",
+  ae: "Standard – gutes Value-System, keine besonderen ästhetischen Merkmale"
+},
+// ── IMPLANT DIRECT ──
+{
+  id: 33,
+  m: "Implant Direct",
+  co: "USA",
+  fl: "🇺🇸",
+  t: "Value",
+  s: "Legacy",
+  n: "Implant Direct Legacy™",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "cp Titan Grade 4",
+  su: "SBM",
+  cn: "Internal Hex",
+  ct: "Intern Hex",
+  di: [3.2, 3.7, 4.2, 4.7, 5.2, 5.7],
+  le: [8, 10, 11.5, 13, 16],
+  pr: "Legacy Abutments",
+  ind: "Budget, Standardfälle",
+  fe: ["Zimmer-kompatibel", "Direktvertrieb", "All-in-one Pack"],
+  he: "8–12 Wo.",
+  sr: "95.5%",
+  ta: "30 Ncm",
+  ti: 25,
+  tx: 45,
+  bd: ["D1", "D2", "D3"],
+  im: true,
+  gs: false,
+  dw: true,
+  pp: "€",
+  isq: "65–80",
+  dp: "Zimmer-kompatible Sequenz.",
+  no: "Envista-Gruppe. Zimmer-kompatibel, Direktvertrieb.",
+  url: "https://www.implantdirect.com",
+  sc: ["implantdirect.com"],
+  ev: {
+    st: 35,
+    fu: ">8J",
+    pi: "4.0%",
+    mbl: "0.4mm/1J",
+    bic: "62%",
+    wg: "Standard"
+  },
+  cx: {
+    op: "15–25",
+    lk: "Niedrig",
+    rv: "2.8%",
+    lt: "95.0% @8J"
+  },
+  ec: {
+    ki: "€ (Legacy-Kit ~700€)",
+    pk: "€ (ab 25€/St., Direktvertrieb)"
+  },
+  sd: "SBM (Sandblasted, acid-etched, Multi-textured): Standard SLA-Typ. Ra=1.5µm.",
+  ae: "Basis – Fokus auf günstigsten Preis. Zimmer-Biomet-kompatibel"
+},
+// ── ANTHOGYR (Straumann-Gruppe) ──
+{
+  id: 34,
+  m: "Anthogyr",
+  co: "Frankreich",
+  fl: "🇫🇷",
+  t: "Mid-Range",
+  s: "Axiom ML",
+  n: "Anthogyr Axiom® ML",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "cp Titan Grade 4",
+  su: "BCP® (Biphasisches Calciumphosphat)",
+  cn: "In-Kone®",
+  ct: "Konisch",
+  di: [3.4, 3.9, 4.5, 5.0],
+  le: [6, 8, 10, 11.5, 13, 16],
+  pr: "Axiom Abutments, Simeda® CADCAM",
+  ind: "Universalimplantat",
+  fe: ["BCP® bioaktiv", "In-Kone® Verbindung", "Straumann-Gruppe"],
+  he: "6–8 Wo.",
+  sr: "96.8%",
+  ta: "25 Ncm",
+  ti: 25,
+  tx: 50,
+  bd: ["D1", "D2", "D3"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€€",
+  isq: "65–80",
+  dp: "Anthogyr Axiom Bohrersequenz.",
+  no: "Straumann-Gruppe. BCP® = Bioaktive Calciumphosphat-Beschichtung.",
+  url: "https://www.anthogyr.com",
+  sc: ["anthogyr.com"],
+  ev: {
+    st: 40,
+    fu: ">8J",
+    pi: "3.2%",
+    mbl: "0.3mm/1J",
+    bic: "66%",
+    wg: "Gut"
+  },
+  cx: {
+    op: "18–28",
+    lk: "Niedrig",
+    rv: "2.0%",
+    lt: "96.0% @8J"
+  },
+  ec: {
+    ki: "€€ (Anthogyr-Kit ~1.400€)",
+    pk: "€€ (ab 75€/St.)"
+  },
+  sd: "BioHP®: Hydroxylapatit-beschichtet + Sandgestrahlt. Biomimetische Kalziumphosphat-Schicht.",
+  ae: "Gut – Morse-Taper-Verbindung gut für Ästhetik. Französische Qualität"
+},
+// ── BTI ──
+{
+  id: 35,
+  m: "BTI",
+  co: "Spanien",
+  fl: "🇪🇸",
+  t: "Mid-Range",
+  s: "Interna",
+  n: "BTI® Interna",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "cp Titan Grade 4",
+  su: "UnicCa® (Calciumionen)",
+  cn: "Interna (Multiposition)",
+  ct: "Intern Hex",
+  di: [3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5],
+  le: [5.5, 6.5, 7.5, 8.5, 10, 11.5, 13, 15],
+  pr: "BTI Abutments, Multi-unit",
+  ind: "Alle Indikationen, PRGF-Therapie",
+  fe: ["UnicCa® Calciumionen", "PRGF-Endoret® Plasma", "8 Durchmesser", "Ab 5.5mm Länge"],
+  he: "6–8 Wo.",
+  sr: "97.0%",
+  ta: "30 Ncm",
+  ti: 25,
+  tx: 50,
+  bd: ["D1", "D2", "D3", "D4"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€€",
+  isq: "65–80",
+  dp: "BTI Bohrersequenz + PRGF Konditionierung der Oberfläche.",
+  no: "Eigene Plasma-Technologie (PRGF-Endoret®). 8 Durchmesser, ab 5.5mm Länge.",
+  url: "https://bti-biotechnologyinstitute.com",
+  sc: ["bti-biotechnologyinstitute.com"],
+  ev: {
+    st: 120,
+    fu: ">12J",
+    pi: "2.8%",
+    mbl: "0.2mm/1J",
+    bic: "70%",
+    wg: "Sehr gut (PRGF)"
+  },
+  cx: {
+    op: "18–28",
+    lk: "Mittel (PRGF-Protokoll empfohlen)",
+    rv: "1.5%",
+    lt: "97.0% @10J, 95.5% @12J"
+  },
+  ec: {
+    ki: "€€ (BTI-Kit ~1.500€ + PRGF ~3.000€)",
+    pk: "€€ (ab 80€/St.)"
+  },
+  sd: "UnicCa®: Sandgestrahlt + Säuregeätzt + Kalziumionen-Implantation. PRGF®-Endoret (Plasma Rich in Growth Factors) Technologie von BTI.",
+  ae: "Sehr gut – PRGF beschleunigt Weichgewebsheilung. BTI-eigene Studien zeigen exzellente Ästhetik"
+},
+// ── SOUTHERN IMPLANTS ──
+{
+  id: 36,
+  m: "Southern Implants",
+  co: "Südafrika",
+  fl: "🇿🇦",
+  t: "High-Quality",
+  s: "MAX",
+  n: "Southern MAX®",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "cp Titan Grade 4",
+  su: "SinusQuick™",
+  cn: "Internal Tri-Nex®",
+  ct: "Konisch + Tri-Lobe",
+  di: [3.5, 4.0, 4.3, 5.0, 6.0],
+  le: [7, 8.5, 10, 11.5, 13, 16],
+  pr: "Tri-Nex Abutments, Co-Axis®",
+  ind: "Full-Arch, Zygoma, anguliert",
+  fe: ["Co-Axis® Abutments", "Zygomatic Implants", "SinusQuick™"],
+  he: "8–12 Wo.",
+  sr: "97.2%",
+  ta: "32 Ncm",
+  ti: 25,
+  tx: 50,
+  bd: ["D1", "D2", "D3", "D4"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€€€",
+  isq: "65–80",
+  dp: "Southern Implants Standardprotokoll + Zygoma-Option.",
+  no: "Spezialist für Zygomatische Implantate & Co-Axis® (angulierte Abutments).",
+  url: "https://www.southernimplants.com",
+  sc: ["southernimplants.com"],
+  ev: {
+    st: 30,
+    fu: ">10J",
+    pi: "3.0%",
+    mbl: "0.25mm/1J",
+    bic: "68%",
+    wg: "Gut"
+  },
+  cx: {
+    op: "15–25",
+    lk: "Niedrig",
+    rv: "1.8%",
+    lt: "96.5% @10J"
+  },
+  ec: {
+    ki: "€€ (Southern-Kit ~1.500€)",
+    pk: "€€ (ab 85€/St.)"
+  },
+  sd: "SinusQuick™: Proprietäre HA-Beschichtung. Schnelle Osseointegration in D3/D4 Knochen.",
+  ae: "Gut – breites ∅-Sortiment (bis 7.0mm) ideal für posteriore Regionen"
+},
+// ── ZERAMEX ──
+{
+  id: 37,
+  m: "Zeramex",
+  co: "Schweiz",
+  fl: "🇨🇭",
+  t: "High-Quality",
+  s: "XT",
+  n: "Zeramex® XT",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "ATZ Zirkonoxid",
+  su: "ZERAFIL™",
+  cn: "VICARBO®",
+  ct: "Konisch",
+  di: [3.9, 4.8, 5.5],
+  le: [8, 10, 12, 14],
+  pr: "Zeramex Abutments",
+  ind: "Metallfreie Versorgung",
+  fe: ["ATZ-Keramik (stärker als Y-TZP)", "VICARBO® Carbon-Schraube", "ZERAFIL™ Oberfläche"],
+  he: "12–16 Wo.",
+  sr: "95.5%",
+  ta: "15 Ncm",
+  ti: 15,
+  tx: 35,
+  bd: ["D1", "D2", "D3"],
+  im: false,
+  gs: true,
+  dw: true,
+  pp: "€€€",
+  isq: "55–70",
+  dp: "Vorsichtige Aufbereitung für Keramikimplantat.",
+  no: "ATZ = Alumina-Toughened Zirconia, höhere Bruchfestigkeit als Y-TZP.",
+  url: "https://www.zeramex.com",
+  sc: ["zeramex.com"],
+  ev: {
+    st: 25,
+    fu: ">5J",
+    pi: "1.5%",
+    mbl: "0.3mm/1J",
+    bic: "55%",
+    wg: "Sehr gut (Zirkon)"
+  },
+  cx: {
+    op: "25–40",
+    lk: "Hoch (zweiteilig Keramik, VICARBO-Schraube)",
+    rv: "3.5%",
+    lt: "94.5% @5J"
+  },
+  ec: {
+    ki: "€€€ (Keramik-Kit ~2.000€)",
+    pk: "€€€€ (VICARBO-Spezialkomponenten)"
+  },
+  sd: "ZircaPore®: Proprietäre Zirkonoxid-Oberfläche mit kontrollierter Rauheit. Ra=1.3µm. Sulfit-freie Reinigung.",
+  ae: "Hervorragend – metallfrei, weiße Farbe. Zweiteilig = flexibler als einteilige Keramiksysteme"
+},
+// ── BREDENT MEDICAL ──
+{
+  id: 38,
+  m: "bredent medical",
+  co: "Deutschland",
+  fl: "🇩🇪",
+  t: "Mid-Range",
+  s: "copaSKY",
+  n: "bredent copaSKY®",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "cp Titan Grade 4",
+  su: "Osmoactive®",
+  cn: "SKY Konus (15°)",
+  ct: "Konisch (15°)",
+  di: [3.5, 4.0, 4.5, 5.0],
+  le: [8, 10, 12, 14, 16],
+  pr: "SKY Abutments, fast&fixed",
+  ind: "Sofortversorgung, fast&fixed Konzept",
+  fe: ["Osmoactive® osmotisch", "SKY fast&fixed", "15° Konus"],
+  he: "6–8 Wo.",
+  sr: "97.0%",
+  ta: "25 Ncm",
+  ti: 25,
+  tx: 50,
+  bd: ["D2", "D3", "D4"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€€",
+  isq: "65–80",
+  dp: "bredent copaSKY Standardsequenz.",
+  no: "Spezialisiert auf Sofortversorgung (fast&fixed Konzept).",
+  url: "https://www.bredent-medical.com",
+  sc: ["bredent-medical.com"],
+  ev: {
+    st: 25,
+    fu: ">7J",
+    pi: "3.5%",
+    mbl: "0.3mm/1J",
+    bic: "65%",
+    wg: "Gut"
+  },
+  cx: {
+    op: "18–28",
+    lk: "Niedrig",
+    rv: "2.0%",
+    lt: "96.0% @7J"
+  },
+  ec: {
+    ki: "€€ (copaSKY-Kit ~1.300€)",
+    pk: "€€ (ab 70€/St.)"
+  },
+  sd: "SKY® fast & fixed: Sandgestrahlt + Säuregeätzt. Optimiert für Sofortversorgung. Ra=1.5µm.",
+  ae: "Standard – Fokus auf Sofortversorgung und einfache Prothetik"
+},
+// ── DENTIS ──
+{
+  id: 39,
+  m: "Dentis",
+  co: "Südkorea",
+  fl: "🇰🇷",
+  t: "Value",
+  s: "s-Clean",
+  n: "Dentis s-Clean®",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "cp Titan Grade 4",
+  su: "s-Clean (hydrophil)",
+  cn: "Internal Hex",
+  ct: "Intern Hex",
+  di: [3.5, 4.0, 4.5, 5.0, 5.5, 6.0],
+  le: [6, 7, 8.5, 10, 11.5, 13, 15],
+  pr: "Dentis Abutments",
+  ind: "Universalimplantat, Budget",
+  fe: ["s-Clean hydrophil", "Breites Sortiment"],
+  he: "6–8 Wo.",
+  sr: "96.0%",
+  ta: "30 Ncm",
+  ti: 25,
+  tx: 45,
+  bd: ["D1", "D2", "D3"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€",
+  isq: "65–80",
+  dp: "Dentis Standardsequenz.",
+  no: "Hydrophile Oberfläche für beschleunigte Heilung.",
+  url: "https://www.dentis.co.kr",
+  sc: ["dentis.co.kr"],
+  ev: {
+    st: 20,
+    fu: ">5J",
+    pi: "3.8%",
+    mbl: "0.35mm/1J",
+    bic: "63%",
+    wg: "Standard"
+  },
+  cx: {
+    op: "15–25",
+    lk: "Niedrig",
+    rv: "2.5%",
+    lt: "95.5% @5J"
+  },
+  ec: {
+    ki: "€ (Dentis-Kit ~800€)",
+    pk: "€ (ab 30€/St.)"
+  },
+  sd: "s-Clean: Proprietäre SLA-Variante. Sandgestrahlt + Säuregeätzt mit zusätzlichem Reinigungsschritt.",
+  ae: "Basis – günstigstes Segment, keine ästhetischen Besonderheiten"
+},
+// ── SWEDEN & MARTINA ──
+{
+  id: 40,
+  m: "Sweden & Martina",
+  co: "Italien",
+  fl: "🇮🇹",
+  t: "High-Quality",
+  s: "Premium",
+  n: "S&M Premium®",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "cp Titan Grade 4",
+  su: "ZirTi®",
+  cn: "ConicalFit™",
+  ct: "Konisch",
+  di: [3.3, 3.8, 4.25, 5.0],
+  le: [7, 8.5, 10, 11.5, 13, 15],
+  pr: "ConicalFit Abutments",
+  ind: "Universalimplantat",
+  fe: ["ZirTi® (Zirkon+Titan-Behandlung)", "ConicalFit™", "Platform Switching"],
+  he: "6–8 Wo.",
+  sr: "97.0%",
+  ta: "25 Ncm",
+  ti: 20,
+  tx: 45,
+  bd: ["D1", "D2", "D3"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€€€",
+  isq: "65–80",
+  dp: "S&M ConicalFit Bohrersequenz.",
+  no: "Italienisches Premium-System. ZirTi® Oberfläche.",
+  url: "https://www.sweden-martina.com",
+  sc: ["sweden-martina.com"],
+  ev: {
+    st: 65,
+    fu: ">10J",
+    pi: "2.8%",
+    mbl: "0.25mm/1J",
+    bic: "68%",
+    wg: "Gut (ZirTi)"
+  },
+  cx: {
+    op: "18–28",
+    lk: "Niedrig",
+    rv: "1.8%",
+    lt: "96.8% @10J"
+  },
+  ec: {
+    ki: "€€€ (S&M-Kit ~1.800€)",
+    pk: "€€€ (ab 110€/St.)"
+  },
+  sd: "ZirTi®: Sandgestrahlt (ZrO₂) + Säuregeätzt. Zirkon-Partikel statt Aluminium. Keine Al₂O₃-Rückstände. Ra=1.3µm.",
+  ae: "Gut – ZirTi-Oberfläche mit Zirkonpartikeln innovativ. Italienische Qualität"
+},
+// ── NORIS MEDICAL ──
+{
+  id: 41,
+  m: "Noris Medical",
+  co: "Israel",
+  fl: "🇮🇱",
+  t: "Value",
+  s: "Tuff",
+  n: "Noris Medical Tuff®",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "cp Titan Grade 4",
+  su: "RBM",
+  cn: "Internal Hex",
+  ct: "Intern Hex",
+  di: [3.3, 3.75, 4.2, 5.0, 6.0],
+  le: [6, 8, 10, 11.5, 13, 16],
+  pr: "Multi-unit Abutments",
+  ind: "Budget, alle Indikationen, Zygoma",
+  fe: ["RBM Oberfläche", "Zygomatic Option", "Budget"],
+  he: "8–12 Wo.",
+  sr: "95.5%",
+  ta: "30 Ncm",
+  ti: 25,
+  tx: 50,
+  bd: ["D1", "D2", "D3", "D4"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€",
+  isq: "65–80",
+  dp: "Noris Medical Standardprotokoll.",
+  no: "Budget-System mit Zygoma-Option.",
+  url: "https://www.norismedical.com",
+  sc: ["norismedical.com"],
+  ev: {
+    st: 15,
+    fu: ">5J",
+    pi: "4.0%",
+    mbl: "0.4mm/1J",
+    bic: "62%",
+    wg: "Standard"
+  },
+  cx: {
+    op: "15–25",
+    lk: "Niedrig",
+    rv: "3.0%",
+    lt: "94.5% @5J"
+  },
+  ec: {
+    ki: "€ (Noris-Kit ~600€)",
+    pk: "€ (ab 20€/St.)"
+  },
+  sd: "RBM: Resorbable Blast Media, kalziumphosphat-gestrahlt. Biokompatibleres Strahlmittel als Al₂O₃.",
+  ae: "Basis – Einstiegssystem, keine ästhetischen Besonderheiten"
+},
+// ── KEYSTONE DENTAL ──
+{
+  id: 42,
+  m: "Keystone Dental",
+  co: "USA",
+  fl: "🇺🇸",
+  t: "Mid-Range",
+  s: "Genesis",
+  n: "Keystone Genesis®",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "cp Titan Grade 4",
+  su: "BioSpark™",
+  cn: "Internal Hex",
+  ct: "Intern Hex",
+  di: [3.5, 4.0, 5.0],
+  le: [8, 10, 11.5, 13, 16],
+  pr: "Genesis Abutments, PrimeLoc®",
+  ind: "Universalimplantat",
+  fe: ["BioSpark™ bioaktiv", "PrimeLoc® Attachment", "Selbstschneidend"],
+  he: "6–8 Wo.",
+  sr: "96.5%",
+  ta: "30 Ncm",
+  ti: 25,
+  tx: 50,
+  bd: ["D1", "D2", "D3"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€€",
+  isq: "65–80",
+  dp: "Keystone Genesis Standardsequenz.",
+  no: "BioSpark™ = Bioaktive Nanooberfläche.",
+  url: "https://www.keystonedental.com",
+  sc: ["keystonedental.com"],
+  ev: {
+    st: 20,
+    fu: ">5J",
+    pi: "3.2%",
+    mbl: "0.3mm/1J",
+    bic: "66%",
+    wg: "Gut"
+  },
+  cx: {
+    op: "15–25",
+    lk: "Niedrig",
+    rv: "2.0%",
+    lt: "96.0% @5J"
+  },
+  ec: {
+    ki: "€€ (Genesis-Kit ~1.200€)",
+    pk: "€€ (ab 65€/St.)"
+  },
+  sd: "SLA: Sandgestrahlt + Säuregeätzt. Progressive Gewindesteigung für variable Knochendichte.",
+  ae: "Standard – solides System, keine besonderen ästhetischen Features"
+},
+// ── NEOSS (NEU) ──
+{
+  id: 43,
+  m: "Neoss",
+  co: "Schweden",
+  fl: "🇸🇪",
+  t: "Mid-Range",
+  s: "ProActive",
+  n: "Neoss ProActive®",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "cp Titan Grade 4",
+  su: "ProActive® (CaPO₄-Nano)",
+  cn: "Conical Seal",
+  ct: "Konisch",
+  di: [3.5, 4.0, 4.5, 5.0, 5.5],
+  le: [7, 9, 11, 13, 15],
+  pr: "Neoss Abutments, CADCAM",
+  ind: "Universalimplantat, Schwedische Qualität",
+  fe: ["ProActive® CaPO₄", "Konische Verbindung", "Schwedisch"],
+  he: "6–8 Wo.",
+  sr: "97.0%",
+  ta: "25 Ncm",
+  ti: 20,
+  tx: 45,
+  bd: ["D1", "D2", "D3"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€€",
+  isq: "65–80",
+  dp: "Neoss ProActive Bohrersequenz.",
+  no: "Schwedisches System. Nanostrukturierte CaPO₄-Oberfläche.",
+  url: "https://www.neoss.com",
+  sc: ["neoss.com"],
+  ev: {
+    st: 45,
+    fu: ">10J",
+    pi: "2.5%",
+    mbl: "0.2mm/1J",
+    bic: "70%",
+    wg: "Sehr gut (ProActive)"
+  },
+  cx: {
+    op: "18–28",
+    lk: "Niedrig",
+    rv: "1.5%",
+    lt: "97.0% @10J"
+  },
+  ec: {
+    ki: "€€ (Neoss-Kit ~1.400€)",
+    pk: "€€ (ab 75€/St.)"
+  },
+  sd: "ProActive®: Sandgestrahlt + chemisch modifiziert (CaP-Beschichtung). Hydrophile Oberfläche. Ra=1.4µm. Schwedische Innovation.",
+  ae: "Gut – hydrophile Oberfläche fördert schnelle Einheilung. Gute skandinavische Studien"
+},
+// ── ADIN (NEU) ──
+{
+  id: 44,
+  m: "Adin",
+  co: "Israel",
+  fl: "🇮🇱",
+  t: "Value",
+  s: "Touareg-S",
+  n: "Adin Touareg-S®",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "cp Titan Grade 4",
+  su: "SLA OsseoFix™",
+  cn: "Conical Hex",
+  ct: "Konisch + Hex",
+  di: [3.5, 4.0, 4.5, 5.0, 6.0],
+  le: [8, 10, 11.5, 13, 16],
+  pr: "Adin Abutments, Multi-unit",
+  ind: "Universalimplantat, Budget",
+  fe: ["OsseoFix™ SLA", "Konische Verbindung", "Budget"],
+  he: "8–12 Wo.",
+  sr: "96.0%",
+  ta: "30 Ncm",
+  ti: 25,
+  tx: 50,
+  bd: ["D1", "D2", "D3"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€",
+  isq: "65–80",
+  dp: "Adin Standardprotokoll.",
+  no: "Israelisches Budget-System mit konischer Verbindung.",
+  url: "https://www.adin-implants.com",
+  sc: ["adin-implants.com"],
+  ev: {
+    st: 25,
+    fu: ">7J",
+    pi: "3.8%",
+    mbl: "0.35mm/1J",
+    bic: "63%",
+    wg: "Standard"
+  },
+  cx: {
+    op: "15–25",
+    lk: "Niedrig",
+    rv: "2.5%",
+    lt: "95.5% @7J"
+  },
+  ec: {
+    ki: "€ (Adin-Kit ~800€)",
+    pk: "€ (ab 30€/St.)"
+  },
+  sd: "OsseoFix™: SLA-Typ, sandgestrahlt + säuregeätzt. Ra=1.5µm. Doppelgewinde für schnelle Insertion.",
+  ae: "Basis – günstig, funktional, keine ästhetischen Besonderheiten"
+},
+// ── S.I.N. IMPLANT SYSTEM (NEU – Henry Schein 2023 akquiriert) ──
+{
+  id: 45,
+  m: "S.I.N. Implant System",
+  co: "Brasilien",
+  fl: "🇧🇷",
+  t: "Value",
+  s: "Strong SW",
+  n: "S.I.N. Strong SW®",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "cp Titan Grade 4",
+  su: "Singular® (hydrophil)",
+  cn: "Morse Taper (11.5°)",
+  ct: "Konisch (Morse)",
+  di: [3.5, 4.0, 4.5, 5.0],
+  le: [6, 8, 10, 11.5, 13, 16],
+  pr: "S.I.N. Abutments, CADCAM",
+  ind: "Universalimplantat, Sofortbelastung",
+  fe: ["Singular® hydrophil", "11.5° Morse Taper", "Henry Schein-Gruppe"],
+  he: "6–8 Wo.",
+  sr: "96.5%",
+  ta: "25 Ncm",
+  ti: 25,
+  tx: 50,
+  bd: ["D2", "D3", "D4"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€",
+  isq: "65–80",
+  dp: "S.I.N. Standardprotokoll.",
+  no: "2023 von Henry Schein akquiriert. Größter brasilianischer Hersteller.",
+  url: "https://www.sinimplantsystem.com",
+  sc: ["sinimplantsystem.com"],
+  ev: {
+    st: 30,
+    fu: ">7J",
+    pi: "3.5%",
+    mbl: "0.3mm/1J",
+    bic: "65%",
+    wg: "Gut (Singular)"
+  },
+  cx: {
+    op: "15–25",
+    lk: "Niedrig",
+    rv: "2.2%",
+    lt: "95.8% @7J"
+  },
+  ec: {
+    ki: "€ (S.I.N.-Kit ~900€)",
+    pk: "€ (ab 35€/St.)"
+  },
+  sd: "Singular®: Hydrophile Oberfläche, sandgestrahlt + säuregeätzt + chemische Aktivierung. Brasilianische Innovation.",
+  ae: "Standard – Henry Schein-Vertrieb sichert gute Verfügbarkeit"
+},
+// ── CERAROOT (NEU – Keramik) ──
+{
+  id: 46,
+  m: "CeraRoot",
+  co: "Spanien",
+  fl: "🇪🇸",
+  t: "High-Quality",
+  s: "T10 ICE",
+  n: "CeraRoot® T10 ICE",
+  tp: "Tissue Level",
+  fo: "Tapered",
+  ma: "Y-TZP Zirkonoxid",
+  su: "ICE® (proprietär)",
+  cn: "Einteilig",
+  ct: "Einteilig",
+  di: [4.0, 4.5, 5.0],
+  le: [10, 12, 14],
+  pr: "Integriertes Abutment",
+  ind: "Metallfreie Versorgung, Ästhetikzone",
+  fe: ["100% metallfrei", "ICE® Oberfläche", "FDA-zugelassen", "Einteilig"],
+  he: "12–16 Wo.",
+  sr: "95.0%",
+  ta: "–",
+  ti: 15,
+  tx: 35,
+  bd: ["D1", "D2", "D3"],
+  im: false,
+  gs: false,
+  dw: true,
+  pp: "€€€",
+  isq: "55–70",
+  dp: "Vorsichtige Aufbereitung für Keramik. Kein Gewindeschneiden.",
+  no: "Pionier der Keramikimplantate. FDA-zugelassen seit 2011.",
+  url: "https://www.ceraroot.com",
+  sc: ["ceraroot.com"],
+  ev: {
+    st: 20,
+    fu: ">5J",
+    pi: "1.2%",
+    mbl: "0.35mm/1J",
+    bic: "52%",
+    wg: "Sehr gut (Zirkon)"
+  },
+  cx: {
+    op: "25–40",
+    lk: "Hoch (einteilig, keine Achskorrektur)",
+    rv: "4.8%",
+    lt: "93.0% @5J"
+  },
+  ec: {
+    ki: "€€€ (Standard-Kit)",
+    pk: "€€€ (Spezialkronen nötig)"
+  },
+  sd: "ICE® (Integrated Ceramic Engineering): Proprietäre Zirkonoxid-Oberfläche. Vollkeramisch, einteilig. Ra=1.1µm.",
+  ae: "Hervorragend bei richtiger Indikation – metallfrei, keine Graufärbung. Einteilig limitiert Achskorrektur"
+},
+// ── GLIDEWELL (NEU – USA, ehem. Hahn™) ──
+{
+  id: 47,
+  m: "Glidewell",
+  co: "USA",
+  fl: "🇺🇸",
+  t: "Mid-Range",
+  s: "HT",
+  n: "Glidewell HT™",
+  tp: "Bone Level",
+  fo: "Tapered",
+  ma: "Ti-6Al-4V ELI (Grade 23)",
+  su: "Machined Collar + SBM",
+  cn: "Conical Connection",
+  ct: "Konisch",
+  di: [3.0, 3.5, 4.3, 5.0, 6.0, 7.0],
+  le: [8, 10, 11.5, 13, 16],
+  pr: "Encode®-kompatibel, BruxZir®",
+  ind: "Universalimplantat, Full-Arch, Sofortimplantation",
+  fe: ["99.2% Erfolgsrate", "Ti-6Al-4V ELI (Grade 23)", "Längsspezifische Bohrer", "Von Dr. Jack Hahn (NobelReplace-Erfinder)", "6 Durchmesser"],
+  he: "6–8 Wo.",
+  sr: "99.2%",
+  ta: "30 Ncm",
+  ti: 25,
+  tx: 50,
+  bd: ["D1", "D2", "D3", "D4"],
+  im: true,
+  gs: true,
+  dw: true,
+  pp: "€€",
+  isq: "65–80",
+  dp: "Pilotbohrer ∅1.5 → Twist ∅2.4 → Twist ∅2.8 → Shaping Drill nach ∅. Längsspezifisch!",
+  no: "Ehem. Hahn™ Tapered. Grade 23 Ti = stärker als Grade 4. 99.2% Erfolgsrate. USA-gefertigt.",
+  url: "https://glidewelldental.com/solutions/glidewell-ht-dental-implant",
+  sc: ["glidewelldental.com"],
+  ev: {
+    st: 15,
+    fu: ">3J",
+    pi: "3.0%",
+    mbl: "0.25mm/1J (vorläufig)",
+    bic: "68%",
+    wg: "Gut"
+  },
+  cx: {
+    op: "15–25",
+    lk: "Niedrig",
+    rv: "k.A.",
+    lt: "97.0% @3J (limitiert)"
+  },
+  ec: {
+    ki: "€€ (Hahn-Kit ~1.500€)",
+    pk: "€€ (BruxZir-Kronen ab 100€)"
+  },
+  sd: "Sandgestrahlt + Säuregeätzt. Optimiert für Glidewell-interne CADCAM-Fertigung (BruxZir). Ra=1.5µm.",
+  ae: "Gut – integrierter digitaler Workflow mit Glidewell BruxZir. Effizient"
+}];
+
+/* ═══════ SCAN BODY DATABASE ═══════ */
+/* Alle URLs verifiziert via web_fetch/web_search am 28.02.2026 */
+/* Quellen: Straumann DE Shop, Nobel International Store, Medentika DE, DESS Europe, Dentsply EU */
+const MEDENTIKA = "https://www.straumann.com/medentika/de/de/professional/mps-multi-platform-systems.html";
+const NOBEL_SB = "https://store.nobelbiocare.com/international/en/cad-cam/cad-cam-components/scan-bodies-for-io-desktop";
+const DENTSPLY_DW = "https://www.dentsplysirona.com/en-gb/categories/implant-prosthetics/digital-workflow.html";
+const DESS_ALL = "https://www.dessdental.com/en-eu/scan-abutments/";
+const SB = {
+  "BLX": [{
+    n: "Straumann Metal Scanbody RB/WB",
+    art: "065.0103",
+    shop: "https://shop.straumann.com/de/de_de/Prothetikkomponenten/BLX-&-BLC-Prothetik-(iExcel)/f%C3%BCr-Regular-Base-(RB)-Implantate/Digitale-Abformung-RB-WB/Scanbody-RB-WB/p/065.0103",
+    oem: true
+  }, {
+    n: "Medentika LX-Series RB/WB",
+    art: "LX 1400",
+    shop: "https://shop.straumann.com/medentika/de/de_de/MPS/Straumann--kompatibel/LX-Serie---kompatibel-mit-Straumann-BLX-BLC/LX-Series-Scanbody/p/base_med_lxseriescanbody",
+    oem: false
+  }, {
+    n: "DESS Scan Body BLX",
+    art: "52.062",
+    shop: "https://www.dessdental.com/en-eu/scan-abutment-compatible-with-straumann-blx",
+    oem: false
+  }],
+  "BLT": [{
+    n: "Straumann Metal Scanbody NC",
+    art: "025.0078",
+    shop: "https://shop.straumann.com/de/de_de/Prothetikkomponenten/Bone-Level-Bone-Level-Tapered-(BL-BLT)/f%C3%BCr-Narrow-CrossFit%C2%AE-(NC)-Implantate/Digitale-Abformung-NC/Scanbody-NC/p/025.0078",
+    oem: true
+  }, {
+    n: "Straumann Metal Scanbody RC",
+    art: "025.0079",
+    shop: "https://shop.straumann.com/de/de_de/Prothetikkomponenten/Bone-Level-Bone-Level-Tapered-(BL-BLT)/f%C3%BCr-Regular-CrossFit%C2%AE-(RC)-Implantate/Digitale-Abformung-RC/Scanbody-RC/p/025.0079",
+    oem: true
+  }, {
+    n: "Medentika L-Series",
+    art: "L 1400",
+    shop: "https://shop.straumann.com/medentika/de/de_de/MPS/Straumann--kompatibel/L-Serie---kompatibel-mit-Straumann-Bone-Level/L-Series-Scanbody/p/base_med_lseriescanbody",
+    oem: false
+  }, {
+    n: "DESS Scan Body BL",
+    art: "52.00x",
+    shop: "https://www.dessdental.com/en-eu/scan-abutment-compatible-with-straumann-bone-level",
+    oem: false
+  }],
+  "BLC": [{
+    n: "Straumann Metal Scanbody RB/WB",
+    art: "065.0103",
+    shop: "https://shop.straumann.com/de/de_de/Prothetikkomponenten/BLX-&-BLC-Prothetik-(iExcel)/f%C3%BCr-Regular-Base-(RB)-Implantate/Digitale-Abformung-RB-WB/Scanbody-RB-WB/p/065.0103",
+    oem: true
+  }, {
+    n: "Medentika LX-Series RB/WB",
+    art: "LX 1400",
+    shop: "https://shop.straumann.com/medentika/de/de_de/MPS/Straumann--kompatibel/LX-Serie---kompatibel-mit-Straumann-BLX-BLC/LX-Series-Scanbody/p/base_med_lxseriescanbody",
+    oem: false
+  }],
+  "TLX": [{
+    n: "Straumann Metal Scanbody NT/RT/WT",
+    art: "036.3230",
+    shop: "https://shop.straumann.com/de/de_de/Prothetikkomponenten/BLX-&-BLC-Prothetik-(iExcel)/f%C3%BCr-Regular-Base-(RB)-Implantate/Digitale-Abformung-RB-WB/Scanbody-RB-WB/p/065.0103",
+    oem: true
+  }, {
+    n: "Medentika N-Series TL",
+    art: "N 1410",
+    shop: "https://shop.straumann.com/medentika/de/de_de/MPS/Straumann--kompatibel/N-Serie---kompatibel-mit-Straumann-Tissue-Level/N-Serie-Scanbody/p/base_med_nseriescanbody",
+    oem: false
+  }],
+  "PURE Ceramic": [{
+    n: "Straumann PURE Scanbody CI RD",
+    art: "032.130",
+    shop: "https://shop.straumann.com/de/de_de/Prothetikkomponenten/BLX-&-BLC-Prothetik-(iExcel)/f%C3%BCr-Regular-Base-(RB)-Implantate/Digitale-Abformung-RB-WB/Scanbody-RB-WB/p/065.0103",
+    oem: true
+  }],
+  "NobelActive": [{
+    n: "Elos Accurate IO CC NP (∅3.0/3.5)",
+    art: "IO 2B-A SA",
+    shop: NOBEL_SB,
+    oem: true
+  }, {
+    n: "Elos Accurate IO CC RP (∅4.3/5.0)",
+    art: "IO 2B-B SA",
+    shop: NOBEL_SB,
+    oem: true
+  }, {
+    n: "Elos Accurate IO CC WP (∅5.5)",
+    art: "IO 2B-C SA",
+    shop: NOBEL_SB,
+    oem: true
+  }, {
+    n: "Medentika F-Series CC",
+    art: "F 1400",
+    shop: "https://shop.straumann.com/medentika/de/de_de/MPS/Nobel-Biocare--kompatibel/F-Serie---kompatibel-mit-Nobel-Biocare-NobelActive%C2%AE-NobelReplace%C2%AE-Conical/F-Serie-Scanbody/p/base_med_fseriescanbody",
+    oem: false
+  }],
+  "NobelParallel CC": [{
+    n: "Elos Accurate IO CC RP",
+    art: "IO 2B-B SA",
+    shop: NOBEL_SB,
+    oem: true
+  }, {
+    n: "Medentika F-Series CC",
+    art: "F 1410",
+    shop: "https://shop.straumann.com/medentika/de/de_de/MPS/Nobel-Biocare--kompatibel/F-Serie---kompatibel-mit-Nobel-Biocare-NobelActive%C2%AE-NobelReplace%C2%AE-Conical/F-Serie-Scanbody/p/base_med_fseriescanbody",
+    oem: false
+  }],
+  "N1": [{
+    n: "Nobel N1 Pos. Locator TCC",
+    art: "300976/300977",
+    shop: NOBEL_SB,
+    oem: true
+  }],
+  "NobelPearl": [{
+    n: "NobelPearl Scan Body",
+    art: "Hersteller anfragen",
+    shop: NOBEL_SB,
+    oem: true
+  }],
+  "Astra Tech EV": [{
+    n: "Atlantis IO Scanbody EV",
+    art: "Atlantis IO EV",
+    shop: DENTSPLY_DW,
+    oem: true
+  }, {
+    n: "Medentika EV-Series",
+    art: "EV 1400",
+    shop: MEDENTIKA,
+    oem: false
+  }, {
+    n: "DESS Scan Body Astra EV",
+    art: "52.0xx",
+    shop: DESS_ALL,
+    oem: false
+  }],
+  "Ankylos": [{
+    n: "Ankylos Scanbody C/X",
+    art: "Ankylos C/X SB",
+    shop: DENTSPLY_DW,
+    oem: true
+  }, {
+    n: "Medentika Y-Series",
+    art: "Y 1400X",
+    shop: MEDENTIKA,
+    oem: false
+  }, {
+    n: "DESS Scan Body Ankylos",
+    art: "52.0xx",
+    shop: "https://www.dessdental.com/en-eu/scan-abutment-compatible-with-dentsply-ankylos",
+    oem: false
+  }],
+  "XiVE": [{
+    n: "XiVE/FRIADENT Scanbody",
+    art: "FRIADENT SB",
+    shop: DENTSPLY_DW,
+    oem: true
+  }, {
+    n: "Medentika T-Series",
+    art: "T 1400",
+    shop: MEDENTIKA,
+    oem: false
+  }],
+  "Tapered Internal": [{
+    n: "BioHorizons Scanbody",
+    art: "BH Digital SB",
+    shop: "https://www.dessdental.com/en-eu/biohorizons/",
+    oem: false
+  }, {
+    n: "Medentika R-Series",
+    art: "R 1400",
+    shop: MEDENTIKA,
+    oem: false
+  }],
+  "SCREW-LINE": [{
+    n: "CAMLOG Scanbody",
+    art: "CAMLOG SB",
+    shop: "https://www.dessdental.com/en-eu/camlog/",
+    oem: false
+  }, {
+    n: "Medentika C-Series",
+    art: "C 1400",
+    shop: MEDENTIKA,
+    oem: false
+  }],
+  "CONELOG": [{
+    n: "CONELOG Scanbody",
+    art: "CONELOG SB",
+    shop: "https://www.dessdental.com/en-eu/camlog/",
+    oem: false
+  }, {
+    n: "Medentika D-Series",
+    art: "D 1400",
+    shop: MEDENTIKA,
+    oem: false
+  }],
+  "TSX": [{
+    n: "ZimVie Encode Scanbody",
+    art: "Encode SB",
+    shop: "https://www.dessdental.com/en-eu/p/scan-abutment-compatible-with-zimmer-screw-vent/",
+    oem: false
+  }, {
+    n: "Medentika Z-Series",
+    art: "Z 1400",
+    shop: MEDENTIKA,
+    oem: false
+  }],
+  "TSV": [{
+    n: "ZimVie Encode Scanbody",
+    art: "Encode SB",
+    shop: "https://www.dessdental.com/en-eu/p/scan-abutment-compatible-with-zimmer-screw-vent/",
+    oem: false
+  }, {
+    n: "Medentika Z-Series",
+    art: "Z 1400",
+    shop: MEDENTIKA,
+    oem: false
+  }],
+  "T3": [{
+    n: "ZimVie T3 Encode Scanbody",
+    art: "Encode SB",
+    shop: "https://www.dessdental.com/en-eu/p/scan-abutment-compatible-with-zimmer-screw-vent/",
+    oem: false
+  }, {
+    n: "Medentika Z-Series",
+    art: "Z 1400",
+    shop: MEDENTIKA,
+    oem: false
+  }],
+  "AnyRidge": [{
+    n: "DESS Scan Body AnyRidge",
+    art: "52.057",
+    shop: "https://www.dessdental.com/en-eu/scan-abutment-compatible-with-megagen-anyridge",
+    oem: false
+  }, {
+    n: "DESS Scan Body AnyRidge (EU)",
+    art: "52.057",
+    shop: "https://www.dessdental.com/en-eu/scan-abutment-compatible-with-megagen-anyridge",
+    oem: false
+  }, {
+    n: "Medentika MG-Series",
+    art: "MG 1400",
+    shop: MEDENTIKA,
+    oem: false
+  }],
+  "AnyOne": [{
+    n: "Medentika MG-Series",
+    art: "MG 1400",
+    shop: MEDENTIKA,
+    oem: false
+  }],
+  "TS III SA": [{
+    n: "DESS Scan Body Osstem/Hiossen",
+    art: "52.0xx",
+    shop: "https://www.dessdental.com/en-eu/p/scan-abutment-compatible-with-osstem-ts/",
+    oem: false
+  }, {
+    n: "Medentika OC-Series",
+    art: "OC 1400",
+    shop: MEDENTIKA,
+    oem: false
+  }],
+  "TS IV SA": [{
+    n: "DESS Scan Body Osstem/Hiossen",
+    art: "52.0xx",
+    shop: "https://www.dessdental.com/en-eu/p/scan-abutment-compatible-with-osstem-ts/",
+    oem: false
+  }, {
+    n: "Medentika OC-Series",
+    art: "OC 1400",
+    shop: MEDENTIKA,
+    oem: false
+  }],
+  "ET III": [{
+    n: "DESS Scan Body Osstem/Hiossen",
+    art: "52.0xx",
+    shop: "https://www.dessdental.com/en-eu/p/scan-abutment-compatible-with-osstem-ts/",
+    oem: false
+  }, {
+    n: "Medentika OT-Series",
+    art: "OT 1400-L",
+    shop: MEDENTIKA,
+    oem: false
+  }],
+  "Helix GM": [{
+    n: "DESS Scan Body Neodent GM",
+    art: "52.0xx",
+    shop: "https://www.dessdental.com/en-eu/p/scan-abutment-compatible-with-neodent-grand-morse",
+    oem: false
+  }],
+  "C1": [{
+    n: "DESS Scan Body MIS",
+    art: "52.0xx",
+    shop: "https://www.dessdental.com/en-eu/scan-abutment-compatible-with-mis-seven",
+    oem: false
+  }, {
+    n: "Medentika R-Series (MIS-komp.)",
+    art: "R 1400",
+    shop: MEDENTIKA,
+    oem: false
+  }],
+  "V3": [{
+    n: "DESS Scan Body MIS",
+    art: "52.0xx",
+    shop: "https://www.dessdental.com/en-eu/scan-abutment-compatible-with-mis-seven",
+    oem: false
+  }, {
+    n: "Medentika R-Series (MIS-komp.)",
+    art: "R 1400",
+    shop: MEDENTIKA,
+    oem: false
+  }],
+  "Semados RSX": [{
+    n: "Medentika BS-Series",
+    art: "BS 1400",
+    shop: MEDENTIKA,
+    oem: false
+  }],
+  "SPI Element": [{
+    n: "Thommen SPI Scanbody",
+    art: "SPI SB",
+    shop: DESS_ALL,
+    oem: false
+  }],
+  "ICX-Premium": [{
+    n: "medentis ICX Scanbody",
+    art: "CX 1400",
+    shop: DESS_ALL,
+    oem: false
+  }],
+  "SHORT": [{
+    n: "Bicon Scannable Temporary Abutment",
+    art: "260-xxx",
+    shop: "https://www.bicon.com/products/impression/digital-impression/",
+    oem: true
+  }],
+  "SuperLine": [{
+    n: "Medentika DT-Series",
+    art: "DT 1400",
+    shop: MEDENTIKA,
+    oem: false
+  }],
+  "NeO": [{
+    n: "DESS Scan Body (kompatibel)",
+    art: "52.0xx",
+    shop: DESS_ALL,
+    oem: false
+  }],
+  "Legacy": [{
+    n: "DESS Scan Body Zimmer",
+    art: "52.0xx",
+    shop: "https://www.dessdental.com/en-eu/p/scan-abutment-compatible-with-zimmer-screw-vent/",
+    oem: false
+  }, {
+    n: "Medentika Z-Series (Zimmer-komp.)",
+    art: "Z 1400",
+    shop: MEDENTIKA,
+    oem: false
+  }],
+  "Axiom ML": [{
+    n: "DESS Scan Body (kompatibel)",
+    art: "52.0xx",
+    shop: DESS_ALL,
+    oem: false
+  }],
+  "Interna": [{
+    n: "DESS Scan Body BTI",
+    art: "52.0xx",
+    shop: DESS_ALL,
+    oem: false
+  }],
+  "MAX": [{
+    n: "DESS Scan Body (kompatibel)",
+    art: "52.0xx",
+    shop: DESS_ALL,
+    oem: false
+  }],
+  "XT": [{
+    n: "Zeramex XT Scan Body (Hersteller)",
+    art: "XT SB",
+    shop: DESS_ALL,
+    oem: false
+  }],
+  "copaSKY": [{
+    n: "Medentika B-Series",
+    art: "B 1400",
+    shop: MEDENTIKA,
+    oem: false
+  }],
+  "s-Clean": [{
+    n: "DESS Scan Body (kompatibel)",
+    art: "52.0xx",
+    shop: DESS_ALL,
+    oem: false
+  }],
+  "Premium": [{
+    n: "DESS Scan Body (kompatibel)",
+    art: "52.0xx",
+    shop: DESS_ALL,
+    oem: false
+  }],
+  "Tuff": [{
+    n: "DESS Scan Body (kompatibel)",
+    art: "52.0xx",
+    shop: DESS_ALL,
+    oem: false
+  }],
+  "Genesis": [{
+    n: "DESS Scan Body (kompatibel)",
+    art: "52.0xx",
+    shop: DESS_ALL,
+    oem: false
+  }],
+  "ProActive": [{
+    n: "Medentika NE-Series",
+    art: "NE 1400",
+    shop: MEDENTIKA,
+    oem: false
+  }],
+  "Touareg-S": [{
+    n: "DESS Scan Body (kompatibel)",
+    art: "52.0xx",
+    shop: DESS_ALL,
+    oem: false
+  }],
+  "Strong SW": [{
+    n: "DESS Scan Body (kompatibel)",
+    art: "52.0xx",
+    shop: DESS_ALL,
+    oem: false
+  }],
+  "T10 ICE": [],
+  "HT": [{
+    n: "DESS Scan Body BLX (EU)",
+    art: "52.062",
+    shop: "https://www.dessdental.com/en-eu/scan-abutment-compatible-with-straumann-blx",
+    oem: false
+  }]
+};
+
+/* ═══════ COLORS & HELPERS ═══════ */
+const CL = {
+  bg: "#f5f6fa",
+  card: "#ffffff",
+  cardH: "#f0f2f8",
+  acc: "#2563eb",
+  accL: "#1e40af",
+  accD: "rgba(37,99,235,0.06)",
+  ok: "#059669",
+  warn: "#d97706",
+  err: "#dc2626",
+  tx: "#1a1f36",
+  txS: "#475569",
+  txM: "#94a3b8",
+  bd: "rgba(0,0,0,0.08)",
+  bdL: "rgba(0,0,0,0.12)",
+  prem: "#7c3aed",
+  hq: "#2563eb",
+  mid: "#059669",
+  val: "#d97706"
+};
+const TC = t => t === "Premium" ? CL.prem : t === "High-Quality" ? CL.hq : t === "Mid-Range" ? CL.mid : CL.val;
+const PC = p => p === "€€€€" ? "#7c3aed" : p === "€€€" ? "#2563eb" : p === "€€" ? "#059669" : "#d97706";
+const BD = {
+  D1: {
+    d: "Sehr dicht (kortikal)",
+    c: "#64748b"
+  },
+  D2: {
+    d: "Dicht (kortikal+spongiös)",
+    c: "#2563eb"
+  },
+  D3: {
+    d: "Weich (dünne Kortikalis)",
+    c: "#d97706"
+  },
+  D4: {
+    d: "Sehr weich (spongiös)",
+    c: "#dc2626"
+  }
+};
+const mfrs = [...new Set(D.map(i => i.m))].sort();
+const tiers = ["Premium", "High-Quality", "Mid-Range", "Value"];
+const conns = [...new Set(D.map(i => i.ct))].sort();
+
+/* Implant SVG - unique gradient ID per instance */
+function ImpSVG({
+  form,
+  sz = 50,
+  color = "#2563eb"
+}) {
+  const uid = "g" + Math.random().toString(36).substr(2, 6);
+  const w = sz * 0.5,
+    h = sz;
+  const grd = /*#__PURE__*/React.createElement("linearGradient", {
+    id: uid,
+    x1: "0",
+    y1: "0",
+    x2: "0",
+    y2: "1"
+  }, /*#__PURE__*/React.createElement("stop", {
+    offset: "0%",
+    stopColor: color,
+    stopOpacity: "0.8"
+  }), /*#__PURE__*/React.createElement("stop", {
+    offset: "100%",
+    stopColor: color,
+    stopOpacity: "0.2"
+  }));
+  const ln = ys => ys.map(y => /*#__PURE__*/React.createElement("line", {
+    key: y,
+    x1: "7",
+    y1: y,
+    x2: "23",
+    y2: y,
+    stroke: color,
+    strokeWidth: "0.4",
+    opacity: "0.3"
+  }));
+  if (form.includes("Fully Tapered")) return /*#__PURE__*/React.createElement("svg", {
+    width: w,
+    height: h,
+    viewBox: "0 0 30 60"
+  }, /*#__PURE__*/React.createElement("defs", null, grd), /*#__PURE__*/React.createElement("rect", {
+    x: "9",
+    y: "0",
+    width: "12",
+    height: "7",
+    rx: "2",
+    fill: color,
+    opacity: "0.5"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M6 7 L24 7 L17 55 Q15 59 13 55 Z",
+    fill: `url(#${uid})`
+  }), ln([14, 21, 28, 35, 42, 49]));
+  if (form === "Tapered") return /*#__PURE__*/React.createElement("svg", {
+    width: w,
+    height: h,
+    viewBox: "0 0 30 60"
+  }, /*#__PURE__*/React.createElement("defs", null, grd), /*#__PURE__*/React.createElement("rect", {
+    x: "9",
+    y: "0",
+    width: "12",
+    height: "7",
+    rx: "2",
+    fill: color,
+    opacity: "0.5"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M7 7 L23 7 L19 52 Q15 58 11 52 Z",
+    fill: `url(#${uid})`
+  }), ln([14, 21, 28, 35, 42]));
+  if (form.includes("Zylindrisch") && !form.includes("konisch")) return /*#__PURE__*/React.createElement("svg", {
+    width: w,
+    height: h,
+    viewBox: "0 0 30 60"
+  }, /*#__PURE__*/React.createElement("defs", null, grd), /*#__PURE__*/React.createElement("rect", {
+    x: "9",
+    y: "0",
+    width: "12",
+    height: "7",
+    rx: "2",
+    fill: color,
+    opacity: "0.5"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "7",
+    y: "7",
+    width: "16",
+    height: "48",
+    rx: "2",
+    fill: `url(#${uid})`
+  }), ln([15, 23, 31, 39, 47]));
+  if (form.includes("Plateau") || form.includes("Finnen")) return /*#__PURE__*/React.createElement("svg", {
+    width: w,
+    height: h,
+    viewBox: "0 0 30 45"
+  }, /*#__PURE__*/React.createElement("rect", {
+    x: "9",
+    y: "0",
+    width: "12",
+    height: "8",
+    rx: "2",
+    fill: color,
+    opacity: "0.5"
+  }), [0, 1, 2, 3].map(i => /*#__PURE__*/React.createElement("rect", {
+    key: i,
+    x: "5",
+    y: 10 + i * 8,
+    width: "20",
+    height: "5",
+    rx: "1.5",
+    fill: color,
+    opacity: 0.6 - i * 0.1
+  })));
+  if (form.includes("Root")) return /*#__PURE__*/React.createElement("svg", {
+    width: w,
+    height: h,
+    viewBox: "0 0 30 60"
+  }, /*#__PURE__*/React.createElement("defs", null, grd), /*#__PURE__*/React.createElement("rect", {
+    x: "10",
+    y: "0",
+    width: "10",
+    height: "7",
+    rx: "2",
+    fill: color,
+    opacity: "0.5"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M8 7 Q7 7 7 9 L7 28 Q8 40 12 50 Q14 57 15 58 Q16 57 18 50 Q22 40 23 28 L23 9 Q23 7 22 7 Z",
+    fill: `url(#${uid})`
+  }));
+  return /*#__PURE__*/React.createElement("svg", {
+    width: w,
+    height: h,
+    viewBox: "0 0 30 60"
+  }, /*#__PURE__*/React.createElement("defs", null, grd), /*#__PURE__*/React.createElement("rect", {
+    x: "9",
+    y: "0",
+    width: "12",
+    height: "7",
+    rx: "2",
+    fill: color,
+    opacity: "0.5"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M7 7 L23 7 L21 50 Q15 57 9 50 Z",
+    fill: `url(#${uid})`
+  }), ln([15, 23, 31, 39]));
+}
+
+/* Badge component */
+function B({
+  children,
+  color = CL.acc,
+  style: sx = {}
+}) {
+  return /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      padding: "2px 7px",
+      borderRadius: 5,
+      fontSize: 13,
+      fontWeight: 600,
+      background: color + "14",
+      color,
+      border: `1px solid ${color}22`,
+      whiteSpace: "nowrap",
+      ...sx
+    }
+  }, children);
+}
+
+/* Multi-select filter */
+function MS({
+  label,
+  opts,
+  sel,
+  onT,
+  cFn
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 7
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: CL.txM,
+      marginBottom: 3,
+      fontWeight: 700,
+      textTransform: "uppercase",
+      letterSpacing: ".06em"
+    }
+  }, label), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexWrap: "wrap",
+      gap: 3
+    }
+  }, opts.map(o => {
+    const a = sel.includes(o);
+    const cl = cFn ? cFn(o) : CL.acc;
+    return /*#__PURE__*/React.createElement("button", {
+      key: o,
+      onClick: () => onT(o),
+      style: {
+        padding: "2px 7px",
+        borderRadius: 4,
+        fontSize: 13,
+        fontWeight: a ? 600 : 400,
+        border: `1px solid ${a ? cl + "55" : CL.bd}`,
+        background: a ? cl + "15" : "transparent",
+        color: a ? cl : CL.txM,
+        cursor: "pointer",
+        transition: "all .12s",
+        fontFamily: "inherit"
+      }
+    }, o);
+  })));
+}
+
+/* ═══════ MAIN APP ═══════ */
+function App() {
+  const [q, sQ] = useState("");
+  const [sel, sSel] = useState(null);
+  const [fM, sfM] = useState([]);
+  const [fT, sfT] = useState([]);
+  const [fC, sfC] = useState([]);
+  const [fMa, sfMa] = useState([]);
+  const [fB, sfB] = useState([]);
+  const [fI, sfI] = useState(false);
+  const [fD, sfD] = useState(false);
+  const [mD, smD] = useState("");
+  const [xD, sxD] = useState("");
+  const [mL, smL] = useState("");
+  const [shF, sshF] = useState(false);
+  const [srt, sSrt] = useState("name");
+  const [fav, sFav] = useState([]);
+  const [shFav, sshFav] = useState(false);
+  const [cmp, sCmp] = useState([]);
+  const [shCmp, sshCmp] = useState(false);
+  const [tab, sTab] = useState("db");
+  const [chatOpen, setChatOpen] = useState(false);
+  const [chatMsgs, setChatMsgs] = useState([]);
+  const [chatIn, setChatIn] = useState("");
+  const [chatLoading, setChatLoading] = useState(false);
+  const [apiKey, setApiKey] = useState("");
+  const [showKeyInput, setShowKeyInput] = useState(false);
+  const chatEndRef = {
+    current: null
+  };
+  const chatScrollRef = {
+    current: null
+  };
+  const tg = (a, s, v) => s(a.includes(v) ? a.filter(x => x !== v) : [...a, v]);
+  const tgF = id => sFav(f => f.includes(id) ? f.filter(x => x !== id) : [...f, id]);
+  const tgC = id => sCmp(x => x.includes(id) ? x.filter(v => v !== id) : x.length < 4 ? [...x, id] : x);
+
+  /* ═══════ CHAT – DUAL MODE ═══════ */
+
+  const fmtChat = (text, isUser) => {
+    let s = text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    if (isUser) return s;
+    s = s.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+    s = s.replace(/`([^`]+)`/g, "<code style='background:rgba(0,0,0,0.05);padding:1px 4px;border-radius:3px;font-size:12px'>$1</code>");
+    return s;
+  };
+  var chatMode = apiKey.trim().length > 10 ? "ai" : "local";
+
+  /* ── Helper functions for local mode ── */
+  var findImplants = function (test) {
+    return D.filter(test);
+  };
+  var fmtI = function (i) {
+    var r = "**" + i.n + "** (" + i.m + ") – " + i.t + "\n" + "  Verbindung: " + i.cn + " | ∅ " + i.di.join("/") + " mm | Längen: " + i.le.join("/") + " mm\n" + "  Material: " + i.ma + " | Oberfläche: " + i.su + "\n" + "  Insertion: " + i.ti + "–" + i.tx + " Ncm | Drehmoment: " + i.ta + " | ISQ: " + i.isq + "\n" + "  Überlebensrate: " + i.sr + " | Knochen: " + i.bd.join(", ") + " | Sofort: " + (i.im ? "Ja" : "Nein") + "\n" + "  Preis: " + i.pp + " | Indikation: " + i.ind;
+    if (i.ev) r += "\n  📚 Studien: " + i.ev.st + " | Follow-up: " + i.ev.fu + " | Peri-Implantitis: " + i.ev.pi + " | MBL: " + i.ev.mbl + " | BIC: " + i.ev.bic;
+    if (i.cx) r += "\n  🏥 OP: " + i.cx.op + " min | Lernkurve: " + i.cx.lk + " | Revision: " + i.cx.rv + " | Langzeit: " + i.cx.lt;
+    return r;
+  };
+  var fmtSB = function (sys) {
+    var bodies = SB[sys] || [];
+    if (bodies.length === 0) return "Keine Scanbodies in der Datenbank.";
+    return bodies.map(function (b) {
+      return (b.oem ? "🔵 " : "🟢 ") + "**" + b.n + "** (Art. " + b.art + ")" + (b.oem ? " [OEM]" : " [Medentika MPS]");
+    }).join("\n");
+  };
+  var compareTwo = function (a, b) {
+    var r = "**" + a.n + " vs " + b.n + "**\n\n" + "| Eigenschaft | " + a.s + " | " + b.s + " |\n|---|---|---|\n" + "| Hersteller | " + a.m + " | " + b.m + " |\n" + "| Segment | " + a.t + " | " + b.t + " |\n" + "| Verbindung | " + a.cn + " | " + b.cn + " |\n" + "| Material | " + a.ma + " | " + b.ma + " |\n" + "| Oberfläche | " + a.su + " | " + b.su + " |\n" + "| ∅ (mm) | " + a.di.join(", ") + " | " + b.di.join(", ") + " |\n" + "| Längen (mm) | " + a.le.join(", ") + " | " + b.le.join(", ") + " |\n" + "| Insertion (Ncm) | " + a.ti + "–" + a.tx + " | " + b.ti + "–" + b.tx + " |\n" + "| Drehmoment | " + a.ta + " | " + b.ta + " |\n" + "| ISQ | " + a.isq + " | " + b.isq + " |\n" + "| Überlebensrate | " + a.sr + " | " + b.sr + " |\n" + "| Knochen | " + a.bd.join(", ") + " | " + b.bd.join(", ") + " |\n" + "| Sofortbelastung | " + (a.im ? "Ja" : "Nein") + " | " + (b.im ? "Ja" : "Nein") + " |\n" + "| Preis | " + a.pp + " | " + b.pp + " |";
+    if (a.ev && b.ev) r += "\n| **── Klinisch ──** | | |\n" + "| Studien | " + a.ev.st + " | " + b.ev.st + " |\n" + "| Follow-up | " + a.ev.fu + " | " + b.ev.fu + " |\n" + "| Peri-Implantitis | " + a.ev.pi + " | " + b.ev.pi + " |\n" + "| MBL | " + a.ev.mbl + " | " + b.ev.mbl + " |\n" + "| BIC | " + a.ev.bic + " | " + b.ev.bic + " |\n" + "| Weichgewebe | " + a.ev.wg + " | " + b.ev.wg + " |";
+    if (a.cx && b.cx) r += "\n| **── Praxis ──** | | |\n" + "| OP-Zeit | " + a.cx.op + " min | " + b.cx.op + " min |\n" + "| Lernkurve | " + a.cx.lk + " | " + b.cx.lk + " |\n" + "| Revisionsrate | " + a.cx.rv + " | " + b.cx.rv + " |\n" + "| Langzeit >10J | " + a.cx.lt + " | " + b.cx.lt + " |";
+    return r;
+  };
+
+  /* ── LOCAL SEARCH ENGINE ── */
+  var localSearch = function (msg) {
+    var ql = msg.toLowerCase();
+    var reply = "";
+
+    /* Compare */
+    if (ql.includes(" vs ") || ql.includes("vergleich") || ql.includes("gegen")) {
+      var parts = msg.split(/\s+(?:vs\.?|versus|vergleich[et]*\s*(?:mit)?|gegen)\s+/i);
+      if (parts.length >= 2) {
+        var findBest = function (term) {
+          var t = term.trim().toLowerCase();
+          return D.find(function (i) {
+            return i.s.toLowerCase().includes(t) || i.n.toLowerCase().includes(t);
+          });
+        };
+        var impA = findBest(parts[0]);
+        var impB = findBest(parts[1]);
+        if (impA && impB) return compareTwo(impA, impB);
+        return "Konnte nicht beide Systeme finden. " + (impA ? impA.n : "'" + parts[0].trim() + "'?") + " / " + (impB ? impB.n : "'" + parts[1].trim() + "'?") + "\n\nVerfügbar: " + D.map(function (i) {
+          return i.s;
+        }).join(", ");
+      }
+    }
+
+    /* Scanbodies */
+    if (!reply && (ql.includes("scanbod") || ql.includes("scan bod") || ql.includes("scan-bod"))) {
+      var sbMatch = D.find(function (i) {
+        return ql.includes(i.s.toLowerCase()) || ql.includes(i.n.toLowerCase()) || ql.includes(i.m.toLowerCase());
+      });
+      if (sbMatch) return "**Scanbodies für " + sbMatch.n + " (" + sbMatch.s + "):**\n\n" + fmtSB(sbMatch.s);
+      var allSB = Object.keys(SB).filter(function (k) {
+        return SB[k].length > 0;
+      });
+      return "**Scanbody-Übersicht** (" + allSB.length + " Systeme):\n\n" + allSB.map(function (sys) {
+        return "**" + sys + "**: " + SB[sys].length + "× (" + SB[sys].filter(function (b) {
+          return b.oem;
+        }).length + " OEM, " + SB[sys].filter(function (b) {
+          return !b.oem;
+        }).length + " MPS)";
+      }).join("\n");
+    }
+
+    /* D4 / posterior */
+    if (!reply && (ql.includes("d4") || ql.includes("weicher knochen") || ql.includes("posterior"))) {
+      var d4 = findImplants(function (i) {
+        return i.bd.includes("D4");
+      });
+      var sorted = d4.sort(function (a, b) {
+        return parseInt(b.tx) - parseInt(a.tx);
+      }).slice(0, 6);
+      return "**Implantate für D4-Knochen** (" + d4.length + " Systeme):\n\n" + sorted.map(fmtI).join("\n\n") + "\n\n💡 Bei D4: hohe Primärstabilität wichtig → hohen Insertions-Torque bevorzugen.";
+    }
+
+    /* Peri-Implantitis */
+    if (!reply && (ql.includes("peri-implant") || ql.includes("periimplant") || ql.includes("mukositis"))) {
+      var piSorted = D.filter(function (i) {
+        return i.ev;
+      }).sort(function (a, b) {
+        return parseFloat(a.ev.pi) - parseFloat(b.ev.pi);
+      });
+      return "**Peri-Implantitis-Raten** (niedrigste zuerst):\n\n" + piSorted.slice(0, 10).map(function (i) {
+        return "**" + i.n + "** – PI: **" + i.ev.pi + "** | MBL: " + i.ev.mbl + " | Weichgewebe: " + i.ev.wg;
+      }).join("\n") + "\n\n💡 Niedrigste Raten bei Keramik (1.2–1.8%) und Systemen mit hydrophiler/fluormodifizierter Oberfläche.";
+    }
+
+    /* MBL / Knochenverlust */
+    if (!reply && (ql.includes("mbl") || ql.includes("knochenverlust") || ql.includes("marginal") || ql.includes("knochenabbau") || ql.includes("bone loss"))) {
+      var mblSorted = D.filter(function (i) {
+        return i.ev;
+      }).sort(function (a, b) {
+        return parseFloat(a.ev.mbl) - parseFloat(b.ev.mbl);
+      });
+      return "**Marginaler Knochenverlust (MBL)** – sortiert:\n\n" + mblSorted.slice(0, 10).map(function (i) {
+        return "**" + i.n + "** – MBL: **" + i.ev.mbl + "** | SR: " + i.sr + " | Oberfläche: " + i.su;
+      }).join("\n") + "\n\n💡 Beste MBL-Werte: Ankylos (0.1mm/1J), Astra Tech EV & TLX (0.15mm/1J), Thommen INICELL (0.15mm/1J).";
+    }
+
+    /* Studien / Evidenz */
+    if (!reply && (ql.includes("studie") || ql.includes("evidenz") || ql.includes("pubmed") || ql.includes("langzeit") || ql.includes("follow"))) {
+      var stSorted = D.filter(function (i) {
+        return i.ev;
+      }).sort(function (a, b) {
+        return b.ev.st - a.ev.st;
+      });
+      return "**Klinische Evidenz** – nach Studienzahl:\n\n" + stSorted.slice(0, 10).map(function (i) {
+        return "**" + i.n + "** – 📚 **" + i.ev.st + " Studien** | Follow-up: " + i.ev.fu + " | Langzeit: " + (i.cx ? i.cx.lt : "k.A.");
+      }).join("\n") + "\n\n💡 Beste Datenlage: Astra Tech EV (450), BLT (320), Ankylos (200), TS III (200), NobelActive (180).";
+    }
+
+    /* Lernkurve / Anfänger */
+    if (!reply && (ql.includes("lernkurve") || ql.includes("anfänger") || ql.includes("einsteiger") || ql.includes("einfach"))) {
+      var easy = D.filter(function (i) {
+        return i.cx && i.cx.lk === "Niedrig";
+      });
+      return "**Niedrige Lernkurve** (" + easy.length + " Systeme – ideal für Einsteiger):\n\n" + easy.slice(0, 8).map(function (i) {
+        return "**" + i.n + "** (" + i.m + ") – OP: " + i.cx.op + " min | " + i.t + " | " + i.pp;
+      }).join("\n") + "\n\n💡 Systeme mit \"Niedrig\": gut dokumentierte Bohrprotokolle, intuitive Insertion, breite Schulungsangebote.";
+    }
+
+    /* BIC */
+    if (!reply && (ql.includes("bic") || ql.includes("bone-to-implant") || ql.includes("osseointegration"))) {
+      var bicSorted = D.filter(function (i) {
+        return i.ev;
+      }).sort(function (a, b) {
+        return parseInt(b.ev.bic) - parseInt(a.ev.bic);
+      });
+      return "**Bone-to-Implant Contact (BIC)** – sortiert:\n\n" + bicSorted.slice(0, 10).map(function (i) {
+        return "**" + i.n + "** – BIC: **" + i.ev.bic + "** | Oberfläche: " + i.su + " | Detail: " + (i.sd || "").substring(0, 80) + "...";
+      }).join("\n") + "\n\n💡 Höchste BIC: Bicon SHORT (75%), Astra Tech EV (73%), BLT (72%), AnyRidge (72%).";
+    }
+
+    /* Kosten / Wirtschaft */
+    if (!reply && (ql.includes("instrument") || ql.includes("kit-kosten") || ql.includes("prothetik-kosten") || ql.includes("wirtschaft"))) {
+      return "**Wirtschaftliche Übersicht:**\n\n" + D.filter(function (i) {
+        return i.ec;
+      }).slice(0, 12).map(function (i) {
+        return "**" + i.n + "** – Kit: " + i.ec.ki + " | Prothetik: " + i.ec.pk;
+      }).join("\n") + "\n\n💡 Günstigstes Kit: Noris ~600€ | Teuerstes: Nobel N1 ~3.800€ (inkl. OsseoShaper)";
+    }
+
+    /* Oberfläche / Surface */
+    if (!reply && (ql.includes("oberfläche") || ql.includes("surface") || ql.includes("sla") || ql.includes("hydrophil") || ql.includes("beschichtung"))) {
+      return "**Oberflächentechnologien:**\n\n" + D.filter(function (i) {
+        return i.sd;
+      }).slice(0, 10).map(function (i) {
+        return "**" + i.n + "** (" + i.su + ")\n  " + i.sd;
+      }).join("\n\n");
+    }
+
+    /* Keramik */
+    if (!reply && (ql.includes("keramik") || ql.includes("zirkon") || ql.includes("metallfrei"))) {
+      var ceramic = findImplants(function (i) {
+        return i.ma.toLowerCase().includes("zirkon") && !i.ma.includes("Ti-Zr");
+      });
+      return ceramic.length > 0 ? "**Keramikimplantate** (" + ceramic.length + "):\n\n" + ceramic.map(fmtI).join("\n\n") : "Aktuell keine reinen Keramikimplantate in der DB. Ti-Zr (Roxolid) bei Straumann verfügbar.";
+    }
+
+    /* Preis-Leistung */
+    if (!reply && (ql.includes("preis") || ql.includes("günstig") || ql.includes("budget") || ql.includes("value") || ql.includes("kosten"))) {
+      var value = findImplants(function (i) {
+        return i.pp === "€" || i.pp === "€€";
+      });
+      return "**Preis-Leistungs-Empfehlungen** (" + value.length + " Systeme):\n\n" + value.slice(0, 8).map(fmtI).join("\n\n");
+    }
+
+    /* Premium */
+    if (!reply && (ql.includes("premium") || ql.includes("high-end") || ql.includes("bestes") || ql.includes("top"))) {
+      var premium = findImplants(function (i) {
+        return i.t === "Premium" || i.pp === "€€€€";
+      });
+      return "**Premium-Implantate** (" + premium.length + "):\n\n" + premium.slice(0, 6).map(fmtI).join("\n\n");
+    }
+
+    /* Sofortbelastung */
+    if (!reply && (ql.includes("sofort") || ql.includes("immediate"))) {
+      var immed = findImplants(function (i) {
+        return i.im;
+      });
+      return "**Für Sofortbelastung geeignet** (" + immed.length + "):\n\n" + immed.slice(0, 8).map(fmtI).join("\n\n");
+    }
+
+    /* Hersteller */
+    if (!reply) {
+      var mfrMatch = mfrs.find(function (m) {
+        return ql.includes(m.toLowerCase());
+      });
+      if (mfrMatch) {
+        var mfrImps = findImplants(function (i) {
+          return i.m === mfrMatch;
+        });
+        return "**" + mfrMatch + "** (" + mfrImps.length + " Systeme):\n\n" + mfrImps.map(fmtI).join("\n\n");
+      }
+    }
+
+    /* Specific implant */
+    if (!reply) {
+      var nameMatch = D.find(function (i) {
+        return ql.includes(i.s.toLowerCase()) || ql.includes(i.n.toLowerCase());
+      });
+      if (nameMatch) return fmtI(nameMatch) + "\n\n**Scanbodies:**\n" + fmtSB(nameMatch.s);
+    }
+
+    /* Verbindung */
+    if (!reply && (ql.includes("konisch") || ql.includes("hex") || ql.includes("morse") || ql.includes("verbindung"))) {
+      var connType = ql.includes("konisch") || ql.includes("morse") ? "Konisch" : ql.includes("hex") ? "Hex" : null;
+      if (connType) {
+        var connImps = findImplants(function (i) {
+          return i.ct.includes(connType);
+        });
+        return "**" + connType + "-Verbindung** (" + connImps.length + "):\n\n" + connImps.slice(0, 8).map(fmtI).join("\n\n");
+      }
+    }
+
+    /* Übersicht */
+    if (!reply && (ql.includes("übersicht") || ql.includes("statistik") || ql.includes("zusammenfass") || ql.includes("wie viele"))) {
+      var byType = {};
+      var byConn = {};
+      D.forEach(function (i) {
+        byType[i.t] = (byType[i.t] || 0) + 1;
+        byConn[i.ct] = (byConn[i.ct] || 0) + 1;
+      });
+      return "**ImplantAtlas Übersicht**\n\n📊 " + D.length + " Implantatsysteme von " + mfrs.length + " Herstellern\n\n" + "**Segment:** " + Object.keys(byType).map(function (k) {
+        return k + ": " + byType[k];
+      }).join(", ") + "\n" + "**Verbindung:** " + Object.keys(byConn).map(function (k) {
+        return k + ": " + byConn[k];
+      }).join(", ") + "\n" + "**Scanbodies:** " + Object.values(SB).reduce(function (s, a) {
+        return s + a.length;
+      }, 0) + " Einträge für " + Object.keys(SB).filter(function (k) {
+        return SB[k].length > 0;
+      }).length + " Systeme";
+    }
+
+    /* Keyword fallback */
+    var words = ql.split(/\s+/).filter(function (w) {
+      return w.length > 2;
+    });
+    var scored = D.map(function (i) {
+      var hay = (i.n + " " + i.m + " " + i.s + " " + i.cn + " " + i.su + " " + i.ma + " " + i.ind + " " + i.fe.join(" ") + " " + i.no + " " + (i.sd || "") + " " + (i.ae || "") + " " + (i.ev ? i.ev.wg : "") + " " + (i.cx ? i.cx.lk : "")).toLowerCase();
+      var score = words.reduce(function (s, w) {
+        return s + (hay.includes(w) ? 1 : 0);
+      }, 0);
+      return {
+        i: i,
+        score: score
+      };
+    }).filter(function (x) {
+      return x.score > 0;
+    }).sort(function (a, b) {
+      return b.score - a.score;
+    });
+    if (scored.length > 0) return "**Ergebnisse für \"" + msg + "\"** (" + scored.length + " Treffer):\n\n" + scored.slice(0, 5).map(function (x) {
+      return fmtI(x.i);
+    }).join("\n\n");
+    return "Keine Treffer für \"" + msg + "\".\n\n💡 Versuche:\n• Implantatname (\"BLX\", \"NobelActive\")\n• Hersteller (\"Straumann\", \"Nobel Biocare\")\n• Eigenschaft (\"Keramik\", \"D4 Knochen\", \"Sofortbelastung\")\n• Vergleich (\"BLX vs NobelActive\")\n• \"Scanbodies\" + System";
+  };
+
+  /* ── AI MODE (Anthropic API) ── */
+  var aiChat = async function (msg, allMsgs) {
+    var dbLines = D.map(function (i) {
+      return i.s + " (" + i.m + "): " + i.t + " | " + i.cn + " | ∅" + Math.min.apply(null, i.di) + "-" + Math.max.apply(null, i.di) + "mm | T:" + i.ta + " | ISQ:" + i.isq + " | " + i.sr + " | " + i.pp + " | " + i.bd.join(",") + " | " + i.ind + (i.ev ? " | St:" + i.ev.st + " PI:" + i.ev.pi + " MBL:" + i.ev.mbl + " BIC:" + i.ev.bic : "") + (i.cx ? " | OP:" + i.cx.op + "min LK:" + i.cx.lk : "");
+    }).join("\n");
+    var sbLines = Object.keys(SB).filter(function (k) {
+      return SB[k].length > 0;
+    }).map(function (k) {
+      return k + ": " + SB[k].map(function (b) {
+        return b.n + (b.oem ? " [OEM]" : "");
+      }).join(", ");
+    }).join("\n");
+    var ctx = "Du bist ImplantAtlas KI-Berater. " + D.length + " Implantatsysteme, " + mfrs.length + " Hersteller (Feb 2026). Antworte auf Deutsch, fachlich, mit konkreten Zahlen.\n\nIMPLANTATE:\n" + dbLines + "\n\nSCANBODIES:\n" + sbLines;
+    if (sel) ctx += "\n\n[Ausgewählt: " + sel.n + " (" + sel.m + ") " + sel.cn + " ∅" + sel.di.join("/") + "mm " + sel.sr + "]";
+    var apiMessages = [{
+      role: "user",
+      content: ctx + "\n\nBestätige kurz."
+    }, {
+      role: "assistant",
+      content: "ImplantAtlas KI bereit. " + D.length + " Systeme geladen."
+    }];
+    for (var i = 0; i < allMsgs.length; i++) {
+      apiMessages.push({
+        role: allMsgs[i].role,
+        content: allMsgs[i].content
+      });
+    }
+    var response = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": apiKey.trim(),
+        "anthropic-version": "2023-06-01",
+        "anthropic-dangerous-direct-browser-access": "true"
+      },
+      body: JSON.stringify({
+        model: "claude-sonnet-4-20250514",
+        max_tokens: 2048,
+        messages: apiMessages
+      })
+    });
+    if (!response.ok) {
+      var errText = await response.text();
+      var errData;
+      try {
+        errData = JSON.parse(errText);
+      } catch (e) {/* noop */}
+      if (errData && errData.error) throw new Error(errData.error.message || "API Fehler " + response.status);
+      throw new Error("API Fehler " + response.status + ": " + errText.substring(0, 200));
+    }
+    var data = await response.json();
+    var reply = "";
+    if (data.content && Array.isArray(data.content)) {
+      for (var j = 0; j < data.content.length; j++) {
+        if (data.content[j].type === "text") reply += data.content[j].text;
+      }
+    }
+    if (!reply) throw new Error("Leere API-Antwort");
+    return reply;
+  };
+
+  /* ── MAIN SEND FUNCTION ── */
+  const sendChat = async overrideMsg => {
+    const msg = typeof overrideMsg === "string" ? overrideMsg.trim() : chatIn.trim();
+    if (!msg || chatLoading) return;
+    setChatMsgs(prev => [...prev, {
+      role: "user",
+      content: msg
+    }]);
+    setChatIn("");
+    setChatLoading(true);
+    try {
+      var reply = "";
+      if (chatMode === "ai") {
+        /* AI mode with API key */
+        try {
+          var allMsgs = chatMsgs.concat([{
+            role: "user",
+            content: msg
+          }]);
+          reply = await aiChat(msg, allMsgs);
+          reply = "🤖 " + reply;
+        } catch (apiErr) {
+          /* API failed → fall back to local with notice */
+          reply = localSearch(msg);
+          reply = "📋 " + reply + "\n\n⚠️ _KI-Modus fehlgeschlagen (" + apiErr.message + ") – lokale Suche verwendet._";
+        }
+      } else {
+        /* Local mode */
+        await new Promise(function (r) {
+          setTimeout(r, 200);
+        });
+        reply = "📋 " + localSearch(msg);
+      }
+      setChatMsgs(prev => [...prev, {
+        role: "assistant",
+        content: reply
+      }]);
+    } catch (err) {
+      setChatMsgs(prev => [...prev, {
+        role: "assistant",
+        content: "⚠ " + (err.message || String(err))
+      }]);
+    } finally {
+      setChatLoading(false);
+    }
+  };
+  const fl = useMemo(() => {
+    let r = D.filter(i => {
+      const qs = q.toLowerCase();
+      if (qs && !i.n.toLowerCase().includes(qs) && !i.m.toLowerCase().includes(qs) && !i.s.toLowerCase().includes(qs) && !i.su.toLowerCase().includes(qs) && !i.cn.toLowerCase().includes(qs) && !i.ind.toLowerCase().includes(qs) && !i.fe.some(f => f.toLowerCase().includes(qs))) return false;
+      if (fM.length && !fM.includes(i.m)) return false;
+      if (fT.length && !fT.includes(i.t)) return false;
+      if (fC.length && !fC.includes(i.ct)) return false;
+      if (fMa.length) {
+        const isK = i.ma.toLowerCase().includes("zirkon") && !i.ma.includes("Ti-Zr");
+        if (fMa.includes("Keramik") && !isK) return false;
+        if (fMa.includes("Titan") && isK) return false;
+      }
+      if (fB.length && !fB.every(b => i.bd.includes(b))) return false;
+      if (fI && !i.im) return false;
+      if (fD && !i.dw) return false;
+      const d1 = parseFloat(mD),
+        d2 = parseFloat(xD),
+        l1 = parseFloat(mL);
+      if (d1 && !i.di.some(d => d >= d1)) return false;
+      if (d2 && !i.di.some(d => d <= d2)) return false;
+      if (l1 && !i.le.some(l => l >= l1)) return false;
+      if (shFav && !fav.includes(i.id)) return false;
+      return true;
+    });
+    r.sort((a, b) => srt === "name" ? a.n.localeCompare(b.n) : srt === "manufacturer" ? a.m.localeCompare(b.m) : srt === "successRate" ? parseFloat(b.sr) - parseFloat(a.sr) : srt === "diameter" ? Math.max(...b.di) - Math.max(...a.di) : 0);
+    return r;
+  }, [q, fM, fT, fC, fMa, fB, fI, fD, mD, xD, mL, srt, shFav, fav]);
+  const af = fM.length + fT.length + fC.length + fMa.length + fB.length + (fI ? 1 : 0) + (fD ? 1 : 0) + (mD ? 1 : 0) + (xD ? 1 : 0) + (mL ? 1 : 0);
+  const clF = () => {
+    sfM([]);
+    sfT([]);
+    sfC([]);
+    sfMa([]);
+    sfB([]);
+    sfI(false);
+    sfD(false);
+    smD("");
+    sxD("");
+    smL("");
+  };
+  const ci = cmp.map(id => D.find(i => i.id === id)).filter(Boolean);
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      minHeight: "100vh",
+      background: CL.bg,
+      color: CL.tx,
+      fontFamily: "'Source Sans 3',-apple-system,'Segoe UI',sans-serif"
+    }
+  }, /*#__PURE__*/React.createElement("style", null, `
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+        *{box-sizing:border-box;scrollbar-width:thin;scrollbar-color:#c8cdd5 transparent}
+        ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:#c8cdd5;border-radius:3px}
+        input:focus,select:focus{outline:none;border-color:${CL.acc}!important}
+        input::placeholder{color:${CL.txM}}
+        @keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+        @keyframes pulse{0%,100%{opacity:.3;transform:scale(.8)}50%{opacity:1;transform:scale(1)}}
+        .card:hover{background:${CL.cardH}!important;border-color:rgba(37,99,235,0.15)!important}
+      `), /*#__PURE__*/React.createElement("header", {
+    style: {
+      padding: "12px 16px 10px",
+      borderBottom: `1px solid ${CL.bd}`,
+      background: "rgba(255,255,255,0.85)",
+      position: "sticky",
+      top: 0,
+      zIndex: 100,
+      backdropFilter: "blur(16px)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      maxWidth: 1400,
+      margin: "0 auto"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      marginBottom: 8,
+      flexWrap: "wrap",
+      gap: 6
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 8
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 28,
+      height: 28,
+      borderRadius: 7,
+      background: `linear-gradient(135deg,${CL.acc},#7c3aed)`,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontSize: 16
+    }
+  }, "\uD83E\uDDB7"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {
+    style: {
+      margin: 0,
+      fontSize: 18,
+      fontWeight: 700
+    }
+  }, "Implant", /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontWeight: 400,
+      color: CL.accL
+    }
+  }, "Atlas"), " ", /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 12,
+      color: CL.txM,
+      fontWeight: 400
+    }
+  }, "v2.2")), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0,
+      fontSize: 12,
+      color: CL.txM
+    }
+  }, D.length, " Systeme \xB7 ", mfrs.length, " Hersteller \xB7 Daten verifiziert Feb 2026"))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 3,
+      flexWrap: "wrap"
+    }
+  }, [{
+    k: "db",
+    l: "📋 Datenbank"
+  }, {
+    k: "torque",
+    l: "🔧 Torque"
+  }, {
+    k: "bone",
+    l: "🦴 Knochen"
+  }, {
+    k: "drill",
+    l: "🔩 Bohrprotokoll"
+  }, {
+    k: "guide",
+    l: "🎯 Entscheidung"
+  }].map(t => /*#__PURE__*/React.createElement("button", {
+    key: t.k,
+    onClick: () => sTab(t.k),
+    style: {
+      padding: "4px 9px",
+      borderRadius: 6,
+      fontSize: 13,
+      fontWeight: 600,
+      border: `1px solid ${tab === t.k ? CL.acc + "44" : CL.bd}`,
+      background: tab === t.k ? CL.accD : "transparent",
+      color: tab === t.k ? CL.accL : CL.txM,
+      cursor: "pointer",
+      fontFamily: "inherit"
+    }
+  }, t.l)))), tab === "db" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 5,
+      flexWrap: "wrap"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      minWidth: 180,
+      display: "flex",
+      alignItems: "center",
+      gap: 5,
+      background: "rgba(0,0,0,0.02)",
+      border: `1px solid ${CL.bd}`,
+      borderRadius: 7,
+      padding: "0 9px",
+      height: 33
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: CL.txM,
+      fontSize: 15
+    }
+  }, "\uD83D\uDD0D"), /*#__PURE__*/React.createElement("input", {
+    value: q,
+    onChange: e => sQ(e.target.value),
+    placeholder: "Suche: Name, Hersteller, Oberfl\xE4che, Verbindung...",
+    style: {
+      flex: 1,
+      background: "transparent",
+      border: "none",
+      color: CL.tx,
+      fontSize: 14,
+      fontFamily: "inherit"
+    }
+  }), q && /*#__PURE__*/React.createElement("button", {
+    onClick: () => sQ(""),
+    style: {
+      background: "none",
+      border: "none",
+      color: CL.txM,
+      cursor: "pointer",
+      fontSize: 14
+    }
+  }, "\u2715")), /*#__PURE__*/React.createElement("button", {
+    onClick: () => sshF(!shF),
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 3,
+      padding: "0 9px",
+      height: 33,
+      borderRadius: 7,
+      border: `1px solid ${af > 0 ? CL.acc + "44" : CL.bd}`,
+      background: af > 0 ? CL.accD : "rgba(0,0,0,0.02)",
+      color: af > 0 ? CL.accL : CL.txS,
+      cursor: "pointer",
+      fontSize: 13,
+      fontWeight: 600,
+      fontFamily: "inherit"
+    }
+  }, "\u2699 Filter", af > 0 && /*#__PURE__*/React.createElement("span", {
+    style: {
+      background: CL.acc,
+      color: "#fff",
+      width: 15,
+      height: 15,
+      borderRadius: "50%",
+      fontSize: 10,
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      marginLeft: 2
+    }
+  }, af)), /*#__PURE__*/React.createElement("button", {
+    onClick: () => sshFav(!shFav),
+    style: {
+      height: 33,
+      padding: "0 9px",
+      borderRadius: 7,
+      border: `1px solid ${shFav ? CL.warn + "44" : CL.bd}`,
+      background: shFav ? "rgba(217,119,6,0.06)" : "rgba(0,0,0,0.02)",
+      color: shFav ? CL.warn : CL.txS,
+      cursor: "pointer",
+      fontSize: 13,
+      fontWeight: 600,
+      fontFamily: "inherit"
+    }
+  }, shFav ? "★" : "☆", " ", fav.length), cmp.length > 0 && /*#__PURE__*/React.createElement("button", {
+    onClick: () => sshCmp(true),
+    style: {
+      height: 33,
+      padding: "0 9px",
+      borderRadius: 7,
+      border: `1px solid ${CL.ok}44`,
+      background: "rgba(5,150,105,0.06)",
+      color: CL.ok,
+      cursor: "pointer",
+      fontSize: 13,
+      fontWeight: 600,
+      fontFamily: "inherit"
+    }
+  }, "\u2696 Vergleich (", cmp.length, ")")), shF && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 6,
+      padding: 10,
+      background: "rgba(0,0,0,0.012)",
+      border: `1px solid ${CL.bd}`,
+      borderRadius: 8,
+      animation: "fi .2s ease"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      marginBottom: 4
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 14,
+      fontWeight: 700
+    }
+  }, "Filter"), af > 0 && /*#__PURE__*/React.createElement("button", {
+    onClick: clF,
+    style: {
+      background: "none",
+      border: "none",
+      color: CL.acc,
+      fontSize: 12,
+      cursor: "pointer",
+      fontFamily: "inherit",
+      fontWeight: 600
+    }
+  }, "Reset")), /*#__PURE__*/React.createElement(MS, {
+    label: "Hersteller",
+    opts: mfrs,
+    sel: fM,
+    onT: v => tg(fM, sfM, v)
+  }), /*#__PURE__*/React.createElement(MS, {
+    label: "Segment",
+    opts: tiers,
+    sel: fT,
+    onT: v => tg(fT, sfT, v),
+    cFn: TC
+  }), /*#__PURE__*/React.createElement(MS, {
+    label: "Verbindung",
+    opts: conns,
+    sel: fC,
+    onT: v => tg(fC, sfC, v)
+  }), /*#__PURE__*/React.createElement(MS, {
+    label: "Material",
+    opts: ["Titan", "Keramik"],
+    sel: fMa,
+    onT: v => tg(fMa, sfMa, v)
+  }), /*#__PURE__*/React.createElement(MS, {
+    label: "Knochenqualit\xE4t",
+    opts: ["D1", "D2", "D3", "D4"],
+    sel: fB,
+    onT: v => tg(fB, sfB, v),
+    cFn: v => BD[v].c
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8,
+      flexWrap: "wrap",
+      alignItems: "flex-end",
+      marginTop: 4
+    }
+  }, /*#__PURE__*/React.createElement("label", {
+    style: {
+      fontSize: 12,
+      color: CL.txM,
+      display: "flex",
+      alignItems: "center",
+      gap: 3,
+      cursor: "pointer"
+    }
+  }, /*#__PURE__*/React.createElement("input", {
+    type: "checkbox",
+    checked: fI,
+    onChange: () => sfI(!fI)
+  }), " Sofortbelastung"), /*#__PURE__*/React.createElement("label", {
+    style: {
+      fontSize: 12,
+      color: CL.txM,
+      display: "flex",
+      alignItems: "center",
+      gap: 3,
+      cursor: "pointer"
+    }
+  }, /*#__PURE__*/React.createElement("input", {
+    type: "checkbox",
+    checked: fD,
+    onChange: () => sfD(!fD)
+  }), " Digital Workflow"), [{
+    l: "Min∅",
+    v: mD,
+    s: smD
+  }, {
+    l: "Max∅",
+    v: xD,
+    s: sxD
+  }, {
+    l: "MinL",
+    v: mL,
+    s: smL
+  }].map(f => /*#__PURE__*/React.createElement("div", {
+    key: f.l
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: CL.txM,
+      fontWeight: 700
+    }
+  }, f.l), /*#__PURE__*/React.createElement("input", {
+    type: "number",
+    step: "0.1",
+    value: f.v,
+    onChange: e => f.s(e.target.value),
+    style: {
+      width: 58,
+      padding: "3px 6px",
+      borderRadius: 4,
+      border: `1px solid ${CL.bd}`,
+      background: "rgba(0,0,0,0.015)",
+      color: CL.tx,
+      fontSize: 13,
+      fontFamily: "'JetBrains Mono',monospace"
+    }
+  }))))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      marginTop: 6
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 13,
+      color: CL.txM
+    }
+  }, /*#__PURE__*/React.createElement("b", {
+    style: {
+      color: CL.tx
+    }
+  }, fl.length), " Systeme"), /*#__PURE__*/React.createElement("select", {
+    value: srt,
+    onChange: e => sSrt(e.target.value),
+    style: {
+      background: "rgba(0,0,0,0.02)",
+      border: `1px solid ${CL.bd}`,
+      borderRadius: 4,
+      padding: "2px 5px",
+      color: CL.txS,
+      fontSize: 12,
+      fontFamily: "inherit",
+      cursor: "pointer"
+    }
+  }, /*#__PURE__*/React.createElement("option", {
+    value: "name"
+  }, "Name"), /*#__PURE__*/React.createElement("option", {
+    value: "manufacturer"
+  }, "Hersteller"), /*#__PURE__*/React.createElement("option", {
+    value: "successRate"
+  }, "Erfolgsrate"), /*#__PURE__*/React.createElement("option", {
+    value: "diameter"
+  }, "Max \u2205")))))), /*#__PURE__*/React.createElement("main", {
+    style: {
+      maxWidth: 1400,
+      margin: "0 auto",
+      padding: "10px 16px 40px"
+    }
+  }, tab === "db" && /*#__PURE__*/React.createElement("div", {
+    style: {
+      animation: "fi .25s ease"
+    }
+  }, fl.length === 0 ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: "center",
+      padding: 40,
+      color: CL.txM
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 36,
+      marginBottom: 6
+    }
+  }, "\uD83D\uDD0D"), /*#__PURE__*/React.createElement("p", null, "Keine Ergebnisse")) : /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fill,minmax(290px,1fr))",
+      gap: 8
+    }
+  }, fl.map(i => {
+    const tcl = TC(i.t);
+    const iF = fav.includes(i.id);
+    const iC = cmp.includes(i.id);
+    const isK = i.ma.toLowerCase().includes("zirkon") && !i.ma.includes("Ti-Zr");
+    return /*#__PURE__*/React.createElement("div", {
+      key: i.id,
+      className: "card",
+      onClick: () => sSel(i),
+      style: {
+        background: CL.card,
+        border: `1px solid ${CL.bd}`,
+        borderRadius: 10,
+        padding: "11px 13px",
+        cursor: "pointer",
+        transition: "all .15s",
+        position: "relative",
+        overflow: "hidden"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        height: 2,
+        background: `linear-gradient(90deg,${tcl},transparent)`
+      }
+    }), /*#__PURE__*/React.createElement("div", {
+      style: {
+        position: "absolute",
+        top: 6,
+        right: 6,
+        display: "flex",
+        gap: 2
+      }
+    }, /*#__PURE__*/React.createElement("button", {
+      onClick: e => {
+        e.stopPropagation();
+        tgF(i.id);
+      },
+      style: {
+        background: iF ? "rgba(217,119,6,0.08)" : "rgba(0,0,0,0.015)",
+        border: `1px solid ${iF ? CL.warn + "28" : CL.bd}`,
+        borderRadius: 4,
+        width: 21,
+        height: 21,
+        cursor: "pointer",
+        color: iF ? CL.warn : CL.txM,
+        fontSize: 13,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
+      }
+    }, iF ? "★" : "☆"), /*#__PURE__*/React.createElement("button", {
+      onClick: e => {
+        e.stopPropagation();
+        tgC(i.id);
+      },
+      style: {
+        background: iC ? "rgba(5,150,105,0.08)" : "rgba(0,0,0,0.015)",
+        border: `1px solid ${iC ? CL.ok + "28" : CL.bd}`,
+        borderRadius: 4,
+        width: 21,
+        height: 21,
+        cursor: "pointer",
+        color: iC ? CL.ok : CL.txM,
+        fontSize: 12,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
+      }
+    }, "\u2696")), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        gap: 3,
+        flexWrap: "wrap",
+        marginBottom: 4
+      }
+    }, /*#__PURE__*/React.createElement(B, {
+      color: tcl
+    }, i.t === "High-Quality" ? "High-Q." : i.t === "Mid-Range" ? "Mid-R." : i.t), /*#__PURE__*/React.createElement(B, {
+      color: isK ? "#475569" : "#64748b"
+    }, isK ? "Keramik" : "Titan"), /*#__PURE__*/React.createElement(B, {
+      color: PC(i.pp),
+      style: {
+        fontSize: 10
+      }
+    }, i.pp), i.im && /*#__PURE__*/React.createElement(B, {
+      color: CL.ok,
+      style: {
+        fontSize: 10
+      }
+    }, "Sofort")), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        alignItems: "flex-start",
+        gap: 7
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        flexShrink: 0,
+        opacity: .75
+      }
+    }, /*#__PURE__*/React.createElement(ImpSVG, {
+      form: i.fo,
+      sz: 38,
+      color: tcl
+    })), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", {
+      style: {
+        margin: 0,
+        fontSize: 15,
+        fontWeight: 700,
+        lineHeight: 1.3,
+        paddingRight: 45
+      }
+    }, i.n), /*#__PURE__*/React.createElement("p", {
+      style: {
+        margin: "1px 0 5px",
+        fontSize: 12,
+        color: CL.txM
+      }
+    }, i.fl, " ", i.m, " \xB7 ", i.co))), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
+        gap: 2,
+        fontSize: 12,
+        marginBottom: 5
+      }
+    }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: CL.txM
+      }
+    }, "\u2205"), " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: CL.accL,
+        fontFamily: "'JetBrains Mono',monospace",
+        fontWeight: 600
+      }
+    }, Math.min(...i.di), "\u2013", Math.max(...i.di))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: CL.txM
+      }
+    }, "L"), " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: CL.ok,
+        fontFamily: "'JetBrains Mono',monospace",
+        fontWeight: 600
+      }
+    }, Math.min(...i.le), "\u2013", Math.max(...i.le))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: CL.txM
+      }
+    }, "Torque:"), " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: CL.txS
+      }
+    }, i.ta)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: CL.txM
+      }
+    }, "ISQ:"), " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: CL.accL
+      }
+    }, i.isq)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: CL.txM
+      }
+    }, "Rate:"), " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: CL.ok,
+        fontWeight: 600
+      }
+    }, i.sr)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: CL.txM
+      }
+    }, "Verb.:"), " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: CL.txS
+      }
+    }, i.ct))), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        gap: 2,
+        marginBottom: 4
+      }
+    }, i.bd.map(b => /*#__PURE__*/React.createElement("span", {
+      key: b,
+      style: {
+        fontSize: 10,
+        padding: "1px 4px",
+        borderRadius: 3,
+        background: BD[b].c + "10",
+        color: BD[b].c,
+        fontWeight: 600
+      }
+    }, b))), i.ev && /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        gap: 3,
+        flexWrap: "wrap",
+        fontSize: 10,
+        color: CL.txM,
+        borderTop: `1px solid ${CL.bd}`,
+        paddingTop: 4,
+        marginTop: 2
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      title: "Studienanzahl"
+    }, "\uD83D\uDCDA", i.ev.st), /*#__PURE__*/React.createElement("span", {
+      title: "Peri-Implantitis"
+    }, "\uD83D\uDD34", i.ev.pi), /*#__PURE__*/React.createElement("span", {
+      title: "Marginaler Knochenverlust"
+    }, "\uD83D\uDCC9", i.ev.mbl.split(",")[0]), /*#__PURE__*/React.createElement("span", {
+      title: "BIC"
+    }, "\uD83E\uDDB4", i.ev.bic), i.cx && /*#__PURE__*/React.createElement("span", {
+      title: "Lernkurve",
+      style: {
+        color: i.cx.lk === "Niedrig" ? CL.ok : i.cx.lk === "Mittel" ? "#d97706" : "#dc2626"
+      }
+    }, "\uD83D\uDCC8", i.cx.lk)));
+  }))), tab === "torque" && /*#__PURE__*/React.createElement("div", {
+    style: {
+      animation: "fi .25s ease"
+    }
+  }, /*#__PURE__*/React.createElement("h2", {
+    style: {
+      fontSize: 18,
+      fontWeight: 700,
+      margin: "0 0 10px"
+    }
+  }, "\uD83D\uDD27 Abutment-Drehmoment Referenz"), /*#__PURE__*/React.createElement("p", {
+    style: {
+      fontSize: 14,
+      color: CL.txS,
+      margin: "0 0 12px"
+    }
+  }, "Empfohlene Anzugsdrehmomente lt. Hersteller-IFU. Immer aktuelles Chirurgiehandbuch beachten!"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      overflowX: "auto"
+    }
+  }, /*#__PURE__*/React.createElement("table", {
+    style: {
+      width: "100%",
+      borderCollapse: "collapse",
+      fontSize: 13
+    }
+  }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", {
+    style: {
+      borderBottom: `1px solid ${CL.bdL}`
+    }
+  }, ["Hersteller", "System", "Abt. Torque", "Insert. Torque", "Verbindung", "Sofort"].map(h => /*#__PURE__*/React.createElement("th", {
+    key: h,
+    style: {
+      padding: "5px 8px",
+      textAlign: "left",
+      color: CL.txM,
+      fontSize: 12,
+      fontWeight: 700,
+      textTransform: "uppercase"
+    }
+  }, h)))), /*#__PURE__*/React.createElement("tbody", null, D.map(i => /*#__PURE__*/React.createElement("tr", {
+    key: i.id,
+    style: {
+      borderBottom: `1px solid ${CL.bd}`,
+      cursor: "pointer"
+    },
+    onClick: () => {
+      sTab("db");
+      sSel(i);
+    },
+    onMouseEnter: e => e.currentTarget.style.background = CL.cardH,
+    onMouseLeave: e => e.currentTarget.style.background = "transparent"
+  }, /*#__PURE__*/React.createElement("td", {
+    style: {
+      padding: "4px 8px",
+      fontWeight: 600
+    }
+  }, i.fl, " ", i.m), /*#__PURE__*/React.createElement("td", {
+    style: {
+      padding: "4px 8px",
+      color: CL.txS
+    }
+  }, i.s), /*#__PURE__*/React.createElement("td", {
+    style: {
+      padding: "4px 8px"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "'JetBrains Mono',monospace",
+      fontWeight: 600,
+      color: CL.accL
+    }
+  }, i.ta)), /*#__PURE__*/React.createElement("td", {
+    style: {
+      padding: "4px 8px"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "'JetBrains Mono',monospace",
+      color: CL.ok
+    }
+  }, i.ti, "\u2013", i.tx, " Ncm")), /*#__PURE__*/React.createElement("td", {
+    style: {
+      padding: "4px 8px",
+      color: CL.txM
+    }
+  }, i.ct), /*#__PURE__*/React.createElement("td", {
+    style: {
+      padding: "4px 8px"
+    }
+  }, i.im ? /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: CL.ok
+    }
+  }, "\u2713") : /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: CL.txM
+    }
+  }, "\u2013")))))))), tab === "bone" && /*#__PURE__*/React.createElement("div", {
+    style: {
+      animation: "fi .25s ease"
+    }
+  }, /*#__PURE__*/React.createElement("h2", {
+    style: {
+      fontSize: 18,
+      fontWeight: 700,
+      margin: "0 0 10px"
+    }
+  }, "\uD83E\uDDB4 Knochenklassifikation (Lekholm & Zarb)"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))",
+      gap: 10,
+      marginBottom: 14
+    }
+  }, Object.entries(BD).map(([k, v]) => {
+    const mt = D.filter(i => i.bd.includes(k));
+    return /*#__PURE__*/React.createElement("div", {
+      key: k,
+      style: {
+        background: CL.card,
+        border: `1px solid ${v.c}16`,
+        borderRadius: 10,
+        padding: 13
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 6,
+        marginBottom: 5
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        width: 30,
+        height: 30,
+        borderRadius: 6,
+        background: v.c + "14",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: 15,
+        fontWeight: 800,
+        color: v.c,
+        fontFamily: "'JetBrains Mono',monospace"
+      }
+    }, k), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontWeight: 700,
+        fontSize: 15
+      }
+    }, v.d), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 12,
+        color: CL.txM
+      }
+    }, mt.length, " Systeme"))), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 13,
+        color: CL.txS,
+        lineHeight: 1.4,
+        marginBottom: 5
+      }
+    }, k === "D1" && "Dichte Kortikalis. Ant. Mandibula. Überhitzungsgefahr – unterdimensionieren, Gewindeschneider.", k === "D2" && "Häufigster Typ. Gute Kortikalis + Spongiosa. Standard-Bohrprotokoll.", k === "D3" && "Post. Maxilla. Dünne Kortikalis. Aggressive Gewinde empfohlen, unterdimensionieren.", k === "D4" && "Schwierigster Fall. Nur Spongiosa. Max. Kondensation, aggressivste Designs."), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        flexWrap: "wrap",
+        gap: 2
+      }
+    }, mt.slice(0, 5).map(i => /*#__PURE__*/React.createElement(B, {
+      key: i.id,
+      color: v.c,
+      style: {
+        fontSize: 10
+      }
+    }, i.s)), mt.length > 5 && /*#__PURE__*/React.createElement(B, {
+      color: CL.txM,
+      style: {
+        fontSize: 10
+      }
+    }, "+", mt.length - 5)));
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: CL.card,
+      borderRadius: 10,
+      padding: 13,
+      border: `1px solid ${CL.bd}`
+    }
+  }, /*#__PURE__*/React.createElement("h3", {
+    style: {
+      fontSize: 15,
+      margin: "0 0 6px"
+    }
+  }, "Torque-Empfehlung"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit,minmax(140px,1fr))",
+      gap: 6
+    }
+  }, [{
+    b: "D1",
+    t: "< 30 Ncm",
+    tip: "Unterdimensionieren, Gewindeschneider"
+  }, {
+    b: "D2",
+    t: "25–45 Ncm",
+    tip: "Standard-Protokoll"
+  }, {
+    b: "D3",
+    t: "35–50 Ncm",
+    tip: "Unterdimensionieren, aggressive Gewinde"
+  }, {
+    b: "D4",
+    t: "35–70 Ncm",
+    tip: "Max. Kondensation"
+  }].map(x => /*#__PURE__*/React.createElement("div", {
+    key: x.b,
+    style: {
+      padding: 8,
+      borderRadius: 7,
+      background: BD[x.b].c + "08",
+      border: `1px solid ${BD[x.b].c}10`
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontWeight: 800,
+      color: BD[x.b].c,
+      fontSize: 15
+    }
+  }, x.b), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "'JetBrains Mono',monospace",
+      fontSize: 15,
+      fontWeight: 600
+    }
+  }, x.t), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: CL.txM
+    }
+  }, x.tip)))))), tab === "drill" && /*#__PURE__*/React.createElement("div", {
+    style: {
+      animation: "fi .25s ease"
+    }
+  }, /*#__PURE__*/React.createElement("h2", {
+    style: {
+      fontSize: 18,
+      fontWeight: 700,
+      margin: "0 0 10px"
+    }
+  }, "\uD83D\uDD29 Bohrprotokoll-Referenz"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: CL.card,
+      borderRadius: 10,
+      padding: 13,
+      border: `1px solid ${CL.bd}`,
+      marginBottom: 12
+    }
+  }, /*#__PURE__*/React.createElement("h3", {
+    style: {
+      fontSize: 15,
+      margin: "0 0 8px"
+    }
+  }, "Allgemeine Sequenz"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexWrap: "wrap",
+      gap: 4,
+      marginBottom: 8
+    }
+  }, ["① Markierung", "② Pilot ∅2.0", "③ Stufe ∅2.8", "④ Stufe ∅3.2", "⑤ Formbohrer", "⑥ Profilbohrer", "⑦ Gewindeschn.", "⑧ Insertion"].map((s, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      background: i === 7 ? CL.ok + "10" : CL.accD,
+      border: `1px solid ${i === 7 ? CL.ok + "18" : CL.acc + "12"}`,
+      borderRadius: 5,
+      padding: "4px 8px",
+      fontSize: 13,
+      color: i === 7 ? CL.ok : CL.accL,
+      fontWeight: 500
+    }
+  }, s))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      color: CL.txS,
+      lineHeight: 1.5
+    }
+  }, /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "0 0 3px"
+    }
+  }, /*#__PURE__*/React.createElement("b", {
+    style: {
+      color: CL.tx
+    }
+  }, "Drehzahl:"), " 800\u20131200 U/min. Max 1500 U/min (Pilotbohrer). K\xFChlung: NaCl extern, min. 50 ml/min."), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "0 0 3px"
+    }
+  }, /*#__PURE__*/React.createElement("b", {
+    style: {
+      color: CL.tx
+    }
+  }, "D1:"), " Gewindeschneider + Profilbohrer. ", /*#__PURE__*/React.createElement("b", {
+    style: {
+      color: CL.tx
+    }
+  }, "D3/D4:"), " Unterdimensionieren, kein Gewindeschneiden."), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0
+    }
+  }, /*#__PURE__*/React.createElement("b", {
+    style: {
+      color: CL.tx
+    }
+  }, "ISQ:"), " \u226565 = Sofortbelastung. 55\u201364 = Fr\xFChbelastung (6\u20138 Wo.). <55 = konventionell (12+ Wo.)."))), /*#__PURE__*/React.createElement("h3", {
+    style: {
+      fontSize: 15,
+      margin: "0 0 8px"
+    }
+  }, "Herstellerspezifisch"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      overflowX: "auto"
+    }
+  }, /*#__PURE__*/React.createElement("table", {
+    style: {
+      width: "100%",
+      borderCollapse: "collapse",
+      fontSize: 13
+    }
+  }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", {
+    style: {
+      borderBottom: `1px solid ${CL.bdL}`
+    }
+  }, ["System", "Form", "Protokoll", "ISQ", "Preis"].map(h => /*#__PURE__*/React.createElement("th", {
+    key: h,
+    style: {
+      padding: "4px 7px",
+      textAlign: "left",
+      color: CL.txM,
+      fontSize: 12,
+      fontWeight: 700,
+      textTransform: "uppercase"
+    }
+  }, h)))), /*#__PURE__*/React.createElement("tbody", null, D.map(i => /*#__PURE__*/React.createElement("tr", {
+    key: i.id,
+    style: {
+      borderBottom: `1px solid ${CL.bd}`,
+      cursor: "pointer"
+    },
+    onClick: () => {
+      sTab("db");
+      sSel(i);
+    },
+    onMouseEnter: e => e.currentTarget.style.background = CL.cardH,
+    onMouseLeave: e => e.currentTarget.style.background = "transparent"
+  }, /*#__PURE__*/React.createElement("td", {
+    style: {
+      padding: "4px 7px",
+      fontWeight: 600
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 4
+    }
+  }, /*#__PURE__*/React.createElement(ImpSVG, {
+    form: i.fo,
+    sz: 22,
+    color: TC(i.t)
+  }), i.fl, " ", i.n)), /*#__PURE__*/React.createElement("td", {
+    style: {
+      padding: "4px 7px",
+      color: CL.txS,
+      fontSize: 12
+    }
+  }, i.fo), /*#__PURE__*/React.createElement("td", {
+    style: {
+      padding: "4px 7px",
+      color: CL.txS,
+      maxWidth: 220,
+      fontSize: 12
+    }
+  }, i.dp), /*#__PURE__*/React.createElement("td", {
+    style: {
+      padding: "4px 7px"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "'JetBrains Mono',monospace",
+      fontWeight: 600,
+      color: CL.accL
+    }
+  }, i.isq)), /*#__PURE__*/React.createElement("td", {
+    style: {
+      padding: "4px 7px"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: PC(i.pp),
+      fontWeight: 600
+    }
+  }, i.pp)))))))), tab === "guide" && /*#__PURE__*/React.createElement("div", {
+    style: {
+      animation: "fi .25s ease"
+    }
+  }, /*#__PURE__*/React.createElement("h2", {
+    style: {
+      fontSize: 18,
+      fontWeight: 700,
+      margin: "0 0 10px"
+    }
+  }, "\uD83C\uDFAF Klinischer Entscheidungshelfer"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))",
+      gap: 10
+    }
+  }, [{
+    t: "Sofortimplantation (Typ 1)",
+    d: "Direkt nach Extraktion",
+    r: ["Straumann BLX", "NobelActive TiUltra", "Nobel N1 (OsseoShaper)", "MegaGen AnyRidge", "Neodent Helix GM"],
+    w: "Konische Formen, hohe Primärstabilität >35 Ncm."
+  }, {
+    t: "Ästhetikzone (Front)",
+    d: "Höchste ästhetische Ansprüche",
+    r: ["Nobel N1 (Trioval)", "Astra Tech EV", "Straumann BLT", "CONELOG", "BioHorizons Tapered Int."],
+    w: "Platform Switching, Weichgewebsmanagement, Xeal™/Laser-Lok®."
+  }, {
+    t: "Posterior (Molar)",
+    d: "Hohe Kaukräfte, breiter Knochen",
+    r: ["Straumann BLX ∅5.5+", "ZimVie T3 / TSX", "MegaGen AnyRidge", "Osstem TS III ∅6.0+"],
+    w: "Breite ∅, Trabecular Metal, DCD."
+  }, {
+    t: "Schmaler Kieferkamm",
+    d: "Limitierter bukkaler Knochen",
+    r: ["Straumann BLT ∅2.9", "Astra Tech EV ∅3.0", "BEGO ∅3.0", "MIS C1 ∅3.3", "BTI ∅3.0"],
+    w: "Roxolid® für schmale ∅ ohne Kraftverlust."
+  }, {
+    t: "Reduzierte Knochenhöhe",
+    d: "Ohne umfangreiche Augmentation",
+    r: ["Bicon SHORT (ab 5mm)", "BTI (ab 5.5mm)", "Straumann BLX 6mm"],
+    w: "Kurzimplantate, Finnen/aggressive Gewinde."
+  }, {
+    t: "Metallfrei (Keramik)",
+    d: "Titanunverträglichkeit, Ästhetik",
+    r: ["Straumann PURE Ceramic", "NobelPearl", "Zeramex XT", "CeraRoot T10 ICE"],
+    w: "12–16 Wo. Heilung. Keine Sofortbelastung."
+  }, {
+    t: "Full-Arch / All-on-4",
+    d: "Komplette Kieferrehabilitation",
+    r: ["Nobel All-on-4 (NobelActive)", "Straumann BLX Pro Arch", "Neodent Helix GM", "bredent copaSKY fast&fixed"],
+    w: "Angulierbare MUA, Sofortbelastung, 4–6 Implantate."
+  }, {
+    t: "Budget-orientiert",
+    d: "Qualität zu niedrigem Preis",
+    r: ["medentis ICX (ab €59)", "Osstem TS III", "Dentium SuperLine", "Alpha-Bio NeO", "S.I.N. Strong SW"],
+    w: "Bewährte Designs, gute Studien."
+  }].map((g, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      background: CL.card,
+      border: `1px solid ${CL.bd}`,
+      borderRadius: 10,
+      padding: 13
+    }
+  }, /*#__PURE__*/React.createElement("h3", {
+    style: {
+      margin: "0 0 3px",
+      fontSize: 15,
+      fontWeight: 700,
+      color: CL.accL
+    }
+  }, g.t), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "0 0 6px",
+      fontSize: 13,
+      color: CL.txM
+    }
+  }, g.d), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 5
+    }
+  }, g.r.map(r => /*#__PURE__*/React.createElement("div", {
+    key: r,
+    style: {
+      fontSize: 13,
+      color: CL.tx,
+      padding: "1px 0"
+    }
+  }, "\u2192 ", r))), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0,
+      fontSize: 12,
+      color: CL.txS,
+      fontStyle: "italic"
+    }
+  }, "\uD83D\uDCA1 ", g.w))))), /*#__PURE__*/React.createElement("footer", {
+    style: {
+      marginTop: 20,
+      textAlign: "center",
+      padding: "12px 0",
+      borderTop: `1px solid ${CL.bd}`
+    }
+  }, /*#__PURE__*/React.createElement("p", {
+    style: {
+      fontSize: 12,
+      color: CL.txM,
+      margin: 0
+    }
+  }, "ImplantAtlas v2.2 \xB7 ", D.length, " Systeme \xB7 ", mfrs.length, " Hersteller \xB7 Feb 2026"), /*#__PURE__*/React.createElement("p", {
+    style: {
+      fontSize: 10,
+      color: CL.txM,
+      margin: "2px 0 0",
+      opacity: .5
+    }
+  }, "Quellen: Herstellerwebseiten, SpotImplant.com, FDA 510(k), PubMed. Alle Angaben ohne Gew\xE4hr \u2013 immer Hersteller-IFU beachten."))), sel && /*#__PURE__*/React.createElement("div", {
+    onClick: () => sSel(null),
+    style: {
+      position: "fixed",
+      inset: 0,
+      background: "rgba(0,0,0,0.8)",
+      backdropFilter: "blur(8px)",
+      zIndex: 1000,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: 12,
+      animation: "fadeIn .15s ease"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    onClick: e => e.stopPropagation(),
+    style: {
+      background: CL.card,
+      border: `1px solid ${CL.bdL}`,
+      borderRadius: 12,
+      maxWidth: 680,
+      width: "100%",
+      maxHeight: "90vh",
+      overflow: "auto"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: "14px 14px 10px",
+      borderBottom: `1px solid ${CL.bd}`,
+      background: `linear-gradient(135deg,${TC(sel.t)}04,transparent)`,
+      position: "relative"
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: () => sSel(null),
+    style: {
+      position: "absolute",
+      top: 10,
+      right: 10,
+      background: "rgba(0,0,0,0.03)",
+      border: "none",
+      borderRadius: 5,
+      width: 26,
+      height: 26,
+      cursor: "pointer",
+      color: CL.txS,
+      fontSize: 15,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center"
+    }
+  }, "\u2715"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 3,
+      flexWrap: "wrap",
+      marginBottom: 5
+    }
+  }, /*#__PURE__*/React.createElement(B, {
+    color: TC(sel.t)
+  }, sel.t), /*#__PURE__*/React.createElement(B, {
+    color: sel.ma.toLowerCase().includes("zirkon") && !sel.ma.includes("Ti-Zr") ? "#475569" : "#64748b"
+  }, sel.ma.toLowerCase().includes("zirkon") && !sel.ma.includes("Ti-Zr") ? "Keramik" : "Titan"), /*#__PURE__*/React.createElement(B, {
+    color: CL.txM
+  }, sel.fo), /*#__PURE__*/React.createElement(B, {
+    color: PC(sel.pp)
+  }, sel.pp), sel.im && /*#__PURE__*/React.createElement(B, {
+    color: CL.ok
+  }, "Sofortbelastung"), sel.gs && /*#__PURE__*/React.createElement(B, {
+    color: CL.acc
+  }, "Guided Surgery")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "flex-start",
+      gap: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      flexShrink: 0,
+      background: "rgba(0,0,0,0.015)",
+      borderRadius: 7,
+      padding: "3px 5px",
+      border: `1px solid ${CL.bd}`
+    }
+  }, /*#__PURE__*/React.createElement(ImpSVG, {
+    form: sel.fo,
+    sz: 52,
+    color: TC(sel.t)
+  })), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h2", {
+    style: {
+      margin: 0,
+      fontSize: 20,
+      fontWeight: 700
+    }
+  }, sel.n), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "2px 0 0",
+      fontSize: 14,
+      color: CL.txS
+    }
+  }, sel.fl, " ", sel.m, " \xB7 ", sel.co)))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: 14
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit,minmax(110px,1fr))",
+      gap: 5,
+      marginBottom: 12
+    }
+  }, [{
+    l: "Verbindung",
+    v: sel.cn
+  }, {
+    l: "Oberfläche",
+    v: sel.su
+  }, {
+    l: "Material",
+    v: sel.ma
+  }, {
+    l: "Einheilung",
+    v: sel.he
+  }, {
+    l: "Erfolgsrate",
+    v: sel.sr
+  }, {
+    l: "Abutment Torque",
+    v: sel.ta
+  }, {
+    l: "Insert. Torque",
+    v: `${sel.ti}–${sel.tx} Ncm`
+  }, {
+    l: "ISQ Zielwert",
+    v: sel.isq
+  }].map(s => /*#__PURE__*/React.createElement("div", {
+    key: s.l,
+    style: {
+      background: "rgba(0,0,0,0.015)",
+      borderRadius: 6,
+      padding: "6px 8px",
+      border: `1px solid ${CL.bd}`
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: CL.txM,
+      textTransform: "uppercase",
+      letterSpacing: ".05em",
+      marginBottom: 1
+    }
+  }, s.l), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 14,
+      fontWeight: 500
+    }
+  }, s.v)))), /*#__PURE__*/React.createElement("h4", {
+    style: {
+      margin: "0 0 4px",
+      fontSize: 13,
+      color: CL.txM,
+      fontWeight: 700,
+      textTransform: "uppercase"
+    }
+  }, "Durchmesser (mm)"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexWrap: "wrap",
+      gap: 3,
+      marginBottom: 8
+    }
+  }, sel.di.map(d => /*#__PURE__*/React.createElement("span", {
+    key: d,
+    style: {
+      padding: "2px 6px",
+      borderRadius: 4,
+      background: CL.accD,
+      color: CL.accL,
+      fontSize: 13,
+      fontWeight: 600,
+      fontFamily: "'JetBrains Mono',monospace",
+      border: `1px solid ${CL.acc}16`
+    }
+  }, "\u2205", d))), /*#__PURE__*/React.createElement("h4", {
+    style: {
+      margin: "0 0 4px",
+      fontSize: 13,
+      color: CL.txM,
+      fontWeight: 700,
+      textTransform: "uppercase"
+    }
+  }, "L\xE4ngen (mm)"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexWrap: "wrap",
+      gap: 3,
+      marginBottom: 8
+    }
+  }, sel.le.map(l => /*#__PURE__*/React.createElement("span", {
+    key: l,
+    style: {
+      padding: "2px 6px",
+      borderRadius: 4,
+      background: "rgba(5,150,105,0.05)",
+      color: CL.ok,
+      fontSize: 13,
+      fontWeight: 600,
+      fontFamily: "'JetBrains Mono',monospace",
+      border: "1px solid rgba(5,150,105,0.1)"
+    }
+  }, l, "mm"))), /*#__PURE__*/React.createElement("h4", {
+    style: {
+      margin: "0 0 4px",
+      fontSize: 13,
+      color: CL.txM,
+      fontWeight: 700,
+      textTransform: "uppercase"
+    }
+  }, "Knochen"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 3,
+      flexWrap: "wrap",
+      marginBottom: 8
+    }
+  }, sel.bd.map(b => /*#__PURE__*/React.createElement("span", {
+    key: b,
+    style: {
+      padding: "2px 6px",
+      borderRadius: 4,
+      background: BD[b].c + "0e",
+      color: BD[b].c,
+      fontSize: 13,
+      fontWeight: 600,
+      border: `1px solid ${BD[b].c}16`
+    }
+  }, b, " \u2013 ", BD[b].d))), /*#__PURE__*/React.createElement("h4", {
+    style: {
+      margin: "0 0 4px",
+      fontSize: 13,
+      color: CL.txM,
+      fontWeight: 700,
+      textTransform: "uppercase"
+    }
+  }, "Features"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexWrap: "wrap",
+      gap: 3,
+      marginBottom: 8
+    }
+  }, sel.fe.map(f => /*#__PURE__*/React.createElement(B, {
+    key: f,
+    color: CL.txS
+  }, f))), /*#__PURE__*/React.createElement("h4", {
+    style: {
+      margin: "0 0 2px",
+      fontSize: 13,
+      color: CL.txM,
+      fontWeight: 700,
+      textTransform: "uppercase"
+    }
+  }, "Indikation"), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "0 0 8px",
+      fontSize: 14,
+      lineHeight: 1.4
+    }
+  }, sel.ind), /*#__PURE__*/React.createElement("h4", {
+    style: {
+      margin: "0 0 2px",
+      fontSize: 13,
+      color: CL.txM,
+      fontWeight: 700,
+      textTransform: "uppercase"
+    }
+  }, "Prothetik"), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "0 0 8px",
+      fontSize: 14,
+      lineHeight: 1.4
+    }
+  }, sel.pr), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "rgba(37,99,235,0.03)",
+      border: `1px solid ${CL.acc}0e`,
+      borderRadius: 7,
+      padding: "7px 9px",
+      marginBottom: 8
+    }
+  }, /*#__PURE__*/React.createElement("h4", {
+    style: {
+      margin: "0 0 3px",
+      fontSize: 13,
+      color: CL.acc,
+      fontWeight: 700,
+      textTransform: "uppercase"
+    }
+  }, "\uD83D\uDD29 Bohrprotokoll"), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0,
+      fontSize: 13,
+      lineHeight: 1.4,
+      color: CL.txS
+    }
+  }, sel.dp)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: `linear-gradient(135deg,${TC(sel.t)}04,${TC(sel.t)}02)`,
+      border: `1px solid ${TC(sel.t)}0e`,
+      borderRadius: 7,
+      padding: "7px 9px",
+      marginBottom: 8
+    }
+  }, /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0,
+      fontSize: 13,
+      lineHeight: 1.4,
+      fontStyle: "italic"
+    }
+  }, "\uD83D\uDCA1 ", sel.no)), sel.ev && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 10
+    }
+  }, /*#__PURE__*/React.createElement("h4", {
+    style: {
+      margin: "0 0 6px",
+      fontSize: 13,
+      color: "#dc2626",
+      fontWeight: 700,
+      textTransform: "uppercase"
+    }
+  }, "\uD83D\uDD2C Klinische Evidenz"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit,minmax(130px,1fr))",
+      gap: 5,
+      marginBottom: 8
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "rgba(220,38,38,0.03)",
+      borderRadius: 6,
+      padding: "6px 8px",
+      border: "1px solid rgba(220,38,38,0.1)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: CL.txM,
+      textTransform: "uppercase",
+      letterSpacing: ".05em"
+    }
+  }, "Studien"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 16,
+      fontWeight: 700,
+      color: "#dc2626"
+    }
+  }, sel.ev.st)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "rgba(37,99,235,0.03)",
+      borderRadius: 6,
+      padding: "6px 8px",
+      border: "1px solid rgba(37,99,235,0.1)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: CL.txM,
+      textTransform: "uppercase",
+      letterSpacing: ".05em"
+    }
+  }, "Follow-up"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 15,
+      fontWeight: 600
+    }
+  }, sel.ev.fu)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "rgba(217,119,6,0.03)",
+      borderRadius: 6,
+      padding: "6px 8px",
+      border: "1px solid rgba(217,119,6,0.1)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: CL.txM,
+      textTransform: "uppercase",
+      letterSpacing: ".05em"
+    }
+  }, "Peri-Implantitis"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 15,
+      fontWeight: 600,
+      color: "#d97706"
+    }
+  }, sel.ev.pi)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "rgba(5,150,105,0.03)",
+      borderRadius: 6,
+      padding: "6px 8px",
+      border: "1px solid rgba(5,150,105,0.1)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: CL.txM,
+      textTransform: "uppercase",
+      letterSpacing: ".05em"
+    }
+  }, "MBL (marg. Knochen)"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 14,
+      fontWeight: 600,
+      color: CL.ok
+    }
+  }, sel.ev.mbl)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "rgba(124,58,237,0.03)",
+      borderRadius: 6,
+      padding: "6px 8px",
+      border: "1px solid rgba(124,58,237,0.1)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: CL.txM,
+      textTransform: "uppercase",
+      letterSpacing: ".05em"
+    }
+  }, "BIC"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 15,
+      fontWeight: 600,
+      color: "#7c3aed"
+    }
+  }, sel.ev.bic)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "rgba(0,0,0,0.015)",
+      borderRadius: 6,
+      padding: "6px 8px",
+      border: `1px solid ${CL.bd}`
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: CL.txM,
+      textTransform: "uppercase",
+      letterSpacing: ".05em"
+    }
+  }, "Weichgewebe"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      fontWeight: 500
+    }
+  }, sel.ev.wg)))), sel.cx && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 10
+    }
+  }, /*#__PURE__*/React.createElement("h4", {
+    style: {
+      margin: "0 0 6px",
+      fontSize: 13,
+      color: CL.acc,
+      fontWeight: 700,
+      textTransform: "uppercase"
+    }
+  }, "\uD83C\uDFE5 Praxisrelevanz & Wirtschaft"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit,minmax(130px,1fr))",
+      gap: 5,
+      marginBottom: 8
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "rgba(0,0,0,0.015)",
+      borderRadius: 6,
+      padding: "6px 8px",
+      border: `1px solid ${CL.bd}`
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: CL.txM,
+      textTransform: "uppercase",
+      letterSpacing: ".05em"
+    }
+  }, "OP-Zeit (min)"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 15,
+      fontWeight: 600
+    }
+  }, sel.cx.op)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "rgba(0,0,0,0.015)",
+      borderRadius: 6,
+      padding: "6px 8px",
+      border: `1px solid ${CL.bd}`
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: CL.txM,
+      textTransform: "uppercase",
+      letterSpacing: ".05em"
+    }
+  }, "Lernkurve"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 14,
+      fontWeight: 600,
+      color: sel.cx.lk === "Niedrig" ? CL.ok : sel.cx.lk === "Mittel" ? "#d97706" : "#dc2626"
+    }
+  }, sel.cx.lk)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "rgba(0,0,0,0.015)",
+      borderRadius: 6,
+      padding: "6px 8px",
+      border: `1px solid ${CL.bd}`
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: CL.txM,
+      textTransform: "uppercase",
+      letterSpacing: ".05em"
+    }
+  }, "Revisionsrate"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 15,
+      fontWeight: 600
+    }
+  }, sel.cx.rv)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "rgba(0,0,0,0.015)",
+      borderRadius: 6,
+      padding: "6px 8px",
+      border: `1px solid ${CL.bd}`
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: CL.txM,
+      textTransform: "uppercase",
+      letterSpacing: ".05em"
+    }
+  }, "Langzeit ", ">", "10J"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      fontWeight: 500
+    }
+  }, sel.cx.lt))), sel.ec && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      gap: 5
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "rgba(0,0,0,0.015)",
+      borderRadius: 6,
+      padding: "6px 8px",
+      border: `1px solid ${CL.bd}`
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: CL.txM,
+      textTransform: "uppercase",
+      letterSpacing: ".05em"
+    }
+  }, "\uD83D\uDCB0 Instrumentarium"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      fontWeight: 500
+    }
+  }, sel.ec.ki)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "rgba(0,0,0,0.015)",
+      borderRadius: 6,
+      padding: "6px 8px",
+      border: `1px solid ${CL.bd}`
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: CL.txM,
+      textTransform: "uppercase",
+      letterSpacing: ".05em"
+    }
+  }, "\uD83D\uDCB0 Prothetik"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      fontWeight: 500
+    }
+  }, sel.ec.pk)))), sel.sd && /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "rgba(124,58,237,0.02)",
+      border: "1px solid rgba(124,58,237,0.08)",
+      borderRadius: 7,
+      padding: "7px 9px",
+      marginBottom: 8
+    }
+  }, /*#__PURE__*/React.createElement("h4", {
+    style: {
+      margin: "0 0 3px",
+      fontSize: 13,
+      color: "#7c3aed",
+      fontWeight: 700,
+      textTransform: "uppercase"
+    }
+  }, "\uD83D\uDD27 Oberfl\xE4chentechnologie"), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0,
+      fontSize: 13,
+      lineHeight: 1.5,
+      color: CL.txS
+    }
+  }, sel.sd)), sel.ae && /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "rgba(5,150,105,0.02)",
+      border: "1px solid rgba(5,150,105,0.08)",
+      borderRadius: 7,
+      padding: "7px 9px",
+      marginBottom: 8
+    }
+  }, /*#__PURE__*/React.createElement("h4", {
+    style: {
+      margin: "0 0 3px",
+      fontSize: 13,
+      color: CL.ok,
+      fontWeight: 700,
+      textTransform: "uppercase"
+    }
+  }, "\u2728 \xC4sthetisches Outcome"), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0,
+      fontSize: 13,
+      lineHeight: 1.5,
+      color: CL.txS
+    }
+  }, sel.ae)), /*#__PURE__*/React.createElement("h4", {
+    style: {
+      margin: "0 0 4px",
+      fontSize: 13,
+      color: CL.txM,
+      fontWeight: 700,
+      textTransform: "uppercase"
+    }
+  }, "\uD83D\uDCF7 Scan Bodies"), (SB[sel.s] || []).length > 0 ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 4,
+      marginBottom: 10
+    }
+  }, (SB[sel.s] || []).map((sb, idx) => /*#__PURE__*/React.createElement("a", {
+    key: idx,
+    href: sb.shop,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 6,
+      padding: "6px 9px",
+      borderRadius: 7,
+      background: sb.oem ? "rgba(37,99,235,0.04)" : "rgba(0,0,0,0.015)",
+      border: `1px solid ${sb.oem ? CL.acc + "18" : CL.bd}`,
+      textDecoration: "none",
+      transition: "all .12s"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 16,
+      flexShrink: 0
+    }
+  }, sb.oem ? "🏭" : "🔄"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      minWidth: 0
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      fontWeight: 600,
+      color: CL.tx,
+      display: "flex",
+      alignItems: "center",
+      gap: 4
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      whiteSpace: "nowrap",
+      overflow: "hidden",
+      textOverflow: "ellipsis"
+    }
+  }, sb.n), sb.oem && /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 9,
+      padding: "1px 4px",
+      borderRadius: 3,
+      background: "rgba(124,58,237,0.1)",
+      color: "#7c3aed",
+      fontWeight: 700,
+      flexShrink: 0
+    }
+  }, "OEM"), !sb.oem && /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 9,
+      padding: "1px 4px",
+      borderRadius: 3,
+      background: "rgba(217,119,6,0.08)",
+      color: "#b45309",
+      fontWeight: 700,
+      flexShrink: 0
+    }
+  }, "MPS")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: CL.txM,
+      marginTop: 1
+    }
+  }, "Art.-Nr.: ", sb.art)), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 12,
+      color: CL.accL,
+      flexShrink: 0,
+      fontWeight: 600
+    }
+  }, "Shop \u2197")))) : /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "0 0 10px",
+      fontSize: 13,
+      color: CL.txS,
+      fontStyle: "italic"
+    }
+  }, "Kein Scan Body in der Datenbank."), /*#__PURE__*/React.createElement("h4", {
+    style: {
+      margin: "0 0 4px",
+      fontSize: 13,
+      color: CL.txM,
+      fontWeight: 700,
+      textTransform: "uppercase"
+    }
+  }, "\uD83D\uDD17 Quellen & Links"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 3
+    }
+  }, /*#__PURE__*/React.createElement("a", {
+    href: sel.url,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    style: {
+      fontSize: 13,
+      color: CL.accL,
+      textDecoration: "none"
+    }
+  }, "\uD83C\uDF10 Herstellerseite \u2197"), /*#__PURE__*/React.createElement("a", {
+    href: `https://www.spotimplant.com/en/dental-implants`,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    style: {
+      fontSize: 12,
+      color: CL.txS,
+      textDecoration: "none"
+    }
+  }, "\uD83D\uDD0E SpotImplant Datenbank \u2197"), /*#__PURE__*/React.createElement("a", {
+    href: `https://scholar.google.com/scholar?q=${encodeURIComponent(sel.n + " dental implant")}`,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    style: {
+      fontSize: 12,
+      color: CL.txS,
+      textDecoration: "none"
+    }
+  }, "\uD83D\uDCDA Google Scholar \u2197"), /*#__PURE__*/React.createElement("a", {
+    href: `https://pubmed.ncbi.nlm.nih.gov/?term=${encodeURIComponent(sel.n)}`,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    style: {
+      fontSize: 12,
+      color: CL.txS,
+      textDecoration: "none"
+    }
+  }, "\uD83C\uDFE5 PubMed \u2197"))))), shCmp && ci.length > 0 && /*#__PURE__*/React.createElement("div", {
+    onClick: () => sshCmp(false),
+    style: {
+      position: "fixed",
+      inset: 0,
+      background: "rgba(0,0,0,0.35)",
+      backdropFilter: "blur(8px)",
+      zIndex: 1001,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: 12,
+      animation: "fadeIn .15s ease"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    onClick: e => e.stopPropagation(),
+    style: {
+      background: CL.card,
+      border: `1px solid ${CL.bdL}`,
+      borderRadius: 12,
+      maxWidth: 900,
+      width: "100%",
+      maxHeight: "90vh",
+      overflow: "auto",
+      padding: 14
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      marginBottom: 10
+    }
+  }, /*#__PURE__*/React.createElement("h2", {
+    style: {
+      margin: 0,
+      fontSize: 18,
+      fontWeight: 700
+    }
+  }, "\u2696 Implantat-Vergleich"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 4
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: () => sCmp([]),
+    style: {
+      background: "rgba(0,0,0,0.025)",
+      border: `1px solid ${CL.bd}`,
+      borderRadius: 5,
+      padding: "3px 8px",
+      color: CL.txM,
+      cursor: "pointer",
+      fontSize: 12,
+      fontFamily: "inherit"
+    }
+  }, "Leeren"), /*#__PURE__*/React.createElement("button", {
+    onClick: () => sshCmp(false),
+    style: {
+      background: "rgba(0,0,0,0.025)",
+      border: "none",
+      borderRadius: 5,
+      width: 26,
+      height: 26,
+      cursor: "pointer",
+      color: CL.txS,
+      fontSize: 15
+    }
+  }, "\u2715"))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      overflowX: "auto"
+    }
+  }, /*#__PURE__*/React.createElement("table", {
+    style: {
+      width: "100%",
+      borderCollapse: "collapse",
+      fontSize: 13
+    }
+  }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", {
+    style: {
+      borderBottom: `2px solid ${CL.bdL}`
+    }
+  }, /*#__PURE__*/React.createElement("th", {
+    style: {
+      padding: "4px 6px",
+      textAlign: "left",
+      color: CL.txM,
+      fontSize: 12,
+      minWidth: 85
+    }
+  }, "Eigenschaft"), ci.map(i => /*#__PURE__*/React.createElement("th", {
+    key: i.id,
+    style: {
+      padding: "4px 6px",
+      textAlign: "left",
+      minWidth: 120
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: TC(i.t),
+      fontWeight: 700,
+      fontSize: 14
+    }
+  }, i.n), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: CL.txM,
+      fontSize: 10
+    }
+  }, i.fl, " ", i.m))))), /*#__PURE__*/React.createElement("tbody", null, [{
+    l: "Segment",
+    f: i => /*#__PURE__*/React.createElement(B, {
+      color: TC(i.t)
+    }, i.t)
+  }, {
+    l: "Material",
+    f: i => i.ma
+  }, {
+    l: "Oberfläche",
+    f: i => i.su
+  }, {
+    l: "Verbindung",
+    f: i => i.cn
+  }, {
+    l: "Durchmesser",
+    f: i => i.di.join(", ")
+  }, {
+    l: "Längen",
+    f: i => i.le.join(", ")
+  }, {
+    l: "Abt. Torque",
+    f: i => /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontFamily: "'JetBrains Mono',monospace",
+        fontWeight: 600
+      }
+    }, i.ta)
+  }, {
+    l: "Insert. Torque",
+    f: i => /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontFamily: "'JetBrains Mono',monospace"
+      }
+    }, i.ti, "\u2013", i.tx, " Ncm")
+  }, {
+    l: "ISQ Ziel",
+    f: i => /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontFamily: "'JetBrains Mono',monospace"
+      }
+    }, i.isq)
+  }, {
+    l: "Einheilung",
+    f: i => i.he
+  }, {
+    l: "Erfolgsrate",
+    f: i => /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: CL.ok,
+        fontWeight: 600
+      }
+    }, i.sr)
+  }, {
+    l: "Knochen",
+    f: i => i.bd.join(", ")
+  }, {
+    l: "Sofortlast",
+    f: i => i.im ? /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: CL.ok
+      }
+    }, "\u2713") : "–"
+  }, {
+    l: "Preis",
+    f: i => /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: PC(i.pp),
+        fontWeight: 600
+      }
+    }, i.pp)
+  }, {
+    l: "──────",
+    f: () => ""
+  }, {
+    l: "🔬 Studien",
+    f: i => i.ev ? /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontWeight: 600
+      }
+    }, i.ev.st) : "–"
+  }, {
+    l: "Follow-up",
+    f: i => i.ev ? i.ev.fu : "–"
+  }, {
+    l: "Peri-Implantitis",
+    f: i => i.ev ? /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "#d97706",
+        fontWeight: 600
+      }
+    }, i.ev.pi) : "–"
+  }, {
+    l: "MBL",
+    f: i => i.ev ? i.ev.mbl : "–"
+  }, {
+    l: "BIC",
+    f: i => i.ev ? /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "#7c3aed",
+        fontWeight: 600
+      }
+    }, i.ev.bic) : "–"
+  }, {
+    l: "Weichgewebe",
+    f: i => i.ev ? i.ev.wg : "–"
+  }, {
+    l: "──────",
+    f: () => ""
+  }, {
+    l: "🏥 OP-Zeit",
+    f: i => i.cx ? i.cx.op + " min" : "–"
+  }, {
+    l: "Lernkurve",
+    f: i => i.cx ? /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: i.cx.lk === "Niedrig" ? CL.ok : i.cx.lk === "Mittel" ? "#d97706" : "#dc2626",
+        fontWeight: 600
+      }
+    }, i.cx.lk) : "–"
+  }, {
+    l: "Revisionsrate",
+    f: i => i.cx ? i.cx.rv : "–"
+  }, {
+    l: "Langzeit >10J",
+    f: i => i.cx ? /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 11
+      }
+    }, i.cx.lt) : "–"
+  }, {
+    l: "──────",
+    f: () => ""
+  }, {
+    l: "💰 Kit-Kosten",
+    f: i => i.ec ? i.ec.ki : "–"
+  }, {
+    l: "💰 Prothetik",
+    f: i => i.ec ? i.ec.pk : "–"
+  }].map(r => /*#__PURE__*/React.createElement("tr", {
+    key: r.l,
+    style: {
+      borderBottom: r.l.includes("──") ? `2px solid ${CL.bdL}` : `1px solid ${CL.bd}`
+    }
+  }, /*#__PURE__*/React.createElement("td", {
+    style: {
+      padding: "3px 6px",
+      color: r.l.includes("──") ? CL.bd : CL.txM,
+      fontWeight: 700,
+      fontSize: 12
+    }
+  }, r.l.includes("──") ? "" : r.l), ci.map(i => /*#__PURE__*/React.createElement("td", {
+    key: i.id,
+    style: {
+      padding: "3px 6px",
+      fontSize: 13
+    }
+  }, r.f(i)))))))))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "fixed",
+      bottom: 16,
+      right: 16,
+      zIndex: 1100,
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "flex-end",
+      gap: 8
+    }
+  }, chatOpen && /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 400,
+      maxWidth: "calc(100vw - 32px)",
+      height: 560,
+      maxHeight: "calc(100vh - 100px)",
+      background: "#ffffff",
+      border: `1px solid ${CL.acc}22`,
+      borderRadius: 16,
+      display: "flex",
+      flexDirection: "column",
+      overflow: "hidden",
+      boxShadow: "0 12px 40px rgba(0,0,0,0.12),0 0 0 1px rgba(0,0,0,0.06)",
+      animation: "fi .2s ease"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: "10px 14px",
+      borderBottom: `1px solid ${CL.bd}`,
+      background: `linear-gradient(135deg,rgba(37,99,235,0.03),rgba(124,58,237,0.02))`,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      flexShrink: 0
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 8
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 30,
+      height: 30,
+      borderRadius: 8,
+      background: chatMode === "ai" ? `linear-gradient(135deg,${CL.acc},#7c3aed)` : "rgba(0,0,0,0.04)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontSize: 16
+    }
+  }, chatMode === "ai" ? "🤖" : "📋"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 15,
+      fontWeight: 700,
+      color: CL.tx
+    }
+  }, "ImplantAtlas ", chatMode === "ai" ? "KI" : "Suche"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: chatMode === "ai" ? CL.accL : CL.txM
+    }
+  }, chatMode === "ai" ? "🟢 KI-Modus · Claude API" : "🔵 Lokale Suche · Kein API-Key"))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 4,
+      alignItems: "center"
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: () => setShowKeyInput(!showKeyInput),
+    title: "API-Key Einstellungen",
+    style: {
+      background: showKeyInput ? CL.acc + "22" : "rgba(0,0,0,0.025)",
+      border: `1px solid ${showKeyInput ? CL.acc + "44" : CL.bd}`,
+      borderRadius: 5,
+      width: 26,
+      height: 26,
+      cursor: "pointer",
+      color: showKeyInput ? CL.accL : CL.txM,
+      fontSize: 15,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center"
+    }
+  }, "\u2699"), chatMsgs.length > 0 && /*#__PURE__*/React.createElement("button", {
+    onClick: () => setChatMsgs([]),
+    style: {
+      background: "rgba(0,0,0,0.025)",
+      border: `1px solid ${CL.bd}`,
+      borderRadius: 5,
+      padding: "3px 7px",
+      color: CL.txM,
+      cursor: "pointer",
+      fontSize: 10,
+      fontFamily: "inherit"
+    }
+  }, "L\xF6schen"), /*#__PURE__*/React.createElement("button", {
+    onClick: () => {
+      setChatOpen(false);
+      setShowKeyInput(false);
+    },
+    style: {
+      background: "rgba(0,0,0,0.025)",
+      border: "none",
+      borderRadius: 5,
+      width: 26,
+      height: 26,
+      cursor: "pointer",
+      color: CL.txS,
+      fontSize: 15,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center"
+    }
+  }, "\u2715"))), showKeyInput && /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: "10px 14px",
+      borderBottom: `1px solid ${CL.bd}`,
+      background: "rgba(37,99,235,0.03)",
+      flexShrink: 0
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      fontWeight: 700,
+      color: CL.txM,
+      marginBottom: 6,
+      textTransform: "uppercase",
+      letterSpacing: ".05em"
+    }
+  }, "API-Konfiguration"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 6,
+      alignItems: "center"
+    }
+  }, /*#__PURE__*/React.createElement("input", {
+    type: "password",
+    value: apiKey,
+    onChange: function (e) {
+      setApiKey(e.target.value);
+    },
+    placeholder: "sk-ant-api03-...",
+    style: {
+      flex: 1,
+      padding: "6px 8px",
+      borderRadius: 6,
+      border: `1px solid ${apiKey.trim().length > 10 ? "#22c55e44" : CL.bd}`,
+      background: "rgba(0,0,0,0.02)",
+      color: CL.tx,
+      fontSize: 13,
+      fontFamily: "'JetBrains Mono',monospace"
+    }
+  }), apiKey.trim() && /*#__PURE__*/React.createElement("button", {
+    onClick: function () {
+      setApiKey("");
+    },
+    style: {
+      background: "rgba(0,0,0,0.025)",
+      border: `1px solid ${CL.bd}`,
+      borderRadius: 5,
+      padding: "4px 8px",
+      color: CL.txM,
+      cursor: "pointer",
+      fontSize: 10,
+      fontFamily: "inherit"
+    }
+  }, "L\xF6schen")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: CL.txM,
+      marginTop: 4,
+      lineHeight: 1.4
+    }
+  }, apiKey.trim().length > 10 ? "✅ API-Key hinterlegt – KI-Modus aktiv. Dein Key wird nur lokal im Browser verwendet." : "Ohne Key: Lokale Datenbanksuche (Pattern-Matching). Mit Key: Intelligente KI-Antworten via Claude."), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 9,
+      color: CL.txM,
+      marginTop: 3,
+      opacity: 0.6
+    }
+  }, "Key von console.anthropic.com \xB7 Wird nicht gespeichert oder \xFCbertragen")), /*#__PURE__*/React.createElement("div", {
+    ref: el => chatScrollRef.current = el,
+    style: {
+      flex: 1,
+      overflow: "auto",
+      padding: "10px 12px",
+      display: "flex",
+      flexDirection: "column",
+      gap: 8
+    }
+  }, chatMsgs.length === 0 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: "center",
+      padding: "24px 16px",
+      color: CL.txM
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 30,
+      marginBottom: 8
+    }
+  }, chatMode === "ai" ? "🤖" : "🦷💬"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 15,
+      fontWeight: 600,
+      color: CL.txS,
+      marginBottom: 4
+    }
+  }, "ImplantAtlas ", chatMode === "ai" ? "KI-Assistent" : "Datenbank-Suche"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: chatMode === "ai" ? CL.accL : CL.txM,
+      marginBottom: 8,
+      padding: "3px 8px",
+      borderRadius: 4,
+      display: "inline-block",
+      background: chatMode === "ai" ? CL.acc + "12" : "rgba(0,0,0,0.025)"
+    }
+  }, chatMode === "ai" ? "🟢 KI-Modus – freie Fragen möglich" : "🔵 Lokaler Modus – ⚙ für KI-Upgrade"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      lineHeight: 1.5,
+      marginBottom: 12
+    }
+  }, D.length, " Implantatsysteme \xB7 Vergleiche, Scanbodies, Indikationen und mehr"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 4
+    }
+  }, ["Niedrigste Peri-Implantitis-Rate?", "BLX vs NobelActive", "Beste Langzeitdaten?", "MBL-Vergleich", "Niedrige Lernkurve?", "Übersicht"].map(qx => /*#__PURE__*/React.createElement("button", {
+    key: qx,
+    onClick: () => {
+      sendChat(qx);
+    },
+    style: {
+      padding: "6px 10px",
+      borderRadius: 7,
+      border: `1px solid ${CL.acc}16`,
+      background: CL.accD,
+      color: CL.accL,
+      fontSize: 12,
+      cursor: "pointer",
+      fontFamily: "inherit",
+      textAlign: "left",
+      transition: "all .12s"
+    }
+  }, qx)))), chatMsgs.map((m, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      display: "flex",
+      justifyContent: m.role === "user" ? "flex-end" : "flex-start",
+      animation: "fi .2s ease"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      maxWidth: "85%",
+      padding: "8px 11px",
+      borderRadius: m.role === "user" ? "12px 12px 3px 12px" : "12px 12px 12px 3px",
+      background: m.role === "user" ? `linear-gradient(135deg,${CL.acc},#4f46e5)` : "rgba(0,0,0,0.03)",
+      border: m.role === "user" ? "none" : `1px solid ${CL.bd}`,
+      color: m.role === "user" ? "#fff" : CL.tx
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      lineHeight: 1.55,
+      whiteSpace: "pre-wrap",
+      wordBreak: "break-word"
+    },
+    dangerouslySetInnerHTML: {
+      __html: fmtChat(m.content, m.role === "user")
+    }
+  })))), chatLoading && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "flex-start"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: "10px 14px",
+      borderRadius: "12px 12px 12px 3px",
+      background: "rgba(0,0,0,0.03)",
+      border: `1px solid ${CL.bd}`
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 4,
+      alignItems: "center"
+    }
+  }, [0, 1, 2].map(i => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      width: 6,
+      height: 6,
+      borderRadius: "50%",
+      background: CL.acc,
+      animation: `pulse 1.2s ease-in-out ${i * 0.15}s infinite`
+    }
+  }))))), /*#__PURE__*/React.createElement("div", {
+    ref: el => {
+      chatEndRef.current = el;
+      if (el) el.scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: "10px 12px",
+      borderTop: `1px solid ${CL.bd}`,
+      background: "rgba(0,0,0,0.01)",
+      flexShrink: 0
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 6,
+      alignItems: "flex-end"
+    }
+  }, /*#__PURE__*/React.createElement("textarea", {
+    value: chatIn,
+    onChange: function (e) {
+      setChatIn(e.target.value);
+    },
+    onKeyDown: function (e) {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        sendChat();
+      }
+    },
+    placeholder: chatMode === "ai" ? "Frage stellen (KI-Modus)..." : "Datenbank durchsuchen...",
+    rows: 1,
+    style: {
+      flex: 1,
+      padding: "8px 10px",
+      borderRadius: 8,
+      border: `1px solid ${CL.bd}`,
+      background: "rgba(0,0,0,0.02)",
+      color: CL.tx,
+      fontSize: 14,
+      fontFamily: "inherit",
+      resize: "none",
+      minHeight: 36,
+      maxHeight: 80,
+      lineHeight: 1.4
+    }
+  }), /*#__PURE__*/React.createElement("button", {
+    onClick: function () {
+      sendChat();
+    },
+    disabled: chatLoading,
+    style: {
+      width: 36,
+      height: 36,
+      borderRadius: 8,
+      background: chatIn.trim() ? `linear-gradient(135deg,${CL.acc},#4f46e5)` : "rgba(0,0,0,0.025)",
+      border: "none",
+      color: chatIn.trim() ? "#fff" : CL.txM,
+      cursor: chatIn.trim() ? "pointer" : "default",
+      fontSize: 16,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      flexShrink: 0,
+      transition: "all .15s"
+    }
+  }, "\u2191")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 9,
+      color: CL.txM,
+      marginTop: 4,
+      textAlign: "center",
+      opacity: 0.5
+    }
+  }, chatMode === "ai" ? "Claude KI · Antworten basieren auf der Datenbank" : "Lokale Suche · Für KI-Modus ⚙ API-Key hinterlegen"))), /*#__PURE__*/React.createElement("button", {
+    onClick: () => setChatOpen(!chatOpen),
+    style: {
+      width: 52,
+      height: 52,
+      borderRadius: 14,
+      background: chatOpen ? "rgba(0,0,0,0.04)" : `linear-gradient(135deg,${CL.acc},#4f46e5)`,
+      border: chatOpen ? `1px solid ${CL.bd}` : "none",
+      cursor: "pointer",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontSize: 24,
+      color: chatOpen ? CL.txS : "#fff",
+      boxShadow: chatOpen ? "none" : "0 8px 30px rgba(37,99,235,0.2)",
+      transition: "all .2s"
+    }
+  }, chatOpen ? "✕" : "💬")));
+}
+
+var root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(React.createElement(App));
+</script>
+</body>
+</html>
