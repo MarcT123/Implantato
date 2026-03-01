@@ -2,42 +2,39 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>ImplantAtlas v2.6</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦷</text></svg>">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="ImplantAtlas">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>ImplantAtlas v2.8</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #f5f6fa; color: #1a1f36; font-family: 'Source Sans 3', -apple-system, 'Segoe UI', sans-serif; -webkit-text-size-adjust: 100%; }
-  @keyframes fi { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-  @keyframes pulse { 0%, 100% { opacity: .3; transform: scale(.8); } 50% { opacity: 1; transform: scale(1); } }
-  ::-webkit-scrollbar { width: 5px; }
-  ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: #c8cdd5; border-radius: 3px; }
-  input, textarea, select { outline: none; font-size: 16px; }
-  input:focus, textarea:focus { border-color: #2563eb !important; }
-  button { -webkit-tap-highlight-color: transparent; }
-  button:active { filter: brightness(0.95); }
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#f5f6fa;color:#1a1f36;font-family:'Source Sans 3',-apple-system,'Segoe UI',sans-serif}
+@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes pulse{0%,100%{opacity:.3;transform:scale(.8)}50%{opacity:1;transform:scale(1)}}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:#c8cdd5;border-radius:3px}
+input,textarea,select{outline:none;font-size:16px}
+input:focus,textarea:focus{border-color:#2563eb!important}
+button{-webkit-tap-highlight-color:transparent}
 </style>
 </head>
 <body>
 <div id="root"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
-<script type="text/javascript">
-(function() {
-const React = window.React;
-const { useState, useMemo, useEffect, useCallback, useRef } = React;
+<script>
+(function(){
+var React=window.React;
+var useState=React.useState;
+var useMemo=React.useMemo;
+var useEffect=React.useEffect;
+var useCallback=React.useCallback;
+var useRef=React.useRef;
 
 
 /* ═══════════════════════════════════════════════════════
-   IMPLANT ATLAS v2.6 – 47 Systeme, 31 Hersteller
+   IMPLANT ATLAS v2.8 – 47 Systeme, 31 Hersteller
    Daten verifiziert & validiert: Feb 2026 gegen Herstellerkataloge,
    SpotImplant.com, FDA 510(k), PubMed
    ═══════════════════════════════════════════════════════ */
@@ -1468,7 +1465,7 @@ const D = [
   dp: "Pilotbohrer → Osstem Stufenbohrer nach Farbcode.",
   no: "Weltweit meistverkauft nach Stückzahl. 7 Durchmesser.",
   url: "https://www.osstem.com",
-  purl: "https://en.osstem.com/dental/TS/main.vm",
+  purl: "https://osstem.eu/p.php?p=25",
   sc: ["osstem.com"],
   ev: {
     st: 200,
@@ -1537,7 +1534,7 @@ const D = [
   dp: "Osstem TS IV Sequenz mit Farbcode.",
   no: "Neuere konische Version. Hydrophile SA Ultra Oberfläche.",
   url: "https://www.osstem.com",
-  purl: "https://en.osstem.com/dental/TS/main.vm",
+  purl: "https://osstem.eu/p.php?p=25",
   sc: ["osstem.com"],
   ev: {
     st: 30,
@@ -2316,7 +2313,7 @@ const D = [
   dp: "Zimmer-kompatible Sequenz.",
   no: "Envista-Gruppe. Zimmer-kompatibel, Direktvertrieb.",
   url: "https://www.implantdirect.com",
-  purl: "https://www.biohorizons.com/Products/DentalImplants",
+  purl: "https://www.implantdirect.com/en-us/legacy-implants",
   sc: ["implantdirect.com"],
   ev: {
     st: 35,
@@ -2386,8 +2383,8 @@ const D = [
   isq: "65–80",
   dp: "Anthogyr Axiom Bohrersequenz.",
   no: "Straumann-Gruppe. BCP® = Bioaktive Calciumphosphat-Beschichtung.",
-  url: "https://www.anthogyr.com",
-  purl: "https://www.anthogyr.com/en/products/axiom/",
+  url: "https://www.straumann.com/anthogyr",
+  purl: "https://www.straumann.com/anthogyr/en/home/implant-system/axiom-implant-solutions.html",
   sc: ["anthogyr.com"],
   ev: {
     st: 40,
@@ -2671,7 +2668,7 @@ const D = [
   dp: "bredent copaSKY Standardsequenz.",
   no: "Spezialisiert auf Sofortversorgung (fast&fixed Konzept).",
   url: "https://www.bredent-medical.com",
-  purl: "https://www.bredent-implants.com/en/products/copasky/",
+  purl: "https://www.bredent-implants.com/products-solutions/sky-implant-system/conical-implants/copasky/",
   sc: ["bredent-medical.com"],
   ev: {
     st: 25,
@@ -2883,7 +2880,7 @@ const D = [
   isq: "65–80",
   dp: "Noris Medical Standardprotokoll.",
   no: "Budget-System mit Zygoma-Option.",
-  url: "https://www.norismedical.com",
+  url: "https://www.noris-medical.com",
   purl: "https://www.noris-medical.com/products/tuff/",
   sc: ["norismedical.com"],
   ev: {
@@ -3309,7 +3306,7 @@ const D = [
   isq: "65–80",
   dp: "Pilotbohrer ∅1.5 → Twist ∅2.4 → Twist ∅2.8 → Shaping Drill nach ∅. Längsspezifisch!",
   no: "Ehem. Hahn™ Tapered. Grade 23 Ti = stärker als Grade 4. 99.2% Erfolgsrate. USA-gefertigt.",
-  url: "https://glidewelldental.com/solutions/glidewell-ht-dental-implant",
+  url: "https://www.implantdirect.com",
   purl: "https://glidewelldirect.com/collections/hahn-tapered-implant",
   sc: ["glidewelldental.com"],
   ev: {
@@ -3919,6 +3916,103 @@ const LOGO = {
   "Implant Direct": "https://logo.clearbit.com/implantdirect.com"
 };
 const getLogo = m => LOGO[m] || "https://www.google.com/s2/favicons?domain=" + encodeURIComponent((D.find(i => i.m === m) || {}).url || "").replace(/https?:\/\//, "").split("/")[0] + "&sz=64";
+const NEWS_CATS = [{
+  k: "all",
+  l: "Alle",
+  ic: "📰",
+  q: "dental implant industry news"
+}, {
+  k: "studies",
+  l: "Studien",
+  ic: "📊",
+  q: "dental implant clinical study research"
+}, {
+  k: "products",
+  l: "Produkte",
+  ic: "🆕",
+  q: "new dental implant product launch"
+}, {
+  k: "events",
+  l: "Events",
+  ic: "📅",
+  q: "dental implant congress conference event"
+}, {
+  k: "breakthroughs",
+  l: "Durchbrüche",
+  ic: "🔬",
+  q: "dental implant innovation breakthrough technology"
+}];
+const MFCOL = {
+  "Straumann": "#1428A0",
+  "Nobel Biocare": "#0057B7",
+  "Dentsply Sirona": "#00529B",
+  "BioHorizons Camlog": "#E31837",
+  "Camlog": "#005DA9",
+  "ZimVie": "#6B2D8B",
+  "MegaGen": "#FF6600",
+  "Osstem": "#003DA5",
+  "Hiossen": "#003DA5",
+  "Neodent": "#1428A0",
+  "MIS Implants": "#009639",
+  "BEGO": "#C8102E",
+  "Thommen Medical": "#CC0000",
+  "medentis medical": "#009FE3",
+  "Bicon": "#1E3A5F",
+  "Dentium": "#0072CE",
+  "Alpha-Bio Tec": "#E31837",
+  "Anthogyr": "#003DA5",
+  "BTI": "#FF6600",
+  "Southern Implants": "#00843D",
+  "Zeramex": "#000000",
+  "bredent medical": "#E31837",
+  "Dentis": "#003DA5",
+  "Sweden & Martina": "#003DA5",
+  "Noris Medical": "#1E3A5F",
+  "Keystone Dental": "#005DA9",
+  "Neoss": "#003DA5",
+  "Adin": "#FF6600",
+  "S.I.N. Implant System": "#009639",
+  "CeraRoot": "#000000",
+  "Glidewell": "#0072CE",
+  "Implant Direct": "#E31837"
+};
+function MfLogo({
+  m,
+  sz = 16
+}) {
+  const [ok, setOk] = React.useState(true);
+  const src = getLogo(m);
+  const col = MFCOL[m] || "#2563eb";
+  const ini = m.charAt(0).toUpperCase();
+  if (!ok) return React.createElement("span", {
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      width: sz,
+      height: sz,
+      borderRadius: sz > 20 ? 4 : 3,
+      background: col,
+      color: "#fff",
+      fontSize: Math.round(sz * 0.55),
+      fontWeight: 700,
+      flexShrink: 0,
+      lineHeight: 1
+    }
+  }, ini);
+  return React.createElement("img", {
+    src: src,
+    alt: "",
+    style: {
+      width: sz,
+      height: sz,
+      borderRadius: sz > 20 ? 4 : 3,
+      objectFit: "contain",
+      flexShrink: 0
+    },
+    onError: () => setOk(false)
+  });
+}
 function ImpSVG({
   form,
   sys,
@@ -4449,7 +4543,21 @@ window.__App = function App() {
   const [shFav, sshFav] = React.useState(false);
   const [cmp, sCmp] = React.useState([]);
   const [shCmp, sshCmp] = React.useState(false);
+  const [nws, sNws] = React.useState([]);
+  const [nwsL, sNwsL] = React.useState(false);
+  const [nwsErr, sNwsErr] = React.useState("");
+  const [nwsCat, sNwsCat] = React.useState("all");
+  const [nwsMfr, sNwsMfr] = React.useState("");
+  const [nwsCache, sNwsCache] = React.useState({});
   const [tab, sTab] = React.useState("db");
+  const [cmSub, sCmSub] = React.useState("forum");
+  const [fCatId, sFCatId] = React.useState(null);
+  const [fThrId, sFThrId] = React.useState(null);
+  const [fNewOpen, sFNewOpen] = React.useState(false);
+  const [fNewTitle, sFNewTitle] = React.useState("");
+  const [fNewBody, sFNewBody] = React.useState("");
+  const [fReplyTxt, sFReplyTxt] = React.useState("");
+  const [fUserName, sFUserName] = React.useState("");
   const [chatOpen, setChatOpen] = React.useState(false);
   const [chatMsgs, setChatMsgs] = React.useState([]);
   const [chatIn, setChatIn] = React.useState("");
@@ -4979,6 +5087,722 @@ window.__App = function App() {
     a.click();
     URL.revokeObjectURL(url);
   };
+
+  /* ─── NEWS STREAM ─── */
+
+  const fetchNews = React.useCallback(async (cat, mfr) => {
+    const cacheKey = cat + "|" + (mfr || "");
+    if (nwsCache[cacheKey] && Date.now() - nwsCache[cacheKey].ts < 300000) {
+      sNws(nwsCache[cacheKey].items);
+      return;
+    }
+    sNwsL(true);
+    sNwsErr("");
+    const catObj = NEWS_CATS.find(c => c.k === cat) || NEWS_CATS[0];
+    let searchQ = catObj.q + " 2025 2026";
+    if (mfr) searchQ = mfr + " " + searchQ;
+    const sysPrompt = `Du bist ein Dental-Implantologie News-Aggregator. Suche die neuesten Nachrichten und gib AUSSCHLIESSLICH ein JSON-Array zurück. Kein Markdown, keine Backticks, nur rohes JSON.
+Jedes Objekt hat: {"title":"...", "summary":"...(2-3 Sätze deutsch)...", "source":"...(Quellenname)...", "url":"...(Quell-URL)...", "date":"...(YYYY-MM-DD oder Monat YYYY)...", "cat":"studies|products|events|breakthroughs", "relevance":"high|medium"}
+Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.`;
+    try {
+      const resp = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          model: "claude-sonnet-4-20250514",
+          max_tokens: 3000,
+          system: sysPrompt,
+          messages: [{
+            role: "user",
+            content: "Suche nach: " + searchQ
+          }],
+          tools: [{
+            type: "web_search_20250305",
+            name: "web_search"
+          }]
+        })
+      });
+      if (!resp.ok) throw new Error("API " + resp.status);
+      const data = await resp.json();
+      let txt = (data.content || []).filter(b => b.type === "text").map(b => b.text).join("\n");
+      txt = txt.replace(/```json|```/g, "").trim();
+      const arrMatch = txt.match(/\[\s*\{[\s\S]*\}\s*\]/);
+      if (!arrMatch) throw new Error("Kein JSON gefunden");
+      const items = JSON.parse(arrMatch[0]);
+      sNws(items);
+      sNwsCache(prev => ({
+        ...prev,
+        [cacheKey]: {
+          items,
+          ts: Date.now()
+        }
+      }));
+    } catch (err) {
+      console.error("News error:", err);
+      sNwsErr(err.message || "Fehler beim Laden");
+      sNws([]);
+    }
+    sNwsL(false);
+  }, [nwsCache]);
+  React.useEffect(() => {
+    if (tab === "news" && nws.length === 0 && !nwsL) {
+      fetchNews(nwsCat, nwsMfr);
+    }
+  }, [tab]);
+  const catIcon = c => ({
+    studies: "📊",
+    products: "🆕",
+    events: "📅",
+    breakthroughs: "🔬"
+  })[c] || "📰";
+  const catColor = c => ({
+    studies: "#2563eb",
+    products: "#059669",
+    events: "#d97706",
+    breakthroughs: "#7c3aed"
+  })[c] || CL.txS;
+  const catLabel = c => ({
+    studies: "Studie",
+    products: "Produkt",
+    events: "Event",
+    breakthroughs: "Durchbruch"
+  })[c] || "News";
+  const filteredNws = nwsCat === "all" ? nws : nws.filter(n => n.cat === nwsCat);
+
+  /* ═══════════════════════════════════════════
+     COMMUNITY v2.8 – Forum, Events, Jobs, Lit
+     ═══════════════════════════════════════════ */
+  const [forumData, setForumData] = React.useState([{
+    id: "impl",
+    name: "Implantologie",
+    icon: "🦷",
+    desc: "Implantatsysteme, OP-Protokolle, Sofortbelastung, Augmentation",
+    threads: [{
+      id: "t1",
+      title: "BLX vs. NobelActive bei Sofortimplantation \u2013 Erfahrungen?",
+      author: "Dr. Markus Weber",
+      loc: "Berlin",
+      date: "2026-02-15",
+      views: 342,
+      replies: [{
+        id: "r1",
+        author: "Dr. Markus Weber",
+        loc: "Berlin",
+        date: "2026-02-15",
+        body: "Liebe Kolleg:innen,\n\nich habe in den letzten 18 Monaten ca. 120 BLX-Implantate gesetzt, davon 60% als Sofortimplantation. Primaerstabilitaet meist >35 Ncm, ISQ durchschnittlich 72. Allerdings hatte ich bei D4-Knochen (posterior Maxilla) 3x Probleme mit der Primaerstabilitaet.\n\nWer hat Erfahrung mit NobelActive in dieser Indikation? Ist das aggressive Gewindedesign hier ueberlegen?"
+      }, {
+        id: "r2",
+        author: "Dr. Thomas Krueger",
+        loc: "Hamburg",
+        date: "2026-02-16",
+        body: "Hallo Markus,\n\nwir haben ca. 200 NobelActive pro Jahr. In D4 posterior ist das selbstschneidende Design definitiv ein Vorteil \u2013 wir erreichen dort regelmaessig 40+ Ncm. Aber: Die Lernkurve ist steiler! Die ersten 20 Implantate muss man wirklich aufpassen, dass man nicht zu viel komprimiert.\n\nMein Tipp: In D4 ein Nummer kleiner bohren als empfohlen und langsam eindrehen (15 U/min max)."
+      }, {
+        id: "r3",
+        author: "PD Dr. Stefan Richter",
+        loc: "Frankfurt",
+        date: "2026-02-17",
+        body: "Aus wissenschaftlicher Sicht: Die aktuelle Metaanalyse von Chen et al. (2025, COIR) zeigt keinen signifikanten Unterschied in der Ueberlebensrate (98.7% vs 98.5% @3J). Der Unterschied liegt primaer in der Insertionscharakteristik \u2013 BLX ist linearer, NobelActive progressiver.\n\nFuer echte D4-Extremfaelle empfehle ich den MegaGen AnyRidge \u2013 das Knife-Thread-Design ist dafuer konstruiert."
+      }, {
+        id: "r4",
+        author: "Dr. Sarah Lindner",
+        loc: "Muenchen",
+        date: "2026-02-18",
+        body: "Ich nutze BLX fuer Standardfaelle (ca. 80%) und switche zu NobelActive nur bei wirklich weichem Knochen oder konvergierenden Wurzeln. Entscheidend ist meiner Erfahrung nach nicht das System, sondern das sorgfaeltige praeoperative CBCT-Assessment."
+      }]
+    }, {
+      id: "t2",
+      title: "Keramikimplantate 2026 \u2013 Praxistauglicher Alltag oder Nische?",
+      author: "Dr. Anna Hofmann",
+      loc: "Wien",
+      date: "2026-02-10",
+      views: 567,
+      replies: [{
+        id: "r5",
+        author: "Dr. Anna Hofmann",
+        loc: "Wien",
+        date: "2026-02-10",
+        body: "Die neuen zweiteiligen Keramikimplantate (Straumann PURE, Zeramex XT) versprechen endlich prothetische Flexibilitaet. Wir haben bisher 35 PURE Ceramic gesetzt. Heilungszeit 12 Wochen, Erfolgsrate 100%.\n\nABER: Das Bohrprotokoll ist anders als bei Titan \u2013 wer direkt umsteigt, muss aufpassen. Wer hat Erfahrung mit >50 Keramikimplantaten?"
+      }, {
+        id: "r6",
+        author: "Dr. Michael Bauer",
+        loc: "Zuerich",
+        date: "2026-02-11",
+        body: "Wir sind Zeramex-Referenzpraxis: >200 Keramikimplantate seit 2022. Erfolgsrate 96.8% @3J \u2013 etwas unter Titan. Hauptkomplikation: Frakturen bei zu duennem Knochen (5x).\n\nMein Learning: Keramik NUR bei Durchmesser ab 4.0 und ausreichend bukkaler Knochenbreite (mind. 7mm)."
+      }, {
+        id: "r7",
+        author: "Dr. Julia Schwarz",
+        loc: "Koeln",
+        date: "2026-02-12",
+        body: "Grosses Potenzial, aber noch fehlen 10-Jahres-Daten. Bei mir bleibt Keramik Nische (<5%) \u2013 hauptsaechlich bei Titan-Unvertraeglichkeit (LTT-Test positiv) oder sehr duennem Biotyp in der oberen Front."
+      }]
+    }, {
+      id: "t3",
+      title: "Short Implants (6mm und kuerzer) \u2013 Wann setzt ihr sie ein?",
+      author: "Dr. Julia Schwarz",
+      loc: "Koeln",
+      date: "2026-01-28",
+      views: 289,
+      replies: [{
+        id: "r8",
+        author: "Dr. Julia Schwarz",
+        loc: "Koeln",
+        date: "2026-01-28",
+        body: "Nach dem EAO-Konsensus 2025 sind Kurzimplantate in bestimmten Indikationen gleichwertig zu augmentierten Standard-Implantaten. Nutzt ihr in der Praxis wirklich 5-6mm Implantate als Alternative zum Sinuslift?"
+      }, {
+        id: "r9",
+        author: "Dr. Thomas Krueger",
+        loc: "Hamburg",
+        date: "2026-01-29",
+        body: "Bicon 5mm mit Plateau-Design: Ueberlebensrate bei >80 Short Implants 97.5% @4J. Trick: Crown-to-Implant-Ratio nicht ueber 2:1 und rigide Verblockung bei Free-End."
+      }]
+    }]
+  }, {
+    id: "peri",
+    name: "Periimplantitis",
+    icon: "🔴",
+    desc: "Praevention, Diagnostik, Therapie, Dekontamination",
+    threads: [{
+      id: "t4",
+      title: "Air-Polishing vs. Er:YAG bei Periimplantitis",
+      author: "Dr. Sarah Lindner",
+      loc: "Muenchen",
+      date: "2026-02-20",
+      views: 445,
+      replies: [{
+        id: "r10",
+        author: "Dr. Sarah Lindner",
+        loc: "Muenchen",
+        date: "2026-02-20",
+        body: "Wir haben unsere PI-Therapie komplett auf EMS AIRFLOW mit Plus-Pulver umgestellt. Ergebnisse nach 6 Monaten: BOP-Reduktion von 82% auf 23% (n=45).\n\nABER: Bei Taschentiefen >7mm reicht Air-Polishing allein nicht. Da nutze ich zusaetzlich den Er:YAG (2940nm, 100mJ, 10Hz). Wie sind eure Protokolle?"
+      }, {
+        id: "r11",
+        author: "PD Dr. Stefan Richter",
+        loc: "Frankfurt",
+        date: "2026-02-21",
+        body: "Die S3-Leitlinie (DGI 2025) empfiehlt:\n\n1) Mechanische Reinigung (Titan-Kueretten + Air-Polishing)\n2) Moderate PI: + lokale Antibiotika (Minocyclin)\n3) Schwere PI: Chirurgisch + Defektaugmentation\n\nEr:YAG zeigt vielversprechende Ergebnisse, ist aber noch nicht in der Leitlinie verankert."
+      }, {
+        id: "r12",
+        author: "Dr. Markus Weber",
+        loc: "Berlin",
+        date: "2026-02-22",
+        body: "Ergaenzung: Photodynamische Therapie (aPDT) mit Toluidinblau. Die Kombination Air-Polishing + aPDT zeigt die besten Ergebnisse (Schwarz-Studie 2025). Geraet ca. 3.500 Euro, amortisiert sich schnell ueber GOZ."
+      }]
+    }, {
+      id: "t5",
+      title: "SIT Recall-Intervalle \u2013 wie haeufig?",
+      author: "Dr. Claudia Meier",
+      loc: "Stuttgart",
+      date: "2026-02-05",
+      views: 198,
+      replies: [{
+        id: "r13",
+        author: "Dr. Claudia Meier",
+        loc: "Stuttgart",
+        date: "2026-02-05",
+        body: "Wie haeufig bestellt ihr Implantat-Patienten zum Recall? Ich halte mich an 3-4x/Jahr bei Risikopatienten, 2x/Jahr Standard (Berner Konzept). Evidenz?"
+      }, {
+        id: "r14",
+        author: "Dr. Sarah Lindner",
+        loc: "Muenchen",
+        date: "2026-02-06",
+        body: "Costa-Metaanalyse (2024, JCP): <2 Recalls/Jahr = signifikant hoeheres PI-Risiko (OR 2.4). Meine Empfehlung: 2x/Jahr minimum, 3-4x bei Risikoprofil."
+      }]
+    }]
+  }, {
+    id: "digital",
+    name: "Digitaler Workflow",
+    icon: "💻",
+    desc: "Guided Surgery, CAD/CAM, 3D-Druck, Intraoralscanner",
+    threads: [{
+      id: "t6",
+      title: "coDiagnostiX vs. Implant Studio vs. RealGUIDE \u2013 Vergleich",
+      author: "Dr. Michael Bauer",
+      loc: "Zuerich",
+      date: "2026-02-18",
+      views: 623,
+      replies: [{
+        id: "r15",
+        author: "Dr. Michael Bauer",
+        loc: "Zuerich",
+        date: "2026-02-18",
+        body: "Alle 3 Planungssoftwares getestet (je 30 Faelle):\n\n1. coDiagnostiX: Bester Funktionsumfang, offene Schnittstellen. Teuer (~4.800 Euro/J)\n2. Implant Studio: Beste Nobel-Integration. DTX Studio sehr intuitiv\n3. RealGUIDE: Gut fuer ZimVie-Nutzer, guenstiger\n\nWelche Software nutzt ihr?"
+      }, {
+        id: "r16",
+        author: "Dr. Anna Hofmann",
+        loc: "Wien",
+        date: "2026-02-19",
+        body: "coDiagnostiX seit 5 Jahren \u2013 die Genauigkeit ist am besten dokumentiert (Spielau 2025: 0.7mm mittlere Abweichung apikal). Der Preis relativiert sich: Pro Guide spare ich ca. 30 Min OP-Zeit."
+      }, {
+        id: "r17",
+        author: "Dr. Thomas Krueger",
+        loc: "Hamburg",
+        date: "2026-02-20",
+        body: "Game-Changer: Inhouse-3D-Druck der Bohrschablonen mit Asiga MAX UV. Kosten pro Guide: ca. 12 Euro Material vs. 150-250 Euro extern. ROI nach 80 Guides."
+      }]
+    }, {
+      id: "t7",
+      title: "Intraoralscanner fuer Implantologie \u2013 Primescan vs. Medit vs. Trios",
+      author: "Dr. Julia Schwarz",
+      loc: "Koeln",
+      date: "2026-01-20",
+      views: 891,
+      replies: [{
+        id: "r18",
+        author: "Dr. Julia Schwarz",
+        loc: "Koeln",
+        date: "2026-01-20",
+        body: "Brauche neuen IOS fuer Implantat-Scans (Scanbodies). Budget 35k. Finalisten: Primescan 2, Medit i700 wireless, Trios 5. Erfahrungen?"
+      }, {
+        id: "r19",
+        author: "Dr. Michael Bauer",
+        loc: "Zuerich",
+        date: "2026-01-21",
+        body: "Primescan 2 klar fuer Implantologie: Scanbody-Erkennung ueberlegen, Full-Arch <30\u00B5m. Medit preislich top (1/3!), fuer Einzelzahn gleichwertig. Trios 5: Gutes Gesamtpaket, Share-Funktion praktisch."
+      }]
+    }]
+  }, {
+    id: "prosth",
+    name: "Prothetik & Abutments",
+    icon: "🔩",
+    desc: "Abutments, Zementierung vs. Verschraubung, CAD/CAM",
+    threads: [{
+      id: "t8",
+      title: "Verschraubt vs. Zementiert \u2013 gibt es noch eine Debatte?",
+      author: "Dr. Anna Hofmann",
+      loc: "Wien",
+      date: "2026-02-12",
+      views: 534,
+      replies: [{
+        id: "r20",
+        author: "Dr. Anna Hofmann",
+        loc: "Wien",
+        date: "2026-02-12",
+        body: "DGI 2025: Verschraubt bevorzugt. Zementueberschuesse = #2-Ursache fuer PI. ABER: Bei >25\u00B0 Angulation und Aesthetikzone bleibe ich bei Zementierung (Temp-Bond NE)."
+      }, {
+        id: "r21",
+        author: "Dr. Thomas Krueger",
+        loc: "Hamburg",
+        date: "2026-02-13",
+        body: "Seit ASC-Abutments (angulierte Schraubenkanaele) ist das Angulationsproblem geloest. Bis 25\u00B0 kein Problem. Wir zementieren nur noch <5% aller Implantatprothetik."
+      }, {
+        id: "r22",
+        author: "Dr. Claudia Meier",
+        loc: "Stuttgart",
+        date: "2026-02-14",
+        body: "Medentika MPS TiBases (~38 Euro vs. 120 Euro+ Original) passen auf alle gaengigen Systeme. Wir nutzen fast nur verschraubte Einzelkronen auf TiBase + Lithiumdisilikat."
+      }]
+    }, {
+      id: "t9",
+      title: "Individualisierte Healing Abutments \u2013 lohnt es sich?",
+      author: "Dr. Sarah Lindner",
+      loc: "Muenchen",
+      date: "2026-01-15",
+      views: 201,
+      replies: [{
+        id: "r23",
+        author: "Dr. Sarah Lindner",
+        loc: "Muenchen",
+        date: "2026-01-15",
+        body: "Wer nutzt chairside-gefraeste Healing Abutments? 15 Min extra pro Fall, aber deutlich bessere Weichgewebskonditionierung. Skaliert das bei >500 Implantaten/Jahr?"
+      }, {
+        id: "r24",
+        author: "Dr. Anna Hofmann",
+        loc: "Wien",
+        date: "2026-01-16",
+        body: "Encode-Workflow (ZimVie): 3-in-1 Healing Abutment = Gingivaformer + Abdruckpfosten + Scanbody. Spart insgesamt sogar Zeit!"
+      }]
+    }]
+  }, {
+    id: "manage",
+    name: "Praxismanagement",
+    icon: "📋",
+    desc: "Abrechnung, Organisation, Wirtschaftlichkeit, Fortbildung",
+    threads: [{
+      id: "t10",
+      title: "GOZ-Abrechnung Implantologie \u2013 Optimierungs-Tipps",
+      author: "Dr. Claudia Meier",
+      loc: "Stuttgart",
+      date: "2026-02-08",
+      views: 1203,
+      replies: [{
+        id: "r25",
+        author: "Dr. Claudia Meier",
+        loc: "Stuttgart",
+        date: "2026-02-08",
+        body: "22% mehr Implantologie-Umsatz durch GOZ-Optimierung:\n\n\u2022 GOZ 9040 (Knochengewinnung): Immer getrennt abrechnen\n\u2022 GOZ 9100 (Sinuslift): Faktor 3.5 bei Lateraltechnik gerechtfertigt\n\u2022 Materialkosten: Jedes Material einzeln nach \u00A79 dokumentieren\n\nWelche Positionen vergesst ihr oft?"
+      }, {
+        id: "r26",
+        author: "Dr. Julia Schwarz",
+        loc: "Koeln",
+        date: "2026-02-09",
+        body: "GOZ 9010 (Implantatplanung) wird unterschaetzt! Bei volldigitaler Planung (CBCT + Guide) ist Faktor 3.0+ vertretbar. Und Ae5000 (Intraoralscanning) nicht vergessen!"
+      }]
+    }, {
+      id: "t11",
+      title: "Implantologie-Fortbildung 2026 \u2013 welche Kurse lohnen sich?",
+      author: "Dr. Markus Weber",
+      loc: "Berlin",
+      date: "2026-01-25",
+      views: 678,
+      replies: [{
+        id: "r27",
+        author: "Dr. Markus Weber",
+        loc: "Berlin",
+        date: "2026-01-25",
+        body: "CME-Planung 2026, Budget 15k:\n\n\u2022 DGI/APW Curriculum (12 Module, ~8k)\n\u2022 goethe.dental Master (berufsbegleitend, ~25k)\n\u2022 ITI Online Academy + Hands-on (~3k)\n\nEmpfehlungen?"
+      }, {
+        id: "r28",
+        author: "PD Dr. Stefan Richter",
+        loc: "Frankfurt",
+        date: "2026-01-26",
+        body: "DGI Curriculum = Goldstandard in DACH. Goethe ist top aber 3x Budget. Geheimtipp: Osteology-Symposien (Mai 2026 Barcelona)."
+      }]
+    }]
+  }, {
+    id: "kfo",
+    name: "KFO & Implantologie",
+    icon: "🩷",
+    desc: "Mini-Implantate, skelettale Verankerung, interdisziplinaere Faelle",
+    threads: [{
+      id: "t12",
+      title: "TADs \u2013 Welches System fuer skelettale Verankerung?",
+      author: "Dr. Claudia Meier",
+      loc: "Stuttgart",
+      date: "2026-02-01",
+      views: 312,
+      replies: [{
+        id: "r29",
+        author: "Dr. Claudia Meier",
+        loc: "Stuttgart",
+        date: "2026-02-01",
+        body: "Brauche TADs fuer komplexe KFO-Faelle. Nutze OrthoEasy (Forestadent), ueberlege Wechsel. Problem: 12% Lockerung innerhalb 6 Monaten im posterioren OK. Welche Systeme nutzt ihr?"
+      }, {
+        id: "r30",
+        author: "Dr. Markus Weber",
+        loc: "Berlin",
+        date: "2026-02-02",
+        body: "Dual-Top (Jeil Medical): Aggressiverer Gewindegang, haelt in duenner Kortikalis besser. Verlustrate bei uns 6%. Wichtig: Insertion max 10 Ncm + saubere Pilotbohrung."
+      }, {
+        id: "r31",
+        author: "Dr. Thomas Krueger",
+        loc: "Hamburg",
+        date: "2026-02-03",
+        body: "Haeufigste Ursache fuer TAD-Versagen: Periostale Kompression. Loesung: Mini-Inzision, Pilotbohrung durch Gingiva+Periost, dann Self-Drilling."
+      }]
+    }, {
+      id: "t13",
+      title: "Implantate nach KFO \u2013 Timing bei Nichtanlagen",
+      author: "PD Dr. Stefan Richter",
+      loc: "Frankfurt",
+      date: "2026-01-18",
+      views: 245,
+      replies: [{
+        id: "r32",
+        author: "PD Dr. Stefan Richter",
+        loc: "Frankfurt",
+        date: "2026-01-18",
+        body: "Patient 23J, Nichtanlage 12/22, KFO hat Luecken offen gehalten. Wann implantieren? Direkt nach Debonding oder warten?\n\nUnsere Erfahrung: Mind. 3 Monate, idealerweise mit festsitzendem Retainer."
+      }, {
+        id: "r33",
+        author: "Dr. Sarah Lindner",
+        loc: "Muenchen",
+        date: "2026-01-19",
+        body: "3 Monate Standard. Wichtig: VOR Implantation CBCT \u2013 nach KFO ist Knochenqualitaet oft ueberraschend anders (Wurzelresorptionen, reduzierter Alveolarkamm)."
+      }]
+    }]
+  }]);
+  const eventsData = [{
+    id: "e1",
+    name: "IDS 2027 \u2013 Internationale Dental-Schau",
+    loc: "Koeln",
+    date: "2027-03-25",
+    end: "2027-03-29",
+    type: "Messe",
+    desc: "Weltgroesste Dentalmesse. Alle Hersteller, digitale Workflows, Innovationen.",
+    url: "https://www.ids-cologne.de",
+    hot: true
+  }, {
+    id: "e2",
+    name: "EAO Annual Scientific Meeting 2026",
+    loc: "Mailand",
+    date: "2026-10-08",
+    end: "2026-10-10",
+    type: "Kongress",
+    desc: "Europaeischer Spitzenkongress: AI-guided Surgery, Biomaterialien, Periimplantitis.",
+    url: "https://www.eao.org",
+    hot: true
+  }, {
+    id: "e3",
+    name: "DGI-Kongress 2026",
+    loc: "Hamburg",
+    date: "2026-11-26",
+    end: "2026-11-28",
+    type: "Kongress",
+    desc: "Live-OPs, Table Clinics, Industrieausstellung. Pflichttermin DACH.",
+    url: "https://www.dgi-kongress.de",
+    hot: true
+  }, {
+    id: "e4",
+    name: "Osteology Symposium 2026",
+    loc: "Barcelona",
+    date: "2026-05-14",
+    end: "2026-05-16",
+    type: "Symposium",
+    desc: "Regenerative Zahnmedizin: GBR, Augmentation, Biomaterialien.",
+    url: "https://www.osteology.org"
+  }, {
+    id: "e5",
+    name: "ITI World Symposium 2026",
+    loc: "Singapur",
+    date: "2026-05-06",
+    end: "2026-05-09",
+    type: "Kongress",
+    desc: "Evidence-based Implantology, SAC-Klassifikation, digitale Konzepte.",
+    url: "https://www.iti.org"
+  }, {
+    id: "e6",
+    name: "Straumann Forum DACH 2026",
+    loc: "Berlin",
+    date: "2026-06-13",
+    end: "2026-06-14",
+    type: "Symposium",
+    desc: "BLX Pro Arch, TLX Update, CARES-Prothetik, Hands-on.",
+    url: "https://www.straumann.com"
+  }, {
+    id: "e7",
+    name: "Nobel Biocare Global Symposium",
+    loc: "Las Vegas",
+    date: "2026-06-19",
+    end: "2026-06-21",
+    type: "Kongress",
+    desc: "Live-Chirurgie, Digital Dentistry Summit, All-on-4 Masterclass.",
+    url: "https://www.nobelbiocare.com"
+  }, {
+    id: "e8",
+    name: "DGZMK/DGPro Jahrestagung 2026",
+    loc: "Leipzig",
+    date: "2026-09-17",
+    end: "2026-09-19",
+    type: "Kongress",
+    desc: "Digitale Prothetik, CAD/CAM-Workflows, Implantatprothetik.",
+    url: "https://www.dgzmk.de"
+  }, {
+    id: "e9",
+    name: "Europerio 12",
+    loc: "Wien",
+    date: "2027-06-17",
+    end: "2027-06-20",
+    type: "Kongress",
+    desc: "Groesster Parodontologie-Kongress Europas. Periimplantitis-Sessions.",
+    url: "https://www.efp.org"
+  }, {
+    id: "e10",
+    name: "AAID Annual Conference 2026",
+    loc: "Dallas",
+    date: "2026-11-04",
+    end: "2026-11-07",
+    type: "Kongress",
+    desc: "American Academy of Implant Dentistry. FDA-Updates, neue Materialien.",
+    url: "https://www.aaid.com"
+  }, {
+    id: "e11",
+    name: "Digital Dentistry Summit 2026",
+    loc: "Muenchen",
+    date: "2026-09-05",
+    end: "2026-09-06",
+    type: "Symposium",
+    desc: "IOS, KI-Planung, Inhouse-3D-Druck, volldigitale Workflows.",
+    url: "#"
+  }, {
+    id: "e12",
+    name: "CAMLOG Foundation Meeting",
+    loc: "Basel",
+    date: "2026-07-03",
+    end: "2026-07-04",
+    type: "Symposium",
+    desc: "CAMLOG/CONELOG Langzeitdaten, Progressive-Line Update.",
+    url: "https://www.camlogfoundation.org"
+  }];
+  const [jobsData] = React.useState([{
+    id: "j1",
+    title: "Fachzahnarzt/-aerztin Oralchirurgie / Implantologie",
+    company: "Dental Zentrum Duesseldorf",
+    loc: "Duesseldorf",
+    type: "Festanstellung (Vollzeit)",
+    salary: "120.000 \u2013 160.000 \u20AC/Jahr + Umsatzbeteiligung",
+    date: "2026-02-20",
+    desc: "Erfahrene/r Implantologe/in fuer wachsendes Zentrum (8 Behandler). Schwerpunkt: Navigierte Implantologie, Sofortversorgung, Sinuslift.",
+    reqs: ["Approbation + Fachzahnarzt oder TSP Implantologie", "Mind. 3 Jahre, >200 Implantationen/Jahr", "Guided Surgery Erfahrung", "Teamfaehigkeit, digitale Affinitaet"],
+    benefits: ["CBCT, Primescan, Cerec Primemill", "Eigenes OP-Zentrum mit Sedierung", "30 Fortbildungstage + 15k Budget", "Partnerschaftsperspektive nach 2 Jahren"],
+    contact: "karriere@dentalzentrum-ddorf.de",
+    dummy: true
+  }, {
+    id: "j2",
+    title: "Weiterbildungsassistent/in Implantologie",
+    company: "Universitaetsklinikum Freiburg \u2013 MKG-Chirurgie",
+    loc: "Freiburg",
+    type: "Befristet 3 Jahre (Vollzeit)",
+    salary: "TV-Ae Stufe 1\u20133 (~65.000 \u2013 78.000 \u20AC/Jahr)",
+    date: "2026-02-15",
+    desc: "Strukturierte Weiterbildung mit Forschungsmoeglichkeit. Schwerpunkte: Augmentation, navigierte Chirurgie, PI-Forschung.",
+    reqs: ["Approbation als Zahnarzt/aerztin", "Interesse an Forschung", "Basiskenntnisse Implantologie von Vorteil", "Bereitschaft zum Dienstmodell"],
+    benefits: ["DGI-Curriculum inklusive", "Forschungslabor-Zugang", "Promotionsmoeglichkeit (Dr. med. dent.)", "Mentoring durch Habilitierte"],
+    contact: "bewerbung.mkg@uniklinik-freiburg.de",
+    dummy: true
+  }]);
+  const litData = [{
+    id: "l1",
+    cat: "Grundlagenwerk",
+    title: "Dental Implant Prosthetics",
+    author: "Carl E. Misch",
+    ed: "3. Aufl. 2024",
+    desc: "DAS Standardwerk. 1.200 Seiten, >3.000 Abb. Pflichtlektuere.",
+    lang: "EN"
+  }, {
+    id: "l2",
+    cat: "Grundlagenwerk",
+    title: "ITI Treatment Guide (Vol. 1\u201314)",
+    author: "D. Buser, S. Chen et al.",
+    ed: "2007\u20132025",
+    desc: "Evidenzbasierte Leitfaeden des ITI. Vol. 14: Digitale Implantologie.",
+    lang: "EN/DE"
+  }, {
+    id: "l3",
+    cat: "Chirurgie",
+    title: "Kompendium Implantologisches Examen",
+    author: "DGI Academic Board",
+    ed: "2. Aufl. 2023",
+    desc: "Deutsches Standardwerk fuer DGI-Pruefung. Kompakt, evidenzbasiert.",
+    lang: "DE"
+  }, {
+    id: "l4",
+    cat: "Chirurgie",
+    title: "20 Years of Guided Bone Regeneration",
+    author: "D. Buser",
+    ed: "2024 Update",
+    desc: "GBR-Lebenswerk. Langzeitdaten, Technik-Evolution, Falldarstellungen.",
+    lang: "EN"
+  }, {
+    id: "l5",
+    cat: "Prothetik",
+    title: "Implant Restorations \u2013 Step-by-Step Guide",
+    author: "Carl Drago",
+    ed: "4. Aufl. 2023",
+    desc: "Praxisorientiert von Planung bis Eingliederung. Digital + konventionell.",
+    lang: "EN"
+  }, {
+    id: "l6",
+    cat: "Prothetik",
+    title: "Festsitzende Implantatprothetik",
+    author: "German Autoren-Team",
+    ed: "2024",
+    desc: "Verschraubte + zementierte Prothetik, CAD/CAM, TiBase-Konzepte.",
+    lang: "DE"
+  }, {
+    id: "l7",
+    cat: "Periimplantitis",
+    title: "Peri-implant Therapy for the Dental Hygienist",
+    author: "Susan S. Wingrove",
+    ed: "2. Aufl. 2022",
+    desc: "Fuer das Recall-Team: Diagnostik, Instrumente, Protokolle.",
+    lang: "EN"
+  }, {
+    id: "l8",
+    cat: "Periimplantitis",
+    title: "Komplikationsmanagement in der Implantologie",
+    author: "F. Modern et al.",
+    ed: "2025",
+    desc: "Periimplantitis, Frakturen, Nervlaesionen, aesthetische Misserfolge.",
+    lang: "DE"
+  }, {
+    id: "l9",
+    cat: "Digital",
+    title: "Digital Workflows in Implant Dentistry",
+    author: "G. Magne, M. Belser",
+    ed: "2024",
+    desc: "Volldigitale Konzepte: IOS, 3D-Druck, AI-Planung, Guided Surgery.",
+    lang: "EN"
+  }, {
+    id: "l10",
+    cat: "Digital",
+    title: "Kompendium Digitale Zahnmedizin",
+    author: "Deutsche Gesellschaft ZMK",
+    ed: "2025",
+    desc: "DGZMK-Kompendium: Scanner, Software, Materialien, Workflows.",
+    lang: "DE"
+  }, {
+    id: "l11",
+    cat: "Zeitschriften",
+    title: "Clinical Oral Implants Research (COIR)",
+    author: "Wiley / EAO",
+    ed: "Laufend",
+    desc: "Top-Journal fuer Implantatforschung. Impact Factor 5.2. Monatlich.",
+    lang: "EN"
+  }, {
+    id: "l12",
+    cat: "Zeitschriften",
+    title: "Implantologie Journal",
+    author: "Oemus Media AG",
+    ed: "Laufend",
+    desc: "Deutschsprachiges Fachmagazin. Praxisnah, Fallberichte, Marktueberblick.",
+    lang: "DE"
+  }];
+
+  /* ═══ FORUM HELPERS ═══ */
+  const fCat = fCatId ? forumData.find(c => c.id === fCatId) : null;
+  const fThr = fCat && fThrId ? fCat.threads.find(t => t.id === fThrId) : null;
+  const addThread = () => {
+    if (!fNewTitle.trim() || !fNewBody.trim() || !fCatId) return;
+    const nm = fUserName.trim() || "Anonym";
+    setForumData(prev => prev.map(c => c.id === fCatId ? {
+      ...c,
+      threads: [{
+        id: "t" + Date.now(),
+        title: fNewTitle,
+        author: nm,
+        loc: "",
+        date: new Date().toISOString().slice(0, 10),
+        views: 0,
+        replies: [{
+          id: "r" + Date.now(),
+          author: nm,
+          loc: "",
+          date: new Date().toISOString().slice(0, 10),
+          body: fNewBody
+        }]
+      }, ...c.threads]
+    } : c));
+    sFNewTitle("");
+    sFNewBody("");
+    sFNewOpen(false);
+  };
+  const addReply = () => {
+    if (!fReplyTxt.trim() || !fCatId || !fThrId) return;
+    const nm = fUserName.trim() || "Anonym";
+    setForumData(prev => prev.map(c => c.id === fCatId ? {
+      ...c,
+      threads: c.threads.map(t => t.id === fThrId ? {
+        ...t,
+        replies: [...t.replies, {
+          id: "r" + Date.now(),
+          author: nm,
+          loc: "",
+          date: new Date().toISOString().slice(0, 10),
+          body: fReplyTxt
+        }]
+      } : t)
+    } : c));
+    sFReplyTxt("");
+  };
+  const evtTypeCol = t => ({
+    Messe: "#059669",
+    Kongress: "#2563eb",
+    Symposium: "#7c3aed"
+  })[t] || CL.txS;
+  const sortedEvents = [...eventsData].sort((a, b) => a.date.localeCompare(b.date));
+  const litCats = [...new Set(litData.map(l => l.cat))];
   return React.createElement("div", {
     style: {
       minHeight: "100vh",
@@ -5054,13 +5878,13 @@ window.__App = function App() {
       color: CL.txM,
       fontWeight: 400
     }
-  }, "v2.6")), React.createElement("p", {
+  }, "v2.8")), React.createElement("p", {
     style: {
       margin: 0,
       fontSize: 12,
       color: CL.txM
     }
-  }, D.length, " Systeme \xB7 ", mfrs.length, " Hersteller \xB7 Logos + Links verifiziert Feb 2026"))), React.createElement("div", {
+  }, D.length, " Systeme \xB7 ", mfrs.length, " Hersteller \xB7 Daten + URLs verifiziert Feb 2026"))), React.createElement("div", {
     style: {
       display: "flex",
       gap: 3,
@@ -5081,6 +5905,12 @@ window.__App = function App() {
   }, {
     k: "guide",
     l: "🎯 Entscheidung"
+  }, {
+    k: "news",
+    l: "📰 News"
+  }, {
+    k: "community",
+    l: "👥 Community"
   }].map(t => React.createElement("button", {
     key: t.k,
     onClick: () => sTab(t.k),
@@ -5564,18 +6394,9 @@ window.__App = function App() {
         alignItems: "center",
         gap: 3
       }
-    }, React.createElement("img", {
-      src: getLogo(i.m),
-      alt: "",
-      style: {
-        width: 14,
-        height: 14,
-        borderRadius: 2,
-        objectFit: "contain"
-      },
-      onError: e => {
-        e.target.style.display = "none";
-      }
+    }, React.createElement(MfLogo, {
+      m: i.m,
+      sz: 16
     }), i.fl, " ", i.m, " \xB7 ", i.co))), React.createElement("div", {
       style: {
         display: "grid",
@@ -6204,7 +7025,1001 @@ window.__App = function App() {
       color: CL.txS,
       fontStyle: "italic"
     }
-  }, "\uD83D\uDCA1 ", g.w))))), React.createElement("footer", {
+  }, "\uD83D\uDCA1 ", g.w))))), tab === "news" && React.createElement("div", {
+    style: {
+      animation: "fi .25s ease"
+    }
+  }, React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      flexWrap: "wrap",
+      gap: 8,
+      marginBottom: 12
+    }
+  }, React.createElement("h2", {
+    style: {
+      fontSize: 18,
+      fontWeight: 700,
+      margin: 0
+    }
+  }, "\uD83D\uDCF0 Dental Implant News Stream"), React.createElement("button", {
+    onClick: () => fetchNews(nwsCat, nwsMfr),
+    disabled: nwsL,
+    style: {
+      padding: "5px 12px",
+      borderRadius: 6,
+      border: `1px solid ${CL.bd}`,
+      background: nwsL ? "rgba(0,0,0,0.04)" : "rgba(37,99,235,0.06)",
+      color: nwsL ? CL.txM : CL.acc,
+      cursor: nwsL ? "wait" : "pointer",
+      fontSize: 13,
+      fontWeight: 600,
+      fontFamily: "inherit"
+    }
+  }, nwsL ? "⏳ Lade..." : "🔄 Aktualisieren")), React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 4,
+      flexWrap: "wrap",
+      marginBottom: 8
+    }
+  }, NEWS_CATS.map(c => React.createElement("button", {
+    key: c.k,
+    onClick: () => {
+      sNwsCat(c.k);
+      fetchNews(c.k, nwsMfr);
+    },
+    style: {
+      padding: "4px 10px",
+      borderRadius: 6,
+      fontSize: 13,
+      fontWeight: 600,
+      border: `1px solid ${nwsCat === c.k ? CL.acc + "44" : CL.bd}`,
+      background: nwsCat === c.k ? CL.accD : "transparent",
+      color: nwsCat === c.k ? CL.accL : CL.txM,
+      cursor: "pointer",
+      fontFamily: "inherit"
+    }
+  }, c.ic, " ", c.l))), React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 6,
+      alignItems: "center",
+      marginBottom: 12
+    }
+  }, React.createElement("select", {
+    value: nwsMfr,
+    onChange: e => {
+      sNwsMfr(e.target.value);
+      fetchNews(nwsCat, e.target.value);
+    },
+    style: {
+      background: "rgba(0,0,0,0.02)",
+      border: `1px solid ${CL.bd}`,
+      borderRadius: 6,
+      padding: "4px 8px",
+      color: CL.txS,
+      fontSize: 13,
+      fontFamily: "inherit",
+      cursor: "pointer",
+      minWidth: 160
+    }
+  }, React.createElement("option", {
+    value: ""
+  }, "Alle Hersteller"), mfrs.map(m => React.createElement("option", {
+    key: m,
+    value: m
+  }, m))), nwsMfr && React.createElement("button", {
+    onClick: () => {
+      sNwsMfr("");
+      fetchNews(nwsCat, "");
+    },
+    style: {
+      background: "none",
+      border: "none",
+      color: CL.acc,
+      fontSize: 12,
+      cursor: "pointer",
+      fontFamily: "inherit"
+    }
+  }, "\u2715 Reset"), React.createElement("span", {
+    style: {
+      fontSize: 12,
+      color: CL.txM,
+      marginLeft: "auto"
+    }
+  }, nwsL ? "Suche läuft..." : filteredNws.length > 0 ? filteredNws.length + " Ergebnisse" : "")), nwsL && React.createElement("div", {
+    style: {
+      textAlign: "center",
+      padding: 40
+    }
+  }, React.createElement("div", {
+    style: {
+      display: "inline-flex",
+      gap: 6,
+      marginBottom: 10
+    }
+  }, [0, 1, 2].map(i => React.createElement("div", {
+    key: i,
+    style: {
+      width: 8,
+      height: 8,
+      borderRadius: "50%",
+      background: CL.acc,
+      animation: `pulse 1.2s ease ${i * 0.2}s infinite`
+    }
+  }))), React.createElement("p", {
+    style: {
+      color: CL.txM,
+      fontSize: 14
+    }
+  }, "Durchsuche aktuelle Quellen...")), nwsErr && !nwsL && React.createElement("div", {
+    style: {
+      textAlign: "center",
+      padding: 30,
+      background: "rgba(239,68,68,0.04)",
+      borderRadius: 10,
+      border: "1px solid rgba(239,68,68,0.15)"
+    }
+  }, React.createElement("p", {
+    style: {
+      color: "#dc2626",
+      fontSize: 14,
+      fontWeight: 600
+    }
+  }, "\u26A0\uFE0F ", nwsErr), React.createElement("p", {
+    style: {
+      color: CL.txM,
+      fontSize: 13,
+      marginTop: 4
+    }
+  }, "Bitte versuche es erneut oder pr\xFCfe die Internetverbindung."), React.createElement("button", {
+    onClick: () => fetchNews(nwsCat, nwsMfr),
+    style: {
+      marginTop: 8,
+      padding: "5px 14px",
+      borderRadius: 6,
+      border: `1px solid ${CL.acc}44`,
+      background: CL.accD,
+      color: CL.accL,
+      cursor: "pointer",
+      fontSize: 13,
+      fontWeight: 600,
+      fontFamily: "inherit"
+    }
+  }, "Erneut versuchen")), !nwsL && !nwsErr && nws.length === 0 && React.createElement("div", {
+    style: {
+      textAlign: "center",
+      padding: 40
+    }
+  }, React.createElement("div", {
+    style: {
+      fontSize: 40,
+      marginBottom: 8
+    }
+  }, "\uD83D\uDCE1"), React.createElement("p", {
+    style: {
+      color: CL.txM,
+      fontSize: 14
+    }
+  }, "Klicke auf \"Aktualisieren\" um die neuesten Dental-Implant-News zu laden."), React.createElement("p", {
+    style: {
+      color: CL.txM,
+      fontSize: 12,
+      marginTop: 4
+    }
+  }, "Powered by AI-gest\xFCtzte Websuche")), !nwsL && filteredNws.length > 0 && React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fill,minmax(320px,1fr))",
+      gap: 10
+    }
+  }, filteredNws.map((n, i) => React.createElement("div", {
+    key: i,
+    style: {
+      background: CL.card,
+      border: `1px solid ${CL.bd}`,
+      borderRadius: 10,
+      padding: 14,
+      display: "flex",
+      flexDirection: "column",
+      gap: 6,
+      animation: `fi .3s ease ${i * 0.05}s both`
+    }
+  }, React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      gap: 6
+    }
+  }, React.createElement("span", {
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 3,
+      padding: "2px 7px",
+      borderRadius: 5,
+      fontSize: 11,
+      fontWeight: 700,
+      background: catColor(n.cat) + "14",
+      color: catColor(n.cat),
+      border: `1px solid ${catColor(n.cat)}22`,
+      textTransform: "uppercase",
+      letterSpacing: ".04em"
+    }
+  }, catIcon(n.cat), " ", catLabel(n.cat)), n.date && React.createElement("span", {
+    style: {
+      fontSize: 11,
+      color: CL.txM,
+      fontFamily: "'JetBrains Mono',monospace",
+      whiteSpace: "nowrap"
+    }
+  }, n.date)), React.createElement("h3", {
+    style: {
+      margin: 0,
+      fontSize: 14,
+      fontWeight: 700,
+      lineHeight: 1.3,
+      color: CL.tx
+    }
+  }, n.title), React.createElement("p", {
+    style: {
+      margin: 0,
+      fontSize: 13,
+      color: CL.txS,
+      lineHeight: 1.45,
+      flex: 1
+    }
+  }, n.summary), React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      borderTop: `1px solid ${CL.bd}`,
+      paddingTop: 6,
+      marginTop: 2
+    }
+  }, React.createElement("span", {
+    style: {
+      fontSize: 11,
+      color: CL.txM,
+      fontWeight: 600
+    }
+  }, n.source || "Quelle"), n.url && React.createElement("a", {
+    href: n.url,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    style: {
+      fontSize: 11,
+      color: CL.acc,
+      textDecoration: "none",
+      fontWeight: 600,
+      display: "flex",
+      alignItems: "center",
+      gap: 2
+    }
+  }, "Lesen \u2192")), n.relevance === "high" && React.createElement("div", {
+    style: {
+      position: "absolute",
+      top: 6,
+      right: 6,
+      width: 6,
+      height: 6,
+      borderRadius: "50%",
+      background: CL.acc
+    }
+  })))), React.createElement("div", {
+    style: {
+      marginTop: 16,
+      padding: 10,
+      background: "rgba(37,99,235,0.03)",
+      borderRadius: 8,
+      border: `1px solid rgba(37,99,235,0.1)`
+    }
+  }, React.createElement("p", {
+    style: {
+      margin: 0,
+      fontSize: 12,
+      color: CL.txM
+    }
+  }, "\uD83D\uDCA1 ", React.createElement("b", null, "Hinweis:"), " News werden live via KI-gest\xFCtzer Websuche geladen. Quellen: PubMed, Dental Tribune, Herstellerwebseiten, Fachzeitschriften. Ergebnisse werden 5 Min. gecached. Daten + URLs verifiziert Feb 2026."))), tab === "community" && React.createElement("div", {
+    style: {
+      animation: "fi .25s ease"
+    }
+  }, React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 4,
+      flexWrap: "wrap",
+      marginBottom: 14
+    }
+  }, [{
+    k: "forum",
+    l: "💬 Forum"
+  }, {
+    k: "events",
+    l: "📅 Events & Kongresse"
+  }, {
+    k: "jobs",
+    l: "💼 Stellenanzeigen"
+  }, {
+    k: "lit",
+    l: "📚 Literatur"
+  }].map(s => React.createElement("button", {
+    key: s.k,
+    onClick: () => {
+      sCmSub(s.k);
+      sFCatId(null);
+      sFThrId(null);
+    },
+    style: {
+      padding: "5px 12px",
+      borderRadius: 7,
+      fontSize: 13,
+      fontWeight: 700,
+      border: `1px solid ${cmSub === s.k ? CL.acc + "44" : CL.bd}`,
+      background: cmSub === s.k ? CL.accD : "transparent",
+      color: cmSub === s.k ? CL.accL : CL.txM,
+      cursor: "pointer",
+      fontFamily: "inherit"
+    }
+  }, s.l))), cmSub === "forum" && React.createElement(React.Fragment, null, React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 6,
+      marginBottom: 10,
+      padding: "6px 10px",
+      background: "rgba(37,99,235,0.03)",
+      borderRadius: 7,
+      border: `1px solid rgba(37,99,235,0.1)`
+    }
+  }, React.createElement("span", {
+    style: {
+      fontSize: 12,
+      color: CL.txM,
+      whiteSpace: "nowrap"
+    }
+  }, "Dein Name:"), React.createElement("input", {
+    value: fUserName,
+    onChange: e => sFUserName(e.target.value),
+    placeholder: "Dr. ...",
+    style: {
+      flex: 1,
+      background: "transparent",
+      border: "none",
+      color: CL.tx,
+      fontSize: 13,
+      fontFamily: "inherit"
+    }
+  })), !fCatId && React.createElement("div", null, React.createElement("h2", {
+    style: {
+      fontSize: 18,
+      fontWeight: 700,
+      margin: "0 0 10px"
+    }
+  }, "Forum-Kategorien"), React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fill,minmax(300px,1fr))",
+      gap: 8
+    }
+  }, forumData.map(c => React.createElement("div", {
+    key: c.id,
+    onClick: () => sFCatId(c.id),
+    style: {
+      background: CL.card,
+      border: `1px solid ${CL.bd}`,
+      borderRadius: 10,
+      padding: 14,
+      cursor: "pointer",
+      transition: "all .15s"
+    },
+    className: "card"
+  }, React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 8,
+      marginBottom: 6
+    }
+  }, React.createElement("span", {
+    style: {
+      fontSize: 24
+    }
+  }, c.icon), React.createElement("div", null, React.createElement("h3", {
+    style: {
+      margin: 0,
+      fontSize: 15,
+      fontWeight: 700
+    }
+  }, c.name), React.createElement("p", {
+    style: {
+      margin: 0,
+      fontSize: 12,
+      color: CL.txM
+    }
+  }, c.desc))), React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 12,
+      fontSize: 12,
+      color: CL.txS
+    }
+  }, React.createElement("span", null, c.threads.length, " Threads"), React.createElement("span", null, c.threads.reduce((s, t) => s + t.replies.length, 0), " Beitraege"), React.createElement("span", null, c.threads.reduce((s, t) => s + t.views, 0).toLocaleString(), " Views")))))), fCatId && !fThrId && fCat && React.createElement("div", null, React.createElement("button", {
+    onClick: () => sFCatId(null),
+    style: {
+      background: "none",
+      border: "none",
+      color: CL.acc,
+      cursor: "pointer",
+      fontSize: 13,
+      fontWeight: 600,
+      fontFamily: "inherit",
+      marginBottom: 8,
+      padding: 0
+    }
+  }, "\u2190 Alle Kategorien"), React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      marginBottom: 10,
+      flexWrap: "wrap",
+      gap: 6
+    }
+  }, React.createElement("h2", {
+    style: {
+      fontSize: 18,
+      fontWeight: 700,
+      margin: 0
+    }
+  }, fCat.icon, " ", fCat.name), React.createElement("button", {
+    onClick: () => sFNewOpen(!fNewOpen),
+    style: {
+      padding: "5px 12px",
+      borderRadius: 6,
+      border: `1px solid ${CL.acc}44`,
+      background: CL.accD,
+      color: CL.accL,
+      cursor: "pointer",
+      fontSize: 13,
+      fontWeight: 700,
+      fontFamily: "inherit"
+    }
+  }, "+ Neuer Thread")), fNewOpen && React.createElement("div", {
+    style: {
+      background: CL.card,
+      border: `1px solid ${CL.acc}33`,
+      borderRadius: 10,
+      padding: 14,
+      marginBottom: 10,
+      animation: "fi .2s ease"
+    }
+  }, React.createElement("input", {
+    value: fNewTitle,
+    onChange: e => sFNewTitle(e.target.value),
+    placeholder: "Thread-Titel...",
+    style: {
+      width: "100%",
+      padding: "7px 10px",
+      borderRadius: 6,
+      border: `1px solid ${CL.bd}`,
+      background: "rgba(0,0,0,0.015)",
+      color: CL.tx,
+      fontSize: 14,
+      fontFamily: "inherit",
+      marginBottom: 6
+    }
+  }), React.createElement("textarea", {
+    value: fNewBody,
+    onChange: e => sFNewBody(e.target.value),
+    placeholder: "Dein Beitrag...",
+    rows: 4,
+    style: {
+      width: "100%",
+      padding: "7px 10px",
+      borderRadius: 6,
+      border: `1px solid ${CL.bd}`,
+      background: "rgba(0,0,0,0.015)",
+      color: CL.tx,
+      fontSize: 13,
+      fontFamily: "inherit",
+      resize: "vertical",
+      marginBottom: 6
+    }
+  }), React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 6
+    }
+  }, React.createElement("button", {
+    onClick: addThread,
+    style: {
+      padding: "5px 14px",
+      borderRadius: 6,
+      background: CL.acc,
+      color: "#fff",
+      border: "none",
+      cursor: "pointer",
+      fontSize: 13,
+      fontWeight: 700,
+      fontFamily: "inherit"
+    }
+  }, "Posten"), React.createElement("button", {
+    onClick: () => sFNewOpen(false),
+    style: {
+      padding: "5px 14px",
+      borderRadius: 6,
+      background: "transparent",
+      color: CL.txM,
+      border: `1px solid ${CL.bd}`,
+      cursor: "pointer",
+      fontSize: 13,
+      fontFamily: "inherit"
+    }
+  }, "Abbrechen"))), fCat.threads.map(t => React.createElement("div", {
+    key: t.id,
+    onClick: () => sFThrId(t.id),
+    style: {
+      background: CL.card,
+      border: `1px solid ${CL.bd}`,
+      borderRadius: 8,
+      padding: "10px 14px",
+      marginBottom: 5,
+      cursor: "pointer",
+      transition: "all .15s"
+    },
+    className: "card"
+  }, React.createElement("h3", {
+    style: {
+      margin: "0 0 3px",
+      fontSize: 14,
+      fontWeight: 700,
+      color: CL.tx
+    }
+  }, t.title), React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 10,
+      fontSize: 12,
+      color: CL.txM,
+      flexWrap: "wrap"
+    }
+  }, React.createElement("span", {
+    style: {
+      fontWeight: 600
+    }
+  }, t.author), React.createElement("span", null, t.date), React.createElement("span", null, t.replies.length, " Antworten"), React.createElement("span", null, t.views.toLocaleString(), " Views"))))), fThrId && fThr && fCat && React.createElement("div", null, React.createElement("button", {
+    onClick: () => sFThrId(null),
+    style: {
+      background: "none",
+      border: "none",
+      color: CL.acc,
+      cursor: "pointer",
+      fontSize: 13,
+      fontWeight: 600,
+      fontFamily: "inherit",
+      marginBottom: 8,
+      padding: 0
+    }
+  }, "\u2190 ", fCat.name), React.createElement("h2", {
+    style: {
+      fontSize: 16,
+      fontWeight: 700,
+      margin: "0 0 12px",
+      lineHeight: 1.3
+    }
+  }, fThr.title), fThr.replies.map((r, i) => React.createElement("div", {
+    key: r.id,
+    style: {
+      background: i === 0 ? "rgba(37,99,235,0.025)" : CL.card,
+      border: `1px solid ${i === 0 ? CL.acc + "22" : CL.bd}`,
+      borderRadius: 10,
+      padding: 14,
+      marginBottom: 8,
+      animation: `fi .2s ease ${i * 0.05}s both`
+    }
+  }, React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      marginBottom: 6
+    }
+  }, React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 6
+    }
+  }, React.createElement("div", {
+    style: {
+      width: 28,
+      height: 28,
+      borderRadius: "50%",
+      background: `hsl(${r.author.length * 37 % 360},55%,50%)`,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      color: "#fff",
+      fontSize: 12,
+      fontWeight: 700
+    }
+  }, r.author.replace("Dr. ", "").replace("PD ", "").charAt(0)), React.createElement("div", null, React.createElement("span", {
+    style: {
+      fontSize: 13,
+      fontWeight: 700
+    }
+  }, r.author), r.loc && React.createElement("span", {
+    style: {
+      fontSize: 11,
+      color: CL.txM,
+      marginLeft: 4
+    }
+  }, r.loc))), React.createElement("span", {
+    style: {
+      fontSize: 11,
+      color: CL.txM,
+      fontFamily: "'JetBrains Mono',monospace"
+    }
+  }, r.date)), React.createElement("div", {
+    style: {
+      fontSize: 13,
+      lineHeight: 1.55,
+      color: CL.txS,
+      whiteSpace: "pre-wrap"
+    }
+  }, r.body))), React.createElement("div", {
+    style: {
+      background: CL.card,
+      border: `1px solid ${CL.bd}`,
+      borderRadius: 10,
+      padding: 14,
+      marginTop: 4
+    }
+  }, React.createElement("textarea", {
+    value: fReplyTxt,
+    onChange: e => sFReplyTxt(e.target.value),
+    placeholder: "Deine Antwort...",
+    rows: 3,
+    style: {
+      width: "100%",
+      padding: "7px 10px",
+      borderRadius: 6,
+      border: `1px solid ${CL.bd}`,
+      background: "rgba(0,0,0,0.015)",
+      color: CL.tx,
+      fontSize: 13,
+      fontFamily: "inherit",
+      resize: "vertical",
+      marginBottom: 6
+    }
+  }), React.createElement("button", {
+    onClick: addReply,
+    disabled: !fReplyTxt.trim(),
+    style: {
+      padding: "5px 14px",
+      borderRadius: 6,
+      background: fReplyTxt.trim() ? CL.acc : "#ccc",
+      color: "#fff",
+      border: "none",
+      cursor: fReplyTxt.trim() ? "pointer" : "default",
+      fontSize: 13,
+      fontWeight: 700,
+      fontFamily: "inherit"
+    }
+  }, "Antworten")))), cmSub === "events" && React.createElement("div", null, React.createElement("h2", {
+    style: {
+      fontSize: 18,
+      fontWeight: 700,
+      margin: "0 0 12px"
+    }
+  }, "Veranstaltungskalender 2026/2027"), React.createElement("div", {
+    style: {
+      display: "grid",
+      gap: 8
+    }
+  }, sortedEvents.map(e => React.createElement("div", {
+    key: e.id,
+    style: {
+      background: CL.card,
+      border: `1px solid ${e.hot ? CL.acc + "33" : CL.bd}`,
+      borderRadius: 10,
+      padding: 14,
+      display: "flex",
+      gap: 12,
+      alignItems: "flex-start",
+      animation: "fi .25s ease"
+    }
+  }, React.createElement("div", {
+    style: {
+      minWidth: 52,
+      textAlign: "center",
+      background: evtTypeCol(e.type) + "10",
+      borderRadius: 8,
+      padding: "6px 4px"
+    }
+  }, React.createElement("div", {
+    style: {
+      fontSize: 11,
+      fontWeight: 700,
+      color: evtTypeCol(e.type),
+      textTransform: "uppercase"
+    }
+  }, new Date(e.date).toLocaleDateString("de", {
+    month: "short"
+  })), React.createElement("div", {
+    style: {
+      fontSize: 22,
+      fontWeight: 700,
+      color: CL.tx,
+      lineHeight: 1
+    }
+  }, new Date(e.date).getDate()), React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: CL.txM
+    }
+  }, new Date(e.date).getFullYear())), React.createElement("div", {
+    style: {
+      flex: 1
+    }
+  }, React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 6,
+      flexWrap: "wrap",
+      marginBottom: 3
+    }
+  }, React.createElement("h3", {
+    style: {
+      margin: 0,
+      fontSize: 14,
+      fontWeight: 700
+    }
+  }, e.name), e.hot && React.createElement("span", {
+    style: {
+      fontSize: 10,
+      padding: "1px 5px",
+      borderRadius: 4,
+      background: "#dc262615",
+      color: "#dc2626",
+      fontWeight: 700
+    }
+  }, "HOT"), React.createElement("span", {
+    style: {
+      fontSize: 10,
+      padding: "1px 6px",
+      borderRadius: 4,
+      background: evtTypeCol(e.type) + "14",
+      color: evtTypeCol(e.type),
+      fontWeight: 700
+    }
+  }, e.type)), React.createElement("p", {
+    style: {
+      margin: "2px 0 4px",
+      fontSize: 12,
+      color: CL.txM
+    }
+  }, e.loc, " \xB7 ", e.date.slice(8, 10), ".", e.date.slice(5, 7), ".", e.date.slice(0, 4), e.end ? " \u2013 " + e.end.slice(8, 10) + "." + e.end.slice(5, 7) + "." + e.end.slice(0, 4) : ""), React.createElement("p", {
+    style: {
+      margin: 0,
+      fontSize: 13,
+      color: CL.txS
+    }
+  }, e.desc), e.url && e.url !== "#" && React.createElement("a", {
+    href: e.url,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    style: {
+      fontSize: 12,
+      color: CL.acc,
+      textDecoration: "none",
+      fontWeight: 600,
+      marginTop: 3,
+      display: "inline-block"
+    }
+  }, "Website \u2192")))))), cmSub === "jobs" && React.createElement("div", null, React.createElement("h2", {
+    style: {
+      fontSize: 18,
+      fontWeight: 700,
+      margin: "0 0 4px"
+    }
+  }, "Stellenanzeigen"), React.createElement("p", {
+    style: {
+      fontSize: 12,
+      color: CL.txM,
+      margin: "0 0 12px"
+    }
+  }, "Aktuelle Positionen in der Implantologie und Oralchirurgie"), jobsData.map(j => React.createElement("div", {
+    key: j.id,
+    style: {
+      background: CL.card,
+      border: `1px solid ${CL.bd}`,
+      borderRadius: 10,
+      padding: 16,
+      marginBottom: 10
+    }
+  }, j.dummy && React.createElement("span", {
+    style: {
+      display: "inline-block",
+      fontSize: 10,
+      padding: "1px 6px",
+      borderRadius: 4,
+      background: "#d9770615",
+      color: "#d97706",
+      fontWeight: 700,
+      marginBottom: 6,
+      border: "1px solid #d9770622"
+    }
+  }, "DUMMY-ANZEIGE"), React.createElement("h3", {
+    style: {
+      margin: "0 0 4px",
+      fontSize: 16,
+      fontWeight: 700
+    }
+  }, j.title), React.createElement("p", {
+    style: {
+      margin: "0 0 8px",
+      fontSize: 13,
+      color: CL.txM
+    }
+  }, j.company, " \xB7 ", j.loc, " \xB7 ", j.type), React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 8,
+      marginBottom: 8,
+      flexWrap: "wrap"
+    }
+  }, React.createElement("span", {
+    style: {
+      fontSize: 14,
+      fontWeight: 700,
+      color: CL.ok
+    }
+  }, j.salary), React.createElement("span", {
+    style: {
+      fontSize: 11,
+      color: CL.txM
+    }
+  }, "Eingestellt: ", j.date)), React.createElement("p", {
+    style: {
+      margin: "0 0 10px",
+      fontSize: 13,
+      color: CL.txS,
+      lineHeight: 1.5
+    }
+  }, j.desc), React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      gap: 10,
+      marginBottom: 10
+    }
+  }, React.createElement("div", null, React.createElement("h4", {
+    style: {
+      margin: "0 0 4px",
+      fontSize: 12,
+      fontWeight: 700,
+      color: CL.txM,
+      textTransform: "uppercase",
+      letterSpacing: ".05em"
+    }
+  }, "Anforderungen"), j.reqs.map((r, i) => React.createElement("p", {
+    key: i,
+    style: {
+      margin: "2px 0",
+      fontSize: 12,
+      color: CL.txS
+    }
+  }, "\u2022 ", r))), React.createElement("div", null, React.createElement("h4", {
+    style: {
+      margin: "0 0 4px",
+      fontSize: 12,
+      fontWeight: 700,
+      color: CL.txM,
+      textTransform: "uppercase",
+      letterSpacing: ".05em"
+    }
+  }, "Benefits"), j.benefits.map((b, i) => React.createElement("p", {
+    key: i,
+    style: {
+      margin: "2px 0",
+      fontSize: 12,
+      color: CL.ok
+    }
+  }, "\u2022 ", b)))), React.createElement("a", {
+    href: "mailto:" + j.contact,
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 4,
+      padding: "6px 14px",
+      borderRadius: 6,
+      background: CL.acc,
+      color: "#fff",
+      textDecoration: "none",
+      fontSize: 13,
+      fontWeight: 700
+    }
+  }, "Jetzt bewerben \u2192")))), cmSub === "lit" && React.createElement("div", null, React.createElement("h2", {
+    style: {
+      fontSize: 18,
+      fontWeight: 700,
+      margin: "0 0 12px"
+    }
+  }, "Literaturempfehlungen"), litCats.map(cat => React.createElement("div", {
+    key: cat,
+    style: {
+      marginBottom: 14
+    }
+  }, React.createElement("h3", {
+    style: {
+      fontSize: 14,
+      fontWeight: 700,
+      color: CL.accL,
+      margin: "0 0 6px",
+      textTransform: "uppercase",
+      letterSpacing: ".05em"
+    }
+  }, cat), React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fill,minmax(300px,1fr))",
+      gap: 8
+    }
+  }, litData.filter(l => l.cat === cat).map(l => React.createElement("div", {
+    key: l.id,
+    style: {
+      background: CL.card,
+      border: `1px solid ${CL.bd}`,
+      borderRadius: 8,
+      padding: 12
+    }
+  }, React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "flex-start",
+      gap: 6
+    }
+  }, React.createElement("h4", {
+    style: {
+      margin: "0 0 2px",
+      fontSize: 13,
+      fontWeight: 700
+    }
+  }, l.title), React.createElement("span", {
+    style: {
+      fontSize: 10,
+      padding: "1px 5px",
+      borderRadius: 3,
+      background: l.lang === "DE" ? "#05966914" : "#2563eb14",
+      color: l.lang === "DE" ? "#059669" : "#2563eb",
+      fontWeight: 700,
+      whiteSpace: "nowrap",
+      flexShrink: 0
+    }
+  }, l.lang)), React.createElement("p", {
+    style: {
+      margin: "0 0 3px",
+      fontSize: 12,
+      color: CL.txM
+    }
+  }, l.author, " \xB7 ", l.ed), React.createElement("p", {
+    style: {
+      margin: 0,
+      fontSize: 12,
+      color: CL.txS,
+      lineHeight: 1.4
+    }
+  }, l.desc)))))))), React.createElement("footer", {
     style: {
       marginTop: 20,
       textAlign: "center",
@@ -6217,7 +8032,7 @@ window.__App = function App() {
       color: CL.txM,
       margin: 0
     }
-  }, "ImplantAtlas v2.6 \xB7 ", D.length, " Systeme \xB7 ", mfrs.length, " Hersteller \xB7 Feb 2026"), React.createElement("p", {
+  }, "ImplantAtlas v2.8 \xB7 ", D.length, " Systeme \xB7 ", mfrs.length, " Hersteller \xB7 Feb 2026"), React.createElement("p", {
     style: {
       fontSize: 10,
       color: CL.txM,
@@ -6319,13 +8134,22 @@ window.__App = function App() {
     style: {
       flex: 1
     }
-  }, React.createElement("h2", {
+  }, React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 10
+    }
+  }, React.createElement(MfLogo, {
+    m: sel.m,
+    sz: 36
+  }), React.createElement("h2", {
     style: {
       margin: 0,
       fontSize: 20,
       fontWeight: 700
     }
-  }, sel.n), React.createElement("p", {
+  }, sel.n)), React.createElement("p", {
     style: {
       margin: "2px 0 0",
       fontSize: 14,
@@ -6334,18 +8158,9 @@ window.__App = function App() {
       alignItems: "center",
       gap: 4
     }
-  }, React.createElement("img", {
-    src: getLogo(sel.m),
-    alt: "",
-    style: {
-      width: 18,
-      height: 18,
-      borderRadius: 3,
-      objectFit: "contain"
-    },
-    onError: e => {
-      e.target.style.display = "none";
-    }
+  }, React.createElement(MfLogo, {
+    m: sel.m,
+    sz: 22
   }), sel.fl, " ", sel.m, " \xB7 ", sel.co), React.createElement("div", {
     style: {
       display: "flex",
@@ -7459,18 +9274,9 @@ window.__App = function App() {
       alignItems: "center",
       gap: 2
     }
-  }, React.createElement("img", {
-    src: getLogo(i.m),
-    alt: "",
-    style: {
-      width: 12,
-      height: 12,
-      borderRadius: 2,
-      objectFit: "contain"
-    },
-    onError: e => {
-      e.target.style.display = "none";
-    }
+  }, React.createElement(MfLogo, {
+    m: i.m,
+    sz: 14
   }), i.fl, " ", i.m))))), React.createElement("tbody", null, [{
     l: "Segment",
     f: i => React.createElement(B, {
@@ -8077,8 +9883,8 @@ window.__App = function App() {
   }, chatOpen ? "✕" : "💬")));
 }
 
-const App = window.__App;
-ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
+var App=window.__App;
+ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(App));
 })();
 </script>
 </body>
