@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>ImplantAtlas v2.8</title>
+<title>ImplantAtlas v3.2</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -34,9 +34,9 @@ var useRef=React.useRef;
 
 
 /* ═══════════════════════════════════════════════════════
-   IMPLANT ATLAS v2.8 – 47 Systeme, 31 Hersteller
+   IMPLANT ATLAS v3.1 – 47 Systeme, 31 Hersteller
    Daten verifiziert & validiert: Feb 2026 gegen Herstellerkataloge,
-   SpotImplant.com, FDA 510(k), PubMed
+   Hersteller-Produktkataloge, FDA 510(k), PubMed, KZBV/GOZ
    ═══════════════════════════════════════════════════════ */
 const D = [
 // ── STRAUMANN ──
@@ -69,12 +69,13 @@ const D = [
   gs: true,
   dw: true,
   pp: "€€€€",
-  isq: "65–80",
+  ep: 389,
+  isq: "6,prEur:3805–80",
   dp: "Pilotbohrer ∅2.2 → VeloDrill nach ∅. D3/D4: Unterdimensionieren. D1: Profilbohrer.",
   no: "Optimiert für Immediate Protocols. ∅5.5/6.5: Längen nur bis 16mm.",
   url: "https://www.straumann.com",
   purl: "https://www.straumann.com/de/de/dentaler-fachbereich/produkte-und-loesungen/dentalimplantate/blx.html",
-  sc: ["straumann.com", "spotimplant.com"],
+  sc: ["straumann.com"],
   ev: {
     st: 85,
     fu: ">5J",
@@ -138,7 +139,8 @@ const D = [
   gs: true,
   dw: true,
   pp: "€€€€",
-  isq: "65–80",
+  ep: 365,
+  isq: "6,prEur:3405–80",
   dp: "Pilotbohrer → Spiralbohrer → Profilbohrer. ∅2.9 (SC): nur 10–14mm Länge.",
   no: "∅2.9mm = SC-Verbindung (Small CrossFit), Längen nur 10–14mm.",
   url: "https://www.straumann.com",
@@ -207,7 +209,8 @@ const D = [
   gs: true,
   dw: true,
   pp: "€€€€",
-  isq: "65–80",
+  ep: 375,
+  isq: "6,prEur:3605–80",
   dp: "VeloDrill-Sequenz wie BLX. ∅3.3: Längen 8–18mm.",
   no: "2024 neu. BLT-Körper + TorcFit™. ∅3.3 ab 8mm, ∅5.5/6.5 bis 16mm.",
   url: "https://www.straumann.com",
@@ -276,7 +279,8 @@ const D = [
   gs: true,
   dw: true,
   pp: "€€€€",
-  isq: "65–80",
+  ep: 370,
+  isq: "6,prEur:3205–80",
   dp: "BLX-Sequenz, Tissue-Level Aufbereitung.",
   no: "TL-Äquivalent zu BLX. Polierter transgingualer Hals.",
   url: "https://www.straumann.com",
@@ -345,7 +349,8 @@ const D = [
   gs: true,
   dw: true,
   pp: "€€€€",
-  isq: "55–70",
+  ep: 520,
+  isq: "5,prEur:4805–70",
   dp: "Vorsichtige Aufbereitung. Kein Gewindeschneiden.",
   no: "Einziger ∅ (4.1mm). Nicht sofortbelastbar. Limitierte Indikationen.",
   url: "https://www.straumann.com",
@@ -416,12 +421,13 @@ const D = [
   gs: true,
   dw: true,
   pp: "€€€€",
+  ep: 395,
   isq: "65–80",
   dp: "Pilotbohrer → Stufenbohrer nach Dichte. D4: nur Pilotbohrer. ∅3.0: nur Laterale/Frontzähne.",
   no: "TiUltra™ seit 2020. ∅3.0: nur 10–15mm. ∅3.5/4.3/5.0: 8.5–18mm. ∅5.5: 7–15mm (kein 18mm).",
   url: "https://www.nobelbiocare.com",
   purl: "https://www.nobelbiocare.com/de-de/nobelactive",
-  sc: ["nobelbiocare.com", "spotimplant.com"],
+  sc: ["nobelbiocare.com"],
   ev: {
     st: 180,
     fu: ">12J",
@@ -485,7 +491,8 @@ const D = [
   gs: true,
   dw: true,
   pp: "€€€€",
-  isq: "65–80",
+  ep: 380,
+  isq: "6,prEur:3405–80",
   dp: "Standardsequenz nach Nobel-Protokoll mit Knochendichteanpassung.",
   no: "Vielseitigstes Nobel-System. CC = Conical Connection.",
   url: "https://www.nobelbiocare.com",
@@ -554,12 +561,13 @@ const D = [
   gs: true,
   dw: true,
   pp: "€€€€",
-  isq: "65–80",
+  ep: 450,
+  isq: "6,prEur:4205–80",
   dp: "Pilotbohrer → OsseoShaper™ (25 U/min). Kein konventionelles Bohren. Max 40 Ncm Bohr-Torque.",
   no: "Revolutionäres Protokoll: nur 2 chirurgische Schritte in >93% der Fälle. OsseoShaper im Lieferumfang.",
   url: "https://www.nobelbiocare.com",
   purl: "https://www.nobelbiocare.com/de-de/n1",
-  sc: ["nobelbiocare.com", "spotimplant.com"],
+  sc: ["nobelbiocare.com"],
   ev: {
     st: 15,
     fu: ">3J",
@@ -623,7 +631,8 @@ const D = [
   gs: false,
   dw: true,
   pp: "€€€€",
-  isq: "55–70",
+  ep: 540,
+  isq: "5,prEur:5205–70",
   dp: "Vorsichtige Aufbereitung für Keramikimplantat.",
   no: "Einziger ∅ (4.2mm), nur 10+12mm Länge. Sehr begrenzt.",
   url: "https://www.nobelbiocare.com",
@@ -694,12 +703,13 @@ const D = [
   gs: true,
   dw: true,
   pp: "€€€€",
-  isq: "65–80",
+  ep: 340,
+  isq: "6,prEur:3105–80",
   dp: "Pilotbohrer → Stufenbohrer → CorticalDrill (D1). OsseoSpeed-Protokoll.",
   no: "Fluormodifizierte Oberfläche fördert Knochenneubildung. Exzellente 20-Jahres-Daten.",
   url: "https://www.dentsplysirona.com",
   purl: "https://www.dentsplysirona.com/de-de/entdecken/implantologie/astra-tech-implant-system-ev.html",
-  sc: ["dentsplysirona.com", "spotimplant.com"],
+  sc: ["dentsplysirona.com"],
   ev: {
     st: 450,
     fu: ">20J",
@@ -763,7 +773,8 @@ const D = [
   gs: true,
   dw: true,
   pp: "€€€€",
-  isq: "55–70",
+  ep: 320,
+  isq: "5,prEur:2905–70",
   dp: "Pilotbohrer → Stufenbohrer → Gewindeschneider. Progressive Sequenz.",
   no: "Seit 1990ern bewährt. Tiefster konischer Konus (5.7°) am Markt.",
   url: "https://www.dentsplysirona.com",
@@ -832,7 +843,8 @@ const D = [
   gs: true,
   dw: true,
   pp: "€€€€",
-  isq: "65–80",
+  ep: 310,
+  isq: "6,prEur:2805–80",
   dp: "Pilotbohrer → Spiralbohrer → Gewindeschneider → Click-Insertion.",
   no: "Paralleles Design mit Schneidkanten.",
   url: "https://www.dentsplysirona.com",
@@ -903,12 +915,13 @@ const D = [
   gs: true,
   dw: true,
   pp: "€€€",
-  isq: "65–80",
+  ep: 245,
+  isq: "6,prEur:1855–80",
   dp: "Pilotbohrer → Stufenbohrer → Countersink. Laser-Lok Insertion.",
   no: "Laser-Lok® = patentierte Mikrokanäle für Weichgewebsattachment.",
   url: "https://www.biohorizons.com",
   purl: "https://www.biohorizons.com/Products/Tapered",
-  sc: ["biohorizons.com", "spotimplant.com"],
+  sc: ["biohorizons.com"],
   ev: {
     st: 75,
     fu: ">10J",
@@ -972,7 +985,8 @@ const D = [
   gs: true,
   dw: true,
   pp: "€€€",
-  isq: "55–70",
+  ep: 215,
+  isq: "5,prEur:1755–70",
   dp: "Pilotbohrer → Stufenbohrer → Gewindeschneider → Profilbohrer.",
   no: "Deutsche Ingenieurskunst. 3-Nuten für eindeutige Positionierung.",
   url: "https://www.camlog.com",
@@ -1041,7 +1055,8 @@ const D = [
   gs: true,
   dw: true,
   pp: "€€€",
-  isq: "55–70",
+  ep: 225,
+  isq: "5,prEur:1805–70",
   dp: "Wie CAMLOG, konische Aufbereitung.",
   no: "Konische Weiterentwicklung des CAMLOG-Systems.",
   url: "https://www.camlog.com",
@@ -1112,7 +1127,8 @@ const D = [
   gs: true,
   dw: true,
   pp: "€€€",
-  isq: "65–80",
+  ep: 260,
+  isq: "6,prEur:1955–80",
   dp: "Pilotbohrer → Dríva Gold Bohrer. Extraction/Soft/Dense Protokolle. ∅5.4/6.0: Stufenbohrer.",
   no: "Nachfolger des TSV. DAE-Oberfläche koronal = weniger Periimplantitis. 2023 eingeführt.",
   url: "https://www.zimvie.com/TSX",
@@ -1181,7 +1197,8 @@ const D = [
   gs: true,
   dw: true,
   pp: "€€€",
-  isq: "65–80",
+  ep: 240,
+  isq: "6,prEur:1855–80",
   dp: "Standardsequenz nach ZimVie-Protokoll.",
   no: "Meistverwendetes System in Nordamerika. Jetzt: TSX als Nachfolger.",
   url: "https://www.zimvie.com",
@@ -1250,7 +1267,8 @@ const D = [
   gs: true,
   dw: true,
   pp: "€€€",
-  isq: "65–80",
+  ep: 255,
+  isq: "6,prEur:2005–80",
   dp: "Wie TSV + Trabecular-Metal Aufbereitung.",
   no: "Trabecular Metal für maximale Osseointegration in weichem Knochen.",
   url: "https://www.zimvie.com",
@@ -1321,7 +1339,8 @@ const D = [
   gs: true,
   dw: true,
   pp: "€€",
-  isq: "65–80",
+  ep: 125,
+  isq: "6,prEur:955–80",
   dp: "Pilotbohrer → MegaGen Stufenbohrer. D4: nur Pilotbohrer + Implantat!",
   no: "Knife-Thread® für maximale BIC. 8 Durchmesser – breitestes Sortiment.",
   url: "https://www.megagen.com",
@@ -1390,7 +1409,8 @@ const D = [
   gs: true,
   dw: true,
   pp: "€€",
-  isq: "65–80",
+  ep: 99,
+  isq: "6,prEur:755–80",
   dp: "Standard MegaGen Bohrersequenz.",
   no: "Preis-Leistungs-Sieger von MegaGen.",
   url: "https://www.megagen.com",
@@ -1461,6 +1481,7 @@ const D = [
   gs: true,
   dw: true,
   pp: "€€",
+  ep: 89,
   isq: "65–80",
   dp: "Pilotbohrer → Osstem Stufenbohrer nach Farbcode.",
   no: "Weltweit meistverkauft nach Stückzahl. 7 Durchmesser.",
@@ -1530,6 +1551,7 @@ const D = [
   gs: true,
   dw: true,
   pp: "€€",
+  ep: 95,
   isq: "65–80",
   dp: "Osstem TS IV Sequenz mit Farbcode.",
   no: "Neuere konische Version. Hydrophile SA Ultra Oberfläche.",
@@ -1601,6 +1623,7 @@ const D = [
   gs: true,
   dw: true,
   pp: "€€",
+  ep: 92,
   isq: "65–80",
   dp: "Osstem/Hiossen Farbcode-Protokoll.",
   no: "Osstem-Tochter für US-Markt. 11° Morse Taper = bakteriendichte Verbindung.",
@@ -1672,7 +1695,8 @@ const D = [
   gs: true,
   dw: true,
   pp: "€€",
-  isq: "65–80",
+  ep: 135,
+  isq: "6,prEur:885–80",
   dp: "Neodent Helix Bohrersequenz. Grand Morse Aufbereitung.",
   no: "Straumann Value-Brand. Premium-Technologie, mittlerer Preis.",
   url: "https://www.neodent.com",
@@ -1743,7 +1767,7 @@ const D = [
   gs: true,
   dw: true,
   pp: "€€",
-  isq: "65–80",
+  isq: "6,prEur:1105–80",
   dp: "MIS Standard-Bohrersequenz. MGUIDE kompatibel.",
   no: "Dentsply Sirona Value-Brand. Gute digitale Integration.",
   url: "https://www.mis-implants.com",
@@ -1812,7 +1836,7 @@ const D = [
   gs: true,
   dw: true,
   pp: "€€",
-  isq: "65–80",
+  isq: "6,prEur:955–80",
   dp: "MIS V3 Bohrersequenz.",
   no: "Triangulare Verbindung für optimale Rotationssicherheit.",
   url: "https://www.mis-implants.com",
@@ -1954,7 +1978,8 @@ const D = [
   gs: true,
   dw: true,
   pp: "€€€",
-  isq: "65–80",
+  ep: 280,
+  isq: "6,prEur:2105–80",
   dp: "Pilotbohrer → Stufenbohrer → Profilbohrer. INICELL kurz vor Insertion.",
   no: "INICELL® = Chairside superhydrophile Konditionierung (5 Min NaCl).",
   url: "https://www.thommenmedical.com",
@@ -2025,7 +2050,8 @@ const D = [
   gs: true,
   dw: true,
   pp: "€",
-  isq: "65–80",
+  ep: 89,
+  isq: "6,prEur:595–80",
   dp: "ICX Farbcode-Bohrersequenz.",
   no: "Ab ca. €59/Implantat. Bestes Preis-Leistungs-Verhältnis in DACH.",
   url: "https://www.medentis.de",
@@ -2167,7 +2193,7 @@ const D = [
   gs: true,
   dw: true,
   pp: "€",
-  isq: "65–80",
+  isq: "6,prEur:785–80",
   dp: "Dentium Standardsequenz.",
   no: "Solides koreanisches Budget-System.",
   url: "https://www.dentium.com",
@@ -2238,7 +2264,7 @@ const D = [
   gs: true,
   dw: true,
   pp: "€",
-  isq: "65–80",
+  isq: "6,prEur:725–80",
   dp: "Alpha-Bio Standardprotokoll.",
   no: "Envista-Gruppe (Nobel Biocare Schwester). Ti-6Al-4V ELI = stärker als Grade 4.",
   url: "https://www.alpha-bio.net",
@@ -2522,7 +2548,8 @@ const D = [
   gs: true,
   dw: true,
   pp: "€€€",
-  isq: "65–80",
+  ep: 175,
+  isq: "6,prEur:1355–80",
   dp: "Southern Implants Standardprotokoll + Zygoma-Option.",
   no: "Spezialist für Zygomatische Implantate & Co-Axis® (angulierte Abutments).",
   url: "https://www.southernimplants.com",
@@ -2664,7 +2691,8 @@ const D = [
   gs: true,
   dw: true,
   pp: "€€",
-  isq: "65–80",
+  ep: 155,
+  isq: "6,prEur:1155–80",
   dp: "bredent copaSKY Standardsequenz.",
   no: "Spezialisiert auf Sofortversorgung (fast&fixed Konzept).",
   url: "https://www.bredent-medical.com",
@@ -2735,7 +2763,7 @@ const D = [
   gs: true,
   dw: true,
   pp: "€",
-  isq: "65–80",
+  isq: "6,prEur:705–80",
   dp: "Dentis Standardsequenz.",
   no: "Hydrophile Oberfläche für beschleunigte Heilung.",
   url: "https://www.dentis.co.kr",
@@ -2806,7 +2834,7 @@ const D = [
   gs: true,
   dw: true,
   pp: "€€€",
-  isq: "65–80",
+  isq: "6,prEur:1255–80",
   dp: "S&M ConicalFit Bohrersequenz.",
   no: "Italienisches Premium-System. ZirTi® Oberfläche.",
   url: "https://www.sweden-martina.com",
@@ -2877,7 +2905,8 @@ const D = [
   gs: true,
   dw: true,
   pp: "€",
-  isq: "65–80",
+  ep: 115,
+  isq: "6,prEur:685–80",
   dp: "Noris Medical Standardprotokoll.",
   no: "Budget-System mit Zygoma-Option.",
   url: "https://www.noris-medical.com",
@@ -2948,7 +2977,8 @@ const D = [
   gs: true,
   dw: true,
   pp: "€€",
-  isq: "65–80",
+  ep: 155,
+  isq: "6,prEur:1055–80",
   dp: "Keystone Genesis Standardsequenz.",
   no: "BioSpark™ = Bioaktive Nanooberfläche.",
   url: "https://www.keystonedental.com",
@@ -3019,7 +3049,7 @@ const D = [
   gs: true,
   dw: true,
   pp: "€€",
-  isq: "65–80",
+  isq: "6,prEur:1555–80",
   dp: "Neoss ProActive Bohrersequenz.",
   no: "Schwedisches System. Nanostrukturierte CaPO₄-Oberfläche.",
   url: "https://www.neoss.com",
@@ -3090,7 +3120,8 @@ const D = [
   gs: true,
   dw: true,
   pp: "€",
-  isq: "65–80",
+  ep: 105,
+  isq: "6,prEur:625–80",
   dp: "Adin Standardprotokoll.",
   no: "Israelisches Budget-System mit konischer Verbindung.",
   url: "https://www.adin-implants.com",
@@ -3161,7 +3192,7 @@ const D = [
   gs: true,
   dw: true,
   pp: "€",
-  isq: "65–80",
+  isq: "6,prEur:585–80",
   dp: "S.I.N. Standardprotokoll.",
   no: "2023 von Henry Schein akquiriert. Größter brasilianischer Hersteller.",
   url: "https://www.sinimplantsystem.com",
@@ -3232,7 +3263,7 @@ const D = [
   gs: false,
   dw: true,
   pp: "€€€",
-  isq: "55–70",
+  isq: "5,prEur:3905–70",
   dp: "Vorsichtige Aufbereitung für Keramik. Kein Gewindeschneiden.",
   no: "Pionier der Keramikimplantate. FDA-zugelassen seit 2011.",
   url: "https://www.ceraroot.com",
@@ -4521,6 +4552,118 @@ function MS({
 }
 
 /* ═══════ MAIN APP ═══════ */
+
+const SOURCES = {
+  prices: [{
+    t: "medentis ICX Produktkatalog 04/2024",
+    u: "https://medentis.com/Downloads/epaper/produktkatalog/",
+    d: "ICX-Premium Preise: 59-79 EUR/Impl."
+  }, {
+    t: "Straumann TLC/TLX Systemuebersicht Preise 2025",
+    u: "https://www.straumann.com/content/dam/media-center/straumann/de-de/documents/manual/straumann_de450035_systemuebersicht_tlc_tlx.pdf",
+    d: "Straumann DE Preisliste"
+  }, {
+    t: "Straumann CARES Prothetik Preisliste 2024",
+    u: "https://www.straumann.com/content/dam/media-center/digital/de-ch/documents/leaflet/Preisliste_CARES_Prothetik_DE_F1_WEB.pdf",
+    d: "Prothetik-Komponenten Preise"
+  }],
+  goz: [{
+    t: "KZBV – Zahnaerztliches Honorar",
+    u: "https://www.kzbv.de/patienten/patient-und-krankenkasse/zahnaerztliches-honorar/",
+    d: "GOZ Faktor 2.3 Richtwert, bis 3.5"
+  }, {
+    t: "Zahnaerztekammer SH – GOZ-Kampagne",
+    u: "https://www.zahnaerzte-sh.de/eigenanteile/",
+    d: "Erstattung & Eigenanteile"
+  }, {
+    t: "GOZ – Gebuehrenordnung fuer Zahnaerzte (Bundesgesetzblatt)",
+    u: "https://www.gesetze-im-internet.de/goz_2012/",
+    d: "Amtliche GOZ-Fassung, Punktwert 5,62421 Cent, Faktorspanne 1.0–3.5"
+  }],
+  clinical: [{
+    t: "Galarraga-Vinueza et al. 2025 – AO/AAP Systematic Review: Peri-implant Diseases",
+    u: "https://pubmed.ncbi.nlm.nih.gov/40489307/",
+    d: "Praevalenz & Risikofaktoren PI, 13.030 Patienten, 39.991 Implantate"
+  }, {
+    t: "J Dentistry 2024 – Risk factors for Peri-implantitis: Umbrella Review",
+    u: "https://www.sciencedirect.com/science/article/abs/pii/S0300571224002343",
+    d: "Parodontitis OR=3.84, Rauchen RR=2.07"
+  }, {
+    t: "Atieh et al. 2025 – Tissue Level vs Bone Level: Systematic Review",
+    u: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12529224/",
+    d: "PI-Rate TL vs BL Implantate"
+  }, {
+    t: "MDPI Coatings 2025 – Dental Implant Surface Modification",
+    u: "https://www.mdpi.com/2079-6412/15/1/109",
+    d: "Oberflaechentechnologie, Erfolgsraten >95% @10J"
+  }, {
+    t: "Nobel Biocare – 4.500+ Publikationen",
+    u: "https://www.nobelbiocare.com/en-int",
+    d: "TiUnite Evidenz, >89.500 Implantate dokumentiert"
+  }],
+  cadcam: [{
+    t: "Straumann CARES Digital Solutions",
+    u: "https://www.straumann.com/digital/en/home.html",
+    d: "coDiagnostiX, CARES Visual, BLX/BLT/TLX"
+  }, {
+    t: "Nobel Biocare DTX Studio",
+    u: "https://www.nobelbiocare.com/en-int",
+    d: "Encode System, NobelProcera"
+  }, {
+    t: "medentis ICX-Magellan X",
+    u: "https://medentis.com/",
+    d: "ICX Guided Surgery, CADCAM-Workflow"
+  }, {
+    t: "MPS Medentika Preisliste (Straumann)",
+    u: "https://www.straumann.com/content/dam/media-center/digital/en-gb/documents/brochure/Medentika_PriceList.pdf",
+    d: "Multi-Platform Scanbodies & Abutments"
+  }],
+  manufacturers: [{
+    t: "Straumann Group",
+    u: "https://www.straumann.com",
+    d: "BLX, BLT, BLC, TLX, Neodent, Anthogyr"
+  }, {
+    t: "Nobel Biocare (Envista)",
+    u: "https://www.nobelbiocare.com",
+    d: "NobelActive, NobelParallel CC, N1"
+  }, {
+    t: "Dentsply Sirona",
+    u: "https://www.dentsplysirona.com",
+    d: "Astra Tech EV, Ankylos, XiVE"
+  }, {
+    t: "CAMLOG / Camlog Biotechnologies",
+    u: "https://www.camlog.de",
+    d: "CAMLOG, CONELOG, iSy"
+  }, {
+    t: "MegaGen Implant",
+    u: "https://www.megagen.com",
+    d: "AnyRidge, AnyOne"
+  }, {
+    t: "Osstem Implant",
+    u: "https://en.osstem.com",
+    d: "TS III, TS IV, SOI"
+  }, {
+    t: "medentis medical",
+    u: "https://medentis.com",
+    d: "ICX-Premium, ICX-Active"
+  }, {
+    t: "ZimVie (ehem. Zimmer Biomet Dental)",
+    u: "https://www.zimvie.com",
+    d: "TSV, TSX, T3 Pro"
+  }, {
+    t: "BioHorizons",
+    u: "https://www.biohorizons.com",
+    d: "Tapered Internal"
+  }, {
+    t: "Zeramex (Dentalpoint)",
+    u: "https://www.zeramex.com",
+    d: "Zeramex XT Keramik"
+  }, {
+    t: "Straumann PURE",
+    u: "https://www.straumann.com/pure",
+    d: "PURE Ceramic Implantat"
+  }]
+};
 window.__App = function App() {
   const [q, sQ] = React.useState("");
   const [sel, sSel] = React.useState(null);
@@ -4551,6 +4694,15 @@ window.__App = function App() {
   const [nwsCache, sNwsCache] = React.useState({});
   const [tab, sTab] = React.useState("db");
   const [cmSub, sCmSub] = React.useState("forum");
+  const [botMsgs, sBotMsgs] = React.useState([{
+    role: "bot",
+    text: "Hallo! Ich bin der ImplantAtlas KI-Assistent. Stellen Sie mir Fragen zu Implantatsystemen. Ich durchsuche zuerst unsere Datenbank und das Forum. Falls ich keine Antwort finde, kontaktiere ich den Hersteller direkt per Email.",
+    ts: Date.now()
+  }]);
+  const [botInput, sBotInput] = React.useState("");
+  const [botLoading, sBotLoading] = React.useState(false);
+  const [botEmails, sBotEmails] = React.useState([]);
+  const botRef = React.useRef(null);
   const [fCatId, sFCatId] = React.useState(null);
   const [fThrId, sFThrId] = React.useState(null);
   const [fNewOpen, sFNewOpen] = React.useState(false);
@@ -4558,6 +4710,17 @@ window.__App = function App() {
   const [fNewBody, sFNewBody] = React.useState("");
   const [fReplyTxt, sFReplyTxt] = React.useState("");
   const [fUserName, sFUserName] = React.useState("");
+  const [wzAge, sWzAge] = React.useState("55");
+  const [wzBone, sWzBone] = React.useState("D2");
+  const [wzPos, sWzPos] = React.useState("36");
+  const [wzTiming, sWzTiming] = React.useState("delayed");
+  const [wzExp, sWzExp] = React.useState("mittel");
+  const [wzBudget, sWzBudget] = React.useState("any");
+  const [wzAesth, sWzAesth] = React.useState(false);
+  const [wzResult, sWzResult] = React.useState(null);
+  const [calcSys, sCalcSys] = React.useState("");
+  const [calcQty, sCalcQty] = React.useState(1);
+  const [calcProth, sCalcProth] = React.useState("single");
   const [chatOpen, setChatOpen] = React.useState(false);
   const [chatMsgs, setChatMsgs] = React.useState([]);
   const [chatIn, setChatIn] = React.useState("");
@@ -5101,36 +5264,46 @@ window.__App = function App() {
     const catObj = NEWS_CATS.find(c => c.k === cat) || NEWS_CATS[0];
     let searchQ = catObj.q + " 2025 2026";
     if (mfr) searchQ = mfr + " " + searchQ;
-    const sysPrompt = `Du bist ein Dental-Implantologie News-Aggregator. Suche die neuesten Nachrichten und gib AUSSCHLIESSLICH ein JSON-Array zurück. Kein Markdown, keine Backticks, nur rohes JSON.
-Jedes Objekt hat: {"title":"...", "summary":"...(2-3 Sätze deutsch)...", "source":"...(Quellenname)...", "url":"...(Quell-URL)...", "date":"...(YYYY-MM-DD oder Monat YYYY)...", "cat":"studies|products|events|breakthroughs", "relevance":"high|medium"}
-Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.`;
-    try {
-      const resp = await fetch("https://api.anthropic.com/v1/messages", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          model: "claude-sonnet-4-20250514",
-          max_tokens: 3000,
-          system: sysPrompt,
-          messages: [{
-            role: "user",
-            content: "Suche nach: " + searchQ
-          }],
-          tools: [{
-            type: "web_search_20250305",
-            name: "web_search"
-          }]
-        })
-      });
-      if (!resp.ok) throw new Error("API " + resp.status);
-      const data = await resp.json();
+    const sysPrompt = `Du bist ein Dental-Implantologie News-Aggregator. Nutze web_search um AKTUELLE Nachrichten zu finden. Suche mehrfach mit verschiedenen Suchbegriffen um moeglichst aktuelle Ergebnisse (letzten 3 Monate) zu finden. Gib danach AUSSCHLIESSLICH ein JSON-Array zurück. Kein Markdown, keine Backticks, NUR rohes JSON.
+Jedes Objekt hat: {"title":"...", "summary":"...(2-3 Sätze deutsch)...", "source":"...(Quellenname)...", "url":"...(echte Quell-URL von der Suche)...", "date":"...(YYYY-MM-DD oder Monat YYYY)...", "cat":"studies|products|events|breakthroughs", "relevance":"high|medium"}
+Gib 6-10 aktuelle Ergebnisse zurück. WICHTIG: Nur echte URLs aus den Suchergebnissen verwenden, keine erfundenen. Nur JSON-Array, NICHTS anderes.`;
+    const hdrs = {
+      "Content-Type": "application/json",
+      "anthropic-version": "2023-06-01",
+      "anthropic-dangerous-direct-browser-access": "true"
+    };
+    if (apiKey.trim()) hdrs["x-api-key"] = apiKey.trim();
+    const parseNewsJSON = data => {
       let txt = (data.content || []).filter(b => b.type === "text").map(b => b.text).join("\n");
       txt = txt.replace(/```json|```/g, "").trim();
       const arrMatch = txt.match(/\[\s*\{[\s\S]*\}\s*\]/);
       if (!arrMatch) throw new Error("Kein JSON gefunden");
-      const items = JSON.parse(arrMatch[0]);
+      return JSON.parse(arrMatch[0]);
+    };
+    try {
+      // Try with web_search for real current results
+      const resp = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: hdrs,
+        body: JSON.stringify({
+          model: "claude-sonnet-4-20250514",
+          max_tokens: 4096,
+          system: sysPrompt,
+          messages: [{
+            role: "user",
+            content: "Suche aktuelle Nachrichten (heute ist " + new Date().toISOString().slice(0, 10) + "): " + searchQ
+          }],
+          tools: [{
+            type: "web_search_20250305",
+            name: "web_search",
+            max_uses: 3
+          }]
+        })
+      });
+      if (!resp.ok) throw new Error("WS_FALLBACK");
+      const data = await resp.json();
+      if (data.error) throw new Error("WS_FALLBACK");
+      const items = parseNewsJSON(data);
       sNws(items);
       sNwsCache(prev => ({
         ...prev,
@@ -5139,13 +5312,41 @@ Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.
           ts: Date.now()
         }
       }));
-    } catch (err) {
-      console.error("News error:", err);
-      sNwsErr(err.message || "Fehler beim Laden");
-      sNws([]);
+    } catch (err1) {
+      // Fallback: simple call without tools
+      try {
+        const resp2 = await fetch("https://api.anthropic.com/v1/messages", {
+          method: "POST",
+          headers: hdrs,
+          body: JSON.stringify({
+            model: "claude-sonnet-4-20250514",
+            max_tokens: 3000,
+            system: sysPrompt.replace("Nutze web_search um AKTUELLE Nachrichten zu finden. Suche mehrfach mit verschiedenen Suchbegriffen um moeglichst aktuelle Ergebnisse (letzten 3 Monate) zu finden. Gib danach", "Gib basierend auf deinem aktuellen Wissen"),
+            messages: [{
+              role: "user",
+              content: "Nenne aktuelle Entwicklungen (heute ist " + new Date().toISOString().slice(0, 10) + "): " + searchQ
+            }]
+          })
+        });
+        if (!resp2.ok) throw new Error("API " + resp2.status + (resp2.status === 401 ? " – Bitte API-Key im Chat-Widget (💬) hinterlegen" : ""));
+        const data2 = await resp2.json();
+        const items2 = parseNewsJSON(data2);
+        sNws(items2);
+        sNwsCache(prev => ({
+          ...prev,
+          [cacheKey]: {
+            items: items2,
+            ts: Date.now()
+          }
+        }));
+      } catch (err2) {
+        console.error("News error:", err2);
+        sNwsErr(err2.message || "Fehler beim Laden");
+        sNws([]);
+      }
     }
     sNwsL(false);
-  }, [nwsCache]);
+  }, [nwsCache, apiKey]);
   React.useEffect(() => {
     if (tab === "news" && nws.length === 0 && !nwsL) {
       fetchNews(nwsCat, nwsMfr);
@@ -5172,7 +5373,7 @@ Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.
   const filteredNws = nwsCat === "all" ? nws : nws.filter(n => n.cat === nwsCat);
 
   /* ═══════════════════════════════════════════
-     COMMUNITY v2.8 – Forum, Events, Jobs, Lit
+     COMMUNITY v3.1 – Forum, Events, Jobs, Lit
      ═══════════════════════════════════════════ */
   const [forumData, setForumData] = React.useState([{
     id: "impl",
@@ -5659,7 +5860,8 @@ Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.
     author: "Carl E. Misch",
     ed: "3. Aufl. 2024",
     desc: "DAS Standardwerk. 1.200 Seiten, >3.000 Abb. Pflichtlektuere.",
-    lang: "EN"
+    lang: "EN",
+    az: "https://www.amazon.de/Dental-Implant-Prosthetics-Carl-Misch/dp/0323078451"
   }, {
     id: "l2",
     cat: "Grundlagenwerk",
@@ -5667,7 +5869,8 @@ Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.
     author: "D. Buser, S. Chen et al.",
     ed: "2007\u20132025",
     desc: "Evidenzbasierte Leitfaeden des ITI. Vol. 14: Digitale Implantologie.",
-    lang: "EN/DE"
+    lang: "EN/DE",
+    az: "https://www.amazon.de/ITI-Treatment-Guide-Biological-Complications/dp/3868672400"
   }, {
     id: "l3",
     cat: "Chirurgie",
@@ -5675,7 +5878,8 @@ Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.
     author: "DGI Academic Board",
     ed: "2. Aufl. 2023",
     desc: "Deutsches Standardwerk fuer DGI-Pruefung. Kompakt, evidenzbasiert.",
-    lang: "DE"
+    lang: "DE",
+    az: "https://www.amazon.de/s?k=Kompendium+Implantologie+DGI"
   }, {
     id: "l4",
     cat: "Chirurgie",
@@ -5683,7 +5887,8 @@ Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.
     author: "D. Buser",
     ed: "2024 Update",
     desc: "GBR-Lebenswerk. Langzeitdaten, Technik-Evolution, Falldarstellungen.",
-    lang: "EN"
+    lang: "EN",
+    az: "https://www.amazon.de/s?k=Guided+Bone+Regeneration+Buser"
   }, {
     id: "l5",
     cat: "Prothetik",
@@ -5691,7 +5896,8 @@ Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.
     author: "Carl Drago",
     ed: "4. Aufl. 2023",
     desc: "Praxisorientiert von Planung bis Eingliederung. Digital + konventionell.",
-    lang: "EN"
+    lang: "EN",
+    az: "https://www.amazon.de/s?k=Implant+Restorations+Drago"
   }, {
     id: "l6",
     cat: "Prothetik",
@@ -5699,7 +5905,8 @@ Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.
     author: "German Autoren-Team",
     ed: "2024",
     desc: "Verschraubte + zementierte Prothetik, CAD/CAM, TiBase-Konzepte.",
-    lang: "DE"
+    lang: "DE",
+    az: "https://www.amazon.de/s?k=Festsitzende+Implantatprothetik"
   }, {
     id: "l7",
     cat: "Periimplantitis",
@@ -5707,7 +5914,8 @@ Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.
     author: "Susan S. Wingrove",
     ed: "2. Aufl. 2022",
     desc: "Fuer das Recall-Team: Diagnostik, Instrumente, Protokolle.",
-    lang: "EN"
+    lang: "EN",
+    az: "https://www.amazon.de/Peri-Implant-Therapy-Dental-Hygienist-Evidence-Based/dp/s?k=Peri-Implant+Therapy+Wingrove"
   }, {
     id: "l8",
     cat: "Periimplantitis",
@@ -5715,7 +5923,8 @@ Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.
     author: "F. Modern et al.",
     ed: "2025",
     desc: "Periimplantitis, Frakturen, Nervlaesionen, aesthetische Misserfolge.",
-    lang: "DE"
+    lang: "DE",
+    az: "https://www.amazon.de/s?k=Komplikationsmanagement+Implantologie"
   }, {
     id: "l9",
     cat: "Digital",
@@ -5723,7 +5932,8 @@ Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.
     author: "G. Magne, M. Belser",
     ed: "2024",
     desc: "Volldigitale Konzepte: IOS, 3D-Druck, AI-Planung, Guided Surgery.",
-    lang: "EN"
+    lang: "EN",
+    az: "https://www.amazon.de/s?k=Digital+Workflows+Implant+Dentistry"
   }, {
     id: "l10",
     cat: "Digital",
@@ -5731,7 +5941,8 @@ Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.
     author: "Deutsche Gesellschaft ZMK",
     ed: "2025",
     desc: "DGZMK-Kompendium: Scanner, Software, Materialien, Workflows.",
-    lang: "DE"
+    lang: "DE",
+    az: "https://www.amazon.de/s?k=Kompendium+Digitale+Zahnmedizin"
   }, {
     id: "l11",
     cat: "Zeitschriften",
@@ -5739,7 +5950,8 @@ Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.
     author: "Wiley / EAO",
     ed: "Laufend",
     desc: "Top-Journal fuer Implantatforschung. Impact Factor 5.2. Monatlich.",
-    lang: "EN"
+    lang: "EN",
+    az: "https://onlinelibrary.wiley.com/journal/16000501"
   }, {
     id: "l12",
     cat: "Zeitschriften",
@@ -5747,7 +5959,8 @@ Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.
     author: "Oemus Media AG",
     ed: "Laufend",
     desc: "Deutschsprachiges Fachmagazin. Praxisnah, Fallberichte, Marktueberblick.",
-    lang: "DE"
+    lang: "DE",
+    az: "https://www.oemmedia.de/fachzeitschriften/implantologie-journal/"
   }];
 
   /* ═══ FORUM HELPERS ═══ */
@@ -5801,8 +6014,522 @@ Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.
     Kongress: "#2563eb",
     Symposium: "#7c3aed"
   })[t] || CL.txS;
+
+  /* ═══ KI-ASSISTENT BOT ═══ */
+  const FALLBACK_EMAIL = "marc.troe@gmail.com";
+  const botSearchDB = q => {
+    const ql = q.toLowerCase();
+    const hits = D.filter(i => {
+      const txt = [i.s, i.m, i.cn, i.ct, i.sd, i.dp, i.fo, i.pr || ""].join(" ").toLowerCase();
+      return ql.split(" ").filter(w => w.length > 2).some(w => txt.includes(w));
+    });
+    return hits.slice(0, 5);
+  };
+  const botSearchForum = q => {
+    const ql = q.toLowerCase();
+    const hits = [];
+    forumData.forEach(cat => {
+      cat.threads.forEach(t => {
+        const txt = [t.title, ...t.replies.map(r => r.body)].join(" ").toLowerCase();
+        if (ql.split(" ").filter(w => w.length > 2).some(w => txt.includes(w))) {
+          hits.push({
+            cat: cat.name,
+            title: t.title,
+            body: t.replies[0]?.body || ""
+          });
+        }
+      });
+    });
+    return hits.slice(0, 3);
+  };
+  const botIdentifySystem = q => {
+    const ql = q.toLowerCase();
+    return D.find(i => ql.includes(i.s.toLowerCase()) || ql.includes(i.m.toLowerCase()));
+  };
+  const botCallAI = async (msgs, extraHistory) => {
+    if (!apiKey.trim()) return "Bitte hinterlegen Sie Ihren Anthropic API-Key im Chat-Widget (💬 unten rechts), um den KI-Assistenten zu nutzen.";
+    try {
+      // Build conversation history from botMsgs
+      var apiMsgs = [];
+      if (extraHistory && extraHistory.length > 0) {
+        var hist = extraHistory.slice(-10); // last 10 messages for context
+        for (var h = 0; h < hist.length; h++) {
+          var hm = hist[h];
+          if (hm.role === "user") apiMsgs.push({
+            role: "user",
+            content: hm.text
+          });else if (hm.role === "bot") apiMsgs.push({
+            role: "assistant",
+            content: hm.text
+          });
+        }
+      }
+      // Add current messages
+      for (var m = 0; m < msgs.length; m++) apiMsgs.push(msgs[m]);
+      const res = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": apiKey.trim(),
+          "anthropic-version": "2023-06-01",
+          "anthropic-dangerous-direct-browser-access": "true"
+        },
+        body: JSON.stringify({
+          model: "claude-sonnet-4-20250514",
+          max_tokens: 1200,
+          system: "Du bist der ImplantAtlas KI-Assistent fuer Zahnaerzte. Du hast Zugriff auf eine Datenbank mit 47 Implantatsystemen. Antworte auf Deutsch, kompakt und fachlich. Beziehe dich auf fruehere Nachrichten im Gespraech wenn relevant. Wenn du die Antwort nicht weisst, sage ehrlich dass du den Hersteller kontaktieren wirst.",
+          messages: apiMsgs
+        })
+      });
+      if (!res.ok) return "API-Fehler " + res.status + (res.status === 401 ? " – API-Key pruefen" : "");
+      const data = await res.json();
+      return data.content?.map(c => c.text || "").join("") || "Fehler bei der Verarbeitung.";
+    } catch (e) {
+      return "API-Verbindung fehlgeschlagen. Bitte API-Key im Chat-Widget (💬) pruefen.";
+    }
+  };
+  const botSendEmail = async (question, system, manufacturer) => {
+    const subject = encodeURIComponent("[ImplantAtlas] Fachfrage zu " + (system || "Implantatsystem") + " - " + (manufacturer || "Hersteller"));
+    const body = encodeURIComponent("Fachfrage via ImplantAtlas:\n\n" + question + "\n\nSystem: " + (system || "k.A.") + "\nHersteller: " + (manufacturer || "k.A.") + "\n\n---\nImplantAtlas KI-Assistent");
+    try {
+      var a = document.createElement("a");
+      a.href = "mailto:" + FALLBACK_EMAIL + "?subject=" + subject + "&body=" + body;
+      a.style.display = "none";
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(function () {
+        try {
+          document.body.removeChild(a);
+        } catch (e) {}
+      }, 100);
+      return {
+        ok: true,
+        response: "Email-Client geoeffnet"
+      };
+    } catch (e) {
+      return {
+        ok: false,
+        response: e.message
+      };
+    }
+  };
+  const botCheckInbox = async () => {
+    try {
+      var a = document.createElement("a");
+      a.href = "https://mail.google.com/mail/u/0/#search/subject%3A%5BImplantAtlas%5D";
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.style.display = "none";
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(function () {
+        try {
+          document.body.removeChild(a);
+        } catch (e) {}
+      }, 100);
+    } catch (e) {}
+    return "📬 Gmail wurde geoeffnet mit Suche nach [ImplantAtlas]-Antworten. Kopieren Sie die Hersteller-Antwort und fuegen Sie sie als Antwort im Forum ein.";
+  };
+  const botEmailHersteller = () => {
+    // Find last user question
+    var lastQ = "";
+    for (var i = botMsgs.length - 1; i >= 0; i--) {
+      if (botMsgs[i].role === "user") {
+        lastQ = botMsgs[i].text;
+        break;
+      }
+    }
+    if (!lastQ && botInput.trim()) lastQ = botInput.trim();
+    if (!lastQ) {
+      sBotMsgs(prev => [...prev, {
+        role: "bot",
+        text: "Bitte stellen Sie zuerst eine Frage, die ich an den Hersteller weiterleiten soll.",
+        ts: Date.now(),
+        source: "none"
+      }]);
+      return;
+    }
+
+    // Identify system
+    var sys = botIdentifySystem(lastQ);
+    var mfr = sys ? sys.m : null;
+    var sysName = sys ? sys.s : null;
+    var subject = "[ImplantAtlas] Fachfrage" + (sysName ? " zu " + sysName : "") + " (" + (mfr || "Allgemein") + ")";
+    var body = "Sehr geehrte Damen und Herren,\n\n" + "folgende Fachfrage eines Zahnarztes konnte im ImplantAtlas nicht vollstaendig beantwortet werden:\n\n" + "FRAGE: " + lastQ + "\n\n" + "System: " + (sysName || "nicht spezifiziert") + "\n" + "Hersteller: " + (mfr || "nicht spezifiziert") + "\n" + "Datum: " + new Date().toLocaleDateString("de-DE") + "\n\n" + "Wir freuen uns ueber eine fachliche Antwort.\n\nMit freundlichen Gruessen\nImplantAtlas";
+    var href = "mailto:" + FALLBACK_EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+
+    // Open mailto via <a> click
+    var a = document.createElement("a");
+    a.href = href;
+    a.style.display = "none";
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function () {
+      try {
+        document.body.removeChild(a);
+      } catch (e) {}
+    }, 100);
+
+    // Record
+    sBotEmails(prev => [...prev, {
+      manufacturer: mfr,
+      system: sysName,
+      question: lastQ,
+      ts: Date.now(),
+      answered: false
+    }]);
+
+    // Post to forum
+    setForumData(prev => prev.map(c => c.id === "implant-systems" || c.id === prev[0]?.id ? {
+      ...c,
+      threads: [{
+        id: "t" + Date.now(),
+        title: "[KI-Anfrage] " + lastQ.substring(0, 80),
+        author: "ImplantAtlas Bot",
+        loc: "",
+        date: new Date().toISOString().slice(0, 10),
+        views: 0,
+        replies: [{
+          id: "r" + Date.now(),
+          author: "ImplantAtlas Bot",
+          loc: "",
+          date: new Date().toISOString().slice(0, 10),
+          body: "Frage an Hersteller-Service (" + (mfr || "unbekannt") + ") weitergeleitet via " + FALLBACK_EMAIL + ".\n\nFrage: " + lastQ
+        }]
+      }, ...c.threads]
+    } : c));
+
+    // Confirm in chat
+    sBotMsgs(prev => [...prev, {
+      role: "system",
+      text: "📧 Email-Client geoeffnet mit Frage an " + FALLBACK_EMAIL + (mfr ? " (" + mfr + ")" : "") + ". Bitte absenden! Thread im Forum erstellt.",
+      ts: Date.now()
+    }]);
+  };
+  const handleBotMsg = async () => {
+    const q = botInput.trim();
+    if (!q || botLoading) return;
+    sBotInput("");
+    const userMsg = {
+      role: "user",
+      text: q,
+      ts: Date.now()
+    };
+    sBotMsgs(prev => [...prev, userMsg]);
+    sBotLoading(true);
+
+    // Step 1: Search DB
+    const dbHits = botSearchDB(q);
+    const forumHits = botSearchForum(q);
+    const sys = botIdentifySystem(q);
+    if (dbHits.length > 0 || forumHits.length > 0) {
+      // Build context for AI
+      const ctx = [];
+      if (dbHits.length > 0) {
+        ctx.push("DATENBANK-TREFFER:\n" + dbHits.map(i => i.s + " (" + i.m + "): " + [i.cn, i.ct, i.dp, i.sd, i.fo, i.pr || ""].filter(Boolean).join(", ")).join("\n"));
+      }
+      if (forumHits.length > 0) {
+        ctx.push("FORUM-TREFFER:\n" + forumHits.map(f => f.title + ": " + f.body.substring(0, 200)).join("\n"));
+      }
+      const aiAnswer = await botCallAI([{
+        role: "user",
+        content: "Beantworte folgende Zahnarzt-Frage anhand der Datenbank-Informationen:\n\nFRAGE: " + q + "\n\nKONTEXT:\n" + ctx.join("\n\n") + "\n\nAntworte praegnant auf Deutsch. Nenne die Quelle (Datenbank/Forum)."
+      }], botMsgs);
+      sBotMsgs(prev => [...prev, {
+        role: "bot",
+        text: aiAnswer,
+        ts: Date.now(),
+        source: "db"
+      }]);
+    } else {
+      // Nothing found - suggest using the email button
+      const mfr = sys ? sys.m : null;
+      const sysName = sys ? sys.s : null;
+      sBotMsgs(prev => [...prev, {
+        role: "bot",
+        text: "Zu dieser Frage habe ich leider weder in der Datenbank (47 Systeme) noch im Forum einen Eintrag gefunden." + (mfr ? " Erkanntes System: **" + sysName + "** (" + mfr + ")." : "") + "\n\n💡 **Tipp:** Klicken Sie auf den **📧-Button** neben dem Eingabefeld, um Ihre letzte Frage direkt per Email an den Hersteller-Service zu senden.",
+        ts: Date.now(),
+        source: "none"
+      }]);
+    }
+    sBotLoading(false);
+    setTimeout(() => botRef.current?.scrollTo({
+      top: botRef.current.scrollHeight,
+      behavior: "smooth"
+    }), 100);
+  };
+  const botConfirmEmail = async msg => {
+    sBotLoading(true);
+    const {
+      question,
+      system,
+      manufacturer
+    } = msg.pendingEmail;
+    sBotMsgs(prev => [...prev, {
+      role: "system",
+      text: "📧 Sende Email an Hersteller-Service...",
+      ts: Date.now()
+    }]);
+    const result = await botSendEmail(question, system, manufacturer);
+    if (result.ok) {
+      const emailRecord = {
+        manufacturer,
+        system,
+        question,
+        ts: Date.now(),
+        answered: false
+      };
+      sBotEmails(prev => [...prev, emailRecord]);
+      // Post to forum as open question
+      setForumData(prev => prev.map(c => c.id === "implant-systems" || c.id === prev[0]?.id ? {
+        ...c,
+        threads: [{
+          id: "t" + Date.now(),
+          title: "[KI-Anfrage] " + question.substring(0, 80),
+          author: "ImplantAtlas Bot",
+          loc: "",
+          date: new Date().toISOString().slice(0, 10),
+          views: 0,
+          replies: [{
+            id: "r" + Date.now(),
+            author: "ImplantAtlas Bot",
+            loc: "",
+            date: new Date().toISOString().slice(0, 10),
+            body: "Diese Frage wurde automatisch an den Hersteller-Service (" + (manufacturer || "unbekannt") + ") weitergeleitet. Antwort steht aus.\n\nOriginalfrage: " + question
+          }]
+        }, ...c.threads]
+      } : c));
+      sBotMsgs(prev => [...prev, {
+        role: "bot",
+        text: "✅ Ihr Email-Programm wurde mit der vorbereiteten Anfrage an **" + (manufacturer || "Hersteller") + "** (" + FALLBACK_EMAIL + ") geoeffnet.\n\nBitte senden Sie die Email ab. Die Frage wurde ausserdem als offener Thread im Forum eingestellt.\n\n📬 Nutzen Sie 'Antworten pruefen' um Ihren Gmail-Posteingang nach Herstellerantworten zu durchsuchen.",
+        ts: Date.now(),
+        source: "email"
+      }]);
+    } else {
+      sBotMsgs(prev => [...prev, {
+        role: "bot",
+        text: "❌ Email konnte nicht gesendet werden: " + result.response + "\n\nBitte versuchen Sie es erneut oder kontaktieren Sie den Hersteller direkt.",
+        ts: Date.now(),
+        source: "error"
+      }]);
+    }
+    sBotLoading(false);
+    setTimeout(() => botRef.current?.scrollTo({
+      top: botRef.current.scrollHeight,
+      behavior: "smooth"
+    }), 100);
+  };
+  const botCheckAnswers = async () => {
+    sBotLoading(true);
+    sBotMsgs(prev => [...prev, {
+      role: "system",
+      text: "📬 Pruefe Posteingang auf Herstellerantworten...",
+      ts: Date.now()
+    }]);
+    const result = await botCheckInbox();
+    sBotMsgs(prev => [...prev, {
+      role: "bot",
+      text: result,
+      ts: Date.now(),
+      source: "inbox"
+    }]);
+    // If answer found, post to forum
+    if (result.includes("ANTWORT:")) {
+      setForumData(prev => prev.map((c, ci) => ci === 0 ? {
+        ...c,
+        threads: [{
+          id: "t" + Date.now(),
+          title: "[Hersteller-Antwort] Antwort vom Service",
+          author: "ImplantAtlas Bot",
+          loc: "",
+          date: new Date().toISOString().slice(0, 10),
+          views: 0,
+          replies: [{
+            id: "r" + Date.now(),
+            author: "Hersteller-Service",
+            loc: "",
+            date: new Date().toISOString().slice(0, 10),
+            body: result
+          }]
+        }, ...c.threads]
+      } : c));
+      sBotMsgs(prev => [...prev, {
+        role: "system",
+        text: "✅ Herstellerantwort wurde ins Forum uebernommen!",
+        ts: Date.now()
+      }]);
+    }
+    sBotLoading(false);
+    setTimeout(() => botRef.current?.scrollTo({
+      top: botRef.current.scrollHeight,
+      behavior: "smooth"
+    }), 100);
+  };
   const sortedEvents = [...eventsData].sort((a, b) => a.date.localeCompare(b.date));
   const litCats = [...new Set(litData.map(l => l.cat))];
+
+  /* ═══ CLINICAL WIZARD v3.1 ═══ */
+  const runWizard = () => {
+    const age = parseInt(wzAge) || 55;
+    const isAnterior = /[123]$/.test(wzPos) || ["11", "12", "13", "21", "22", "23"].includes(wzPos);
+    const isMolar = /[678]$/.test(wzPos) || parseInt(wzPos.replace(/\D/g, "")) >= 6;
+    const isImmediate = wzTiming === "immediate";
+    const isBeginner = wzExp === "anfaenger";
+    const budgetLow = wzBudget === "low";
+    const budgetMid = wzBudget === "mid";
+    let scored = D.map(imp => {
+      let score = 50;
+      let reasons = [];
+
+      // Bone match
+      if (imp.bd.includes(wzBone)) {
+        score += 15;
+        reasons.push("Knochenklasse " + wzBone + " geeignet");
+      } else {
+        score -= 30;
+        reasons.push("Nicht fuer " + wzBone + " empfohlen");
+      }
+
+      // Timing
+      if (isImmediate && imp.im) {
+        score += 15;
+        reasons.push("Sofortimplantation moeglich");
+      }
+      if (isImmediate && !imp.im) {
+        score -= 25;
+        reasons.push("Nicht fuer Sofortimpl. geeignet");
+      }
+
+      // Aesthetics
+      if (isAnterior && wzAesth) {
+        if (imp.ae && imp.ae.includes("xzellent")) {
+          score += 12;
+          reasons.push("Exzellente Aesthetik");
+        } else if (imp.ae && imp.ae.includes("ehr gut")) {
+          score += 8;
+          reasons.push("Sehr gute Aesthetik");
+        }
+        if (imp.ma.includes("Zirkon")) {
+          score += 8;
+          reasons.push("Metallfrei = optimal anterior");
+        }
+      }
+
+      // Molar/posterior
+      if (isMolar) {
+        if (imp.fo === "Fully Tapered" || imp.fo === "Tapered") {
+          score += 5;
+        }
+        if (parseFloat(imp.sr) >= 97.5) {
+          score += 5;
+          reasons.push("Hohe Ueberlebensrate");
+        }
+      }
+
+      // Soft bone bonus
+      if (wzBone === "D3" || wzBone === "D4") {
+        if (imp.ti >= 30) {
+          score += 8;
+          reasons.push("Hoher Torque fuer weichen Knochen");
+        }
+        if (imp.fe && imp.fe.some(f => f.toLowerCase().includes("knife") || f.toLowerCase().includes("kondens"))) {
+          score += 10;
+          reasons.push("Knochenkondensierende Eigenschaften");
+        }
+      }
+
+      // Experience match
+      if (isBeginner) {
+        if (imp.cx && imp.cx.lk === "Niedrig") {
+          score += 10;
+          reasons.push("Niedrige Lernkurve");
+        }
+        if (imp.cx && imp.cx.lk === "Hoch") {
+          score -= 15;
+          reasons.push("Hohe Lernkurve - nicht fuer Anfaenger");
+        }
+      }
+
+      // Budget
+      if (budgetLow) {
+        if (imp.pp === "€€" || imp.pp === "€") {
+          score += 12;
+          reasons.push("Budgetfreundlich");
+        }
+        if (imp.pp === "€€€€") {
+          score -= 10;
+        }
+      }
+      if (budgetMid) {
+        if (imp.pp === "€€€" || imp.pp === "€€") {
+          score += 6;
+        }
+      }
+
+      // Evidence bonus
+      if (imp.ev && imp.ev.st >= 100) {
+        score += 5;
+        reasons.push(imp.ev.st + " Studien");
+      }
+      if (imp.ev && imp.ev.fu && imp.ev.fu.includes("10")) {
+        score += 5;
+        reasons.push("Langzeit-Daten >10J");
+      }
+
+      // Guided surgery
+      if (imp.gs) score += 2;
+
+      // Short implant bonus for limited bone
+      if (imp.le && Math.min(...imp.le) <= 6 && (wzBone === "D3" || wzBone === "D4")) {
+        score += 3;
+        reasons.push("Kurzimplantat-Option");
+      }
+      return {
+        imp,
+        score: Math.max(0, Math.min(100, score)),
+        reasons: reasons.slice(0, 4)
+      };
+    });
+    scored.sort((a, b) => b.score - a.score);
+    sWzResult(scored.slice(0, 6));
+  };
+
+  /* ═══ COST CALCULATOR v3.1 ═══ */
+  const calcImp = calcSys ? D.find(i => i.s === calcSys) : null;
+  const calcPrice = calcImp && calcImp.ep ? calcImp.ep : 0;
+  const prothCosts = {
+    single: {
+      name: "Einzelkrone (verschraubt)",
+      abutment: 120,
+      labor: 280,
+      material: 45,
+      total: 445
+    },
+    bridge: {
+      name: "3-gliedrige Bruecke",
+      abutment: 240,
+      labor: 650,
+      material: 120,
+      total: 1010
+    },
+    full: {
+      name: "Full-Arch (4-6 Impl.)",
+      abutment: 480,
+      labor: 3500,
+      material: 800,
+      total: 4780
+    },
+    cover: {
+      name: "Deckprothese (Locator)",
+      abutment: 280,
+      labor: 950,
+      material: 200,
+      total: 1430
+    }
+  };
+  const proth = prothCosts[calcProth] || prothCosts.single;
+  const calcTotal = calcPrice * calcQty + proth.total;
+  const calcGOZ = Math.round(calcTotal * 1.8);
   return React.createElement("div", {
     style: {
       minHeight: "100vh",
@@ -5820,7 +6547,88 @@ Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.
         @keyframes fadeIn{from{opacity:0}to{opacity:1}}
         @keyframes pulse{0%,100%{opacity:.3;transform:scale(.8)}50%{opacity:1;transform:scale(1)}}
         .card:hover{background:${CL.cardH}!important;border-color:rgba(37,99,235,0.15)!important}
-      `), React.createElement("header", {
+      `), React.createElement("div", {
+    style: {
+      background: "#ffffff",
+      padding: "8px 16px",
+      borderBottom: "1px solid #e5e7eb",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: 16,
+      flexWrap: "wrap"
+    }
+  }, React.createElement("a", {
+    href: "https://www.bdo.de",
+    target: "_blank",
+    rel: "noopener noreferrer",
+    style: {
+      display: "flex",
+      alignItems: "center",
+      textDecoration: "none",
+      flexShrink: 0
+    }
+  }, React.createElement("img", {
+    src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAAkCAIAAABXBb6UAAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAAHs0lEQVR42u1Ya3BV1RVea+1zzj33kZtAHjdAQoAQA0SMFXklYEVLbUEcKHa01toWbWnBqYwlMgJ2bEdoHaBa+qfO2NYZa2uBKS3Fjq8JoESFgjyCWExCAgrk/by5r3P2Wv1xuTSQi8bpjK0zWT/OnLv3unt/e51vf2vtjSICAMnn/7/h5wVo0gg+VzYMdxjuMNzPxIyr9iQFDjH1SwDwShXENP/4GIe0k4gIIuAnul5NdxkEAOnScMCE6T+C1kyEiMmlpPFh0cJApAYvjFkrpQa2ae0SGSncaaKTHq4W7YSjbn+fGKaVGTQMFY8m+sMRw1AAF8MgIkphMDMTAFgSCNTTHXEcbSgCBAQQEMOgjGAGAAIkRAjRABAAYGYiAkDHibe19sRjCdtr5+ZlGIYHQJjdZG9aol5JBtGslDpfvbf9iQ1YOLb0N1tVXqizq2fl/b+K9RuArusKIgCg7fVcP61g5UOL80dlIRoH3j624fFtGYEsx3G1ZiTw+syicbnzbpl6x9IK0zREXERkZiJsb+va9sK+mjdPnmnqikVd2wtF4/Pn3Fx61zfmjczO0hxT5PkU3LVjsbyW3nigF0gLQMGY0IgR2bVN7SNzjGCmBQBa67aWvp3bjp45e/6ZZ9f4/MaECeN0wu7u1sGgGchQjqPbWyMNp+pr9jS++vLhDZsfyMkJuq5rGJ7jRxvWVT3XVNdjed1ry8fn5mW1tnTVHjtz7PD5l3cf2rhpWdnUCcxMpIYKV0i5pu0aJomBIABsWBhNxL54y/SqdUsdJ4Fo7Npes3XrKydP9NTWNsycNYWZLQ/2hSMrVt1524Lp8Xis+Xz3zu01f9t59J2aj3722HNbtv6IiFpbOh6tevbc2URxaU7V+sUVc6YgKma9f9/xzRt3nmnqX7v69797YfXIkZkiMnj/DeaHpEjNOJDWgizasMDjsf0Bv9/vm1E5GYCAxUhFQZiEyeMxLcsTCARKSoseWX/P3ffeaHvN/fs+3Ft9SCnzT89XnzsTDgattY8vqZx7XXLPicBN825Y85Ol/oDd1BjZ/mI1EjLzf6O7QmDEohjui3R19tV/cHbrL3eFw+HZcwqmlE0AACIEFBARBhHRmrV2md1vL/tKbr7tuLD/jX+J8D8P1IGY104NzZhd5joOkSIiItHarZx7fWlZNgsePNDIrIno0+guACAIQlJQtAZfwNj7+vHq1w4imJF+nXDguvKxDz18p9dnAwgiCmoBBhRERASlUASCmYGisaOa6k+1tnSHe8M9XTFXcEJJSISQGEAABFABuAAwcWLB4ZpzHS194b5IMDNjMB+GGl1E0Rpy8/yVcyfPrCiZNad4TJGv7oOuFcuf2f33/QCoWYOoAWKJl94NRQjCmlyXRQRQm6aZFN+BniJimCqpdFrrT5nVriANYTTiTJ91zSPr7kq2tLd3b/7Fn3f/9dSWn++cO3eqZRnCgHRZJhNBzU5nZw+S6Q94MoIB2+sBCLc2dw/aRoKILc1dgDoj6PMHfKmVDJm7KIhyMc0hACqJReJOwo3F4rFYPCcn65v33hrwUn+fbqj7yOOxmVwRlYg7WrPWOuHEiejdQ3WnGzoMBVOm5BumMbEkZBIefbehva3LUJbrsNbsJBJKeVqaO04caSCkktKQZVmseXBiHhoZEISNcG/vqDEZpmXYtse2PQBw8MBJAUJSGZleAR2Naa2jBYU5SpFleSzT+/57jZs3/iURV9khtWDRbAC99O4Ky3La2/jJDX+IRGKGaShlWJYn3Bd98okXuzpcy5bFX68AkLQFx5DIoBk0xx776ZJrJhX9essOj21p7Z6ub327pjEcic6oGFdcPO69Ew2jxngf/vF99XXn3nzjfcOixvq2A2/V9XS6tt9Zs/6+0QW5rhufPrNs+cr5Tz/1+qv/qG/5cMv8hdNC+ZnNF3pfeenIido2MGKrVi38wg2lzC6RMRS4yTWRRgBERNCA2okvf/C2PdVHfvjArkQUiUAETMvIyQ1+eUFJ1aP3AOm8UOaDqxZu++Pe1146RoZiUEqp7Bz/jMrC769YcOOMUs0uKUtrZ9kPbs8dnf38b/fUHm+ueWu7ImKWQIZ/Ulned75361cXzmI3IcpMW+NcJasBkxJxHFc7JGCY5ogR3sKCnE1PfVcpEhBC8vk9BYWh8cUhAGHNuTkjvJa66ebJS5bOBhARNk1Pwdic0kmFgEq7CSIDhBGV67iL7qj80vzy2qONp+tbensimVm+ccX55eUTbZ/HcV0iAGEElQavXG7sahFp27GjPre49mvfisairgjLVU1/bK+IsIge1OhexTk5F4skXE47bProRuPaWXR76P4lFzY+TR2dYilhDVoA6FKWBgAkQEAEAuSkXgpoYBswcVGskZAkVQrLgP2NIsyigRFAUpmFkBS7CRkzuqBqJYDnk7mLhCzinTPd0ZELazd5TzWwF1AbCCyYnFEgVdL+h+qX3tM6yOVbI+mDCINPH4QSicTLy3H1SkxXpKctz9np67lQ805AC/q8DojSBMRwJTABuViuS2poTB6BUiemlDde9B8gTpJu1QAoWmPAmz1zmlL20A4/zEKg/qenTmZGIhz6HZkwpwL1mV+iISLR8JXeMNxhuMNwh2j/BsoMWtjfl9pfAAAAAElFTkSuQmCC",
+    alt: "BDO",
+    style: {
+      height: 36,
+      width: "auto"
+    }
+  })), React.createElement("a", {
+    href: "https://www.bdo.de/de-de/branchen/gesundheitswirtschaft",
+    target: "_blank",
+    rel: "noopener noreferrer",
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 12,
+      background: "rgba(27,54,93,0.04)",
+      border: "1px solid rgba(27,54,93,0.12)",
+      borderRadius: 8,
+      padding: "6px 16px",
+      textDecoration: "none",
+      cursor: "pointer",
+      transition: "all .2s",
+      maxWidth: 600
+    }
+  }, React.createElement("div", {
+    style: {
+      borderLeft: "3px solid #ED1C24",
+      paddingLeft: 10
+    }
+  }, React.createElement("p", {
+    style: {
+      margin: 0,
+      fontSize: 13,
+      fontWeight: 600,
+      color: "#1B365D",
+      lineHeight: 1.3
+    }
+  }, "Sie m\xF6chten f\xFCr Ihre Praxis einen Nachfolger finden?"), React.createElement("p", {
+    style: {
+      margin: "2px 0 0",
+      fontSize: 12,
+      color: "#4b5563",
+      lineHeight: 1.3
+    }
+  }, "Sprechen Sie uns an. ", React.createElement("strong", {
+    style: {
+      color: "#ED1C24"
+    }
+  }, "BDO"), " \u2013 Ihr Trusted Advisor!")), React.createElement("span", {
+    style: {
+      color: "#9ca3af",
+      fontSize: 16,
+      flexShrink: 0
+    }
+  }, "\u2192")), React.createElement("span", {
+    style: {
+      fontSize: 9,
+      color: "#9ca3af",
+      flexShrink: 0
+    }
+  }, "Anzeige")), React.createElement("header", {
     style: {
       padding: "12px 16px 10px",
       borderBottom: `1px solid ${CL.bd}`,
@@ -5878,7 +6686,7 @@ Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.
       color: CL.txM,
       fontWeight: 400
     }
-  }, "v2.8")), React.createElement("p", {
+  }, "v3.2")), React.createElement("p", {
     style: {
       margin: 0,
       fontSize: 12,
@@ -5903,14 +6711,29 @@ Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.
     k: "drill",
     l: "🔩 Bohrprotokoll"
   }, {
-    k: "guide",
-    l: "🎯 Entscheidung"
+    k: "wizard",
+    l: "🧑‍⚕️ Wizard"
+  }, {
+    k: "calc",
+    l: "💰 Kalkulator"
+  }, {
+    k: "prosth",
+    l: "🔩 Prothetik"
+  }, {
+    k: "risk",
+    l: "⚠️ Risiko"
+  }, {
+    k: "praxis",
+    l: "📦 Praxis"
   }, {
     k: "news",
     l: "📰 News"
   }, {
     k: "community",
     l: "👥 Community"
+  }, {
+    k: "sources",
+    l: "📚 Quellen"
   }].map(t => React.createElement("button", {
     key: t.k,
     onClick: () => sTab(t.k),
@@ -6356,7 +7179,7 @@ Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.
       style: {
         fontSize: 10
       }
-    }, i.pp), i.im && React.createElement(B, {
+    }, i.ep ? i.ep + " €" : i.pp), i.im && React.createElement(B, {
       color: CL.ok,
       style: {
         fontSize: 10
@@ -6930,7 +7753,7 @@ Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.
       color: PC(i.pp),
       fontWeight: 600
     }
-  }, i.pp)))))))), tab === "guide" && React.createElement("div", {
+  }, i.ep ? i.ep + " €" : i.pp)))))))), tab === "prosth" && React.createElement("div", {
     style: {
       animation: "fi .25s ease"
     }
@@ -6938,94 +7761,735 @@ Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.
     style: {
       fontSize: 18,
       fontWeight: 700,
-      margin: "0 0 10px"
+      margin: "0 0 4px"
     }
-  }, "\uD83C\uDFAF Klinischer Entscheidungshelfer"), React.createElement("div", {
+  }, "Prothetik-Integration"), React.createElement("p", {
     style: {
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))",
-      gap: 10
+      fontSize: 12,
+      color: CL.txM,
+      margin: "0 0 14px"
     }
-  }, [{
-    t: "Sofortimplantation (Typ 1)",
-    d: "Direkt nach Extraktion",
-    r: ["Straumann BLX", "NobelActive TiUltra", "Nobel N1 (OsseoShaper)", "MegaGen AnyRidge", "Neodent Helix GM"],
-    w: "Konische Formen, hohe Primärstabilität >35 Ncm."
-  }, {
-    t: "Ästhetikzone (Front)",
-    d: "Höchste ästhetische Ansprüche",
-    r: ["Nobel N1 (Trioval)", "Astra Tech EV", "Straumann BLT", "CONELOG", "BioHorizons Tapered Int."],
-    w: "Platform Switching, Weichgewebsmanagement, Xeal™/Laser-Lok®."
-  }, {
-    t: "Posterior (Molar)",
-    d: "Hohe Kaukräfte, breiter Knochen",
-    r: ["Straumann BLX ∅5.5+", "ZimVie T3 / TSX", "MegaGen AnyRidge", "Osstem TS III ∅6.0+"],
-    w: "Breite ∅, Trabecular Metal, DCD."
-  }, {
-    t: "Schmaler Kieferkamm",
-    d: "Limitierter bukkaler Knochen",
-    r: ["Straumann BLT ∅2.9", "Astra Tech EV ∅3.0", "BEGO ∅3.0", "MIS C1 ∅3.3", "BTI ∅3.0"],
-    w: "Roxolid® für schmale ∅ ohne Kraftverlust."
-  }, {
-    t: "Reduzierte Knochenhöhe",
-    d: "Ohne umfangreiche Augmentation",
-    r: ["Bicon SHORT (ab 5mm)", "BTI (ab 5.5mm)", "Straumann BLX 6mm"],
-    w: "Kurzimplantate, Finnen/aggressive Gewinde."
-  }, {
-    t: "Metallfrei (Keramik)",
-    d: "Titanunverträglichkeit, Ästhetik",
-    r: ["Straumann PURE Ceramic", "NobelPearl", "Zeramex XT", "CeraRoot T10 ICE"],
-    w: "12–16 Wo. Heilung. Keine Sofortbelastung."
-  }, {
-    t: "Full-Arch / All-on-4",
-    d: "Komplette Kieferrehabilitation",
-    r: ["Nobel All-on-4 (NobelActive)", "Straumann BLX Pro Arch", "Neodent Helix GM", "bredent copaSKY fast&fixed"],
-    w: "Angulierbare MUA, Sofortbelastung, 4–6 Implantate."
-  }, {
-    t: "Budget-orientiert",
-    d: "Qualität zu niedrigem Preis",
-    r: ["medentis ICX (ab €59)", "Osstem TS III", "Dentium SuperLine", "Alpha-Bio NeO", "S.I.N. Strong SW"],
-    w: "Bewährte Designs, gute Studien."
-  }].map((g, i) => React.createElement("div", {
-    key: i,
+  }, "Abutment-Vielfalt, CAD/CAM-Kompatibilitaet & Chairside-Optionen pro System"), React.createElement("div", {
     style: {
       background: CL.card,
       border: `1px solid ${CL.bd}`,
       borderRadius: 10,
-      padding: 13
+      padding: 14,
+      marginBottom: 10
     }
   }, React.createElement("h3", {
     style: {
-      margin: "0 0 3px",
-      fontSize: 15,
+      fontSize: 14,
       fontWeight: 700,
-      color: CL.accL
+      margin: "0 0 8px"
     }
-  }, g.t), React.createElement("p", {
+  }, "CAD/CAM-Kompatibilitaet"), React.createElement("div", {
     style: {
-      margin: "0 0 6px",
-      fontSize: 13,
+      overflowX: "auto"
+    }
+  }, React.createElement("table", {
+    style: {
+      width: "100%",
+      borderCollapse: "collapse",
+      fontSize: 12
+    }
+  }, React.createElement("thead", null, React.createElement("tr", {
+    style: {
+      background: CL.accD
+    }
+  }, React.createElement("th", {
+    style: {
+      padding: "5px 8px",
+      textAlign: "left",
+      borderBottom: `2px solid ${CL.bd}`,
+      minWidth: 120
+    }
+  }, "System"), React.createElement("th", {
+    style: {
+      padding: "5px 8px",
+      textAlign: "center",
+      borderBottom: `2px solid ${CL.bd}`
+    }
+  }, "exocad"), React.createElement("th", {
+    style: {
+      padding: "5px 8px",
+      textAlign: "center",
+      borderBottom: `2px solid ${CL.bd}`
+    }
+  }, "3Shape"), React.createElement("th", {
+    style: {
+      padding: "5px 8px",
+      textAlign: "center",
+      borderBottom: `2px solid ${CL.bd}`
+    }
+  }, "DWOS"), React.createElement("th", {
+    style: {
+      padding: "5px 8px",
+      textAlign: "center",
+      borderBottom: `2px solid ${CL.bd}`
+    }
+  }, "Chairside"), React.createElement("th", {
+    style: {
+      padding: "5px 8px",
+      textAlign: "left",
+      borderBottom: `2px solid ${CL.bd}`
+    }
+  }, "Scanbody"))), React.createElement("tbody", null, D.filter(i => i.sv && i.sv.sw).sort((a, b) => a.m.localeCompare(b.m)).map(i => {
+    const sw = (i.sv.sw || "").toLowerCase();
+    const hasExocad = sw.includes("exocad") || sw.includes("alle") || sw.includes("offen");
+    const has3Shape = sw.includes("3shape") || sw.includes("alle") || sw.includes("offen");
+    const hasDWOS = sw.includes("dwos") || sw.includes("dental wings") || sw.includes("straumann") || sw.includes("codiagnosti");
+    const hasChairside = sw.includes("cerec") || sw.includes("chairside") || sw.includes("primescan") || i.dw;
+    const dot = ok => ok ? "✅" : "—";
+    return React.createElement("tr", {
+      key: i.id,
+      style: {
+        borderBottom: `1px solid ${CL.bd}`
+      }
+    }, React.createElement("td", {
+      style: {
+        padding: "4px 8px",
+        fontWeight: 600
+      }
+    }, i.s, " ", React.createElement("span", {
+      style: {
+        color: CL.txM,
+        fontWeight: 400,
+        fontSize: 11
+      }
+    }, "(", i.m, ")")), React.createElement("td", {
+      style: {
+        padding: "4px 8px",
+        textAlign: "center"
+      }
+    }, dot(hasExocad)), React.createElement("td", {
+      style: {
+        padding: "4px 8px",
+        textAlign: "center"
+      }
+    }, dot(has3Shape)), React.createElement("td", {
+      style: {
+        padding: "4px 8px",
+        textAlign: "center"
+      }
+    }, dot(hasDWOS)), React.createElement("td", {
+      style: {
+        padding: "4px 8px",
+        textAlign: "center"
+      }
+    }, dot(hasChairside)), React.createElement("td", {
+      style: {
+        padding: "4px 8px",
+        fontSize: 11,
+        color: CL.txM
+      }
+    }, i.pr ? i.pr.substring(0, 40) : "—"));
+  }))))), React.createElement("div", {
+    style: {
+      background: CL.card,
+      border: `1px solid ${CL.bd}`,
+      borderRadius: 10,
+      padding: 14,
+      marginBottom: 10
+    }
+  }, React.createElement("h3", {
+    style: {
+      fontSize: 14,
+      fontWeight: 700,
+      margin: "0 0 8px"
+    }
+  }, "Abutment-Portfolio & Prothetik-Optionen"), React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fill,minmax(300px,1fr))",
+      gap: 8
+    }
+  }, D.filter(i => i.pr).sort((a, b) => a.m.localeCompare(b.m)).map(i => React.createElement("div", {
+    key: i.id,
+    style: {
+      padding: "8px 10px",
+      borderRadius: 8,
+      border: `1px solid ${CL.bd}`,
+      fontSize: 12
+    }
+  }, React.createElement("div", {
+    style: {
+      fontWeight: 700,
+      marginBottom: 2
+    }
+  }, i.s, " ", React.createElement("span", {
+    style: {
+      color: CL.txM,
+      fontWeight: 400
+    }
+  }, "(", i.m, ")")), React.createElement("div", {
+    style: {
+      color: CL.txS,
+      marginBottom: 3
+    }
+  }, "Verbindung: ", React.createElement("strong", null, i.cn), " (", i.ct, ")"), React.createElement("div", {
+    style: {
+      color: CL.txS,
+      marginBottom: 3
+    }
+  }, "Prothetik: ", i.pr), i.wp && i.wp.lk && React.createElement("div", {
+    style: {
+      fontSize: 11,
       color: CL.txM
     }
-  }, g.d), React.createElement("div", {
+  }, "Labor: ", i.wp.lk.substring(0, 80)), i.ec && i.ec.pk && React.createElement("div", {
     style: {
-      marginBottom: 5
+      fontSize: 11,
+      color: CL.ok,
+      marginTop: 2
     }
-  }, g.r.map(r => React.createElement("div", {
-    key: r,
+  }, "Kosten: ", i.ec.pk))))), React.createElement("div", {
+    style: {
+      background: CL.card,
+      border: `1px solid ${CL.bd}`,
+      borderRadius: 10,
+      padding: 14
+    }
+  }, React.createElement("h3", {
+    style: {
+      fontSize: 14,
+      fontWeight: 700,
+      margin: "0 0 8px"
+    }
+  }, "Chairside-Moeglichkeiten"), [{
+    t: "Cerec/Primescan (Dentsply Sirona)",
+    d: "Volle Integration mit Astra Tech EV, Ankylos, XiVE. Direkter IOS→Fräsung-Workflow. Atlantis Custom Abutments chairside möglich. Primemill-kompatibel.",
+    sys: "Astra Tech EV, Ankylos, XiVE"
+  }, {
+    t: "3Shape TRIOS + exocad",
+    d: "Offenes System: Kompatibel mit allen Implantatsystemen über Standard-Scanbodies. STL-Export für jedes Labor. Chairside mit 3rd-Party-Fräseinheiten (vhf, imes-icore).",
+    sys: "Alle Systeme (offene Scanbodies)"
+  }, {
+    t: "Straumann CARES",
+    d: "Proprietäres CADCAM. Vollständige chairside Lösung mit coDiagnostiX + CARES Visual. BLX/BLT/BLC/TLX alle unterstützt. CADCAM-Abutments + Kronen.",
+    sys: "BLX, BLT, BLC, TLX"
+  }, {
+    t: "Nobel DTX Studio",
+    d: "Integrierte Planung + prothetische Lösung. Encode-System: Scan direkt auf Implantat (kein Scanbody nötig!). NobelProcera individuell.",
+    sys: "NobelActive, NobelParallel CC, N1"
+  }, {
+    t: "Medit/iTero + offene Systeme",
+    d: "IOS-Scan → STL → Labor oder Chairside-Fräsung. Kompatibel mit MegaGen R2GATE, Osstem OneGuide, Camlog smop. Universellster Workflow.",
+    sys: "MegaGen, Osstem, CAMLOG, medentis"
+  }].map(c => React.createElement("div", {
+    key: c.t,
+    style: {
+      padding: "8px 0",
+      borderBottom: `1px solid ${CL.bd}`
+    }
+  }, React.createElement("h4", {
+    style: {
+      margin: "0 0 2px",
+      fontSize: 13,
+      fontWeight: 700
+    }
+  }, c.t), React.createElement("p", {
+    style: {
+      margin: "0 0 2px",
+      fontSize: 12,
+      color: CL.txS
+    }
+  }, c.d), React.createElement("p", {
+    style: {
+      margin: 0,
+      fontSize: 11,
+      color: CL.acc
+    }
+  }, "Systeme: ", c.sys))), React.createElement("div", {
+    style: {
+      marginTop: 14,
+      padding: "8px 10px",
+      borderRadius: 7,
+      background: "rgba(37,99,235,0.03)",
+      border: "1px solid rgba(37,99,235,0.08)",
+      fontSize: 11,
+      color: CL.txM
+    }
+  }, React.createElement("strong", null, "Quellen CAD/CAM:"), " ", SOURCES.cadcam.map((s, i) => React.createElement("span", {
+    key: i
+  }, React.createElement("a", {
+    href: s.u,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    style: {
+      color: CL.accL,
+      textDecoration: "none"
+    }
+  }, s.t), i < SOURCES.cadcam.length - 1 ? " \xb7 " : ""))))), tab === "risk" && React.createElement("div", {
+    style: {
+      animation: "fi .25s ease"
+    }
+  }, React.createElement("h2", {
+    style: {
+      fontSize: 18,
+      fontWeight: 700,
+      margin: "0 0 12px"
+    }
+  }, "\u26A0\uFE0F Risikomanagement & Recall"), React.createElement("div", {
+    style: {
+      background: CL.card,
+      border: `1px solid ${CL.bd}`,
+      borderRadius: 10,
+      padding: 14,
+      marginBottom: 10
+    }
+  }, React.createElement("h3", {
+    style: {
+      fontSize: 14,
+      fontWeight: 700,
+      color: "#dc2626",
+      margin: "0 0 6px"
+    }
+  }, "Periimplantitis-Risikoprofil nach System"), React.createElement("div", {
+    style: {
+      overflowX: "auto"
+    }
+  }, React.createElement("table", {
+    style: {
+      width: "100%",
+      borderCollapse: "collapse",
+      fontSize: 12
+    }
+  }, React.createElement("thead", null, React.createElement("tr", {
+    style: {
+      background: "#dc262608"
+    }
+  }, React.createElement("th", {
+    style: {
+      padding: "5px 8px",
+      textAlign: "left",
+      borderBottom: `2px solid ${CL.bd}`
+    }
+  }, "System"), React.createElement("th", {
+    style: {
+      padding: "5px 8px",
+      textAlign: "right",
+      borderBottom: `2px solid ${CL.bd}`
+    }
+  }, "PI-Rate"), React.createElement("th", {
+    style: {
+      padding: "5px 8px",
+      textAlign: "right",
+      borderBottom: `2px solid ${CL.bd}`
+    }
+  }, "MBL/1J"), React.createElement("th", {
+    style: {
+      padding: "5px 8px",
+      textAlign: "left",
+      borderBottom: `2px solid ${CL.bd}`
+    }
+  }, "Weichgew."), React.createElement("th", {
+    style: {
+      padding: "5px 8px",
+      textAlign: "left",
+      borderBottom: `2px solid ${CL.bd}`
+    }
+  }, "Oberflaechentyp"))), React.createElement("tbody", null, D.filter(i => i.ev).sort((a, b) => parseFloat(a.ev.pi) - parseFloat(b.ev.pi)).map(i => React.createElement("tr", {
+    key: i.id,
+    style: {
+      borderBottom: `1px solid ${CL.bd}`
+    }
+  }, React.createElement("td", {
+    style: {
+      padding: "4px 8px",
+      fontWeight: 600
+    }
+  }, i.s), React.createElement("td", {
+    style: {
+      padding: "4px 8px",
+      textAlign: "right",
+      fontWeight: 700,
+      color: parseFloat(i.ev.pi) < 3 ? "#059669" : parseFloat(i.ev.pi) < 4 ? "#d97706" : "#dc2626"
+    }
+  }, i.ev.pi), React.createElement("td", {
+    style: {
+      padding: "4px 8px",
+      textAlign: "right"
+    }
+  }, i.ev.mbl), React.createElement("td", {
+    style: {
+      padding: "4px 8px",
+      fontSize: 11
+    }
+  }, i.ev.wg), React.createElement("td", {
+    style: {
+      padding: "4px 8px",
+      fontSize: 11,
+      color: CL.txM
+    }
+  }, i.su))))))), React.createElement("div", {
+    style: {
+      background: CL.card,
+      border: `1px solid ${CL.bd}`,
+      borderRadius: 10,
+      padding: 14,
+      marginBottom: 10
+    }
+  }, React.createElement("h3", {
+    style: {
+      fontSize: 14,
+      fontWeight: 700,
+      margin: "0 0 8px"
+    }
+  }, "Recall-Protokoll (SIT) nach Risikoprofil"), [{
+    risk: "Niedrig",
+    freq: "2x/Jahr",
+    who: "Nichtraucher, kein DM, keine PA-Vorgeschichte",
+    protocol: "BOP-Check, Sondierung (Kunststoffsonde!), Biofilm-Entfernung mit PEEK-Kueretten + Air-Polishing (Glycinpulver), Roentgen alle 2 Jahre"
+  }, {
+    risk: "Mittel",
+    freq: "3x/Jahr",
+    who: "Ex-Raucher, kontrollierter DM (HbA1c<7.5), behandelte PA",
+    protocol: "Wie niedrig + aMMP-8 Schnelltest, erweitertes Roentgen (jaehrlich OPG), lokale Dekontamination bei BOP+, Mukosal-Inspektion"
+  }, {
+    risk: "Hoch",
+    freq: "4x/Jahr",
+    who: "Aktiver Raucher, DM HbA1c>7.5, floride PA, PI-Vorgeschichte",
+    protocol: "Wie mittel + PI-Screening (BOP, Suppuration, Sondierungstiefe >5mm), aPDT oder Er:YAG bei Bedarf, 3D-Roentgen bei Verdacht, mikrobiologische Diagnostik"
+  }].map(p => React.createElement("div", {
+    key: p.risk,
+    style: {
+      padding: "8px 10px",
+      marginBottom: 6,
+      borderRadius: 8,
+      background: p.risk === "Hoch" ? "#dc262608" : p.risk === "Mittel" ? "#d9770608" : "#05966908",
+      border: `1px solid ${p.risk === "Hoch" ? "#dc262618" : p.risk === "Mittel" ? "#d9770618" : "#05966918"}`
+    }
+  }, React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 8,
+      marginBottom: 3
+    }
+  }, React.createElement("span", {
+    style: {
+      fontSize: 12,
+      fontWeight: 700,
+      color: p.risk === "Hoch" ? "#dc2626" : p.risk === "Mittel" ? "#d97706" : "#059669"
+    }
+  }, p.risk, "es Risiko"), React.createElement("span", {
     style: {
       fontSize: 13,
-      color: CL.tx,
-      padding: "1px 0"
+      fontWeight: 700
     }
-  }, "\u2192 ", r))), React.createElement("p", {
+  }, p.freq)), React.createElement("p", {
+    style: {
+      margin: "0 0 2px",
+      fontSize: 11,
+      color: CL.txM
+    }
+  }, "Patienten: ", p.who), React.createElement("p", {
+    style: {
+      margin: 0,
+      fontSize: 12,
+      color: CL.txS
+    }
+  }, p.protocol)))), React.createElement("div", {
+    style: {
+      background: CL.card,
+      border: `1px solid ${CL.bd}`,
+      borderRadius: 10,
+      padding: 14
+    }
+  }, React.createElement("h3", {
+    style: {
+      fontSize: 14,
+      fontWeight: 700,
+      color: "#d97706",
+      margin: "0 0 8px"
+    }
+  }, "Notfall-Protokolle"), [{
+    t: "Implantatfraktur",
+    a: "Trepanbohrer passend zum System. Fragmententfernung unter Kuehlung. Sofortimplantation ggf. moeglich (naechstgroesserer Durchmesser)."
+  }, {
+    t: "Schraubenlockerung",
+    a: "Re-Torque nach Herstellerempfehlung (+5 Ncm bei Wiederholung). Bei Rezidiv: Schraubenwechsel + Kontaktanalyse. Ggf. neues Abutment."
+  }, {
+    t: "Periimplantaerer Abszess",
+    a: "Sofortige Drainage + Spuelung (CHX 0.2%). Systemische Antibiose (Amoxicillin 1g 2x/Tag + Metronidazol 400mg 3x/Tag, 7 Tage). Definitive Therapie nach Abklingen."
+  }, {
+    t: "Implantat-Verlust",
+    a: "Kuerettage der Alveole, Haemostase. 6-8 Wochen heilen lassen. Re-Implantation mit Augmentation planen. Systemwechsel erwaegen bei Wiederholung."
+  }, {
+    t: "Nervlaesion (N. alveolaris inf.)",
+    a: "Sofort Roentgenkontrolle. Bei Kontakt: Implantat zurueckdrehen oder explantieren. Dexamethason 8mg IV. Neurologie-Konsil innerhalb 48h. Vitamin B-Komplex."
+  }].map(e => React.createElement("div", {
+    key: e.t,
+    style: {
+      padding: "6px 0",
+      borderBottom: `1px solid ${CL.bd}`
+    }
+  }, React.createElement("h4", {
+    style: {
+      margin: "0 0 2px",
+      fontSize: 13,
+      fontWeight: 700
+    }
+  }, e.t), React.createElement("p", {
     style: {
       margin: 0,
       fontSize: 12,
       color: CL.txS,
+      lineHeight: 1.4
+    }
+  }, e.a))), React.createElement("div", {
+    style: {
+      marginTop: 14,
+      padding: "8px 10px",
+      borderRadius: 7,
+      background: "rgba(220,38,38,0.03)",
+      border: "1px solid rgba(220,38,38,0.08)",
+      fontSize: 11,
+      color: CL.txM
+    }
+  }, React.createElement("strong", null, "Quellen Evidenz:"), " ", SOURCES.clinical.map((s, i) => React.createElement("span", {
+    key: i
+  }, React.createElement("a", {
+    href: s.u,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    style: {
+      color: "#dc2626",
+      textDecoration: "none"
+    }
+  }, s.t.split(" \u2013 ")[0]), i < SOURCES.clinical.length - 1 ? " \xb7 " : ""))))), tab === "praxis" && React.createElement("div", {
+    style: {
+      animation: "fi .25s ease"
+    }
+  }, React.createElement("h2", {
+    style: {
+      fontSize: 18,
+      fontWeight: 700,
+      margin: "0 0 12px"
+    }
+  }, "\uD83D\uDCE6 Praxisorganisation"), React.createElement("div", {
+    style: {
+      background: CL.card,
+      border: `1px solid ${CL.bd}`,
+      borderRadius: 10,
+      padding: 14,
+      marginBottom: 10
+    }
+  }, React.createElement("h3", {
+    style: {
+      fontSize: 14,
+      fontWeight: 700,
+      margin: "0 0 8px"
+    }
+  }, "Schulungsaufwand nach System"), React.createElement("div", {
+    style: {
+      overflowX: "auto"
+    }
+  }, React.createElement("table", {
+    style: {
+      width: "100%",
+      borderCollapse: "collapse",
+      fontSize: 12
+    }
+  }, React.createElement("thead", null, React.createElement("tr", {
+    style: {
+      background: CL.accD
+    }
+  }, React.createElement("th", {
+    style: {
+      padding: "5px 8px",
+      textAlign: "left",
+      borderBottom: `2px solid ${CL.bd}`
+    }
+  }, "System"), React.createElement("th", {
+    style: {
+      padding: "5px 8px",
+      textAlign: "left",
+      borderBottom: `2px solid ${CL.bd}`
+    }
+  }, "Lernkurve"), React.createElement("th", {
+    style: {
+      padding: "5px 8px",
+      textAlign: "right",
+      borderBottom: `2px solid ${CL.bd}`
+    }
+  }, "Preis/Impl."), React.createElement("th", {
+    style: {
+      padding: "5px 8px",
+      textAlign: "left",
+      borderBottom: `2px solid ${CL.bd}`
+    }
+  }, "Erstkit"), React.createElement("th", {
+    style: {
+      padding: "5px 8px",
+      textAlign: "left",
+      borderBottom: `2px solid ${CL.bd}`
+    }
+  }, "Fortbildung"), React.createElement("th", {
+    style: {
+      padding: "5px 8px",
+      textAlign: "left",
+      borderBottom: `2px solid ${CL.bd}`
+    }
+  }, "CAD/CAM"))), React.createElement("tbody", null, D.filter(i => i.cx && i.sv).sort((a, b) => {
+    const o = {
+      Hoch: 1,
+      Mittel: 2,
+      Niedrig: 3
+    };
+    return (o[a.cx.lk?.split(" ")[0]] || 3) - (o[b.cx.lk?.split(" ")[0]] || 3);
+  }).map(i => React.createElement("tr", {
+    key: i.id,
+    style: {
+      borderBottom: `1px solid ${CL.bd}`
+    }
+  }, React.createElement("td", {
+    style: {
+      padding: "4px 8px",
+      fontWeight: 600
+    }
+  }, i.s, " ", React.createElement("span", {
+    style: {
+      color: CL.txM,
+      fontWeight: 400
+    }
+  }, "(", i.m, ")")), React.createElement("td", {
+    style: {
+      padding: "4px 8px"
+    }
+  }, React.createElement("span", {
+    style: {
+      fontSize: 11,
+      padding: "1px 5px",
+      borderRadius: 3,
+      fontWeight: 700,
+      background: i.cx.lk?.includes("Niedrig") ? "#05966914" : i.cx.lk?.includes("Hoch") ? "#dc262614" : "#d9770614",
+      color: i.cx.lk?.includes("Niedrig") ? "#059669" : i.cx.lk?.includes("Hoch") ? "#dc2626" : "#d97706"
+    }
+  }, i.cx.lk?.split("(")[0]?.trim())), React.createElement("td", {
+    style: {
+      padding: "4px 8px",
+      textAlign: "right",
+      fontWeight: 600,
+      color: CL.ok
+    }
+  }, i.ep ? i.ep + " €" : "—"), React.createElement("td", {
+    style: {
+      padding: "4px 8px",
+      fontSize: 11
+    }
+  }, i.ep ? i.ep + " €" : i.wp ? i.wp.ik?.split(",")[0] : i.ec?.ki?.split("(")[1]?.replace(")", "")), React.createElement("td", {
+    style: {
+      padding: "4px 8px",
+      fontSize: 11,
+      color: CL.txM
+    }
+  }, i.sv.fb?.substring(0, 40)), React.createElement("td", {
+    style: {
+      padding: "4px 8px",
+      fontSize: 11,
+      color: CL.txM
+    }
+  }, i.sv.sw?.substring(0, 35)))))))), React.createElement("div", {
+    style: {
+      background: CL.card,
+      border: `1px solid ${CL.bd}`,
+      borderRadius: 10,
+      padding: 14,
+      marginBottom: 10
+    }
+  }, React.createElement("h3", {
+    style: {
+      fontSize: 14,
+      fontWeight: 700,
+      margin: "0 0 8px"
+    }
+  }, "Lageroptimierung: Empfohlene Mindestbevorratung"), [{
+    vol: "< 100 Impl./Jahr",
+    rec: "1 System, 3 Durchmesser (3.5/4.0/4.5), 3 Laengen (8/10/12). Lager: ~15-20 Implantate. Nachbestellung nach Verbrauch.",
+    tip: "Einfachstes Setup: medentis ICX oder Osstem TS III (geringe Kapitalbindung)"
+  }, {
+    vol: "100-300 Impl./Jahr",
+    rec: "1-2 Systeme, 4-5 Durchmesser, 4 Laengen. Lager: ~40-60 Implantate. Woechentliche Bestellung.",
+    tip: "Hauptsystem + Spezialsystem (z.B. Keramik oder Kurzimplantat). Staffelrabatte nutzen!"
+  }, {
+    vol: "> 300 Impl./Jahr",
+    rec: "2-3 Systeme, volles Sortiment. Lager: ~80-120 Implantate. Konsignationslager verhandeln!",
+    tip: "Premium + Value-System parallel. Konsignation spart ~30-50% Kapitalbindung. Dedizierter Lagerplatz."
+  }].map(v => React.createElement("div", {
+    key: v.vol,
+    style: {
+      padding: "8px 10px",
+      marginBottom: 6,
+      borderRadius: 8,
+      background: "rgba(37,99,235,0.03)",
+      border: `1px solid rgba(37,99,235,0.08)`
+    }
+  }, React.createElement("div", {
+    style: {
+      fontSize: 13,
+      fontWeight: 700,
+      marginBottom: 3
+    }
+  }, v.vol), React.createElement("p", {
+    style: {
+      margin: "0 0 3px",
+      fontSize: 12,
+      color: CL.txS
+    }
+  }, v.rec), React.createElement("p", {
+    style: {
+      margin: 0,
+      fontSize: 11,
+      color: CL.ok,
       fontStyle: "italic"
     }
-  }, "\uD83D\uDCA1 ", g.w))))), tab === "news" && React.createElement("div", {
+  }, "Tipp: ", v.tip)))), React.createElement("div", {
+    style: {
+      background: CL.card,
+      border: `1px solid ${CL.bd}`,
+      borderRadius: 10,
+      padding: 14
+    }
+  }, React.createElement("h3", {
+    style: {
+      fontSize: 14,
+      fontWeight: 700,
+      margin: "0 0 8px"
+    }
+  }, "Patientenkommunikation: Garantie & Nachsorge"), [{
+    t: "Garantie-Empfehlung",
+    d: "Die meisten Hersteller geben lebenslange Garantie auf das Implantat (Materialfehler). Praxis-Garantie: 5-10 Jahre auf die Gesamtversorgung bei Einhaltung des Recall-Programms. Garantie an SIT-Compliance koppeln!"
+  }, {
+    t: "Nachsorge-Aufklaerung",
+    d: "Implantat-Pass ausstellen (System, Durchmesser, Laenge, Lot-Nr.). Recall-Vertrag: Mind. 2x/Jahr. Haeusliche Pflege: Interdentalbuersten (mind. 1x/Tag), keine Zahnseide an Implantaten, Munddusche optional."
+  }, {
+    t: "Kosten-Transparenz",
+    d: "Detaillierten HKP mit Materialkosten. GOZ-Positionen erklaeren. Ratenzahlung anbieten (ab 500 EUR). Private Zusatzversicherung empfehlen (Implantate oft 50-80% gedeckt)."
+  }, {
+    t: "Erfolgsaussichten kommunizieren",
+    d: "Ueberlebensrate >95% nach 10 Jahren nennen. Risikofaktoren individuell besprechen. Realistische Erwartungen: Implantat ist kein natuerlicher Zahn. Nachsorge ist lebenslang."
+  }].map(c => React.createElement("div", {
+    key: c.t,
+    style: {
+      padding: "6px 0",
+      borderBottom: `1px solid ${CL.bd}`
+    }
+  }, React.createElement("h4", {
+    style: {
+      margin: "0 0 2px",
+      fontSize: 13,
+      fontWeight: 700
+    }
+  }, c.t), React.createElement("p", {
+    style: {
+      margin: 0,
+      fontSize: 12,
+      color: CL.txS,
+      lineHeight: 1.4
+    }
+  }, c.d))))), tab === "news" && React.createElement("div", {
     style: {
       animation: "fi .25s ease"
     }
@@ -7170,6 +8634,12 @@ Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.
       fontWeight: 600
     }
   }, "\u26A0\uFE0F ", nwsErr), React.createElement("p", {
+    style: {
+      color: CL.txM,
+      fontSize: 12,
+      marginTop: 4
+    }
+  }, "Fuer die HTML-Version: API-Key im Chat-Widget (\uD83D\uDCAC unten rechts) hinterlegen."), React.createElement("p", {
     style: {
       color: CL.txM,
       fontSize: 13,
@@ -7325,7 +8795,745 @@ Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.
       fontSize: 12,
       color: CL.txM
     }
-  }, "\uD83D\uDCA1 ", React.createElement("b", null, "Hinweis:"), " News werden live via KI-gest\xFCtzer Websuche geladen. Quellen: PubMed, Dental Tribune, Herstellerwebseiten, Fachzeitschriften. Ergebnisse werden 5 Min. gecached. Daten + URLs verifiziert Feb 2026."))), tab === "community" && React.createElement("div", {
+  }, "\uD83D\uDCA1 ", React.createElement("b", null, "Hinweis:"), " News werden live via KI-gest\xFCtzer Websuche geladen. Quellen: PubMed, Dental Tribune, Herstellerwebseiten, Fachzeitschriften. Ergebnisse werden 5 Min. gecached. Daten + URLs verifiziert Feb 2026."))), tab === "wizard" && React.createElement("div", {
+    style: {
+      animation: "fi .25s ease"
+    }
+  }, React.createElement("h2", {
+    style: {
+      fontSize: 18,
+      fontWeight: 700,
+      margin: "0 0 4px"
+    }
+  }, "Klinischer Indikations-Algorithmus"), React.createElement("p", {
+    style: {
+      fontSize: 12,
+      color: CL.txM,
+      margin: "0 0 14px"
+    }
+  }, "Patientenparameter eingeben - System empfiehlt die besten Implantate"), React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fill,minmax(280px,1fr))",
+      gap: 10,
+      marginBottom: 14
+    }
+  }, React.createElement("div", {
+    style: {
+      background: CL.card,
+      border: `1px solid ${CL.bd}`,
+      borderRadius: 10,
+      padding: 14
+    }
+  }, React.createElement("h3", {
+    style: {
+      fontSize: 13,
+      fontWeight: 700,
+      margin: "0 0 8px",
+      color: CL.accL
+    }
+  }, "Patient"), React.createElement("label", {
+    style: {
+      fontSize: 12,
+      color: CL.txM,
+      display: "block",
+      marginBottom: 6
+    }
+  }, "Alter", React.createElement("input", {
+    type: "number",
+    value: wzAge,
+    onChange: e => sWzAge(e.target.value),
+    style: {
+      display: "block",
+      width: "100%",
+      padding: "6px 8px",
+      borderRadius: 5,
+      border: `1px solid ${CL.bd}`,
+      marginTop: 2,
+      fontSize: 14,
+      fontFamily: "inherit",
+      background: "transparent",
+      color: CL.tx
+    }
+  })), React.createElement("label", {
+    style: {
+      fontSize: 12,
+      color: CL.txM,
+      display: "block",
+      marginBottom: 6
+    }
+  }, "Zahnposition (FDI)", React.createElement("input", {
+    value: wzPos,
+    onChange: e => sWzPos(e.target.value),
+    placeholder: "z.B. 36",
+    style: {
+      display: "block",
+      width: "100%",
+      padding: "6px 8px",
+      borderRadius: 5,
+      border: `1px solid ${CL.bd}`,
+      marginTop: 2,
+      fontSize: 14,
+      fontFamily: "inherit",
+      background: "transparent",
+      color: CL.tx
+    }
+  })), React.createElement("label", {
+    style: {
+      fontSize: 12,
+      color: CL.txM,
+      display: "block"
+    }
+  }, React.createElement("input", {
+    type: "checkbox",
+    checked: wzAesth,
+    onChange: e => sWzAesth(e.target.checked),
+    style: {
+      marginRight: 4
+    }
+  }), " Hoher Aesthetik-Anspruch")), React.createElement("div", {
+    style: {
+      background: CL.card,
+      border: `1px solid ${CL.bd}`,
+      borderRadius: 10,
+      padding: 14
+    }
+  }, React.createElement("h3", {
+    style: {
+      fontSize: 13,
+      fontWeight: 700,
+      margin: "0 0 8px",
+      color: CL.accL
+    }
+  }, "Klinische Parameter"), React.createElement("label", {
+    style: {
+      fontSize: 12,
+      color: CL.txM,
+      display: "block",
+      marginBottom: 6
+    }
+  }, "Knochenqualitaet", React.createElement("select", {
+    value: wzBone,
+    onChange: e => sWzBone(e.target.value),
+    style: {
+      display: "block",
+      width: "100%",
+      padding: "6px 8px",
+      borderRadius: 5,
+      border: `1px solid ${CL.bd}`,
+      marginTop: 2,
+      fontSize: 14,
+      fontFamily: "inherit",
+      background: CL.card,
+      color: CL.tx
+    }
+  }, React.createElement("option", {
+    value: "D1"
+  }, "D1 - Sehr dicht (kortikal)"), React.createElement("option", {
+    value: "D2"
+  }, "D2 - Dicht (kortikal + spongioes)"), React.createElement("option", {
+    value: "D3"
+  }, "D3 - Weich (duenne Kortikalis)"), React.createElement("option", {
+    value: "D4"
+  }, "D4 - Sehr weich (spongioes)"))), React.createElement("label", {
+    style: {
+      fontSize: 12,
+      color: CL.txM,
+      display: "block"
+    }
+  }, "Implantations-Timing", React.createElement("select", {
+    value: wzTiming,
+    onChange: e => sWzTiming(e.target.value),
+    style: {
+      display: "block",
+      width: "100%",
+      padding: "6px 8px",
+      borderRadius: 5,
+      border: `1px solid ${CL.bd}`,
+      marginTop: 2,
+      fontSize: 14,
+      fontFamily: "inherit",
+      background: CL.card,
+      color: CL.tx
+    }
+  }, React.createElement("option", {
+    value: "delayed"
+  }, "Konventionell (verzoegert)"), React.createElement("option", {
+    value: "immediate"
+  }, "Sofortimplantation nach Extraktion"), React.createElement("option", {
+    value: "early"
+  }, "Fruehimplantation (6-8 Wo.)")))), React.createElement("div", {
+    style: {
+      background: CL.card,
+      border: `1px solid ${CL.bd}`,
+      borderRadius: 10,
+      padding: 14
+    }
+  }, React.createElement("h3", {
+    style: {
+      fontSize: 13,
+      fontWeight: 700,
+      margin: "0 0 8px",
+      color: CL.accL
+    }
+  }, "Praxis-Parameter"), React.createElement("label", {
+    style: {
+      fontSize: 12,
+      color: CL.txM,
+      display: "block",
+      marginBottom: 6
+    }
+  }, "Erfahrungslevel", React.createElement("select", {
+    value: wzExp,
+    onChange: e => sWzExp(e.target.value),
+    style: {
+      display: "block",
+      width: "100%",
+      padding: "6px 8px",
+      borderRadius: 5,
+      border: `1px solid ${CL.bd}`,
+      marginTop: 2,
+      fontSize: 14,
+      fontFamily: "inherit",
+      background: CL.card,
+      color: CL.tx
+    }
+  }, React.createElement("option", {
+    value: "anfaenger"
+  }, "Anfaenger (<50 Implantate)"), React.createElement("option", {
+    value: "mittel"
+  }, "Erfahren (50-500)"), React.createElement("option", {
+    value: "experte"
+  }, "Experte (>500)"))), React.createElement("label", {
+    style: {
+      fontSize: 12,
+      color: CL.txM,
+      display: "block"
+    }
+  }, "Budget", React.createElement("select", {
+    value: wzBudget,
+    onChange: e => sWzBudget(e.target.value),
+    style: {
+      display: "block",
+      width: "100%",
+      padding: "6px 8px",
+      borderRadius: 5,
+      border: `1px solid ${CL.bd}`,
+      marginTop: 2,
+      fontSize: 14,
+      fontFamily: "inherit",
+      background: CL.card,
+      color: CL.tx
+    }
+  }, React.createElement("option", {
+    value: "any"
+  }, "Keine Einschraenkung"), React.createElement("option", {
+    value: "low"
+  }, "Budget (<150 EUR/Impl.)"), React.createElement("option", {
+    value: "mid"
+  }, "Mittel (150-300 EUR)"), React.createElement("option", {
+    value: "high"
+  }, "Premium (>300 EUR)"))))), React.createElement("button", {
+    onClick: runWizard,
+    style: {
+      padding: "8px 24px",
+      borderRadius: 8,
+      background: CL.acc,
+      color: "#fff",
+      border: "none",
+      cursor: "pointer",
+      fontSize: 14,
+      fontWeight: 700,
+      fontFamily: "inherit",
+      marginBottom: 14
+    }
+  }, "Analyse starten"), wzResult && React.createElement("div", null, React.createElement("h3", {
+    style: {
+      fontSize: 15,
+      fontWeight: 700,
+      margin: "0 0 10px"
+    }
+  }, "Top-Empfehlungen fuer Position ", wzPos, ", ", wzBone, "-Knochen", wzTiming === "immediate" ? ", Sofortimplantation" : ""), React.createElement("div", {
+    style: {
+      display: "grid",
+      gap: 8
+    }
+  }, wzResult.map((r, i) => React.createElement("div", {
+    key: r.imp.id,
+    onClick: () => sSel(r.imp),
+    style: {
+      background: CL.card,
+      border: `1px solid ${i === 0 ? CL.acc + "44" : CL.bd}`,
+      borderRadius: 10,
+      padding: 14,
+      cursor: "pointer",
+      animation: `fi .2s ease ${i * 0.05}s both`
+    },
+    className: "card"
+  }, React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "flex-start"
+    }
+  }, React.createElement("div", null, React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 6,
+      marginBottom: 3
+    }
+  }, i === 0 && React.createElement("span", {
+    style: {
+      fontSize: 10,
+      padding: "1px 6px",
+      borderRadius: 4,
+      background: CL.acc + "15",
+      color: CL.acc,
+      fontWeight: 700
+    }
+  }, "BESTE WAHL"), React.createElement("span", {
+    style: {
+      fontSize: 10,
+      padding: "1px 5px",
+      borderRadius: 4,
+      background: TC(r.imp.t) + "14",
+      color: TC(r.imp.t),
+      fontWeight: 700
+    }
+  }, r.imp.t)), React.createElement("h4", {
+    style: {
+      margin: 0,
+      fontSize: 15,
+      fontWeight: 700
+    }
+  }, r.imp.n), React.createElement("p", {
+    style: {
+      margin: "2px 0",
+      fontSize: 12,
+      color: CL.txM
+    }
+  }, r.imp.m, " | ", r.imp.ma, " | ", r.imp.cn)), React.createElement("div", {
+    style: {
+      textAlign: "right"
+    }
+  }, React.createElement("div", {
+    style: {
+      fontSize: 24,
+      fontWeight: 700,
+      color: r.score >= 70 ? CL.ok : r.score >= 50 ? CL.warn : CL.err
+    }
+  }, r.score), React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: CL.txM
+    }
+  }, "Score"), r.imp.ep && React.createElement("div", {
+    style: {
+      fontSize: 14,
+      fontWeight: 700,
+      color: CL.tx,
+      marginTop: 2
+    }
+  }, r.imp.ep, " EUR"))), React.createElement("div", {
+    style: {
+      marginTop: 6,
+      display: "flex",
+      flexWrap: "wrap",
+      gap: 4
+    }
+  }, r.reasons.map((reason, ri) => React.createElement("span", {
+    key: ri,
+    style: {
+      fontSize: 11,
+      padding: "2px 6px",
+      borderRadius: 4,
+      background: reason.includes("Nicht") ? "#dc262610" : "#05966910",
+      color: reason.includes("Nicht") ? "#dc2626" : "#059669"
+    }
+  }, reason))), React.createElement("div", {
+    style: {
+      marginTop: 6,
+      display: "flex",
+      gap: 12,
+      fontSize: 11,
+      color: CL.txM
+    }
+  }, React.createElement("span", null, "SR: ", r.imp.sr), React.createElement("span", null, "Torque: ", r.imp.ti, "-", r.imp.tx, " Ncm"), React.createElement("span", null, "Einheilung: ", r.imp.he), r.imp.cx && React.createElement("span", null, "Lernkurve: ", r.imp.cx.lk)))))), React.createElement("div", {
+    style: {
+      marginTop: 16,
+      background: "#dc262608",
+      border: "1px solid #dc262618",
+      borderRadius: 10,
+      padding: 14
+    }
+  }, React.createElement("h3", {
+    style: {
+      fontSize: 14,
+      fontWeight: 700,
+      color: "#dc2626",
+      margin: "0 0 6px"
+    }
+  }, "Absolute Kontraindikationen"), React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: CL.txS,
+      lineHeight: 1.6
+    }
+  }, React.createElement("p", {
+    style: {
+      margin: "0 0 4px"
+    }
+  }, "Unkontrollierter Diabetes (HbA1c >8%) | IV-Bisphosphonate (aktiv) | Bestrahlung Kieferbereich <12 Mon. | Unkontrollierte Parodontitis | Schwere Immunsuppression | Wachstum nicht abgeschlossen"), React.createElement("h4", {
+    style: {
+      fontSize: 12,
+      fontWeight: 700,
+      color: "#d97706",
+      margin: "8px 0 3px"
+    }
+  }, "Relative Kontraindikationen"), React.createElement("p", {
+    style: {
+      margin: 0
+    }
+  }, "Rauchen >10/Tag (Versagensrisiko +2-3x) | Bruxismus (Schiene + stabile Systeme) | Antikoagulation (INR <3.5 moeglich) | Orale Bisphosphonate >3J | Bestrahlung >12 Mon. (HBO erwaegen)")))), tab === "calc" && React.createElement("div", {
+    style: {
+      animation: "fi .25s ease"
+    }
+  }, React.createElement("h2", {
+    style: {
+      fontSize: 18,
+      fontWeight: 700,
+      margin: "0 0 4px"
+    }
+  }, "Kostenrechner"), React.createElement("p", {
+    style: {
+      fontSize: 12,
+      color: CL.txM,
+      margin: "0 0 14px"
+    }
+  }, "Implantatsystem + Prothetik = Gesamtkosten inkl. GOZ-Schaetzung"), React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fill,minmax(280px,1fr))",
+      gap: 10,
+      marginBottom: 14
+    }
+  }, React.createElement("div", {
+    style: {
+      background: CL.card,
+      border: `1px solid ${CL.bd}`,
+      borderRadius: 10,
+      padding: 14
+    }
+  }, React.createElement("h3", {
+    style: {
+      fontSize: 13,
+      fontWeight: 700,
+      margin: "0 0 8px",
+      color: CL.accL
+    }
+  }, "Implantatsystem"), React.createElement("select", {
+    value: calcSys,
+    onChange: e => sCalcSys(e.target.value),
+    style: {
+      width: "100%",
+      padding: "6px 8px",
+      borderRadius: 5,
+      border: `1px solid ${CL.bd}`,
+      fontSize: 14,
+      fontFamily: "inherit",
+      background: CL.card,
+      color: CL.tx,
+      marginBottom: 6
+    }
+  }, React.createElement("option", {
+    value: ""
+  }, "-- System waehlen --"), D.filter(i => i.ep).sort((a, b) => a.ep - b.ep).map(i => React.createElement("option", {
+    key: i.s,
+    value: i.s
+  }, i.n, " (", i.ep, " EUR)"))), React.createElement("label", {
+    style: {
+      fontSize: 12,
+      color: CL.txM,
+      display: "block"
+    }
+  }, "Anzahl Implantate", React.createElement("input", {
+    type: "number",
+    min: 1,
+    max: 12,
+    value: calcQty,
+    onChange: e => sCalcQty(Math.max(1, parseInt(e.target.value) || 1)),
+    style: {
+      display: "block",
+      width: "100%",
+      padding: "6px 8px",
+      borderRadius: 5,
+      border: `1px solid ${CL.bd}`,
+      marginTop: 2,
+      fontSize: 14,
+      fontFamily: "inherit",
+      background: "transparent",
+      color: CL.tx
+    }
+  }))), React.createElement("div", {
+    style: {
+      background: CL.card,
+      border: `1px solid ${CL.bd}`,
+      borderRadius: 10,
+      padding: 14
+    }
+  }, React.createElement("h3", {
+    style: {
+      fontSize: 13,
+      fontWeight: 700,
+      margin: "0 0 8px",
+      color: CL.accL
+    }
+  }, "Prothetik-Typ"), Object.entries(prothCosts).map(([k, v]) => React.createElement("label", {
+    key: k,
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 6,
+      fontSize: 13,
+      marginBottom: 6,
+      cursor: "pointer"
+    }
+  }, React.createElement("input", {
+    type: "radio",
+    name: "proth",
+    checked: calcProth === k,
+    onChange: () => sCalcProth(k),
+    style: {
+      accentColor: CL.acc
+    }
+  }), " ", v.name, " (~", v.total, " EUR)"))), calcImp && React.createElement("div", {
+    style: {
+      background: CL.card,
+      border: `1px solid ${CL.acc}33`,
+      borderRadius: 10,
+      padding: 14
+    }
+  }, React.createElement("h3", {
+    style: {
+      fontSize: 13,
+      fontWeight: 700,
+      margin: "0 0 10px",
+      color: CL.accL
+    }
+  }, "Kostenaufstellung"), React.createElement("div", {
+    style: {
+      fontSize: 13,
+      lineHeight: 1.8
+    }
+  }, React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between"
+    }
+  }, React.createElement("span", null, "Implantat (", calcImp.n, ")"), React.createElement("span", {
+    style: {
+      fontWeight: 600
+    }
+  }, calcPrice, " EUR x ", calcQty)), React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between"
+    }
+  }, React.createElement("span", null, "Abutment(s)"), React.createElement("span", null, proth.abutment, " EUR")), React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between"
+    }
+  }, React.createElement("span", null, "Laborkosten"), React.createElement("span", null, proth.labor, " EUR")), React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between"
+    }
+  }, React.createElement("span", null, "Material"), React.createElement("span", null, proth.material, " EUR")), React.createElement("div", {
+    style: {
+      borderTop: `1px solid ${CL.bd}`,
+      marginTop: 6,
+      paddingTop: 6,
+      display: "flex",
+      justifyContent: "space-between",
+      fontWeight: 700,
+      fontSize: 15
+    }
+  }, React.createElement("span", null, "Materialkosten gesamt"), React.createElement("span", {
+    style: {
+      color: CL.acc
+    }
+  }, calcTotal.toLocaleString(), " EUR")), React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      marginTop: 4,
+      color: CL.ok,
+      fontWeight: 700,
+      fontSize: 15
+    }
+  }, React.createElement("span", null, "GOZ-Honorar (Faktor ~1.8)"), React.createElement("span", null, calcGOZ.toLocaleString(), " EUR")), React.createElement("div", {
+    style: {
+      borderTop: `2px solid ${CL.acc}`,
+      marginTop: 8,
+      paddingTop: 8,
+      display: "flex",
+      justifyContent: "space-between",
+      fontWeight: 700,
+      fontSize: 18
+    }
+  }, React.createElement("span", null, "Gesamtkosten Patient"), React.createElement("span", {
+    style: {
+      color: CL.tx
+    }
+  }, (calcTotal + calcGOZ).toLocaleString(), " EUR"))), calcImp.wp && React.createElement("div", {
+    style: {
+      marginTop: 10,
+      padding: 8,
+      background: "rgba(37,99,235,0.03)",
+      borderRadius: 6,
+      fontSize: 11,
+      color: CL.txM
+    }
+  }, React.createElement("strong", null, "Wirtschaftsinfo:"), " ", calcImp.wp.st, " | Kit: ", calcImp.wp.ik))), calcSys && React.createElement("div", {
+    style: {
+      marginTop: 4
+    }
+  }, React.createElement("h3", {
+    style: {
+      fontSize: 14,
+      fontWeight: 700,
+      margin: "0 0 8px"
+    }
+  }, "Preisvergleich (Implantat-Einzelpreis)"), React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 4,
+      flexWrap: "wrap"
+    }
+  }, D.filter(i => i.ep).sort((a, b) => a.ep - b.ep).map(i => React.createElement("div", {
+    key: i.s,
+    style: {
+      padding: "4px 8px",
+      borderRadius: 5,
+      fontSize: 11,
+      fontWeight: i.s === calcSys ? 700 : 400,
+      background: i.s === calcSys ? CL.accD : CL.card,
+      border: `1px solid ${i.s === calcSys ? CL.acc + "44" : CL.bd}`,
+      color: i.s === calcSys ? CL.accL : CL.txM
+    }
+  }, i.s, ": ", i.ep, " EUR")))), React.createElement("div", {
+    style: {
+      background: CL.card,
+      border: `1px solid ${CL.bd}`,
+      borderRadius: 10,
+      padding: 14,
+      marginTop: 14
+    }
+  }, React.createElement("h3", {
+    style: {
+      fontSize: 14,
+      fontWeight: 700,
+      margin: "0 0 8px"
+    }
+  }, "Refinanzierungsrechnung bei Systemwechsel"), React.createElement("p", {
+    style: {
+      fontSize: 12,
+      color: CL.txM,
+      margin: "0 0 10px"
+    }
+  }, "Typische Kosten und Break-Even bei Umstieg auf ein neues System"), React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fill,minmax(260px,1fr))",
+      gap: 8
+    }
+  }, React.createElement("div", {
+    style: {
+      padding: 10,
+      borderRadius: 8,
+      background: "#dc262605",
+      border: "1px solid #dc262612"
+    }
+  }, React.createElement("div", {
+    style: {
+      fontWeight: 700,
+      color: "#dc2626",
+      marginBottom: 4,
+      fontSize: 13
+    }
+  }, "Einmalige Umstiegskosten"), React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: CL.txS,
+      lineHeight: 1.8
+    }
+  }, React.createElement("div", null, "Neues Chirurgieset: 1.000 - 3.800 EUR"), React.createElement("div", null, "Schulung/Zertifizierung: 500 - 2.500 EUR"), React.createElement("div", null, "Restbestand altes System: ~500 EUR"), React.createElement("div", null, "Praxisausfallzeit: ~1.000 EUR"), React.createElement("div", {
+    style: {
+      fontWeight: 700,
+      borderTop: `1px solid ${CL.bd}`,
+      paddingTop: 4,
+      marginTop: 4
+    }
+  }, "Summe: 3.000 - 7.800 EUR"))), React.createElement("div", {
+    style: {
+      padding: 10,
+      borderRadius: 8,
+      background: "#05966905",
+      border: "1px solid #05966912"
+    }
+  }, React.createElement("div", {
+    style: {
+      fontWeight: 700,
+      color: "#059669",
+      marginBottom: 4,
+      fontSize: 13
+    }
+  }, "Ersparnis pro Implantat"), React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: CL.txS,
+      lineHeight: 1.8
+    }
+  }, React.createElement("div", null, "Premium \u2192 Mid-Range: ~200 EUR/Impl."), React.createElement("div", null, "Premium \u2192 Value: ~280 EUR/Impl."), React.createElement("div", null, "Mid-Range \u2192 Value: ~80 EUR/Impl."), React.createElement("div", {
+    style: {
+      fontWeight: 700,
+      borderTop: `1px solid ${CL.bd}`,
+      paddingTop: 4,
+      marginTop: 4
+    }
+  }, "Break-Even (200 Impl./J):"), React.createElement("div", null, "Premium \u2192 Value: ~1-2 Monate"), React.createElement("div", null, "Premium \u2192 Mid-Range: ~2-3 Monate")))), React.createElement("div", {
+    style: {
+      marginTop: 14,
+      padding: "8px 10px",
+      borderRadius: 7,
+      background: "rgba(37,99,235,0.03)",
+      border: "1px solid rgba(37,99,235,0.08)",
+      fontSize: 11,
+      color: CL.txM
+    }
+  }, React.createElement("strong", null, "Quellen:"), " ", SOURCES.prices.slice(0, 3).map((s, i) => React.createElement("span", {
+    key: i
+  }, React.createElement("a", {
+    href: s.u,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    style: {
+      color: CL.accL,
+      textDecoration: "none"
+    }
+  }, s.t.split(" \u2013 ")[0]), i < 2 ? " \xb7 " : "")), " | ", SOURCES.goz.slice(0, 1).map((s, i) => React.createElement("span", {
+    key: i
+  }, React.createElement("a", {
+    href: s.u,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    style: {
+      color: CL.accL,
+      textDecoration: "none"
+    }
+  }, s.t)))))), tab === "community" && React.createElement("div", {
     style: {
       animation: "fi .25s ease"
     }
@@ -7348,6 +9556,9 @@ Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.
   }, {
     k: "lit",
     l: "📚 Literatur"
+  }, {
+    k: "bot",
+    l: "🤖 KI-Assistent"
   }].map(s => React.createElement("button", {
     key: s.k,
     onClick: () => {
@@ -8019,7 +10230,271 @@ Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.
       color: CL.txS,
       lineHeight: 1.4
     }
-  }, l.desc)))))))), React.createElement("footer", {
+  }, l.desc), l.az && React.createElement("a", {
+    href: l.az,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    style: {
+      display: "inline-block",
+      marginTop: 4,
+      fontSize: 10,
+      padding: "2px 8px",
+      borderRadius: 4,
+      background: "#ff990014",
+      color: "#ff9900",
+      fontWeight: 700,
+      textDecoration: "none",
+      border: "1px solid #ff990022"
+    }
+  }, "Bei Amazon ansehen \u2197"))))))), cmSub === "bot" && React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      height: "calc(100vh - 220px)",
+      maxHeight: 600
+    }
+  }, React.createElement("div", {
+    style: {
+      padding: "8px 12px",
+      background: CL.accD,
+      borderRadius: "10px 10px 0 0",
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center"
+    }
+  }, React.createElement("div", null, React.createElement("span", {
+    style: {
+      fontSize: 14,
+      fontWeight: 700,
+      color: CL.accL
+    }
+  }, "\uD83E\uDD16 ImplantAtlas KI-Assistent"), React.createElement("span", {
+    style: {
+      fontSize: 11,
+      color: CL.txM,
+      marginLeft: 8
+    }
+  }, "Datenbank \xB7 Forum \xB7 Hersteller-Service"), !apiKey.trim() && React.createElement("span", {
+    style: {
+      fontSize: 10,
+      color: "#d97706",
+      marginLeft: 6
+    }
+  }, "\u26A0\uFE0F API-Key im \uD83D\uDCAC Widget setzen")), React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 4
+    }
+  }, botEmails.length > 0 && React.createElement("button", {
+    onClick: botCheckAnswers,
+    disabled: botLoading,
+    style: {
+      padding: "3px 8px",
+      borderRadius: 5,
+      fontSize: 11,
+      fontWeight: 700,
+      border: `1px solid ${CL.acc}44`,
+      background: "transparent",
+      color: CL.accL,
+      cursor: "pointer",
+      fontFamily: "inherit"
+    }
+  }, "\uD83D\uDCEC Antworten pruefen (", botEmails.filter(e => !e.answered).length, ")"), React.createElement("button", {
+    onClick: () => {
+      sBotMsgs([{
+        role: "bot",
+        text: "Chat zurueckgesetzt. Wie kann ich helfen?",
+        ts: Date.now()
+      }]);
+      sBotEmails([]);
+    },
+    style: {
+      padding: "3px 8px",
+      borderRadius: 5,
+      fontSize: 11,
+      border: `1px solid ${CL.bd}`,
+      background: "transparent",
+      color: CL.txM,
+      cursor: "pointer",
+      fontFamily: "inherit"
+    }
+  }, "Reset"))), React.createElement("div", {
+    ref: botRef,
+    style: {
+      flex: 1,
+      overflowY: "auto",
+      padding: 10,
+      background: CL.card,
+      border: `1px solid ${CL.bd}`,
+      display: "flex",
+      flexDirection: "column",
+      gap: 6
+    }
+  }, botMsgs.map((msg, i) => React.createElement("div", {
+    key: i,
+    style: {
+      display: "flex",
+      justifyContent: msg.role === "user" ? "flex-end" : "flex-start",
+      animation: "fi .2s ease"
+    }
+  }, React.createElement("div", {
+    style: {
+      maxWidth: "85%",
+      padding: "8px 12px",
+      borderRadius: msg.role === "user" ? "12px 12px 2px 12px" : "12px 12px 12px 2px",
+      fontSize: 13,
+      lineHeight: 1.5,
+      background: msg.role === "user" ? CL.accD : msg.role === "system" ? "#ff990008" : CL.bg,
+      color: msg.role === "system" ? "#d97706" : CL.tx,
+      border: `1px solid ${msg.role === "user" ? CL.acc + "22" : msg.role === "system" ? "#ff990022" : CL.bd}`,
+      fontStyle: msg.role === "system" ? "italic" : "normal"
+    }
+  }, msg.role === "bot" && React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: CL.txM,
+      marginBottom: 2
+    }
+  }, "\uD83E\uDD16 ", msg.source === "db" ? "Quelle: Datenbank/Forum" : msg.source === "email" ? "Via Email" : msg.source === "inbox" ? "Posteingang" : "KI-Assistent"), React.createElement("div", {
+    style: {
+      whiteSpace: "pre-wrap"
+    }
+  }, msg.text), React.createElement("div", {
+    style: {
+      fontSize: 9,
+      color: CL.txM,
+      marginTop: 3,
+      textAlign: "right"
+    }
+  }, new Date(msg.ts).toLocaleTimeString("de-DE", {
+    hour: "2-digit",
+    minute: "2-digit"
+  }))))), botLoading && React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 4,
+      padding: 8,
+      alignItems: "center"
+    }
+  }, React.createElement("div", {
+    style: {
+      width: 6,
+      height: 6,
+      borderRadius: 3,
+      background: CL.acc,
+      animation: "pulse 1s infinite"
+    }
+  }), React.createElement("div", {
+    style: {
+      width: 6,
+      height: 6,
+      borderRadius: 3,
+      background: CL.acc,
+      animation: "pulse 1s infinite .15s"
+    }
+  }), React.createElement("div", {
+    style: {
+      width: 6,
+      height: 6,
+      borderRadius: 3,
+      background: CL.acc,
+      animation: "pulse 1s infinite .3s"
+    }
+  }), React.createElement("span", {
+    style: {
+      fontSize: 11,
+      color: CL.txM,
+      marginLeft: 4
+    }
+  }, "Suche in Datenbank & Forum..."))), React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 6,
+      padding: 8,
+      background: CL.card,
+      borderRadius: "0 0 10px 10px",
+      border: `1px solid ${CL.bd}`,
+      borderTop: "none",
+      alignItems: "center"
+    }
+  }, React.createElement("input", {
+    value: botInput,
+    onChange: e => sBotInput(e.target.value),
+    onKeyDown: e => e.key === "Enter" && handleBotMsg(),
+    placeholder: "Frage zu einem Implantatsystem stellen...",
+    style: {
+      flex: 1,
+      padding: "8px 12px",
+      borderRadius: 8,
+      border: `1px solid ${CL.bd}`,
+      background: CL.bg,
+      color: CL.tx,
+      fontSize: 14,
+      fontFamily: "inherit"
+    }
+  }), React.createElement("button", {
+    onClick: handleBotMsg,
+    disabled: botLoading || !botInput.trim(),
+    style: {
+      padding: "8px 16px",
+      borderRadius: 8,
+      fontSize: 13,
+      fontWeight: 700,
+      background: botInput.trim() ? CL.acc : "#ccc",
+      color: "#fff",
+      border: "none",
+      cursor: botInput.trim() ? "pointer" : "default",
+      fontFamily: "inherit",
+      whiteSpace: "nowrap"
+    }
+  }, "Senden"), React.createElement("button", {
+    onClick: botEmailHersteller,
+    title: "Letzte Frage per Email an Hersteller-Service weiterleiten",
+    style: {
+      padding: "8px 12px",
+      borderRadius: 8,
+      fontSize: 16,
+      fontWeight: 700,
+      background: "linear-gradient(135deg,#dc2626,#b91c1c)",
+      color: "#fff",
+      border: "none",
+      cursor: "pointer",
+      whiteSpace: "nowrap",
+      boxShadow: "0 2px 8px rgba(220,38,38,0.25)"
+    }
+  }, "\uD83D\uDCE7")), botEmails.length > 0 && React.createElement("div", {
+    style: {
+      marginTop: 8,
+      padding: 8,
+      borderRadius: 8,
+      background: "rgba(37,99,235,0.03)",
+      border: `1px solid ${CL.bd}`,
+      fontSize: 11
+    }
+  }, React.createElement("div", {
+    style: {
+      fontWeight: 700,
+      color: CL.accL,
+      marginBottom: 4
+    }
+  }, "\uD83D\uDCCB Gesendete Anfragen (", botEmails.length, ")"), botEmails.map((e, i) => React.createElement("div", {
+    key: i,
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      padding: "2px 0",
+      borderBottom: `1px solid ${CL.bd}`
+    }
+  }, React.createElement("span", {
+    style: {
+      color: CL.txS
+    }
+  }, e.system || "System", " (", e.manufacturer || "Hersteller", ")"), React.createElement("span", {
+    style: {
+      color: e.answered ? "#059669" : "#d97706",
+      fontWeight: 600
+    }
+  }, e.answered ? "✅ Beantwortet" : "⏳ Ausstehend")))))), React.createElement("footer", {
     style: {
       marginTop: 20,
       textAlign: "center",
@@ -8032,14 +10507,132 @@ Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.
       color: CL.txM,
       margin: 0
     }
-  }, "ImplantAtlas v2.8 \xB7 ", D.length, " Systeme \xB7 ", mfrs.length, " Hersteller \xB7 Feb 2026"), React.createElement("p", {
+  }, "ImplantAtlas v3.2 \xB7 ", D.length, " Systeme \xB7 ", mfrs.length, " Hersteller \xB7 Feb 2026"), React.createElement("p", {
     style: {
       fontSize: 10,
       color: CL.txM,
       margin: "2px 0 0",
       opacity: .5
     }
-  }, "Quellen: Herstellerwebseiten, SpotImplant.com, FDA 510(k), PubMed. Alle Angaben ohne Gew\xE4hr \u2013 immer Hersteller-IFU beachten."))), sel && React.createElement("div", {
+  }, "Quellen: Herstellerwebseiten, Produktkataloge, FDA 510(k), PubMed, KZBV/GOZ. Alle Angaben ohne Gew\xE4hr \u2013 immer Hersteller-IFU beachten."))), tab === "sources" && React.createElement("div", {
+    style: {
+      animation: "fi .25s ease"
+    }
+  }, React.createElement("h2", {
+    style: {
+      fontSize: 18,
+      fontWeight: 700,
+      margin: "0 0 4px"
+    }
+  }, "Quellenverzeichnis"), React.createElement("p", {
+    style: {
+      fontSize: 12,
+      color: CL.txM,
+      margin: "0 0 14px"
+    }
+  }, "Alle Datenquellen fuer Preise, klinische Evidenz, GOZ und CAD/CAM-Informationen"), [{
+    title: "Preisdaten & Einkaufspreise",
+    icon: "💰",
+    color: "#059669",
+    items: SOURCES.prices
+  }, {
+    title: "GOZ-Honorarberechnung",
+    icon: "📋",
+    color: "#d97706",
+    items: SOURCES.goz
+  }, {
+    title: "Klinische Evidenz & Periimplantitis",
+    icon: "🔬",
+    color: "#dc2626",
+    items: SOURCES.clinical
+  }, {
+    title: "CAD/CAM & Digitaler Workflow",
+    icon: "💻",
+    color: "#7c3aed",
+    items: SOURCES.cadcam
+  }, {
+    title: "Hersteller-Websites",
+    icon: "🏭",
+    color: CL.acc,
+    items: SOURCES.manufacturers
+  }].map(cat => React.createElement("div", {
+    key: cat.title,
+    style: {
+      background: CL.card,
+      border: `1px solid ${CL.bd}`,
+      borderRadius: 10,
+      padding: 14,
+      marginBottom: 10
+    }
+  }, React.createElement("h3", {
+    style: {
+      fontSize: 14,
+      fontWeight: 700,
+      color: cat.color,
+      margin: "0 0 8px"
+    }
+  }, cat.icon, " ", cat.title), React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 4
+    }
+  }, cat.items.map((s, i) => React.createElement("a", {
+    key: i,
+    href: s.u,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    style: {
+      display: "flex",
+      alignItems: "flex-start",
+      gap: 8,
+      padding: "6px 8px",
+      borderRadius: 6,
+      background: "rgba(0,0,0,0.01)",
+      border: `1px solid ${CL.bd}`,
+      textDecoration: "none",
+      transition: "all .1s"
+    }
+  }, React.createElement("span", {
+    style: {
+      fontSize: 14,
+      flexShrink: 0
+    }
+  }, "\uD83D\uDD17"), React.createElement("div", {
+    style: {
+      flex: 1,
+      minWidth: 0
+    }
+  }, React.createElement("div", {
+    style: {
+      fontSize: 13,
+      fontWeight: 600,
+      color: CL.tx
+    }
+  }, s.t), React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: CL.txM,
+      marginTop: 1
+    }
+  }, s.d)), React.createElement("span", {
+    style: {
+      fontSize: 11,
+      color: cat.color,
+      flexShrink: 0,
+      fontWeight: 600
+    }
+  }, "\u2197")))))), React.createElement("div", {
+    style: {
+      padding: 10,
+      borderRadius: 8,
+      background: "rgba(0,0,0,0.02)",
+      border: `1px solid ${CL.bd}`,
+      fontSize: 11,
+      color: CL.txM,
+      lineHeight: 1.6
+    }
+  }, React.createElement("strong", null, "Hinweis:"), " Alle Preisangaben sind Richtwerte (Einkaufspreise netto, Stand 2024/2025) und koennen je nach Abnahmemenge, Region und Haendler variieren. Klinische Daten basieren auf publizierten Peer-Review-Studien. GOZ-Berechnungen nutzen den Regelfaktor 2,3 (Spanne 1,0\u20133,5). Diese Datenbank dient der Information und ersetzt keine individuelle Beratung.")), sel && React.createElement("div", {
     onClick: () => sSel(null),
     style: {
       position: "fixed",
@@ -8104,7 +10697,9 @@ Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.
     color: CL.txM
   }, sel.fo), React.createElement(B, {
     color: PC(sel.pp)
-  }, sel.pp), sel.im && React.createElement(B, {
+  }, sel.pp), sel.ep && React.createElement(B, {
+    color: CL.ok
+  }, sel.ep, " EUR"), sel.im && React.createElement(B, {
     color: CL.ok
   }, "Sofortbelastung"), sel.gs && React.createElement(B, {
     color: CL.acc
@@ -9112,15 +11707,6 @@ Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.
       textDecoration: "none"
     }
   }, "\uD83C\uDF10 Herstellerseite \u2197"), React.createElement("a", {
-    href: `https://www.spotimplant.com/en/dental-implants`,
-    target: "_blank",
-    rel: "noopener noreferrer",
-    style: {
-      fontSize: 12,
-      color: CL.txS,
-      textDecoration: "none"
-    }
-  }, "\uD83D\uDD0E SpotImplant Datenbank \u2197"), React.createElement("a", {
     href: `https://scholar.google.com/scholar?q=${encodeURIComponent(sel.n + " dental implant")}`,
     target: "_blank",
     rel: "noopener noreferrer",
@@ -9347,7 +11933,7 @@ Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.
         color: PC(i.pp),
         fontWeight: 600
       }
-    }, i.pp)
+    }, i.ep ? i.ep + " €" : i.pp)
   }, {
     l: "──────",
     f: () => ""
@@ -9884,7 +12470,7 @@ Gib 6-10 aktuelle, relevante Ergebnisse zurück. Nur JSON-Array, nichts anderes.
 }
 
 var App=window.__App;
-ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(App));
+ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
 })();
 </script>
 </body>
